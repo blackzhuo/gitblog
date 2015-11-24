@@ -43,6 +43,11 @@ highlight:
   auto_detect: true
   tab_replace:
 
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
 # Category & Tag
 default_category: uncategorized
 category_map:
