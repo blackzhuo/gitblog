@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>javascript脚本执行对页面加载的影响 | Wisdom&#39;s blog</title>
+  <meta name="author" content="Wisdom">
+  
+  <meta name="description" content="frontend">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="javascript脚本执行对页面加载的影响"/>
+  <meta property="og:site_name" content="Wisdom&#39;s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+    <meta name="Robots" content="index,follow,NOODP">
+    <meta name="keywords" content="javascript脚本执行对页面加载的影响" />
+    <meta name="description" content="javascript脚本执行对页面加载的影响" />
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Wisdom&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="Wisdom&#39;s blog" title="Wisdom&#39;s blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">Wisdom&#39;s blog</h1>
+				<h2 class="blog-motto">Encode my life</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	javascript脚本执行对页面加载的影响
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://blog.xuerlove.com" title="Wisdom">Wisdom</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-10-24T07:03:01.000Z" itemprop="datePublished">2015-10-24</time>
+    更新日期:<time datetime="2016-04-13T09:45:53.000Z" itemprop="dateModified">2016-04-13</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#javascript加载会对页面加载产生什么影响呢？"><span class="toc-number">1.</span> <span class="toc-text">javascript加载会对页面加载产生什么影响呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#我们在代码中添加几种脚本"><span class="toc-number">1.1.</span> <span class="toc-text">我们在代码中添加几种脚本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#执行结果分析"><span class="toc-number">1.2.</span> <span class="toc-text">执行结果分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态加载的外部脚本"><span class="toc-number">1.3.</span> <span class="toc-text">动态加载的外部脚本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分析"><span class="toc-number">1.4.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#无阻塞脚本的解决方案"><span class="toc-number">1.5.</span> <span class="toc-text">无阻塞脚本的解决方案</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态脚本加载时机"><span class="toc-number">1.6.</span> <span class="toc-text">动态脚本加载时机</span></a></li></ol></li></ol>
+			</div>
+		
+        <h4 id="javascript加载会对页面加载产生什么影响呢？">javascript加载会对页面加载产生什么影响呢？</h4><h5 id="我们在代码中添加几种脚本">我们在代码中添加几种脚本</h5><blockquote>
+<ul>
+<li>header中行内 无defer async，async，defer这三种</li>
+<li>header中外部 无defer async，async，defer这三种</li>
+<li>body中同上面，并且body中增加动态添加脚本，动态添加分为两类，直接在脚本中append，另一种是ajax异步去apped.<br>脚本中都执行了一段计算的代码，执行起来耗时几秒</li>
+</ul>
+</blockquote>
+<h5 id="执行结果分析">执行结果分析</h5><blockquote>
+<ul>
+<li>safri:<br>  async defer分析同上一篇wiki说明，以后不再说这个<br>  header中任何脚本执行都会阻塞DOMContentLoaded<br>  body内只有async的外部脚本不会阻塞DOMContentLoaded<br>  所有脚本都会阻塞loaded</li>
+<li>firefox:<br>  应该说所有脚本都阻塞了DOMContentLoaded，因为body dy script这个动态添加的脚本是在ready后添加执行的，ready之后添加的脚本会阻塞loaded执行</li>
+<li>chrome:<br>  和safri表现相同</li>
+<li>IE7:<br>  脚本执行阻塞了document ready,也阻塞了loaded</li>
+<li>IE8:<br>  动态脚本不会阻塞document ready, loaded</li>
+<li>IE9:<br>  脚本加载阻塞DOMContentLoaded，也阻塞了loaded</li>
+</ul>
+</blockquote>
+<h5 id="动态加载的外部脚本">动态加载的外部脚本</h5><ul>
+<li>不是动态添加的脚本，都会阻塞页DOMContentLoaded，在document ready后添加，会阻塞loaded，在window.onload后添加，是不会阻塞页面加载的</li>
+</ul>
+<h5 id="分析">分析</h5><ul>
+<li>我们打开浏览器 chrome或者firefox,发现对于js脚本http请求之间还会有一段间隔时间，那么这个时间是怎么回事呢，我们发现它是脚本的执行时间，浏览器是单线程执行的，那么它无疑会阻塞我们的页面加载</li>
+<li>虽然不同的浏览器都可以并行的下载多个脚本（chrome 2个 firefox 4个，增加静态资源服务器还可以翻倍，ie8以上版本，js可以和图片一样并行加载），但是脚本的执行必须都是单线程的，这是浏览器限制。而且有的时候并行下载数量增加，并不一定会给性能带来好处，反而会影响页面性能，阻塞页面加载，雅虎工程师给出的建议是，2个是最佳的。</li>
+<li>我们发现无论脚本在什么时间段去创建都会阻塞window.onload。</li>
+<li>那么我们把脚本分成两类，一类是页面UI操作相关的，需要先执行。另一类是逻辑相关的我们把它们放在window.onload后，再去动态的添加脚本，也就是动态的创建script标签，去添加到页面上（动态添加这个脚本的好处还有，脚本可以跨域），那么就不会阻塞页面加载了,还有一种方式，使用setTimeout去加载动态的脚本，也可以达到无阻塞效果。</li>
+<li>动态加载带来了一个问题，它打破了常规执行的顺序执行，那么有依赖的代码怎么办，可能就会报一些undefined的错误了，解决办法还是有的，可以监听脚本的onload，ie下的onreadystatechange事件，再去执行有依赖的代码，或者是添加一个轮询方法，检测到变量存在的时候再去执行有依赖的代码。</li>
+<li>对于这些问题，requireJS 或者 seaJS都做好了依赖处理，并且脚本也都是动态的添加的，即解决了脚本阻塞的问题也解决了代码依赖的问题。</li>
+<li>至于动态的脚本放在header还是body中，这都无所谓了，因为阻塞的过程已经过去了，添加到哪里都不会产生影响。</li>
+</ul>
+<h5 id="无阻塞脚本的解决方案">无阻塞脚本的解决方案</h5><ol>
+<li>XHR Eval<br>通过XHR动态读取脚本，使用Eval让它生效，但是现在已经不推荐使用Eval了，这个我们就不多分析了</li>
+<li>XHR Injection<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhrObj = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhrObj.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhrObj.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> scriptElem = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">        <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(scriptElem);</span><br><span class="line">        scriptElem.text = xhrObj.responseText;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">xhrObj.open(<span class="string">"GET"</span>, <span class="string">"deal.js"</span>, <span class="literal">true</span>);</span><br><span class="line">xhrObj.send(<span class="string">""</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>Script in Iframe<br>  iframe中创建script标签，不建议使用iframe，并且脚本不能跨域，不推荐使用，了解一下就行</li>
+<li><p>Script DOM Element</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scriptElem = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">scriptElem.src = <span class="string">"http://domain.com/deal.js"</span>;</span><br><span class="line"><span class="built_in">document</span>.getElementByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(scriptElem);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Script Defer<br>  deler的兼容性并不好，而且defer只会延迟执行脚本，但是最终还是会在DOMContentLoaded之前执行的</p>
+</li>
+<li>document.write Script Tag<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;script type='text/javascript' src='deal.js'&gt;&lt;/script&gt;"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>只有在IE下能实现并行下载,了解就行<br>动态的创建script的dom节点是最好的解决方案</p>
+<h5 id="动态脚本加载时机">动态脚本加载时机</h5><blockquote>
+<p>动态脚本，动态创建script到底在什么时候加是最好的呢？<br>如果放在onload之后，我们知道在DOMContentLoaded之后到onload之间，会有图片，iframe等资源加载时间，它们阻塞了window.onload,那么js对页面的交互时间也被推迟了，这不是我们想要了<br>所以我们把它放在DOMContentLoaded之后,DOMContentLoaded兼容解决方案，看前面的知识</p>
+</blockquote>
+
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2015/10/25/延迟加载解决方案/" class="alignleft prev" title="延迟加载解决方案">延迟加载解决方案</a>
+    
+    
+    <a href="/2015/10/23/页面脚本加载分析/" class="alignright next" title="页面脚本加载分析">页面脚本加载分析</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2015/10/24/javascript脚本执行对页面加载的影响/" data-title="javascript脚本执行对页面加载的影响" data-url="http://blog.xuerlove.com/2015/10/24/javascript脚本执行对页面加载的影响/"></div>
+		<!-- 多说评论框 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- 
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:blog.xuerlove.com">
+  </form>
+</div>
+-->
+
+<div class="search">
+  <form>
+    <input type="search" id="chillax-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 18px;">web</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1761611997&verifier=58d84e73&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>21</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>2</small></li>
+  
+    <li><a href="/tags/nodejs/">nodejs</a><small>12</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>7</small></li>
+  
+    <li><a href="/tags/tools/">tools</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>15</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Never stop.  <br/>
+			Never give up.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1761611997" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/wuzhuo0425" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/wuzhuo0425" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:wuzhuo0425@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright"> © 2016 
+		
+		<a href="http://blog.xuerlove.com/about" target="_blank" title="Wisdom">Wisdom</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
+</script>
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuerlove"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

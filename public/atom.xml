@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.xuerlove.com/"/>
-  <updated>2015-11-23T11:41:44.000Z</updated>
+  <updated>2016-04-13T13:21:55.000Z</updated>
   <id>http://blog.xuerlove.com/</id>
   
   <author>
@@ -15,61 +15,15 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[html5文件上传]]></title>
-    <link href="http://blog.xuerlove.com/2015/10/04/html5%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
-    <id>http://blog.xuerlove.com/2015/10/04/html5文件上传/</id>
-    <published>2015-10-04T11:20:11.000Z</published>
-    <updated>2015-11-23T11:41:44.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="File">File</h4><blockquote>
-<ul>
-<li>背景<br>我们之前在浏览器端操作文件，一般都是通过flash,silverlight或者ActiveX插件，这些实现都是依赖第三方插件，不够独立也伴随着升级带来的不稳定，也不够通用，使用了这些技术后也很难进行跨平台、跨浏览器、跨设备等情况下实现统一的表现。<br>之前图片上传方式，1、form提交。2、flash上传。3、插件上传。</li>
-<li>form上传无法取消，没有上传进度，flash上传，非IE浏览器无法传递cookie，插件上传的问题就是跨浏览器上传。</li>
-<li>HTML5的File API可以很轻松的使用JS来控制文件的读取、写入等一系列的操作。<a id="more"></a>
-<h5 id="js对象">js对象</h5></li>
-<li>FileList<br>File对象的集合,file标签设置multiple，就支持多文件上传<br><code>&lt;input type=&quot;file&quot; multiple=&quot;multiple&quot; name=&quot;file&quot; id=&quot;js_file&quot; /&gt;</code></li>
-<li>Blob<br>原始数据对象<br>使用slice方法可以读取原始数据中的某块数据<br>属性：size（数据的大小），type（数据的MIME类型）</li>
-<li>File<br>继承自Blob对象,指向一个具体的文件<br>属性：name（文件名), lastModifiedDate（最后修改时间)</li>
-<li>FileReader<br>读取文件数据</li>
-<li>URL scheme</li>
-</ul>
-</blockquote>
-<h5 id="FileReader">FileReader</h5><ul>
-<li>三个方法<ul>
-<li>readAsBinaryString(Blob blob);传入一个Blob对象，读取数据的结果作为二进制字符串的形式放到FileReader的result属性中。</li>
-<li>readAsText(Blob blob, optional DOMString encoding);第一个参数传入Blog对象，第二个参数传入编码格式，异步将数据读取成功后放到result属性中，读取的内容是普通的文本字符串。</li>
-<li>readAsDataURL(Blob blob);传入一个Blob对象，读取内容可以做为URL属性，图片返回结果可以赋值给img的src。</li>
-</ul>
-</li>
-<li>六个事件<ul>
-<li>Onloadstart 文件读取开始时触发。</li>
-<li>Progress 读取进行中定时触发。事件参数中会含有已读取总数据量。</li>
-<li>Abort 当读取被中止时触发。</li>
-<li>Error 当读取出错时触发。</li>
-<li>Load 当读取成功完成时触发。</li>
-<li>Loadend 当读取完成时，无论成功或者失败都会触发。</li>
-</ul>
-</li>
-</ul>
-<h5 id="拖拽上传">拖拽上传</h5><blockquote>
-<p>拖拽简介<br>拖拽源和拖拽目标：</p>
-<ul>
-<li>拖拽源：设置draggable属性为true标识该对象可作为拖拽源。然后监听源对象的dragstart事件，在事件处理函数里设置DataTransfer。在DataTransfer里可以设置拖拽数据的类型和值。比如是纯文本的值，可以设置类型为”text/plain”，url则把类型设置为”text/uri-list”。这样，目标对象就可以根据期望的类型来选择数据了。</li>
-<li>拖拽目标：一个拖拽目标必须监听3个事件。<ul>
-<li>dragenter：目标对象通过响应这个事件来确定是否接收拖拽。如果接收则需要取消这个事件，停止事件继续传播。</li>
-<li>dragover：通过响应这个事件来显示拖拽的提示效果。</li>
-<li>drop：目标对象通过响应这个事件来处理拖拽数据。在drop事件中可以获取DataTransfer对象，取出要上传的数据。</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-]]></content>
+    <title><![CDATA[动态脚本]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/25/%E5%8A%A8%E6%80%81%E8%84%9A%E6%9C%AC/"/>
+    <id>http://blog.xuerlove.com/2015/11/25/动态脚本/</id>
+    <published>2015-11-25T07:03:01.000Z</published>
+    <updated>2016-04-13T13:21:55.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="动态加载js">动态加载js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span>(<span class="params">data,type</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">	script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			script.appendChild(<span class="built_in">document</span>.createTextNode(data));</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			script.src = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">catch</span>(ex)&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			script.text = code</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			script.src = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="动态样式">动态样式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadStyle</span>(<span class="params">data,type</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> style = <span class="built_in">document</span>.createElement(<span class="string">"style"</span>);</span><br><span class="line">	style.type = <span class="string">"text/css"</span>;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			style.appendChild(<span class="built_in">document</span>.createTextNode(data));</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			style.href = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">catch</span>(ex)&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			style.styleSheet.cssText = css;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			style.href = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>];</span><br><span class="line">	head.appendChild(style);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     <summary type="html">
-    <![CDATA[<h4 id="File">File</h4><blockquote>
-<ul>
-<li>背景<br>我们之前在浏览器端操作文件，一般都是通过flash,silverlight或者ActiveX插件，这些实现都是依赖第三方插件，不够独立也伴随着升级带来的不稳定，也不够通用，使用了这些技术后也很难进行跨平台、跨浏览器、跨设备等情况下实现统一的表现。<br>之前图片上传方式，1、form提交。2、flash上传。3、插件上传。</li>
-<li>form上传无法取消，没有上传进度，flash上传，非IE浏览器无法传递cookie，插件上传的问题就是跨浏览器上传。</li>
-<li>HTML5的File API可以很轻松的使用JS来控制文件的读取、写入等一系列的操作。]]>
-    
+    <![CDATA[<h4 id="动态加载js">动态加载js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span clas]]>
     </summary>
     
       <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
@@ -77,330 +31,869 @@
   </entry>
   
   <entry>
-    <title><![CDATA[javascript数组]]></title>
-    <link href="http://blog.xuerlove.com/2015/10/03/javascript%E6%95%B0%E7%BB%84/"/>
-    <id>http://blog.xuerlove.com/2015/10/03/javascript数组/</id>
-    <published>2015-10-03T11:16:37.000Z</published>
-    <updated>2015-11-23T11:41:55.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="数组操作的方法">数组操作的方法</h4><ul>
-<li>shift：删除原数组第一项，并返回删除元素的值；如果数组为空则返回undefined<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]; </span><br><span class="line"><span class="keyword">var</span> b = a.shift(); <span class="comment">//a：[2,3,4,5] b：1</span></span><br></pre></td></tr></table></figure>
+    <title><![CDATA[DOM操作]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/24/DOM%E6%93%8D%E4%BD%9C/"/>
+    <id>http://blog.xuerlove.com/2015/11/24/DOM操作/</id>
+    <published>2015-11-24T07:03:01.000Z</published>
+    <updated>2016-04-13T13:44:59.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="Node">Node</h4><h5 id="操作节点">操作节点</h5><ul>
+<li>appendChild()<br>一个参数，要插入的节点</li>
+<li>insertBefore()<br>两个参数，要插入的节点和参照的节点</li>
+<li>replaceChild()<br>两个参数，要插入的节点和要替换的节点</li>
+<li>removeChild()<br>一个参数，要移除的节点</li>
+<li>cloneNode()<br>一个参数，布尔值，是否执行深度克隆</li>
+<li>normalize()<br>合并文本节点</li>
+</ul>
+<h4 id="Document">Document</h4><h5 id="document-getElementById">document.getElementById</h5><ul>
+<li>IE7及以前的版本忽略大小写，除此之外必须严格按照大小写</li>
+<li>如果不传参数返回null</li>
+<li>IE7及以前的版本如果表单元素name属性和某元素id相等，会返回表单元素<h5 id="document-getElementsByTagName">document.getElementsByTagName</h5></li>
+<li>返回标签元素的集合<h5 id="namedItem_返回标签集合中指定name元素">namedItem 返回标签集合中指定name元素</h5></li>
+<li>使用中括号的方式能达到namedItem效果</li>
+<li>获取所有html元素，传入<code>*</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> images = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'image'</span>);</span><br><span class="line"><span class="keyword">var</span> logo = images.namedItem(<span class="string">'logo'</span>);</span><br><span class="line"><span class="keyword">var</span> author = images[<span class="string">'author'</span>];</span><br><span class="line"><span class="built_in">document</span>.getElementsByName</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<a id="more"></a>
+<p>与 document.getElementsByTagName 类似</p>
+<h5 id="特殊方法">特殊方法</h5><ul>
+<li>document.anchors返回所有带name的a元素</li>
+<li>document.forms返回所有form元素</li>
+<li>document.images返回所有img元素</li>
+<li>document.links返回所有带href的元素<h5 id="元素属性">元素属性</h5></li>
+<li>id 元素唯一标示</li>
+<li>title 附加说明</li>
+<li>className 元素css类</li>
+<li>lang 元素内容语言代码</li>
+<li>dir 语言方向</li>
+</ul>
+<h5 id="元素方法">元素方法</h5><ul>
+<li>getAttribute<br>不能获取style属性，以及类似onclick这样的事件处理属性</li>
+<li>setAttribute<br>设置属性值，接收两个参数，第一个是属性名，第二个是属性值</li>
+<li>removeAttribute<br>彻底删除属性</li>
+<li>attributes属性<br>Element类型拥有attributes属性</li>
+</ul>
+<h5 id="方法">方法</h5><ul>
+<li><p>getNamedItem(name) 返回指定属性值 (可以使用方括号访问方式)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = elements.attributes.getNamedItem(<span class="string">'id'</span>).nodeValue;</span><br><span class="line"><span class="keyword">var</span> id = elements.attributes[<span class="string">'id'</span>].nodeValue;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>removeNamedItem(name) 移除指定属性</p>
+</li>
+<li>setNamedItem(node) 添加属性</li>
+<li><p>item(pos) 返回位于pos位置的节点</p>
+</li>
+<li><p>遍历所有属性的时候可以使用这些方法</p>
+</li>
+<li>attributes属性,不同浏览器返回顺序不一致</li>
+<li>IE7及以前的版本会返回所有可能的属性，为避免这个，需要使用specified检测，未设置过的特性为false</li>
+</ul>
+<h5 id="创建元素">创建元素</h5><ul>
+<li><p>document.createElement()<br>接收一个参数，创建的标签</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">div.id=<span class="string">"top"</span>;</span><br><span class="line">div.className = <span class="string">"m-top"</span>;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>unshift：将参数添加到原数组开头，并返回数组的长度</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]; </span><br><span class="line"><span class="keyword">var</span> b = a.unshift(-<span class="number">2</span>,-<span class="number">1</span>); <span class="comment">//a：[-2,-1,1,2,3,4,5] b：7 </span></span><br><span class="line"><span class="comment">//注：在IE6.0下测试返回值总为undefined，FF2.0下测试返回值为7，所以这个方法的返回值不可靠，需要用返回值时可用splice代替本方法来使用。</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>pop：删除原数组最后一项，并返回删除元素的值；如果数组为空则返回undefined</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]; </span><br><span class="line"><span class="keyword">var</span> b = a.pop(); <span class="comment">//a：[1,2,3,4] b：5</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>push：将参数添加到原数组末尾，并返回数组的长度</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]; </span><br><span class="line"><span class="keyword">var</span> b = a.push(<span class="number">6</span>,<span class="number">7</span>); <span class="comment">//a：[1,2,3,4,5,6,7] b：7</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>concat：返回一个新数组，是将参数添加到原数组中构成的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]; </span><br><span class="line"><span class="keyword">var</span> b = a.concat(<span class="number">6</span>,<span class="number">7</span>); <span class="comment">//a：[1,2,3,4,5] b：[1,2,3,4,5,6,7]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>splice(start,deleteCount,val1,val2,…)：从start位置开始删除deleteCount项，并从该位置起插入val1,val2,…</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.splice(<span class="number">2</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>); <span class="comment">//a：[1,2,7,8,9,5] b：[3,4] </span></span><br><span class="line"><span class="keyword">var</span> b = a.splice(<span class="number">0</span>,<span class="number">1</span>); <span class="comment">//同shift </span></span><br><span class="line">a.splice(<span class="number">0</span>,<span class="number">0</span>,-<span class="number">2</span>,-<span class="number">1</span>); <span class="keyword">var</span> b = a.length; <span class="comment">//同unshift </span></span><br><span class="line"><span class="keyword">var</span> b = a.splice(a.length-<span class="number">1</span>,<span class="number">1</span>); <span class="comment">//同pop </span></span><br><span class="line">a.splice(a.length,<span class="number">0</span>,<span class="number">6</span>,<span class="number">7</span>); <span class="keyword">var</span> b = a.length; <span class="comment">//同push</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>reverse：将数组反序</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.reverse(); <span class="comment">//a：[5,4,3,2,1] b：[5,4,3,2,1]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>sort(orderfunction)：按指定的参数对数组进行排序</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.sort(); <span class="comment">//a：[1,2,3,4,5] b：[1,2,3,4,5]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>slice(start,end)：返回从原数组中指定开始下标到结束下标之间的项组成的新数组</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.slice(<span class="number">2</span>,<span class="number">5</span>); <span class="comment">//a：[1,2,3,4,5] b：[3,4,5]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>join(separator)：将数组的元素组起一个字符串，以separator为分隔符，省略的话则用默认用逗号为分隔符</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.join(<span class="string">"|"</span>); <span class="comment">//a：[1,2,3,4,5] b："1|2|3|4|5"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>toSource()<br>返回该对象的源代码;</p>
-</li>
-<li>toString()<br>把数组转换为字符串，并返回结果;</li>
-<li>toLocaleString()<br>把数组转换为本地数组，并返回结果;</li>
-<li>valueOf()<br>返回数组对象的原始值;</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="数组操作的方法">数组操作的方法</h4><ul>
-<li>shift：删除原数组第一项，并返回删除元素的值；如果数组为空则返回undefined<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]; </span><br><span class="line"><span class="keyword">var</span> b = a.shift(); <span class="comment">//a：[2,3,4,5] b：1</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>]]>
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[javascript实现浏览器本地存储]]></title>
-    <link href="http://blog.xuerlove.com/2015/10/02/javascript%E5%AE%9E%E7%8E%B0%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/"/>
-    <id>http://blog.xuerlove.com/2015/10/02/javascript实现浏览器本地存储/</id>
-    <published>2015-10-02T11:08:17.000Z</published>
-    <updated>2015-11-23T11:52:17.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="高级浏览器">高级浏览器</h4><h5 id="localStorage">localStorage</h5><blockquote>
-<p>一旦存储，除非手动删除，否则永远存储在浏览器本地。</p>
-</blockquote>
-<ul>
-<li>优点：容量大，最大可支持5M</li>
-<li>缺点：IE8以下的版本不支持，安全性也差，不适合保存敏感数据。</li>
-<li><p>隐私模式下localStorage，只能读取，不能写入，使用前需要检测是否支持，检测代码：</p>
-<a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isSupport</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> storage = <span class="built_in">window</span>.localStorage;</span><br><span class="line">    <span class="keyword">if</span>(!storage)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> key = <span class="string">'jason'</span>;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        storage.setItem(key, <span class="string">'jason'</span>);</span><br><span class="line">        storage.removeItem(key);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">catch</span> (error)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>localStorage对象可以将数据永久保存在客户端。</p>
-<ul>
-<li>存储：localStorage.setItem(key,value)<ul>
-<li>如果key存在时，更新value</li>
-</ul>
-</li>
-<li>获取：localStorage.getItem(key)<ul>
-<li>如果key不存在返回null</li>
-</ul>
-</li>
-<li>删除：localStorage.removeItem(key)<ul>
-<li>一旦删除，key对应的数据将会全部删除</li>
-</ul>
-</li>
-<li>全部清除：localStorage.clear()</li>
-<li>某些时候使用removeItem逐个删除太麻烦，可以使用clear,执行的后果是会清除所有localStorage对象保存的数据</li>
-<li>遍历localStorage存储的key<ul>
-<li><code>.length</code> 数据总量，例：localStorage.length</li>
-<li><code>.key(index)</code> 获取key，例：var key=localStorage.key(index);</li>
-</ul>
+<li>IE中支持参数传入完整的标签内容，有助于避免IE7以及以前版本的一些bug</li>
+<li>不能动态设置iframe name属性</li>
+<li>创建name相同的radio，互无联系</li>
+<li>但是，这样方式又只有IE才支持，所以，使用时需要做检测执行<h5 id="Text文本节点">Text文本节点</h5>创建文本节点document.createTextNode()<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ele = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line"><span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="string">'hello'</span>);</span><br><span class="line">ele.appendChild(txt);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(ele);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li>存储JSON格式数据<ul>
-<li><code>JSON.stringify(data)</code> 将一个对象转换成JSON格式的数据串,返回转换后的串</li>
-<li><code>JSON.parse(data)</code> 将数据解析成对象，返回解析后的对象</li>
 </ul>
-</li>
+<h5 id="规范化文本节点">规范化文本节点</h5><ul>
+<li>使用normalize()方法合并文本节点</li>
 </ul>
-<h5 id="IE低版本浏览器（IE8以下的版本）">IE低版本浏览器（IE8以下的版本）</h5><ul>
-<li><p>ActiveXObject</p>
-<blockquote>
-<p>ActiveXObject 对象为 Microsoft 扩展，仅在 Internet Explorer 中受支持。<br>ActiveXObject(“htmlfile”)创建的文档是一个完美的HTML文档，它拥有document.title,document.body等HTML DOM专有的属性，还能运行javascript。全局变量this就是我们要找的全局对象，它还拥有我们想要的一切，Array，Boolean，String，Date，Object等等。</p>
-</blockquote>
-</li>
-<li><p>userData</p>
-<blockquote>
-<p>UserData是微软为IE专门在系统中开辟的一块存储空间<br>正常情况下，这个文件夹在个人文件夹下 <code>Application Data\Microsoft\Internet Explorer\UserData</code><br>线上使用时，单个文件的大小限制是128KB，一个域名下总共可以保存1024KB的文件，文件个数应该没有限制。在受限站点里这两个值分别是64KB和640KB，所以如果考虑到各种情况的话，单个文件最好能控制64KB以下,xml格式的文件</p>
-</blockquote>
-</li>
-<li><p>低版本就是使用UserData进行存储，数据存储在硬盘上</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//javascript</span></span><br><span class="line">o = <span class="built_in">document</span>.createElement(<span class="string">'input'</span>);</span><br><span class="line">o.type = <span class="string">"hidden"</span>;</span><br><span class="line">o.addBehavior (<span class="string">"#default#userData"</span>);</span><br><span class="line"><span class="comment">//UserData.o.style.behavior = "url('#default#userData')" ;</span></span><br><span class="line"><span class="comment">//上面的语句也是一样的作用</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(o);</span><br><span class="line"><span class="xml"><span class="comment">&lt;!--html--&gt;</span></span><br><span class="line">//说白了UserData就是样式里的一个Behavior，所以这样写也是一样的：</span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">hidden</span> <span class="attribute">class</span>= <span class="attribute">storeuserData</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="class">.storeuserData</span> <span class="rules">&#123;<span class="rule"><span class="attribute">behavior</span>:<span class="value"><span class="function">url</span>(<span class="hexcolor">#defa</span>ult#userData)</span></span>;&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>UserData对象有以下的属性和方法：</p>
+<h5 id="分割文本节点">分割文本节点</h5><ul>
+<li>splitText(pos)方法，pos是指定位置<h5 id="其它方法">其它方法</h5></li>
+<li>appendData(text)</li>
+<li>deleteData(offset,count)</li>
+<li>insertData(offset,text)</li>
+<li>replaceData(offset,count,text)</li>
+<li>substringData(offset,data)</li>
+</ul>
+<h5 id="DocumentFragment">DocumentFragment</h5><ul>
+<li>文档片段，创建方法<br>  document.createDocumentFragment()</li>
+<li>操作复杂dom的时候，可以使用片段操作，这样会避免页面多次页面重新渲染</li>
+</ul>
+<h5 id="Attr属性">Attr属性</h5><ul>
+<li>创建属性<br>document.createAttribute()<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> attr = <span class="built_in">document</span>.createAttribute(<span class="string">'align'</span>);</span><br><span class="line">attr.value = <span class="string">'left'</span>;</span><br><span class="line">ele.setAttribute(attr);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">属性</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">expires</td>
-<td style="text-align:center">设置或读取文件过期时间</td>
-</tr>
-<tr>
-<td style="text-align:left">XMLDocument</td>
-<td style="text-align:center">读取文件的XML DOM</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">方法</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">getAttribute</td>
-<td style="text-align:center">读取指定属性的值</td>
-</tr>
-<tr>
-<td style="text-align:left">load</td>
-<td style="text-align:center">打开文件</td>
-</tr>
-<tr>
-<td style="text-align:left">removeAttribute</td>
-<td style="text-align:center">删除指定的属性</td>
-</tr>
-<tr>
-<td style="text-align:left">save</td>
-<td style="text-align:center">保存文件</td>
-</tr>
-<tr>
-<td style="text-align:left">setAttribute</td>
-<td style="text-align:center">为指定属性赋值</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p>UserData文件实际上就是一个XML文件，通过文件名-&gt;属性的方式保存字符串，如以下一段代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">o.setAttribute(<span class="string">"code"</span>, <span class="string">"hello world!"</span>);</span><br><span class="line">o.save(<span class="string">"baidu"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行后，UserData文件夹中会生成一个baidu[1].xml文件，其中的内容是：</p>
-<ul>
-<li><code>&lt;ROOTSTUB code=&quot;hello,world!&quot;/&gt;</code></li>
+<h5 id="selector_API">selector API</h5><ol>
+<li>querySelector()<ul>
+<li>接收css选择符，返回匹配到的第一个元素</li>
+<li>document.querySelector()</li>
+<li>document.body.querySelector()</li>
 </ul>
 </li>
-<li>在一个文件中可以有多个属性，也就是可以存储多种不同的数据。</li>
+<li>querySelectorAll()<ul>
+<li>返回NodeList,使用与querySelector()相同</li>
 </ul>
-<h5 id="兼容所有浏览器">兼容所有浏览器</h5><blockquote>
-<p>store.js就是使用上述两种方式进行兼容使用，从而达到兼容所有浏览器的本地存储</p>
-</blockquote>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="高级浏览器">高级浏览器</h4><h5 id="localStorage">localStorage</h5><blockquote>
-<p>一旦存储，除非手动删除，否则永远存储在浏览器本地。</p>
-</blockquote>
-<ul>
-<li>优点：容量大，最大可支持5M</li>
-<li>缺点：IE8以下的版本不支持，安全性也差，不适合保存敏感数据。</li>
-<li><p>隐私模式下localStorage，只能读取，不能写入，使用前需要检测是否支持，检测代码：</p>]]>
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[如何调试移动端网页]]></title>
-    <link href="http://blog.xuerlove.com/2015/10/01/%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5/"/>
-    <id>http://blog.xuerlove.com/2015/10/01/如何调试移动端网页/</id>
-    <published>2015-10-01T09:50:37.000Z</published>
-    <updated>2015-11-23T10:05:16.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="真机上调试移动端的页面">真机上调试移动端的页面</h4><h5 id="1-_mac_safri_ios设备safri">1. mac safri ios设备safri</h5><blockquote>
-<p>步骤：</p>
-<ol>
-<li>在设置&gt;safri&gt;高级web检查器（打开）</li>
-<li>mac下safri 偏好设置&gt;高级&gt;显示开发菜单</li>
-<li>在手机safri访问网址，在开发中找到自己的设备，找到网址，点击就可以调试<a id="more"></a>
-<h5 id="2-_DebugGap">2. DebugGap</h5>官网地址：<a href="http://www.debuggap.com/" target="_blank" rel="external">http://www.debuggap.com/</a></li>
+</li>
 </ol>
-<ul>
-<li>介绍<ul>
-<li>支持 windows、mac、linux</li>
-<li>支持HTML5的都支持，不仅限手机内置浏览器，及应用或平台。</li>
-<li>多设备调试</li>
-<li>调试功能：<ul>
-<li>Elements - css修改、结构查看</li>
-<li>Network - 网络请求查看</li>
-<li>Resources - cookie、本地存储查看</li>
-<li>Sources - 断点调试</li>
-<li>Console - 控制台</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>使用：<ul>
-<li>windows<ul>
-<li>下载windows版本，然后解压，打开 DebugGap.exe,然后可以默认设置也可以自定义设置</li>
-<li>接下来，在我们要调试的页面最底部添加一个引用<br>  <code>&lt;script src=&quot;./debuggap.js&quot;&gt;&lt;/script&gt;</code></li>
-<li>直接访问我们的页面，页面右上角会多出一个蓝色的圆形按钮，pc上如果点不动，就使用浏览器模拟器</li>
-<li>点击config，把之前设置的ip port填进去，然后点击连接</li>
-<li>再点击蓝色的圆形按钮，再点击Inspect,观察之前起的应用，多一个蓝色框框的区域，点击进去，调试工具就出来了。</li>
-<li>移动设备调试，可以把手机和电脑连接同一个wifi，保证在一个网段，然后在电脑上起一个服务器，保证页面通过手机能访问到，然后手机访问电脑ip+端口号，然后就是页面路径，就可以访问到了，其他操作同上。</li>
-</ul>
-</li>
-<li>mac,linux<ul>
-<li>方法同上</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>支持情况<ul>
-<li>windows从性能以及调试情况来看，支持的最好</li>
-</ul>
-</li>
-<li>断点调试条件<ul>
-<li>chrome浏览器可以单步调试，</li>
-<li>没定制过的webview, Android 4.4+</li>
-<li>需要在电脑上安装设备驱动，并且打开usb调试，连接数据线</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h5 id="3-_Weinre">3. Weinre</h5><blockquote>
-<p>使用方法</p>
-<ul>
-<li>windows安装 <code>npm -g install weinre</code></li>
-<li><code>weinre —httpPort 8081 —boundHost -all-</code> 用这个打开8081调试端口</li>
-<li>浏览器打开 <code>http://localhost:8081</code> 会看到weinre的介绍信息</li>
-<li><code>&lt;script src=&quot;http://localhost:8081/target/target-script-min.js#anonymous&quot;&gt;&lt;/script&gt;</code></li>
-<li>需要调试的页面加上这个脚本，需要将上面代码中的localhost替换为电脑ip，手机访问页面也可以</li>
-<li>anonymous 这个可以换成自己的标识，这样多人调试的时候也不会混乱了。</li>
-</ul>
-</blockquote>
-<h5 id="4-_vorlon">4. vorlon</h5><blockquote>
-<p>使用方法<br>基于 Node.js 和 Socket.IO 开发。<br>调试css比较靠谱，其安装方法以及调试方式和Weinre比较类似，但是更容易定位问题，忽略内容，直观的都是dom结构</p>
-<ul>
-<li>安装 <code>npm i -g vorlon</code></li>
-<li>运行 <code>vorlon</code></li>
-<li>需要调试的页面上添加 <code>&lt;script src=&quot;http://localhost:1337/vorlon.js&quot;&gt;&lt;/script&gt;</code>这样一段标签</li>
-<li>浏览器访问 <code>http://localhost:1337</code> 就可以调试了</li>
-</ul>
-</blockquote>
-<h5 id="5-_UC浏览器开发版">5. UC浏览器开发版</h5><blockquote>
-<p>准备</p>
-<ul>
-<li>adb tool。</li>
-<li>UC浏览器开发版本(apk)。</li>
-<li>usb数据线一根<br>WIFI的调试方法，保证pc和手机在同一个网段，在PC上打开Chrome或Safari，在地址栏输入：手机IP + :9998，在手机端会弹出确认按钮，点击确认后，就可在pc上看到效果了</li>
-</ul>
-</blockquote>
-<h5 id="6-_Chrome">6. Chrome</h5><blockquote>
-<p>调试方法</p>
-<ul>
-<li>翻墙。</li>
-<li>PC Chrome最新版</li>
-<li>安卓 Chrome最新版</li>
-<li>插线后，在chrome浏览器输入 chrome://inspect</li>
-</ul>
-</blockquote>
-<h5 id="7-_Firefox">7. Firefox</h5><blockquote>
-<p>调试方法</p>
-<ul>
-<li>PC Firefox 15+</li>
-<li>Android Firefox 15+</li>
-<li>一根数据线</li>
-<li>adb驱动(UC浏览器那步已经安装过了)</li>
-<li>adb devices（查看连接的设备）</li>
-<li>adb forward tcp:6000 tcp:6000（本地开一个接口做代理接受数据）</li>
-<li>手机端Firefox点击菜单栏的”设置”-&gt;”开发者工具”，勾选”远程调试”。</li>
-<li>PC端Firefox打开about:config，设置devtools.debugger.remote-enabled为True</li>
-<li>接下来找到桌面端Firefox-菜单-工具-Web开发者-远程链接。保证端口号和上面开启的端口号一致就好了。</li>
-</ul>
-</blockquote>
-<h5 id="8-_Opera">8. Opera</h5><blockquote>
-<p>调试方法</p>
-<ul>
-<li>打开pc opera control+shift+i 打开调试，点击右上角远程调试设置端口，在用模拟器输入opera:debug，连接端口，就可以了</li>
-<li>上面这个方法有些过时 打开新版的手机opera浏览器，输入opera:debug，里面讲解了调试方式，工具就是adb和pc chrome浏览器<br>稍微麻烦一点，因为要装一些软件，完成后可以用pc端模拟器调试也可以用真机调试。</li>
-</ul>
-</blockquote>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h4 id="真机上调试移动端的页面">真机上调试移动端的页面</h4><h5 id="1-_mac_safri_ios设备safri">1. mac safri ios设备safri</h5><blockquote>
-<p>步骤：</p>
-<ol>
-<li>在设置&gt;safri&gt;高级web检查器（打开）</li>
-<li>mac下safri 偏好设置&gt;高级&gt;显示开发菜单</li>
-<li>在手机safri访问网址，在开发中找到自己的设备，找到网址，点击就可以调试]]>
+    <![CDATA[<h4 id="Node">Node</h4><h5 id="操作节点">操作节点</h5><ul>
+<li>appendChild()<br>一个参数，要插入的节点</li>
+<li>insertBefore()<br>两个参数，要插入的节点和参照的节点</li>
+<li>re]]>
+    </summary>
     
+      <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[shell基础]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/23/shell%E5%9F%BA%E7%A1%80/"/>
+    <id>http://blog.xuerlove.com/2015/11/23/shell基础/</id>
+    <published>2015-11-23T07:03:01.000Z</published>
+    <updated>2016-04-13T13:39:02.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="shell分类">shell分类</h4><ul>
+<li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
+<li>Bourne Again Shell（/bin/bash）</li>
+<li>C Shell（/usr/bin/csh）</li>
+<li>K Shell（/usr/bin/ksh）</li>
+<li>Shell for Root（/sbin/sh）</li>
+<li>eg.</li>
+</ul>
+<h5 id="#!"><code>#!</code></h5><blockquote>
+<p><code>#!</code>告诉系统其后路径所指定的程序即是解释此脚本文件的Shell程序。</p>
+<ul>
+<li>执行<ul>
+<li><code>./test.sh</code>使用想对路径</li>
+<li>sh test.sh</li>
+</ul>
+</li>
+<li>变量<ul>
+<li>直接使用变量名 <code>test=&quot;123&quot;</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>变量名和等号之间不能有空格</li>
+<li>首个字符必须为字母（a-z，A-Z）。</li>
+<li>中间不能有空格，可以使用下划线（_）。</li>
+<li>不能使用标点符号。</li>
+<li>不能使用bash里的关键字（可用help命令查看保留关键字）。</li>
+</ul>
+<h5 id="使用语句给变量赋值">使用语句给变量赋值</h5><ul>
+<li>for file inls /etc``</li>
+</ul>
+<h5 id="使用变量">使用变量</h5><blockquote>
+<p>在变量名前添加美元符号 <code>$</code><br><code>$test</code>或者<code>${test}</code></p>
+</blockquote>
+<h5 id="字符串">字符串</h5><ul>
+<li>单引号<ul>
+<li>不能使用变量</li>
+<li>不能出现单引号，不能使用转译字符</li>
+</ul>
+</li>
+<li>双引号<ul>
+<li>可以使用变量</li>
+<li>可以使用转译字符</li>
+</ul>
+</li>
+</ul>
+<h5 id="拼接字符串">拼接字符串</h5><ul>
+<li>不需要使用 <code>+</code> 符号<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name=<span class="string">"zhuo"</span></span><br><span class="line">say=<span class="string">"hi "</span>$name<span class="string">" !"</span></span><br><span class="line">says = <span class="string">"hi $&#123;name&#125; !"</span></span><br><span class="line">echo say says</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="字符串长度">字符串长度</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string="tetetete"</span><br><span class="line">echo $&#123;#string&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="截取字符串">截取字符串</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string=<span class="string">"tetetete"</span></span><br><span class="line">echo $&#123;string:<span class="number">2</span>:<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="查找字符串">查找字符串</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string=<span class="string">"asdfsdf werfvsd"</span></span><br><span class="line">echo <span class="string">`expr index "$string" is`</span></span><br></pre></td></tr></table></figure>
+<h5 id="数组">数组</h5><p>创建数组以及访问数组<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">arr=(1,2,3,4,5)</span><br><span class="line">#或者</span><br><span class="line">arr[0]=1</span><br><span class="line">arr[1]=2</span><br><span class="line">arr[2]=3</span><br><span class="line">#访问</span><br><span class="line">echo $&#123;arr[0]&#125;</span><br><span class="line">#访问所有元素</span><br><span class="line">echo $&#123;arr[@]&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="数组长度">数组长度</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len=$&#123;#arr[@]&#125;</span><br></pre></td></tr></table></figure>
+<p>或者<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len=$&#123;$arr[*]&#125;</span><br></pre></td></tr></table></figure></p>
+<p>数组单个元素长度<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len=$&#123;$arr[n]&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="注释">注释</h5><ul>
+<li>不支持多行注释，单行注释使用#</li>
+<li>开发过程中，为方便注释，可以把需要注释的代码放在一个函数中<h5 id="echo">echo</h5>输出字符串<br>echo string<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#34;test&#34;&#10;echo test&#10;echo &#34;\&#34;test\&#34;&#34;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="read">read</h5><p>输入字符<br>read name<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">read name</span><br><span class="line">echo "$&#123;name&#125;"</span><br></pre></td></tr></table></figure></p>
+<h5 id="显示">显示</h5><p><code>-e</code>开启转义<br>换行<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo -e "test!\n" # \n换行</span><br><span class="line">echo "ok"</span><br></pre></td></tr></table></figure></p>
+<h5 id="不换行">不换行</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo -e "test!\c" # \c不换行</span><br><span class="line">echo "ok"</span><br></pre></td></tr></table></figure>
+<h5 id="输出到文件">输出到文件</h5><p><code>echo &quot;test&quot; &gt; test.txt</code></p>
+<h5 id="原格式输出">原格式输出</h5><p>使用单引号，不进行转义</p>
+<h5 id="显示执行结果">显示执行结果</h5><p><code>echo</code>data``</p>
+<h5 id="test命令">test命令</h5><p>检测某个条件是否成立</p>
+<pre><code>* 数值测试
+<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-eq	等于则为真</span><br><span class="line">-ne	不等于则为真</span><br><span class="line">-gt	大于则为真</span><br><span class="line">-ge	大于等于则为真</span><br><span class="line">-lt	小于则为真</span><br><span class="line">-le	小于等于则为真</span><br></pre></td></tr></table></figure></span>
+
+<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x=read</span><br><span class="line">y=read</span><br><span class="line"><span class="keyword">if</span> test $[x] -eq $[y]</span><br><span class="line">then</span><br><span class="line">	echo <span class="string">"ok"</span></span><br><span class="line">elif test $x -gt $y</span><br><span class="line">	echo <span class="string">"gt"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	echo <span class="string">"bad"</span></span><br><span class="line">fi</span><br></pre></td></tr></table></figure></span>
+
+* 字符串测试
+<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">=	等于则为真</span><br><span class="line">!=	不相等则为真</span><br><span class="line">-z 字符串	字符串长度伪则为真</span><br><span class="line">-n 字符串	字符串长度不伪则为真</span><br></pre></td></tr></table></figure></span>
+
+<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x=read</span><br><span class="line">y=read</span><br><span class="line"><span class="keyword">if</span> test $x -eq $y</span><br><span class="line">then</span><br><span class="line">	echo <span class="string">"ok"</span></span><br><span class="line">elif test $x -gt $y</span><br><span class="line">	echo <span class="string">"gt"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	echo <span class="string">"bad"</span></span><br><span class="line">fi</span><br></pre></td></tr></table></figure></span>
+</code></pre><h5 id="文件测试">文件测试</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-e 文件名	如果文件存在则为真</span><br><span class="line">-r 文件名	如果文件存在且可读则为真</span><br><span class="line">-w 文件名	如果文件存在且可写则为真</span><br><span class="line">-x 文件名	如果文件存在且可执行则为真</span><br><span class="line">-s 文件名	如果文件存在且至少有一个字符则为真</span><br><span class="line">-d 文件名	如果文件存在且为目录则为真</span><br><span class="line">-f 文件名	如果文件存在且为普通文件则为真</span><br><span class="line">-c 文件名	如果文件存在且为字符型特殊文件则为真</span><br><span class="line">-b 文件名	如果文件存在且为块特殊文件则为真</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> test -e ./blog</span><br><span class="line">then </span><br><span class="line">	echo <span class="string">'file exists'</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	echo <span class="string">'file does not exists'</span></span><br><span class="line">fi</span><br><span class="line"><span class="string">``</span><span class="string">`javascript</span><br><span class="line">`</span>Shell还提供了 与( -a )、或( -o )、非( ! ) 三个逻辑操作符用于将测试条件连接起来，优先级：”!” “-a” “-o”<span class="string">`</span><br><span class="line">##### 流程控制</span><br><span class="line">* if else</span><br><span class="line">`</span><span class="string">``</span>javascript</span><br><span class="line">x=read</span><br><span class="line">y=read</span><br><span class="line"><span class="keyword">if</span> test $x -eq $y</span><br><span class="line">then</span><br><span class="line">	echo <span class="string">"ok"</span></span><br><span class="line">elif test $x -gt $y</span><br><span class="line">	echo <span class="string">"gt"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	echo <span class="string">"bad"</span></span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<h5 id="for">for</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> it <span class="keyword">in</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	echo $it</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h5 id="while">while</h5><p>条件为真则执行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">count=<span class="number">1</span></span><br><span class="line"><span class="keyword">while</span>(($count&lt;<span class="number">10</span>))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	echo $count</span><br><span class="line">	<span class="keyword">let</span> <span class="string">"count++"</span></span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
+<h5 id="until">until</h5><p>直到条件为真停止,用法与while相同<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">count=<span class="number">100</span></span><br><span class="line">until(($count&lt;=<span class="number">10</span>))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	echo $count</span><br><span class="line">	<span class="keyword">let</span> <span class="string">"count--"</span></span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
+<h5 id="case">case</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">'请输入1-3的数字:'</span></span><br><span class="line">read num</span><br><span class="line"><span class="keyword">case</span> $num <span class="keyword">in</span></span><br><span class="line">	<span class="number">1</span>) echo <span class="string">'你输入了1'</span></span><br><span class="line">	;;</span><br><span class="line">	<span class="number">2</span>) echo <span class="string">'你输入了2'</span></span><br><span class="line">	;;</span><br><span class="line">	<span class="number">3</span>) echo <span class="string">'你输入了3'</span></span><br><span class="line">	;;</span><br><span class="line">	*) echo <span class="string">'你没有输入1到3的数字'</span></span><br><span class="line">	;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+<h5 id="break">break</h5><p>跳出所有循环</p>
+<h5 id="continue">continue</h5><p>结束当前循环，继续执行下一次循环</p>
+<h5 id="函数">函数</h5><ul>
+<li>定义方式,不需要带参数</li>
+<li>function fun()</li>
+<li>fun()<ul>
+<li>参数返回，使用return</li>
+<li>函数调用，直接使用函数名，不需要加括号，带有参数直接在后面列出，用空格间隔</li>
+<li>函数返回值在调用函数后，可以通过$?使用</li>
+<li>函数中的参数，可以使用$n来表示，n&gt;10的时候，使用${n}</li>
+<li>特殊参数<ul>
+<li><code>$#</code> 传递到脚本的参数个数</li>
+<li><code>$*</code> 以一个单字符串显示所有向脚本传递的参数</li>
+<li><code>$$</code> 脚本运行的当前进程ID号</li>
+<li><code>$!</code> 后台运行的最后一个进程的ID号</li>
+<li><code>$@</code> 与$*相同，但是使用时加引号，并在引号中返回每个参数。</li>
+<li><code>$-</code> 显示Shell使用的当前选项，与set命令功能相同。</li>
+<li><code>$?</code> 显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="shell分类">shell分类</h4><ul>
+<li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
+<li>Bourne Again Shell（/bin/bash）</li>
+<li>C Shell（/usr/bin/csh]]>
+    </summary>
+    
+      <category term="linux" scheme="http://blog.xuerlove.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用nproxy实现本地代理]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/22/%E4%BD%BF%E7%94%A8nproxy%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86/"/>
+    <id>http://blog.xuerlove.com/2015/11/22/使用nproxy实现本地代理/</id>
+    <published>2015-11-22T07:03:01.000Z</published>
+    <updated>2016-04-13T13:18:22.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="安装">安装</h4><h5 id="先安装Node-js">先安装Node.js</h5><h5 id="安装nproxy">安装nproxy</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g nproxy</span><br><span class="line"><span class="string">``</span><span class="string">`javascript</span><br><span class="line">##### nproxy介绍</span><br><span class="line">`</span><span class="string">``</span>javascript</span><br><span class="line">Options:</span><br><span class="line">    -h, --help               output usage information</span><br><span class="line">    -V, --version            output the version number</span><br><span class="line">    -l, --list [list]        Specify the replace rule file</span><br><span class="line">    -p, --port [port]        Specify the port</span><br><span class="line">    -t, --timeout [timeout]  Specify the request timeout(<span class="number">5</span> seconds by <span class="keyword">default</span>)</span><br><span class="line">    -d, --debug              Enable debug mode</span><br><span class="line">    -n, --networks           Display network interface list</span><br></pre></td></tr></table></figure>
+<h5 id="开启代理端口">开启代理端口</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nproxy -l replace_rule.js -p <span class="number">8188</span></span><br></pre></td></tr></table></figure>
+<p>使用本地replace_rule.js转换规则，监听本地8188端口</p>
+<h5 id="replace_rule-js">replace_rule.js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = [</span><br><span class="line">    &#123;</span><br><span class="line">        pattern:<span class="string">'http://test.test.com/pro/(.*)'</span>,</span><br><span class="line">        responder:<span class="string">"http://127.0.0.1/pro/$1"</span></span><br><span class="line">    &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<h5 id="浏览器怎么做">浏览器怎么做</h5><ul>
+<li>安装代理插件，一大堆</li>
+<li>配置代理 127.0.0.1 端口8188</li>
+<li>可以设置自动转换规则，即：哪些网站使用这个代理</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="安装">安装</h4><h5 id="先安装Node-js">先安装Node.js</h5><h5 id="安装nproxy">安装nproxy</h5><figure class="highlight javascript"><table><tr><td cla]]>
     </summary>
     
       <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[nginx配置https]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/21/nginx%E9%85%8D%E7%BD%AEhttps/"/>
+    <id>http://blog.xuerlove.com/2015/11/21/nginx配置https/</id>
+    <published>2015-11-21T07:03:01.000Z</published>
+    <updated>2016-04-13T13:16:20.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="安装">安装</h4><h5 id="系统：centos">系统：centos</h5><ul>
+<li>wget下载</li>
+<li>tar 解压</li>
+<li>sudo ./configure —with-http_rewrite_module —with-pcre=../pcre-8.36 —with-* http_stub_status_module —with-http_ssl_module —with-http_realip_module 安装这些模块，如果安装失败，请wget下载缺失的包，解压安装后，再重新执行，等号后面添加模块路径</li>
+<li>sudo make</li>
+<li>sudo make install</li>
+</ul>
+<h5 id="配置转发">配置转发</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">upstream  test&#123;</span><br><span class="line">     server **.**.**.**:****;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">        listen **.**.**.**:<span class="number">8888</span>;</span><br><span class="line">        server_name test.test.com;</span><br><span class="line">        charset utf8;</span><br><span class="line">        gzip                    off;</span><br><span class="line">        gzip_http_version       <span class="number">1.1</span>;</span><br><span class="line">        gzip_buffers            <span class="number">256</span> <span class="number">64</span>k;</span><br><span class="line">        gzip_comp_level         <span class="number">5</span>;</span><br><span class="line">        gzip_min_length         <span class="number">1000</span>;</span><br><span class="line">        gzip_types              application/x-javascript text/javascript text/plain text/xml text/css image/jpeg image/jpg image/png image/gif application/x-shockwave-flash image/x-icon;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">         proxy_set_header  Host  $host;</span><br><span class="line">         proxy_set_header  X-Real-IP  $remote_addr;</span><br><span class="line">         proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        location ~ <span class="regexp">/test/</span> &#123;</span><br><span class="line">                proxy_pass http:<span class="comment">//test;</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="支持https">支持https</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">upstream  test&#123;</span><br><span class="line">     server **.**.**.**:****;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">        listen **.**.**.**:<span class="number">443</span> ssl;</span><br><span class="line">        server_name test.test.com;</span><br><span class="line">        charset utf8;</span><br><span class="line">        gzip                    off;</span><br><span class="line">        gzip_http_version       <span class="number">1.1</span>;</span><br><span class="line">        gzip_buffers            <span class="number">256</span> <span class="number">64</span>k;</span><br><span class="line">        gzip_comp_level         <span class="number">5</span>;</span><br><span class="line">        gzip_min_length         <span class="number">1000</span>;</span><br><span class="line">        gzip_types              application/x-javascript text/javascript text/plain text/xml text/css image/jpeg image/jpg image/png image/gif application/x-shockwave-flash image/x-icon;</span><br><span class="line"></span><br><span class="line">        ssl on;</span><br><span class="line">        ssl_certificate             /home/q/nginx/conf/server.crt;</span><br><span class="line">        ssl_certificate_key         /home/q/nginx/conf/server.key;</span><br><span class="line">        ssl_session_timeout         <span class="number">5</span>m;</span><br><span class="line">        ssl_protocols               SSLv3 TLSv1;</span><br><span class="line">        ssl_ciphers                 ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;</span><br><span class="line">        ssl_prefer_server_ciphers   on;</span><br><span class="line"></span><br><span class="line">         proxy_set_header  Host  $host;</span><br><span class="line">         proxy_set_header  X-Real-IP  $remote_addr;</span><br><span class="line">         proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        location ~ <span class="regexp">/test/</span> &#123;</span><br><span class="line">                proxy_pass http:<span class="comment">//test;</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="证书">证书</h5><ul>
+<li><p>两种方式</p>
+<ul>
+<li><p>生成证书</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#cd /home/q/nginx/conf</span><br><span class="line">#openssl genrsa -des3 -out server.key 1024</span><br><span class="line">#openssl req -new -key server.key -out server.csr</span><br><span class="line">#openssl rsa -in server.key -out server_nopwd.key</span><br><span class="line">#openssl x509 -req -days 365 -in server.csr -signkey server_nopwd.key -out server.crt</span><br></pre></td></tr></table></figure>
+<p>  中途需要输入密码，自己设定即可</p>
+</li>
+<li>copy<br>  直接copy别的机器上面已经存在的证书</li>
+</ul>
+</li>
+</ul>
+<h5 id="浏览器">浏览器</h5><ul>
+<li>方法一：如果提示安全提示，点击高级》继续浏览</li>
+<li>方法二：把生成的server.crt文件导入到系统的证书管理器就行了，具体方法：不介绍了</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="安装">安装</h4><h5 id="系统：centos">系统：centos</h5><ul>
+<li>wget下载</li>
+<li>tar 解压</li>
+<li>sudo ./configure —with-http_rewrite_module —wit]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[javascript面向对象相关]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/21/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3/"/>
+    <id>http://blog.xuerlove.com/2015/11/21/javascript面向对象相关/</id>
+    <published>2015-11-21T07:03:01.000Z</published>
+    <updated>2016-04-13T13:13:08.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">`javascript</span><br><span class="line"></span><br><span class="line">#### for in循环</span><br><span class="line">&gt;for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回</span><br><span class="line"></span><br><span class="line">####继承</span><br><span class="line">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">	F.prototype = o;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType,superType</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> prototype = object(superType.prototype);</span><br><span class="line">	prototype.constructor = subType;</span><br><span class="line">	subType.prototype = prototype;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.color = [<span class="string">"red"</span>,<span class="string">"blue"</span>];</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	SuperType.call(<span class="keyword">this</span>,name);</span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">inheritPrototype(SubType,SuperType);</span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.age);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。</p>
+</blockquote>
+<h4 id="单例模式">单例模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> private = <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		public:<span class="literal">true</span>,</span><br><span class="line">		publicFunc:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			private++;</span><br><span class="line">			<span class="keyword">return</span> privateFunc();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</spa]]>
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[表单中按回车键自动提交]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/20/%E8%A1%A8%E5%8D%95%E4%B8%AD%E6%8C%89%E5%9B%9E%E8%BD%A6%E9%94%AE%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4/"/>
+    <id>http://blog.xuerlove.com/2015/11/20/表单中按回车键自动提交/</id>
+    <published>2015-11-20T07:03:01.000Z</published>
+    <updated>2016-04-13T13:11:21.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="当form表单中只有一个&lt;input_type=&quot;text&quot;_name=&#39;name&#39;_/&gt;时按回车键将会自动将表单提交。">当form表单中只有一个<code>&lt;input type=&quot;text&quot; name=&#39;name&#39; /&gt;</code>时按回车键将会自动将表单提交。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">'text'</span> <span class="attribute">name</span>=<span class="value">'name'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="不需要提交的解决方案">不需要提交的解决方案</h4><ul>
+<li><p>添加一个</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">'text'</span> style=<span class="string">'display:none'</span>/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不显示输入框，然后回车之后也不会提交：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">'text'</span> <span class="attribute">name</span>=<span class="value">'name'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">style</span>=<span class="value">'display:none'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加一个onkeydown事件，然后回车之后也不会提交：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">'text'</span> <span class="attribute">name</span>=<span class="value">'name'</span> <span class="attribute">onkeydown</span>=<span class="value">'if(event.keyCode==13) return false;'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果想添加回车事件可以在onkeydown事件中添加判断提交表单：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">style</span>=<span class="value">'display:none'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">'text'</span> <span class="attribute">name</span>=<span class="value">'name'</span> <span class="attribute">onkeydown</span>=<span class="value">'if(event.keyCode==13)&#123;bindSubmit();&#125;'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>我们有时候希望回车键敲在文本框（input element）里来提交表单（form），但有时候又不希望如此。比如搜索行为，希望输入完关键词之后直接按回车键立即提交表单，<br>而有些复杂表单，可能要避免回车键误操作在未完成表单填写的时候就触发了表单提交。</p>
+</blockquote>
+<h4 id="要控制这些行为，不需要借助js，浏览器已经帮我们做了这些处理，这里总结几条规则：">要控制这些行为，不需要借助js，浏览器已经帮我们做了这些处理，这里总结几条规则：</h4><ul>
+<li>如果表单里有一个type=”submit”的按钮，回车键生效。</li>
+<li>如果表单里只有一个type=”text”的input，不管按钮是什么type，回车键生效。</li>
+<li>如果按钮不是用input，而是用button，并且没有加type，IE下默认为type=button，FX默认为type=submit。</li>
+<li>其他表单元素如textarea、select不影响，radio checkbox不影响触发规则，但本身在FX下会响应回车键，在IE下不响应。</li>
+<li>type=”image”的input，效果等同于type=”submit”，不知道为什么会设计这样一种type，不推荐使用，应该用CSS添加背景图合适些。</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="当form表单中只有一个&lt;input_type=&quot;text&quot;_name=&#39;name&#39;_/&gt;时按回车键将会自动将表单提交。">当form表单中只有一个<code>&lt;input type=&quot;text&qu]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[前端知识点集合]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/19/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%82%B9%E9%9B%86%E5%90%88/"/>
+    <id>http://blog.xuerlove.com/2015/11/19/前端知识点集合/</id>
+    <published>2015-11-19T07:03:01.000Z</published>
+    <updated>2016-04-13T13:06:01.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="getBoundingClientRect">getBoundingClientRect</h4><blockquote>
+<p>计算视口坐标,方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBoundingClientRect所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好，非常好用.</p>
+</blockquote>
+<h4 id="scrollIntoView">scrollIntoView</h4><blockquote>
+<p>可以让元素直接呈现到可视区域，实际上是屏幕显示区的最顶端</p>
+</blockquote>
+<h4 id="检查图片是否加在完">检查图片是否加在完</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'img'</span>).load(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'load over'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="修复加载失败的图片">修复加载失败的图片</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'img'</span>).on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="keyword">this</span>).prop(<span class="string">'src'</span>,<span class="string">'/default.png'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="回到顶部">回到顶部</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).animate(&#123;scrollTop:<span class="number">0</span>&#125;,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="图片预加载">图片预加载</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$.preLoad = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,len = <span class="built_in">arguments</span>.length;i&lt;len;i++)&#123;</span><br><span class="line">		<span class="keyword">var</span> $img = $(<span class="string">'&lt;img&gt;'</span>);</span><br><span class="line">		$img.attr(<span class="string">'src'</span>,<span class="built_in">arguments</span>[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> imgList = [<span class="string">'/img1.png'</span>,<span class="string">'/img2.png'</span>];</span><br><span class="line">$.preLoad(imgList);</span><br><span class="line"><span class="string">``</span><span class="string">`javascript</span><br><span class="line">#### visible</span><br><span class="line">`</span><span class="string">``</span>javascript</span><br><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'visibilitychange'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (e.target.visibilityState === <span class="string">'visible'</span>) &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'visible'</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'hidden'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>用来监听浏览器是否处于激活状态，可视状态</p>
+<h4 id="ajax调用错误处理">ajax调用错误处理</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ajaxError(<span class="function"><span class="keyword">function</span>(<span class="params">e,xhr,settings,error</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="获取用户输入keyCode">获取用户输入keyCode</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> onkeydown=<span class="string">"getCode(event);"</span> &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Javascript 代码</span></span><br><span class="line"><span class="comment">//代码如下:</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCode</span>(<span class="params">evt</span>)</span>&#123;</span><br><span class="line">	<span class="comment">//兼容IE和Firefox获得keyBoardEvent对象</span></span><br><span class="line">	evt =  evt || <span class="built_in">window</span>.event;</span><br><span class="line">	<span class="comment">//兼容IE和Firefox获得keyBoardEvent对象的键值</span></span><br><span class="line">	<span class="keyword">var</span> key = evt.keyCode || evt.which;</span><br><span class="line">	<span class="comment">//显示按键键值</span></span><br><span class="line">	<span class="built_in">console</span>.info(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Date在IE8以下版本的问题">Date在IE8以下版本的问题</h4><p>使用 new Date(‘2015-10-10’),在ie8下会转成NaN,需要使用new Date(‘2015/10/10’)，我们可以自定义一个时间转换函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parse</span>(<span class="params"> dateStr </span>)</span>&#123;</span><br><span class="line">   <span class="keyword">if</span>( dateStr <span class="keyword">instanceof</span> <span class="built_in">Date</span> )&#123;</span><br><span class="line">        <span class="keyword">return</span> dateStr;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>( <span class="regexp">/^\d+$/</span>.test( dateStr ) ) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>( <span class="built_in">parseInt</span>( dateStr , <span class="number">10</span> ) );</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>( <span class="built_in">Date</span>.parse( dateStr.replace(<span class="regexp">/-/g</span>,<span class="string">'/'</span>) ) );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="搜索框的值">搜索框的值</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#js_ipt"</span>)</span><br><span class="line">   .focus(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;$(<span class="keyword">this</span>).val(<span class="string">''</span>)&#125;)</span><br><span class="line">   .blur(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);</span><br><span class="line">    ($<span class="keyword">this</span>.val() === <span class="string">''</span>)? $<span class="keyword">this</span>.val(<span class="string">'请搜索...'</span>) : <span class="literal">null</span>;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="部分刷新">部分刷新</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  $(<span class="string">"#content"</span>).load(url);</span><br><span class="line"> &#125;, <span class="number">5000</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="密码强度">密码强度</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//密码为八位及以上并且字母数字特殊字符三项都包括</span></span><br><span class="line"><span class="keyword">var</span> strongRegex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^(?=.&#123;8,&#125;)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$"</span>, <span class="string">"g"</span>);</span><br><span class="line"><span class="comment">//密码为七位及以上并且字母、数字、特殊字符三项中有两项，强度是中等 </span></span><br><span class="line"><span class="keyword">var</span> mediumRegex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^(?=.&#123;7,&#125;)(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$"</span>, <span class="string">"g"</span>);</span><br><span class="line"><span class="comment">//更多字符</span></span><br><span class="line"><span class="keyword">var</span> enoughRegex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(?=.&#123;6,&#125;).*"</span>, <span class="string">"g"</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="滚动动态加载内容">滚动动态加载内容</h4><p><code>javascript
+var loading = false;
+$(window).scroll(function(){
+ if((($(window).scrollTop()+$(window).height())+250)&gt;=$(document).height()){
+   if(loading == false){
+      loading = true;
+      $(&#39;#loadingbar&#39;).css(&quot;display&quot;,&quot;block&quot;);
+      $.ajax({
+          url:&#39;/getData.json&#39;,
+          type:&#39;POST&#39;,
+          dataType:&#39;json&#39;,
+          data:{
+              id:&#39;123&#39;
+          }
+      }).done(function(data){
+          if(data.ret){
+          }
+      });
+    }
+  }
+});</code>javascript</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="getBoundingClientRect">getBoundingClientRect</h4><blockquote>
+<p>计算视口坐标,方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBou]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[异步javascript]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/18/%E5%BC%82%E6%AD%A5javascript/"/>
+    <id>http://blog.xuerlove.com/2015/11/18/异步javascript/</id>
+    <published>2015-11-18T07:03:01.000Z</published>
+    <updated>2016-04-13T13:03:02.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="什么是异步javascript">什么是异步javascript</h4><blockquote>
+<p>顺序的执行的代码，我们称之为同步代码，异步的过程就是让有些非常耗时的javascript代码放在异步模块中之行，同步代码之行结束后再去之行它。</p>
+</blockquote>
+<h4 id="异步javascript发展过程">异步javascript发展过程</h4><ul>
+<li>回调函数<br>  函数可以作为参数传递给另一个函数，这样的过程称之为回调，当执行完函数的内容后，执行回调函数，来完成异步的模拟。<br>  回调函数可以使程序编的简单易懂，但是耦合性确比较高，维护起来比较麻烦。错误处理容易被忽视，不能return,使用不当会让程序非常臃肿。</li>
+<li>事件监听<br>  通过事件监听，触发达到异步执行代码的过程。</li>
+<li>发布订阅<br>  我们可以创建发布／订阅模式，或者观察者模式，通过订阅，发布的过程来实现异步</li>
+<li>Promises<br>  Promises是一种规范，Promises允许我们通过链式调用的方式编写代码，增强了代码的可读性。</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="什么是异步javascript">什么是异步javascript</h4><blockquote>
+<p>顺序的执行的代码，我们称之为同步代码，异步的过程就是让有些非常耗时的javascript代码放在异步模块中之行，同步代码之行结束后再去之行它。</p>
+</b]]>
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[动画]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/17/%E5%8A%A8%E7%94%BB/"/>
+    <id>http://blog.xuerlove.com/2015/11/17/动画/</id>
+    <published>2015-11-17T07:03:01.000Z</published>
+    <updated>2016-04-13T13:00:55.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="css动画">css动画</h4><ul>
+<li>translate</li>
+<li>transation<h4 id="animate">animate</h4></li>
+<li>javascript动画</li>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>requestAnimationFrame<h4 id="jquery动画">jquery动画</h4></li>
+<li>animate<h4 id="js动画库">js动画库</h4><h4 id="canvas动画">canvas动画</h4></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="css动画">css动画</h4><ul>
+<li>translate</li>
+<li>transation<h4 id="animate">animate</h4></li>
+<li>javascript动画</li>
+<li>setTimeout</li>
+]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Synergy实现多个主机之间共享键鼠]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/16/Synergy%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%B8%AA%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%AB%E9%94%AE%E9%BC%A0/"/>
+    <id>http://blog.xuerlove.com/2015/11/16/Synergy实现多个主机之间共享键鼠/</id>
+    <published>2015-11-16T07:03:01.000Z</published>
+    <updated>2016-04-13T12:53:15.000Z</updated>
+    <content type="html"><![CDATA[<h5 id="工具">工具</h5><ul>
+<li>Synergy软件</li>
+<li>两台电脑，一套键鼠</li>
+</ul>
+<h5 id="使用方法">使用方法</h5><ul>
+<li>A电脑做为共享键鼠的主机</li>
+<li>B电脑去使用共享的键鼠</li>
+<li>A电脑打开软件后选择共享选项</li>
+<li>B电脑配置成使用另一台电脑的键鼠，并且配置A电脑IP</li>
+<li>A电脑点击配置服务，然后在B电脑显示器对应的图标上点击，然后输入B电脑的display name然后确认即可</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h5 id="工具">工具</h5><ul>
+<li>Synergy软件</li>
+<li>两台电脑，一套键鼠</li>
+</ul>
+<h5 id="使用方法">使用方法</h5><ul>
+<li>A电脑做为共享键鼠的主机</li>
+<li>B电脑去使用共享的键鼠</li>
+<]]>
+    </summary>
+    
+      <category term="tools" scheme="http://blog.xuerlove.com/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Jcrop]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/15/Jcrop/"/>
+    <id>http://blog.xuerlove.com/2015/11/15/Jcrop/</id>
+    <published>2015-11-15T07:03:01.000Z</published>
+    <updated>2016-04-13T12:51:52.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="引用资源">引用资源</h4><h5 id="css">css</h5><p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;jquery.Jcrop.css&quot;&gt;</code></p>
+<h5 id="JavaScript">JavaScript</h5><p><code>&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</code><br><code>&lt;script src=&quot;jquery.Jcrop.js&quot;&gt;&lt;/script&gt;</code></p>
+<h5 id="使用">使用</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img id=<span class="string">"image"</span> src=<span class="string">"image.jpg"</span>&gt;</span><br><span class="line"></span><br><span class="line">$(<span class="string">'#image'</span>).Jcrop();</span><br></pre></td></tr></table></figure>
+<h5 id="参数">参数</h5><p>|属性    |值    |描述|<br>|| :– ||:–: ||:–: ||<br>|allowSelect|    true|    允许新选框|<br>|allowMove|    true    |允许选框移动|<br>|allowResize|    true|    允许选框缩放|<br>|aspectRatio|    1    |选框宽高比。说明：width/height|<br>|keySupport|    true|    支持键盘控制。按键列表：上下左右（移动选框）、Esc（取消选框）|<br>|dragEdges|    true|    允许拖动边框|<br>|boxWidth    |100|    画布宽度|<br>|boxHeight|    100    |画布高度|<br>|minSelect|    [10,10]|    选择框最小选择尺寸。说明：若选择框小于该尺寸，则自动取消选择|<br>|maxSize|    [10,10]|    选择框最大尺寸|<br>|minSize    |[10,10]|    选择框最小尺寸|<br>|onChange|    function(data){}|    选择框改变时的事件|<br>|onSelect    |function(data){}|    选择框选定时的事件|<br>|onDblClick    |function(data){}|    在选择框内双击时的事件|<br>|onRelease    |function(data){}|    取消选择框时的事件|<br>后面四个回调函数的参数data是一个对象，包含所选尺寸的x,y,w,h</p>
+<h5 id="API介绍">API介绍</h5><p>|方法|    描述|<br>|| :– ||:–: ||<br>|getBounds()    |获取图片实际尺寸，格式为：[w, h]|<br>|getWidgetSize()    |获取图片显示尺寸，格式为：[w, h]|<br>|getScaleFactor()    |获取图片缩放的比例，格式为：[w, h]|</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="引用资源">引用资源</h4><h5 id="css">css</h5><p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;jquery.Jcrop.css&quot;&gt;</code></p>
+<h]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[smartcropJs]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/14/smartcropJs/"/>
+    <id>http://blog.xuerlove.com/2015/11/14/smartcropJs/</id>
+    <published>2015-11-14T07:03:01.000Z</published>
+    <updated>2016-04-13T12:47:31.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="智能识别裁剪图片">智能识别裁剪图片</h4><p>[github|<a href="https://github.com/jwagner/smartcrop.js" target="_blank" rel="external">https://github.com/jwagner/smartcrop.js</a>]</p>
+<h4 id="how_to_use">how to use</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SmartCrop.crop(image, &#123;width: <span class="number">100</span>, height: <span class="number">100</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;<span class="built_in">console</span>.log(result);&#125;);</span><br><span class="line"><span class="comment">// &#123;topCrop: &#123;x: 300, y: 200, height: 200, width: 200&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="兼容性">兼容性</h4><p>除IE6,7,8</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="智能识别裁剪图片">智能识别裁剪图片</h4><p>[github|<a href="https://github.com/jwagner/smartcrop.js" target="_blank" rel="external">https://github.co]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[RactiveJs应用]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/13/RactiveJs%E5%BA%94%E7%94%A8/"/>
+    <id>http://blog.xuerlove.com/2015/11/13/RactiveJs应用/</id>
+    <published>2015-11-13T07:03:01.000Z</published>
+    <updated>2016-04-13T12:45:41.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="简介">简介</h4><p>Ractive.js是一款简单却功能强大的JS库，它实现了模板，数据绑定，DOM实时更新，事件处理等多个有用的功能。</p>
+<h4 id="应用">应用</h4><p>关联dom和模版<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">'output'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">id</span>=<span class="value">'template'</span> <span class="attribute">type</span>=<span class="value">'text/ractive'</span>&gt;</span><span class="undefined"></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//js</span><br><span class="line">var ractive = new Ractive(&#123;</span><br><span class="line">	el: '#output',</span><br><span class="line">	template: '#template'</span><br><span class="line">&#125;);</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="模版内绑定属性">模版内绑定属性</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">'output'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">id</span>=<span class="value">'template'</span> <span class="attribute">type</span>=<span class="value">'text/ractive'</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">greeting</span>&#125;&#125;</span><span class="xml"> </span><span class="expression">&#123;&#123;<span class="variable">name</span>&#125;&#125;</span><span class="xml">!<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"></span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//js</span><br><span class="line">var ractive = new Ractive(&#123;</span><br><span class="line">	el: '#output',</span><br><span class="line">	template: '#template'，</span><br><span class="line">        data: &#123;</span><br><span class="line">	    greeting: 'Hello',</span><br><span class="line">	    name: 'world'</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span></span><br></pre></td></tr></table></figure>
+<h4 id="配置">配置</h4><h4 id="模版">模版</h4><h4 id="mustache模版">mustache模版</h4><h4 id="数据和绑定">数据和绑定</h4><h4 id="事件">事件</h4><h4 id="过度效果和动画">过度效果和动画</h4><h4 id="组件">组件</h4><h4 id="API">API</h4><h4 id="插件">插件</h4><h4 id="待续">待续</h4>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="简介">简介</h4><p>Ractive.js是一款简单却功能强大的JS库，它实现了模板，数据绑定，DOM实时更新，事件处理等多个有用的功能。</p>
+<h4 id="应用">应用</h4><p>关联dom和模版<br><figure class="highli]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[avalon应用]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/12/avalon%E5%BA%94%E7%94%A8/"/>
+    <id>http://blog.xuerlove.com/2015/11/12/avalon应用/</id>
+    <published>2015-11-12T07:03:01.000Z</published>
+    <updated>2016-04-13T13:51:41.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="介绍：">介绍：</h4><p>avalon是一个轻量型的MVVM框架</p>
+<h4 id="配置：">配置：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">avalon.config(&#123;</span><br><span class="line">    debug: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>为了方便调试，我们把debug模式设为true,那么avalon源码中的所有调试信息都会在控制台输出，我们把debug设为false就可以屏蔽它们。</p>
+<h4 id="定义">定义</h4><p><code>avalon.define()</code><br>对html页面的处理：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span> <span class="attribute">ms-controller</span>=<span class="value">"page_model"</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>&#123;&#123;age&#125;&#125;<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>&#123;&#123;from&#125;&#125;<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"javascript:;"</span> <span class="attribute">ms-click</span>=<span class="value">"check"</span>&gt;</span>click<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = avalon.define(&#123;</span><br><span class="line">    $id: <span class="string">"page_model"</span>,</span><br><span class="line">    name: <span class="string">'wz'</span>,</span><br><span class="line">    age: <span class="number">25</span>,</span><br><span class="line">    from: <span class="string">'changchun'</span></span><br><span class="line">    check: <span class="function"><span class="keyword">function</span>(<span class="params">$events</span>)</span>&#123;</span><br><span class="line">       $events.preventDefault();</span><br><span class="line">       <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>avalon.define定义页面对应的controller</li>
+<li>放在$skipArray数组里面的属性，将不会被扫描</li>
+<li>单向绑定 需要在ms-*属性的值前面加::，或花括号内部的前面加::</li>
+</ul>
+<h4 id="常用属性">常用属性</h4><ul>
+<li><code>ms-duplex / ms-duplex-text —text</code></li>
+<li><code>ms-visible —boolean</code></li>
+<li><code>ms-repeat —list</code></li>
+<li><code>ms-value /</code></li>
+<li><code>ms-attr-*</code> —对应html标签的属性</li>
+<li><code>ms-data</code></li>
+<li><code>ms-click</code></li>
+<li><code>ms-class / ms-hover / ms-active</code></li>
+<li><code>ms-widget</code></li>
+<li><p><code>$watch</code> 属性监控</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">avalon.vmodels.grid.room_checked.$watch(<span class="string">"length"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">     $avalon.vmodels.grid.allchecked = n === $$.grid.all_room.size();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>$unwatch</code> 解除监控</p>
+</li>
+<li><code>$events</code> 对象，avalon中这个对象替代我们之前用的 event<h4 id="扫描">扫描</h4></li>
+<li>把视图中的所有指令全部抽取出来，转换为一个个视图刷新函数，然后放到一个个数组中，当VM的属性变动时，就会执行这些数组的函数。数组里面的东西不定是函数，也可能是对象，但里面肯定有个视图刷新函数。</li>
+<li>avalon.scan，有两个可选参数，第一个是元素节点，第二个是数组，里面为一个个VM。<h4 id="模版">模版</h4></li>
+<li>ms-html 可以加载一段html结构</li>
+<li>ms-include=”template” 负值一个模版变量，用于加载一段html结构</li>
+<li>ms-include-src=”aaa.html” 用于加载一个资源<h4 id="类操作">类操作</h4></li>
+<li>ms-class,</li>
+<li>ms-hover</li>
+<li>ms-active<h4 id="事件绑定">事件绑定</h4></li>
+<li>ms-on-*<h4 id="绑定">绑定</h4></li>
+<li>显示绑定ms-visible</li>
+<li>插入绑定ms-if</li>
+<li>双工绑定ms-duplex</li>
+<li>样式绑定ms-css</li>
+<li>数据绑定ms-data</li>
+<li>属性绑定ms-attr</li>
+<li>循环绑定<ul>
+<li><code>ms-repeat 用于循环数组与对象 循环当前元素</code></li>
+<li><code>ms-each 用于循环数组 循环当前元素的内部</code></li>
+<li><code>ms-with 用于循环对象 循环当前元素的内部</code></li>
+<li><code>el: 默认el，也可以用ms-repeat-item，就变成了item指向当前元素。</code></li>
+<li><code>$first: 判定是否为监控数组的第一个元素</code></li>
+<li><code>$last: 判定是否为监控数组的最后一个元素</code></li>
+<li><code>$index: 得到当前元素的索引值</code></li>
+<li><code>$outer: 得到外围循环的那个元素。</code></li>
+<li><code>$remove: 这是一个方法，用于移除此元素</code></li>
+</ul>
+</li>
+<li>动画绑定ms-effect<h4 id="过滤器">过滤器</h4></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">它只能用于&#123;&#123;&#125;&#125;插值表达式。如果不存在参数，要求直接跟|filter，如果存在参传，则要用小括号括起，参数要有逗号</span><br><span class="line">* html</span><br><span class="line">* uppercase</span><br><span class="line">* lowercase</span><br><span class="line">* truncate – 对长字符串进行截短，truncate(number, truncation), number默认为<span class="number">30</span></span><br><span class="line">* camelize --驼峰化处理</span><br><span class="line">* <span class="built_in">escape</span> --对类似于HTML格式的字符串进行转义</span><br><span class="line">* currency</span><br><span class="line">* number</span><br><span class="line">* date</span><br><span class="line">* 自定义过滤器</span><br><span class="line">avalon.filters.format = <span class="function"><span class="keyword">function</span>(<span class="params">str, args, args2</span>)</span>&#123;</span><br><span class="line">   <span class="comment">//str为原数据，默认传入，此方法必须返回一个值</span></span><br><span class="line">   <span class="comment">/* 具体逻辑 */</span></span><br><span class="line">   <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="AJAX">AJAX</h4><ul>
+<li>功能同jquery ajax<h4 id="路由">路由</h4><h4 id="加载器">加载器</h4><h4 id="自定义指令">自定义指令</h4><h4 id="显示优化">显示优化</h4></li>
+<li><p><code>.ms-controller, [ms-controller]{ visibility:hidden}</code></p>
+</li>
+<li><p>我们在页面使用了大量插值表达式，网速慢时，就会被用户看到，认为是乱码了。为了预防这种情况， 我们可以在样式中定义 <code>.ms-controller, [ms-controller]{ visibility:hidden}</code> 那么当元素被扫描后，它们才会安全显示出来。</p>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="介绍：">介绍：</h4><p>avalon是一个轻量型的MVVM框架</p>
+<h4 id="配置：">配置：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[html页面中meta标签]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/11/html%E9%A1%B5%E9%9D%A2%E4%B8%ADmeta%E6%A0%87%E7%AD%BE/"/>
+    <id>http://blog.xuerlove.com/2015/11/11/html页面中meta标签/</id>
+    <published>2015-11-11T07:03:01.000Z</published>
+    <updated>2016-04-13T12:04:51.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="介绍">介绍</h4><blockquote>
+<p>meta标签提供的数据不会展示页页面当中，但是对于机器来说，这些内容确是重要的，它会告诉机器怎么展示页面，还可以设置搜索引擎对页面的抓取。</p>
+</blockquote>
+<h5 id="属性">属性</h5><table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">http-equiv</td>
+<td style="text-align:center">content-type / expire / refresh / set-cookie</td>
+<td style="text-align:center">把content属性关联到HTTP头部</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:center">author / description / keywords / generator / revised / others</td>
+<td style="text-align:center">把 content 属性关联到一个名称</td>
+</tr>
+<tr>
+<td style="text-align:left">content</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">定义用于 content 属性值的格式</td>
+</tr>
+</tbody>
+</table>
+<h5 id="SEO相关">SEO相关</h5><ul>
+<li>name=”keywords” 网页内容关键字</li>
+<li>name=”description” 网页内容描述</li>
+<li>name=”robots” 搜索引擎索引方式<br>  none 搜索引擎将忽略此网页，等价于noindex，nofollow。<br>  noindex 搜索引擎不索引此网页。<br>  nofollow 搜索引擎不继续通过此网页的链接索引搜索其它的网页。<br>  all 搜索引擎将索引此网页与继续通过此网页的链接索引，等价于index，follow。<br>  index 搜索引擎索引此网页。<br>  follow 搜索引擎继续通过此网页的链接索引搜索其它的网页。</li>
+<li>http-equiv=”refresh” 页面重定向和刷新,content内的数字代表时间，多少秒后刷新。如果加url,则会重定向到指定网页<br>  <code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=http://www.baidu.com&quot; /&gt;</code></li>
+<li>name=”author” 作者</li>
+<li>针对谷歌GOOGLEBOT使用robots<br>  <code>&lt;meta name=&quot;googlebot&quot; content=&quot;noindex, nofollow&quot; /&gt;</code></li>
+<li>针对百度baiduspider使用robots<br>  <code>&lt;meta name=&quot;baiduspider&quot; content=&quot;noarchive&quot; /&gt;</code></li>
+</ul>
+<h5 id="移动设备">移动设备</h5><ul>
+<li>viewport 优化移动页面显示<ul>
+<li>4.7-5寸设备的viewport宽设为360px；</li>
+<li>5.5寸设备设为400px；</li>
+<li>iphone6设为375px；</li>
+<li>ipone6 plus设为414px。</li>
+</ul>
+</li>
+<li>属性<ul>
+<li>width：宽度（数值 / device-width）（范围从200 到10,000，默认为980 像素）</li>
+<li>height：高度（数值 / device-height）（范围从223 到10,000）</li>
+<li>initial-scale：初始的缩放比例 （范围从&gt;0 到10）</li>
+<li>minimum-scale：允许用户缩放到的最小比例</li>
+<li>maximum-scale：允许用户缩放到的最大比例</li>
+<li>user-scalable：用户是否可以手动缩 (no,yes)</li>
+<li>minimal-ui：可以在页面加载时最小化上下状态栏。（已弃用）</li>
+<li>如果和initial-scale=1同时使用user-scalable=no或maximum-scale=1，则用户将不能放大/缩小网页来看到全部的内容。</li>
+</ul>
+</li>
+<li>应用<ul>
+<li>WebApp全屏<br><code>&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;</code></li>
+<li>隐藏状态栏/设置状态栏颜色<br><code>&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot; /&gt;</code></li>
+<li>添加到主屏后的标题<br><code>&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;标题&quot;&gt;</code></li>
+<li>忽略数字自动识别为电话号码<br><code>&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot; /&gt;</code></li>
+<li>忽略识别邮箱<br><code>&lt;meta content=&quot;email=no&quot; name=&quot;format-detection&quot; /&gt;</code></li>
+<li>添加智能 App 广告条 Smart App Banne<br><code>&lt;meta name=&quot;apple-itunes-app&quot; content=&quot;app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL&quot;&gt;</code></li>
+</ul>
+</li>
+<li>其他<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"HandheldFriendly"</span> <span class="attribute">content</span>=<span class="value">"true"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 微软的老式浏览器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"MobileOptimized"</span> <span class="attribute">content</span>=<span class="value">"320"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- uc强制竖屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"screen-orientation"</span> <span class="attribute">content</span>=<span class="value">"portrait"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ强制竖屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"x5-orientation"</span> <span class="attribute">content</span>=<span class="value">"portrait"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- UC强制全屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"full-screen"</span> <span class="attribute">content</span>=<span class="value">"yes"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ强制全屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"x5-fullscreen"</span> <span class="attribute">content</span>=<span class="value">"true"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- UC应用模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"browsermode"</span> <span class="attribute">content</span>=<span class="value">"application"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ应用模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"x5-page-mode"</span> <span class="attribute">content</span>=<span class="value">"app"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- windows phone 点击无高光 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"msapplication-tap-highlight"</span> <span class="attribute">content</span>=<span class="value">"no"</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="网页应用">网页应用</h4><ul>
+<li>编码<br>  <code>&lt;meta charset=&#39;utf-8&#39; /&gt;</code></li>
+<li><p>浏览器优先选择</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"IE=edge,chrome=1"</span> /&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"X-UA-Compatible"</span> <span class="attribute">content</span>=<span class="value">"IE=8"</span> &gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>内核控制：控制浏览器使用哪种内核渲染<br>  <code>&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;</code><br>  可选值：webkit，ie-comp，ie-stand</p>
+</li>
+<li>禁止本地缓存<br>  <code>&lt;meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot;&gt;</code></li>
+<li>Windows 8 tile</li>
+<li>适配：PC-手机页面的对应<br>  <code>&lt;meta name=&quot;mobile-agent&quot; content=&quot;format=html5; url=url&quot;&gt;</code><br>  [wml|xhtml|html5]根据手机页面的协议语言，选择其中一种；<br>  url=”url” 后者代表当前PC页所对应的手机页URL，两者必须是一一对应关系。</li>
+<li>转码申明 （避免转码使用如下）<br>  <code>&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-siteapp&quot; /&gt;</code></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="介绍">介绍</h4><blockquote>
+<p>meta标签提供的数据不会展示页页面当中，但是对于机器来说，这些内容确是重要的，它会告诉机器怎么展示页面，还可以设置搜索引擎对页面的抓取。</p>
+</blockquote>
+<h5 id="属性">属性</h]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[浏览器扩展应用开发]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/10/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/"/>
+    <id>http://blog.xuerlove.com/2015/11/10/浏览器扩展应用开发/</id>
+    <published>2015-11-10T07:03:01.000Z</published>
+    <updated>2016-04-13T11:54:48.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="简介">简介</h4><blockquote>
+<p>chrome应用商店里面存放着大量的浏览器应用，这些扩展应用不同于浏览器插件，它们必须依赖浏览器而运行。浏览器应用的本质就是web页面，浏览器支持的API我们都可以使用</p>
+</blockquote>
+<h4 id="准备">准备</h4><blockquote>
+<ul>
+<li>开发浏览器扩招应用不需要我们学习额外的技能，只需要我们日常开发中使用的html,js,css知识足矣。</li>
+<li>项目中包含的文件<ol>
+<li>manifest</li>
+<li>一个或多个html文件</li>
+<li>javascript文件（可选）</li>
+<li>css文件（可选）</li>
+<li>其他文件，例如图片（可选）</li>
+</ol>
+</li>
+<li>这些文件放在同一个根目录下，发布应用时，这个目录全部打包到一个应用名是.crx的压缩文件中。<br>[<a href="https://chrome.google.com/webstore/developer/dashboard]上传应用的时候，可以自动生成.crx文件" target="_blank" rel="external">https://chrome.google.com/webstore/developer/dashboard]上传应用的时候，可以自动生成.crx文件</a><br>或者使用浏览器的 更多工具》扩展程序》打包扩展程序 功能，生成.crx文件。</li>
+</ul>
+</blockquote>
+<h4 id="manifest-json">manifest.json</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"name"</span>: <span class="string">"My Extension"</span>,</span><br><span class="line">	<span class="string">"version"</span>: <span class="string">"2.1"</span>,</span><br><span class="line">	<span class="string">"description"</span>: <span class="string">"Gets information from Google."</span>,</span><br><span class="line">	<span class="string">"icons"</span>: &#123; <span class="string">"128"</span>: <span class="string">"icon_128.png"</span> &#125;,</span><br><span class="line">	<span class="string">"background_page"</span>: <span class="string">"bg.html"</span>,</span><br><span class="line">	<span class="string">"permissions"</span>: [<span class="string">"http://*.google.com/"</span>, <span class="string">"https://*.google.com/"</span>],</span><br><span class="line">	<span class="string">"browser_action"</span>: &#123;</span><br><span class="line">		<span class="string">"default_title"</span>: <span class="string">""</span>,</span><br><span class="line">		<span class="string">"default_icon"</span>: <span class="string">"icon_19.png"</span>,</span><br><span class="line">		<span class="string">"default_popup"</span>: <span class="string">"popup.html"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>manifest.json文件中主要内容都在这里，不难理解</p>
+<h4 id="基本架构">基本架构</h4><ol>
+<li>运行app的主页面，可以使用chrome.tabs.create()或者window.open()来显示内部的HTML文件。也可以直接使用html文件。</li>
+<li><p>Content scripts，如果一个页面要与web页面交互，需要使用一个content scripts，content script脚本是指能够在浏览器已经加载的页面内部运行的javascript脚本。可以将content script看作是网页的一部分，而不是它所在的应用的一部分。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"My extension"</span>,</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">"content_scripts"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"matches"</span>: [<span class="string">"http://www.google.com/*"</span>],</span><br><span class="line">      <span class="string">"css"</span>: [<span class="string">"mystyles.css"</span>],</span><br><span class="line">      <span class="string">"js"</span>: [<span class="string">"jquery.js"</span>, <span class="string">"myscript.js"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line">或者</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"My extension"</span>,</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">"permissions"</span>: [</span><br><span class="line">    <span class="string">"tabs"</span>, <span class="string">"http://www.google.com/*"</span></span><br><span class="line">  ],</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">直接注入</span><br><span class="line"><span class="comment">/* background.html */</span></span><br><span class="line">chrome.browserAction.onClicked.addListener(<span class="function"><span class="keyword">function</span>(<span class="params">tab</span>) </span>&#123;</span><br><span class="line">  chrome.tabs.executeScript(<span class="literal">null</span>,</span><br><span class="line">                           &#123;code:<span class="string">"document.body.bgColor='red'"</span>&#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* manifest.json */</span></span><br><span class="line"><span class="string">"permissions"</span>: [</span><br><span class="line">  <span class="string">"tabs"</span>, <span class="string">"http://*/*"</span></span><br><span class="line">],</span><br><span class="line"></span><br><span class="line">注入文件</span><br><span class="line">chrome.tabs.executeScript(<span class="literal">null</span>, &#123;file: <span class="string">"content_script.js"</span>&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通信 扩展和web页面之间可以通信，使用 getViews()和getBackgroundPage() 可以获得页面的引用，就能操作页面方法，操作页面dom</p>
+</li>
+<li>数据保存，如果是在非隐身模式下，可以使用localStorage，检查窗口是否在隐身模式下，检查Tab或Window对象的incognito属性。</li>
+</ol>
+<h4 id="跨域">跨域</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* manifest.json */</span></span><br><span class="line"><span class="string">"permissions"</span>: [</span><br><span class="line">	<span class="string">"http://api.test.com/"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="简介">简介</h4><blockquote>
+<p>chrome应用商店里面存放着大量的浏览器应用，这些扩展应用不同于浏览器插件，它们必须依赖浏览器而运行。浏览器应用的本质就是web页面，浏览器支持的API我们都可以使用</p>
+</blockquote>
+<h]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[BigPipe]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/09/BigPipe/"/>
+    <id>http://blog.xuerlove.com/2015/11/09/BigPipe/</id>
+    <published>2015-11-09T07:03:01.000Z</published>
+    <updated>2016-04-13T11:51:18.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="BigPipe">BigPipe</h4><blockquote>
+<ol>
+<li>BigPipe就是把网页分解成多个模块，然后通过服务器和浏览器建立管道链接，分别对各个模块进行输出，最后完成一个完整的页面。</li>
+<li>传统方式的页面渲染大致分为两类，一种是使用动态语言jsp，asp.net等进行完整页面的渲染以及交互，另一种是服务端负责渲染最基本的页面结构，或者说是页面上静态的结构，然后由javascript负责渲染页面动态的部分，以及各种交互的部分。<ul>
+<li>第一种方式在服务器进行完整的计算渲染后，一次性传输到浏览器端，过程可能会比较长。</li>
+<li>第二种方式页面渲染速度比较快，但是到了客户端后，可能会发出很多网络数据请求，数据请求的过程对性能的影响也是比较大的。<br>那么使用bigpipe的好处就突显出来了。</li>
+<li>首先各个请求都是异步的，互不影响的，当一个请求返回结果后，服务器端就可以继续完成数据处理以及dom元素渲染，然后输出到浏览器端，浏览器端接收到结果后直接渲染页面某一模块。</li>
+<li>其次，浏览器在整个页面阶段只发出了一个请求，那就是页面请求，页面渲染结束期间，这个请求是不会中断的。<br>虽然上面叙述了一些bigpipe的好处，但是有没有发现，由于请求接口的过程是异步的，那么返回时间也是不固定的，就会出现页面渲染并不是按照我们预想的顺序。这时候我们又想出了一个办法，在页面初始阶段返回页面基本骨架，然后各个请求返回结果后，渲染到固定模块内，保证页面不会乱。而bigpipe初始阶段返回不闭合的html，等所有传输结束后返回页面闭合标签，整个过程结束。</li>
+</ul>
+</li>
+<li>http1.1 支持持续的连接，这样就可以发出多个请求，并且接收多个请求。还可以发送流水请求，在一个请求未返回结果的时候就继续发生第二个请求。</li>
+</ol>
+</blockquote>
+<h4 id="nodejs实现">nodejs实现</h4><ol>
+<li>核心就是http.requert()</li>
+<li>html页面访问直接请求nodejs渲染的页面。</li>
+<li>当请求到达nodejs时，nodejs返回一个不闭合html框架。</li>
+<li>nodejs发出多个请求，每个请求都是一个页面的模块部分。</li>
+<li>分别接收到各个请求结果后，处理数据，渲染模版，取到html，返回一个script标签，里面调用客户端脚本，在指定div内写这段html。这段代码就是最简单的<code>document.getElementById(&#39;#id&#39;).innerHTML=html;。</code></li>
+<li>所有请求返回结果后，nodejs返回页面闭合标签。</li>
+<li>其他的页面效果，特效，交互交给javascript。</li>
+</ol>
+<h4 id="简单实现">简单实现</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>) </span>&#123;</span><br><span class="line">	response.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>&#125;);</span><br><span class="line">	response.write(<span class="string">"&lt;!Doctype html&gt;&lt;html lang=\"en\"&gt;&lt;head&gt;&lt;title&gt;bigpipe&lt;/title&gt;"</span>);</span><br><span class="line">	response.write(<span class="string">"&lt;script type=\"text/javascript\"&gt;function load(id,html) &#123; var ele=document.getElementById(id); ele.innerHTML = html;&#125;&lt;/script&gt;"</span>);</span><br><span class="line">	response.write(<span class="string">"&lt;/head&gt;&lt;body&gt;&lt;div id=\"top\"&gt;&lt;/div&gt;"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> url = <span class="string">'http://test.com/a.json'</span>;</span><br><span class="line">	<span class="keyword">var</span> requestHeaders = request.headers;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> options = &#123;</span><br><span class="line">	    url: url,</span><br><span class="line">	    method: <span class="string">"POST"</span>,</span><br><span class="line">	    headers: &#123;</span><br><span class="line">	        <span class="string">"user-agent"</span>: requestHeaders[<span class="string">"user-agent"</span>],</span><br><span class="line">	        <span class="string">"cookie"</span>: requestHeaders[<span class="string">"cookie"</span>]</span><br><span class="line">	    &#125;,</span><br><span class="line">	    timeout: <span class="number">6000</span></span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> post = http.request(options);</span><br><span class="line">	post.addListener(<span class="string">'response'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">		res.addListener(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">var</span> html = dealHtml(data);</span><br><span class="line">			response.write(<span class="string">'&lt;script&gt;load('</span>top<span class="string">','</span>+html+<span class="string">')&lt;/script&gt;'</span>);</span><br><span class="line">		&#125;);</span><br><span class="line">		res.addListener(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			response.end();</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">	post.end();</span><br><span class="line">	response.write(<span class="string">"&lt;/body&gt;&lt;/html&gt;"</span>);</span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">8998</span>);</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="BigPipe">BigPipe</h4><blockquote>
+<ol>
+<li>BigPipe就是把网页分解成多个模块，然后通过服务器和浏览器建立管道链接，分别对各个模块进行输出，最后完成一个完整的页面。</li>
+<li>传统方式的页面渲染大致分为两类，一]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[nodejs调用phantom]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/08/nodejs%E8%B0%83%E7%94%A8phantom/"/>
+    <id>http://blog.xuerlove.com/2015/11/08/nodejs调用phantom/</id>
+    <published>2015-11-08T07:03:01.000Z</published>
+    <updated>2016-04-13T11:48:15.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="phantomjs">phantomjs</h4><blockquote>
+<p>phantomjs能够截图，查看网页请求信息，对页面进行dom操作等等<br>利用phantomjs能够做很多事，例如通过截图对比查看页面是否疵了，网络请求监测网页性能，dom抓取等等</p>
+</blockquote>
+<h4 id="安装">安装</h4><ul>
+<li>centos<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install gcc gcc-c++ make git openssl-devel freetype-devel fontconfig-devel </span><br><span class="line">git clone git:<span class="comment">//github.com/ariya/phantomjs.git </span></span><br><span class="line">cd phantomjs </span><br><span class="line">git checkout <span class="number">1.9</span> </span><br><span class="line">./build.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="截图">截图</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//snapshot.js</span></span><br><span class="line"><span class="keyword">var</span> page = <span class="built_in">require</span>(<span class="string">'webpage'</span>).create();</span><br><span class="line">page.viewportSize = &#123; width: <span class="number">320</span>, height: <span class="number">640</span> &#125;;</span><br><span class="line">page.open(<span class="string">'http://www.test.com'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">status</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (status !== <span class="string">'success'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'err!'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        page.render(<span class="string">'1.png'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    phantom.exit();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="dom抓取">dom抓取</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> page = <span class="built_in">require</span>(<span class="string">'webpage'</span>).create();</span><br><span class="line">fname = system.args[<span class="number">1</span>];</span><br><span class="line">page.open(<span class="string">"http://www.test.com"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (status !== <span class="string">'success'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'err!'</span>);</span><br><span class="line">        phantom.exit(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> html;</span><br><span class="line">    page.evaluate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">'#kw'</span>).value = <span class="string">'javascript'</span>;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">'#su'</span>).click();</span><br><span class="line">        html = <span class="built_in">document</span>.querySelector(<span class="string">'.content_left'</span>).innerHTML;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//fs.write('/user/test.html',html,'w');</span></span><br><span class="line">    phantom.exit();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="nodejs调用phantomjs">nodejs调用phantomjs</h4><p>需要调用的地方，开一个子线程去做<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> childProcess = <span class="built_in">require</span>(<span class="string">'child_process'</span>);</span><br><span class="line"><span class="keyword">var</span> spawn = childProcess.spawn;</span><br><span class="line"><span class="keyword">var</span> Exec = spawn(<span class="string">'phantomjs'</span>, <span class="string">'/home/user/test.js'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Exec.stdout.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Exec stdout : '</span> + data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Exec.stderr.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Exec stderr : '</span> + data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Exec.on(<span class="string">'close'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'exec close : '</span> + data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="phantomjs">phantomjs</h4><blockquote>
+<p>phantomjs能够截图，查看网页请求信息，对页面进行dom操作等等<br>利用phantomjs能够做很多事，例如通过截图对比查看页面是否疵了，网络请求监测网页性能，dom抓取等]]>
+    </summary>
+    
+      <category term="nodejs" scheme="http://blog.xuerlove.com/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[nodejs读取指定路径下文件夹文件]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/07/nodejs%E8%AF%BB%E5%8F%96%E6%8C%87%E5%AE%9A%E8%B7%AF%E5%BE%84%E4%B8%8B%E6%96%87%E4%BB%B6%E5%A4%B9%E6%96%87%E4%BB%B6/"/>
+    <id>http://blog.xuerlove.com/2015/11/07/nodejs读取指定路径下文件夹文件/</id>
+    <published>2015-11-07T07:03:01.000Z</published>
+    <updated>2016-04-13T11:42:10.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="扫描文件以及文件夹">扫描文件以及文件夹</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">scanFolder</span>(<span class="params">path</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> files = [],</span><br><span class="line">        folders = [],</span><br><span class="line">        walk = <span class="function"><span class="keyword">function</span>(<span class="params">path, files, folders</span>)</span>&#123;</span><br><span class="line">            files = fs.readdirSync(path);</span><br><span class="line">            files.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;  </span><br><span class="line">                <span class="keyword">var</span> curPath = path + <span class="string">'/'</span> + item,</span><br><span class="line">                    stats = fs.statSync(curPath);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (stats.isDirectory()) &#123;  </span><br><span class="line">                    walk(curPath, files, folders); </span><br><span class="line">                    folders.push(curPath); </span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                    files.push(curPath); </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;);  </span><br><span class="line">        &#125;;  </span><br><span class="line"></span><br><span class="line">    walk(path, files, folders);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'扫描'</span> + path +<span class="string">'成功'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">'files'</span>: files,</span><br><span class="line">        <span class="string">'folders'</span>: folders</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="获取每个文件大小">获取每个文件大小</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> filesList = [];</span><br><span class="line">states = fs.statSync(path+<span class="string">'/'</span>+file); </span><br><span class="line"><span class="keyword">if</span>(!states.isDirectory())&#123; </span><br><span class="line">   <span class="keyword">var</span> fileObj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">   fileObj.size = states.size;<span class="comment">//文件大小(字节)</span></span><br><span class="line">   fileObj.name = file;<span class="comment">//文件名</span></span><br><span class="line">   fileObj.path = path+<span class="string">'/'</span>+file; <span class="comment">//绝对路径</span></span><br><span class="line">   filesList.push(fileObj);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="扫描文件以及文件夹">扫描文件以及文件夹</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><spa]]>
+    </summary>
+    
+      <category term="nodejs" scheme="http://blog.xuerlove.com/tags/nodejs/"/>
     
   </entry>
   

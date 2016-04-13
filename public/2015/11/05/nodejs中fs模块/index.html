@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>nodejs中fs模块 | Wisdom&#39;s blog</title>
+  <meta name="author" content="Wisdom">
+  
+  <meta name="description" content="frontend">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="nodejs中fs模块"/>
+  <meta property="og:site_name" content="Wisdom&#39;s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+    <meta name="Robots" content="index,follow,NOODP">
+    <meta name="keywords" content="nodejs中fs模块" />
+    <meta name="description" content="nodejs中fs模块" />
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Wisdom&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="Wisdom&#39;s blog" title="Wisdom&#39;s blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">Wisdom&#39;s blog</h1>
+				<h2 class="blog-motto">Encode my life</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	nodejs中fs模块
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://blog.xuerlove.com" title="Wisdom">Wisdom</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-11-05T07:03:01.000Z" itemprop="datePublished">2015-11-05</time>
+    更新日期:<time datetime="2016-04-13T11:13:10.000Z" itemprop="dateModified">2016-04-13</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件操作模块File_System"><span class="toc-number">1.</span> <span class="toc-text">文件操作模块File System</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常用方法"><span class="toc-number">2.</span> <span class="toc-text">常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#rename"><span class="toc-number">2.1.</span> <span class="toc-text">rename</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#chmod"><span class="toc-number">2.2.</span> <span class="toc-text">chmod</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#stat"><span class="toc-number">2.3.</span> <span class="toc-text">stat</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#realpath"><span class="toc-number">2.4.</span> <span class="toc-text">realpath</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#rmdir"><span class="toc-number">2.5.</span> <span class="toc-text">rmdir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mkdir"><span class="toc-number">2.6.</span> <span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#readdir"><span class="toc-number">2.7.</span> <span class="toc-text">readdir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#open"><span class="toc-number">2.8.</span> <span class="toc-text">open</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#close"><span class="toc-number">2.9.</span> <span class="toc-text">close</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#write"><span class="toc-number">2.10.</span> <span class="toc-text">write</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#write-1"><span class="toc-number">2.11.</span> <span class="toc-text">write</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#read"><span class="toc-number">2.12.</span> <span class="toc-text">read</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#readFile"><span class="toc-number">2.13.</span> <span class="toc-text">readFile</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#writeFile"><span class="toc-number">2.14.</span> <span class="toc-text">writeFile</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#appendFile"><span class="toc-number">2.15.</span> <span class="toc-text">appendFile</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#exists"><span class="toc-number">2.16.</span> <span class="toc-text">exists</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#所有方法都有对应的同步操作方式，方法名后面加上Sync,参数中没有callback"><span class="toc-number">2.17.</span> <span class="toc-text">所有方法都有对应的同步操作方式，方法名后面加上Sync,参数中没有callback</span></a></li></ol></li></ol>
+			</div>
+		
+        <h4 id="文件操作模块File_System">文件操作模块File System</h4><ul>
+<li>使用的时候只需要 <code>var fs = require(‘fs’);</code><h4 id="常用方法">常用方法</h4><h5 id="rename">rename</h5></li>
+<li><code>fs.rename(oldPath, newPath, callback)</code><br>传入原路径，新路径，回调方法，回调中主要用来检测err异常信息<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.rename(<span class="string">'jq-1.7.1.js'</span>,<span class="string">'src/jq-1.7.2.js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">if</span>(err)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'rename error'</span>);</span><br><span class="line">    <span class="keyword">throw</span> err;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'rename success'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//新路径中src必须存在，否则会报异常</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="chmod">chmod</h5><ul>
+<li><code>fs.chmod(path, mode, callback)</code><br>修改文件权限，传入文件路径，权限类型，回调函数。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.chmod(<span class="string">'jq-1.7.2.js'</span>,<span class="number">0777</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(err)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'chmod error'</span>);</span><br><span class="line">    <span class="keyword">throw</span> err;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'chmod success'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="stat">stat</h5><ul>
+<li><code>fs.stat(path, callback)</code><br>获取文件信息，传入文件路径，回调函数，回调中两个参数，异常以及文件信息数组<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.stat(<span class="string">'jq-1.7.2.js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, stats</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">if</span>(err)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'stat error'</span>);</span><br><span class="line">  <span class="keyword">throw</span> err;</span><br><span class="line"> &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'stat success'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(stats);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;)</span><br><span class="line">stats.isFile() —— 如果是个标准文件，而不是目录，socket，符号链接或者设备返回<span class="literal">true</span></span><br><span class="line">stats.isDiretory() —— 如果是目录则返回tue</span><br><span class="line">stats.isBlockDevice() —— 如果是块设备则返回<span class="literal">true</span></span><br><span class="line">stats.isChracterDevice() —— 如果是字符设备返回<span class="literal">true</span></span><br><span class="line">stats.isSymbolickLink() —— 如果是文件链接返回<span class="literal">true</span></span><br><span class="line">stats.isFifo() —— 如果是个FIFO返回<span class="literal">true</span></span><br><span class="line">stats.isSocket() —— 如果是个socket返回<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="realpath">realpath</h5><ul>
+<li><code>fs.realpath(path, cache, callback)</code><br>获取真实路径<br>传入参数有文件路径，文件路径中关键字的映射路径，回调，回调中包含异常err以及resolvedPath真实地址<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cache = &#123;<span class="string">'/www'</span>:<span class="string">'/home/q/www'</span>&#125;;</span><br><span class="line">fs.realpath(<span class="string">'/www/project'</span>, cache, <span class="function"><span class="keyword">function</span> (<span class="params">err, resolvedPath</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'realpath error'</span>);</span><br><span class="line">    <span class="keyword">throw</span> err;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'realpath success'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(resolvedPath);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="rmdir">rmdir</h5><ul>
+<li><code>fs.rmdir(path, callback)</code><br>删除目录，path要删除的目录，callback回调err<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.rmdir(<span class="string">'src'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">if</span>(err)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'rmdir err'</span>);</span><br><span class="line">  <span class="keyword">throw</span> err;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"rmdir success"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="mkdir">mkdir</h5><ul>
+<li><code>fs.mkdir(path, mode, callback)</code><br>创建目录，path要创建的目录，mode文件权限，callback回调err<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.mkdir(<span class="string">'src'</span>, <span class="number">0777</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">if</span>(err)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'mkdir err'</span>);</span><br><span class="line">  <span class="keyword">throw</span> err;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"mkdir success"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="readdir">readdir</h5><ul>
+<li>fs.readdir(path, callback)<br>读取目录中内容，path要读取的路径，callback回调，err files,files参数保存了目录中所有文件名的数组<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.readdir(<span class="string">'src'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err,files</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">if</span>(err)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'readdir err'</span>);</span><br><span class="line">  <span class="keyword">throw</span> err;</span><br><span class="line"> &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"readdir success"</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(files);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="open">open</h5><ul>
+<li><code>fs.open(path, flags, mode, callback)</code><br>打开文件，处理文件之前，需要打开文件<br>文件路径，打开方式(r，r+，w，w+，a或者a+)，回调函数 err fd<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.open(<span class="string">'/src/test'</span>, <span class="string">'r'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, fd</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'open err'</span>);</span><br><span class="line">        <span class="keyword">throw</span> err;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(fd);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="close">close</h5><ul>
+<li><code>fs.close(fd, callback)</code><br>任何读写操作之后都要关闭文件<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.open(<span class="string">'/src/test'</span>, <span class="string">'r'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, fd</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'open err'</span>);</span><br><span class="line">        <span class="keyword">throw</span> err;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(fd);</span><br><span class="line">    fs.close(fd,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> err;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="write">write</h5><ul>
+<li><code>fs.write(fd, buffer, offset, length, position, callback)</code><br>将buffer写入文件<br>fd文件描述符,buffer缓冲区,offset-buffer写入的偏移量, length指定文件写入字节数长度, position指定文件写入的起始位置，callback（err, bytesWritten, buffer）bytesWritten指定多少字节数将被写入到文件 ,buffer返回缓冲区对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.open(<span class="string">'src/test.js'</span>, <span class="string">'a'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, fd</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (err) &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'open err'</span>);</span><br><span class="line">		<span class="keyword">throw</span> err;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">8</span>);</span><br><span class="line">	fs.write(fd, buf, <span class="number">0</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, bytesWritten, buffer</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (err) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">'write err'</span>);</span><br><span class="line">			<span class="keyword">throw</span> err;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">console</span>.log(bytesWritten);</span><br><span class="line">		<span class="built_in">console</span>.log(buffer);</span><br><span class="line"></span><br><span class="line">		fs.close(fd, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (err) &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">'close err'</span>);</span><br><span class="line">				<span class="keyword">throw</span> err;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">'close'</span>);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="write-1">write</h5><ul>
+<li><code>fs.write(fd, data, position, encoding, callback)</code><br>将data写入文件<br>fd文件描述符,data写入数据，encoding文件编码，callback(err, written, string) written指定多少字符数将被写入到文件，string返回的Buffer<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.open(<span class="string">'src/test.js'</span>, <span class="string">'a'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, fd</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (err) &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'open err'</span>);</span><br><span class="line">		<span class="keyword">throw</span> err;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> data = <span class="string">'test'</span>;</span><br><span class="line">	fs.write(fd, data, <span class="number">0</span>, <span class="string">'utf-8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, written, string</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (err) &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">'write err'</span>);</span><br><span class="line">			<span class="keyword">throw</span> err;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">console</span>.log(written);</span><br><span class="line">		<span class="built_in">console</span>.log(string);</span><br><span class="line"></span><br><span class="line">		fs.close(fd, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (err) &#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">'close err'</span>);</span><br><span class="line">				<span class="keyword">throw</span> err;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">'close'</span>);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="read">read</h5><ul>
+<li><code>fs.read(fd, buffer, offset, length, position, callback)</code><br>根据指定的文件描述符fd来读取文件数据并写入buffer指向的缓冲区对象<br>fd 文件描述符，buffer缓冲区，数据将被写入，offset，buffer写入偏移量，length文件指定读取长度，position指定文件读取开始位置，传null表示开始位置，callback回调函数，err，bytesRead读的字节数, buffer缓冲区对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.open(<span class="string">'/src/test'</span>, <span class="string">'r'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, fd</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'open err'</span>);</span><br><span class="line">        <span class="keyword">throw</span> err;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">8</span>); </span><br><span class="line">    fs.read(fd, buf, <span class="number">0</span>, <span class="number">8</span>, <span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err,bytesRead,buffer</span>)</span>&#123; </span><br><span class="line">      <span class="keyword">if</span>(err)&#123; </span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'read err'</span>); </span><br><span class="line">       <span class="keyword">throw</span> err;</span><br><span class="line">       <span class="keyword">return</span>; </span><br><span class="line">      &#125; </span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'bytesRead'</span> +bytesRead); </span><br><span class="line">      <span class="built_in">console</span>.log(buffer); </span><br><span class="line">      fs.close(fd,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> err;</span><br><span class="line">      &#125;);</span><br><span class="line">     &#125;) </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="readFile">readFile</h5><ul>
+<li><code>fs.readFile(filename, options, callback)</code><br>以异步的方式读取文件内容。<br>filename 文件路径，option对象，包含 encoding，编码格式，该项是可选的，callback err data<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>); </span><br><span class="line">fs.readFile(<span class="string">'src/test.txt'</span>,<span class="string">'utf-8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123; </span><br><span class="line"> <span class="keyword">if</span>(err)&#123; </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'readFile err'</span>);</span><br><span class="line">  <span class="keyword">throw</span> err; </span><br><span class="line"> &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="writeFile">writeFile</h5><ul>
+<li><code>fs.writeFile(filename, data, options, callback)</code><br>以异步的方式写入文件，文件已存在将被覆盖。<br>filename文件名称，data将要写入的内容，可以使字符串或buffer数据。<br>option数组对象，包含：encoding mode flag<br>callback回调err。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fs.writeFile(<span class="string">'src/test.txt'</span>, <span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'write err'</span>);</span><br><span class="line">     <span class="keyword">throw</span> err;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'writeFile success'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="appendFile">appendFile</h5><ul>
+<li><code>fs.appendFile(filename, data, options, callback)</code><br>以异步的方式将data插入到文件里，文件不存在会创建一个新文件<br>参数解释同上<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fs.appendFile(<span class="string">'src/test.txt'</span>, <span class="string">'test'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">'write err'</span>);</span><br><span class="line">     <span class="keyword">throw</span> err;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'writeFile success'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="exists">exists</h5><ul>
+<li><code>fs.exists(path, callback)</code><br>检测某个路径下是否存在文件<br>path文件路径，callback回调exists true false<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>); </span><br><span class="line">fs.exists(<span class="string">'/src/test'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">exists</span>) </span>&#123; </span><br><span class="line">	<span class="keyword">if</span>(exists)&#123; </span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'exists'</span>); </span><br><span class="line">	&#125;<span class="keyword">else</span>&#123; </span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'not exists'</span>);</span><br><span class="line">	&#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="所有方法都有对应的同步操作方式，方法名后面加上Sync,参数中没有callback">所有方法都有对应的同步操作方式，方法名后面加上Sync,参数中没有callback</h5>
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/nodejs/">nodejs</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2015/11/06/nodejs网页抓取/" class="alignleft prev" title="nodejs网页抓取">nodejs网页抓取</a>
+    
+    
+    <a href="/2015/11/04/javascript变量提升与函数声明/" class="alignright next" title="javascript变量提升与函数声明">javascript变量提升与函数声明</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2015/11/05/nodejs中fs模块/" data-title="nodejs中fs模块" data-url="http://blog.xuerlove.com/2015/11/05/nodejs中fs模块/"></div>
+		<!-- 多说评论框 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- 
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:blog.xuerlove.com">
+  </form>
+</div>
+-->
+
+<div class="search">
+  <form>
+    <input type="search" id="chillax-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 18px;">web</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1761611997&verifier=58d84e73&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>21</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>2</small></li>
+  
+    <li><a href="/tags/nodejs/">nodejs</a><small>12</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>7</small></li>
+  
+    <li><a href="/tags/tools/">tools</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>15</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Never stop.  <br/>
+			Never give up.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1761611997" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/wuzhuo0425" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/wuzhuo0425" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:wuzhuo0425@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright"> © 2016 
+		
+		<a href="http://blog.xuerlove.com/about" target="_blank" title="Wisdom">Wisdom</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
+</script>
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuerlove"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
