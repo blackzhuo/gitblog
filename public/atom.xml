@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.xuerlove.com/"/>
-  <updated>2016-04-14T02:12:35.000Z</updated>
+  <updated>2016-04-14T02:43:35.000Z</updated>
   <id>http://blog.xuerlove.com/</id>
   
   <author>
@@ -13,6 +13,135 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[touch开发性能优化]]></title>
+    <link href="http://blog.xuerlove.com/2016/04/14/touch%E5%BC%80%E5%8F%91%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <id>http://blog.xuerlove.com/2016/04/14/touch开发性能优化/</id>
+    <published>2016-04-14T02:43:35.000Z</published>
+    <updated>2016-04-14T02:43:35.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[reactjs应用]]></title>
+    <link href="http://blog.xuerlove.com/2016/04/14/reactjs%E5%BA%94%E7%94%A8/"/>
+    <id>http://blog.xuerlove.com/2016/04/14/reactjs应用/</id>
+    <published>2016-04-14T02:42:32.000Z</published>
+    <updated>2016-04-14T02:48:11.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="reactjs">reactjs</h4><p>官方文档 <a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="external">http://reactjs.cn/react/docs/getting-started.html</a></p>
+<h5 id="引用reactjs框架">引用reactjs框架</h5><ul>
+<li>实时转换工具 <code>npm install -g react-tools</code> 启动命令 <code>jsx --watch src/ build/</code> （或者页面引入jsx编译工具）</li>
+<li>引入fetch <a href="https://github.com/github/fetch" target="_blank" rel="external">https://github.com/github/fetch</a> （引入Promise）</li>
+<li><p>jsx <a href="http://reactjs.cn/react/docs/jsx-in-depth.html" target="_blank" rel="external">http://reactjs.cn/react/docs/jsx-in-depth.html</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">##### &#36807;&#31243;&#10;* &#36890;&#36807; React.createClass &#23450;&#20041;&#32452;&#20214;&#10;* &#32452;&#20214;&#21253;&#21547;&#30340;&#23646;&#24615;&#65292;&#26041;&#27861;(http://reactjs.cn/react/docs/component-specs.html)&#10;&#9;* render&#10;&#9;* getInitialState&#10;&#9;* getDefaultProps&#10;&#9;* propTypes&#10;&#9;* mixins&#10;&#9;* statics&#10;&#9;* displayName&#10;* &#29983;&#21629;&#21608;&#26399;&#26041;&#27861;(http://reactjs.cn/react/docs/component-specs.html)&#10;&#9;* componentWillMount&#10;&#9;* componentDidMount&#10;&#9;* componentWillReceiveProps&#10;&#9;* shouldComponentUpdate&#10;&#9;* componentWillUpdate&#10;&#9;* componentDidUpdate&#10;&#9;* componentWillUnmount&#10;* &#32452;&#20214;&#29983;&#21629;&#21608;&#26399;&#10;&#62;&#20102;&#35299;&#32452;&#20214;&#30340;&#29983;&#21629;&#21608;&#26399;&#24456;&#37325;&#35201;&#65292;&#36825;&#22312;&#25105;&#20204;&#21738;&#20010;&#38454;&#27573;&#21435;&#35843;&#29992;&#20160;&#20040;&#26041;&#27861;&#26159;&#26377;&#24110;&#21161;&#30340;&#65292;&#19979;&#38754;&#23601;&#19968;&#36215;&#26469;&#30475;&#19968;&#19979;&#65306;&#10;&#10;1. getInitialState&#10;&#9;* &#22312;&#32452;&#20214;&#31867;&#21019;&#24314;&#30340;&#26102;&#20505;&#21482;&#35843;&#29992;&#19968;&#27425;&#65292;&#36820;&#22238;&#20540;&#26159; this.state &#30340;&#21021;&#22987;&#20540;&#10;2. componentWillMount&#10;&#9;* &#21021;&#22987;&#21270;&#28210;&#26579;&#20043;&#21069;&#21482;&#35843;&#29992;&#19968;&#27425;&#65292;&#22914;&#26524;&#22312;&#36825;&#20010;&#38454;&#27573;setState&#65292;&#26356;&#26032;&#23558;&#20250;&#36890;&#30693;render&#10;3. render&#10;&#9;* &#20250;&#26681;&#25454;this.props&#25110;&#32773;this.state&#28210;&#26579;&#32452;&#20214;&#10;4. componentDidMount&#10;&#9;* &#22312;&#21021;&#22987;&#21270;&#28210;&#26579;&#20043;&#21518;&#21482;&#35843;&#29992;&#19968;&#27425;&#65292;&#21487;&#20197;&#25805;&#20316;dom&#21644;&#27983;&#35272;&#22120;&#20132;&#20114;&#65292;&#36890;&#36807;this.DOMNode()&#33719;&#21462;DOM&#33410;&#28857;&#10;5. componentWillReceiveProps&#10;&#9;* &#32452;&#20214;&#25509;&#25910;&#21040;&#26032;&#30340;props&#37117;&#20250;&#35843;&#29992;&#65292;&#21021;&#22987;&#21270;&#30340;&#26102;&#20505;&#19981;&#20250;&#35843;&#29992;&#36825;&#20010;&#26041;&#27861;&#65292;&#21487;&#20197;&#22312;&#36825;&#37324;&#38754;&#26356;&#26032;this.state&#10;6. componentWillUpdate&#10;&#9;* &#22312;&#25509;&#25910;&#21040;&#26032;&#30340;props&#25110;&#32773;state&#20043;&#21069;&#30340;&#26102;&#20505;&#35843;&#29992;&#65292;&#21021;&#22987;&#21270;&#28210;&#26579;&#30340;&#26102;&#20505;&#19981;&#20250;&#35843;&#29992;&#65292;&#37324;&#38754;&#20570;&#26356;&#26032;&#21069;&#30340;&#20934;&#22791;&#24037;&#20316;&#65292;&#19981;&#33021;&#22312;&#37324;&#38754;setState&#10;7. shouldComponentUpdate&#10;&#9;* &#22312;&#25509;&#25910;&#21040;&#26032;&#30340;props&#25110;&#32773;state&#30340;&#26102;&#20505;&#65292;&#28210;&#26579;&#20043;&#21069;&#35843;&#29992;&#65292;&#22312;&#21021;&#22987;&#21270;&#30340;&#26102;&#20505;&#19981;&#20250;&#35843;&#29992;&#65292;&#22914;&#26524;&#30830;&#23450;&#26032;&#30340;props&#21644;state&#19981;&#20250;&#23548;&#33268;&#32452;&#20214;&#26356;&#26032;&#65292;&#21487;&#20197;&#36820;&#22238;false,&#40664;&#35748;&#36820;&#22238;true&#10;&#9;```javascript&#10;&#9;shouldComponentUpdate: function(nextProps, nextState) &#123;&#10;&#9;  return nextProps.id !== this.props.id;&#10;&#9;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这个方法可以提升程序性能，一些依赖父级props，组件本身会发送请求的情况，可以判断传入props是否是更新后的，然后再去执行接下来的动作。</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>componentDidUpdate<ul>
+<li>组件更新到DOM中被调用，初始化的时候不会调用，对dom的操作可以放在这里面执行</li>
+</ul>
+</li>
+<li>componentWillUnmount<ul>
+<li>组件从dom中移除的时候调用，这个方法中清除一些定时操作等</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="reactjs">reactjs</h4><p>官方文档 <a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="external">http://react]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[nodejs开发控制台工具]]></title>
+    <link href="http://blog.xuerlove.com/2016/04/14/nodejs%E5%BC%80%E5%8F%91%E6%8E%A7%E5%88%B6%E5%8F%B0%E5%B7%A5%E5%85%B7/"/>
+    <id>http://blog.xuerlove.com/2016/04/14/nodejs开发控制台工具/</id>
+    <published>2016-04-14T02:41:56.000Z</published>
+    <updated>2016-04-14T03:11:25.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="环境要求">环境要求</h4><ul>
+<li>nodejs</li>
+</ul>
+<h4 id="基本文件结构">基本文件结构</h4><ul>
+<li>package.json <ul>
+<li>使用npm init生成</li>
+<li>安装依赖模块使用 npm install 模块名</li>
+</ul>
+</li>
+<li>一个主文件 index.js</li>
+</ul>
+<h4 id="例子：">例子：</h4><ul>
+<li><p>package.json</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"node-translate"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"translate"</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"bin"</span>: &#123;</span><br><span class="line">    <span class="string">"trans"</span>: <span class="string">"./index.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"wisdom"</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"color"</span>: <span class="string">"^0.11.1"</span>,</span><br><span class="line">    <span class="string">"colors"</span>: <span class="string">"^1.1.2"</span>,</span><br><span class="line">    <span class="string">"commander"</span>: <span class="string">"^2.9.0"</span>,</span><br><span class="line">    <span class="string">"request"</span>: <span class="string">"^2.70.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>index.js</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">#! /usr/bin/env node</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"> * @Author: wisdom</span><br><span class="line"> * @Date:   2016-04-07 15:47:33</span><br><span class="line"> * @Last Modified by:   wisdom</span><br><span class="line"> * @Last Modified time: 2016-04-07 17:56:40</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">'use strict';</span><br><span class="line"></span><br><span class="line">var request = require('request');</span><br><span class="line">var colors = require('colors');</span><br><span class="line"></span><br><span class="line">var program = require('commander');</span><br><span class="line">program.version('0.0.1').parse(process.argv);</span><br><span class="line"></span><br><span class="line">(function() &#123;</span><br><span class="line"></span><br><span class="line">	var param = process.argv[2];</span><br><span class="line"></span><br><span class="line">	var word = param ? param : '';</span><br><span class="line"></span><br><span class="line">	if (!word) &#123;</span><br><span class="line">		console.log('请输入要查询的单词'.underline.red);</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	console.log('');</span><br><span class="line">	console.log('要翻译的单词 : '.green + ' : ' + word.underline.red);</span><br><span class="line">	console.log('');</span><br><span class="line"></span><br><span class="line">	var option = &#123;</span><br><span class="line">		from: 'zh',</span><br><span class="line">		to: 'en',</span><br><span class="line">		query: encodeURIComponent(word)</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	if (/^[A-Za-z ]+$/.test(word.trim())) &#123;</span><br><span class="line">		option.from = 'en';</span><br><span class="line">		option.to = 'zh';</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	var url = 'http://test.com'; // 这里换成了假url</span><br><span class="line"></span><br><span class="line">	var paramArray = [];</span><br><span class="line">	for (var item in option) &#123;</span><br><span class="line">		var pStr = item + '=' + option[item];</span><br><span class="line">		paramArray.push(pStr);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	url += '?' + paramArray.join('&amp;');</span><br><span class="line"></span><br><span class="line">	request(url, function(error, response, data) &#123;</span><br><span class="line">		if (!error &amp;&amp; response.statusCode == 200) &#123;</span><br><span class="line">			data = JSON.parse(data);</span><br><span class="line">			if (data &amp;&amp; data.result) &#123;</span><br><span class="line">				console.log('翻译结果 : '.green + data.result.dst.underline.red || '没有查询到结果'.underline.red);</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				console.log('没有查询到结果'.underline.red);</span><br><span class="line">			&#125;</span><br><span class="line">			console.log('');</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="链接到全局">链接到全局</h4><p>npm link</p>
+<h4 id="自行发布">自行发布</h4><h4 id="request">request</h4><p>request模块让http请求变的简单,<a href="https://www.npmjs.com/package/request" target="_blank" rel="external">https://www.npmjs.com/package/request</a></p>
+<h4 id="colors">colors</h4><p>终端着色colors插件,<a href="https://www.npmjs.com/package/colors" target="_blank" rel="external">https://www.npmjs.com/package/colors</a></p>
+<h4 id="program">program</h4><p>nodejs命令行参数处理模块commander,<a href="https://www.npmjs.com/package/commander" target="_blank" rel="external">https://www.npmjs.com/package/commander</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="环境要求">环境要求</h4><ul>
+<li>nodejs</li>
+</ul>
+<h4 id="基本文件结构">基本文件结构</h4><ul>
+<li>package.json <ul>
+<li>使用npm init生成</li>
+<li>安装依赖模块使用 n]]>
+    </summary>
+    
+      <category term="nodejs" scheme="http://blog.xuerlove.com/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[npm包开发]]></title>
+    <link href="http://blog.xuerlove.com/2016/04/14/npm%E5%8C%85%E5%BC%80%E5%8F%91/"/>
+    <id>http://blog.xuerlove.com/2016/04/14/npm包开发/</id>
+    <published>2016-04-14T02:41:29.000Z</published>
+    <updated>2016-04-14T02:41:29.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[移动端布局]]></title>
+    <link href="http://blog.xuerlove.com/2016/04/14/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80/"/>
+    <id>http://blog.xuerlove.com/2016/04/14/移动端布局/</id>
+    <published>2016-04-14T02:39:45.000Z</published>
+    <updated>2016-04-14T02:40:23.000Z</updated>
+    <content type="html"><![CDATA[<ol>
+<li><p>黏性布局 POSITION:STICKY（通过判断支持该属性的浏览器使用该布局） – <a href="http://hao.jser.com/archive/7970/" target="_blank" rel="external">http://hao.jser.com/archive/7970/</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.sticky &#123;</span><br><span class="line">    position: -webkit-sticky;</span><br><span class="line">    position: sticky;</span><br><span class="line">    top: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">.fixed &#123;</span><br><span class="line">    position: fixed;</span><br><span class="line">    top: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Web移动端Fixed布局的解决方案  – <a href="http://efe.baidu.com/blog/mobile-fixed-layout/" target="_blank" rel="external">http://efe.baidu.com/blog/mobile-fixed-layout/</a></p>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<ol>
+<li><p>黏性布局 POSITION:STICKY（通过判断支持该属性的浏览器使用该布局） – <a href="http://hao.jser.com/archive/7970/" target="_blank" rel="external">http://hao]]>
+    </summary>
+    
+      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[动态脚本]]></title>
@@ -303,6 +432,31 @@
   </entry>
   
   <entry>
+    <title><![CDATA[javascript面向对象相关]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/21/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3/"/>
+    <id>http://blog.xuerlove.com/2015/11/21/javascript面向对象相关/</id>
+    <published>2015-11-21T07:03:01.000Z</published>
+    <updated>2016-04-14T02:27:52.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="for_in循环">for in循环</h4><blockquote>
+<p>for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回</p>
+</blockquote>
+<p>####继承<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">	F.prototype = o;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType,superType</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> prototype = object(superType.prototype);</span><br><span class="line">	prototype.constructor = subType;</span><br><span class="line">	subType.prototype = prototype;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.color = [<span class="string">"red"</span>,<span class="string">"blue"</span>];</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	SuperType.call(<span class="keyword">this</span>,name);</span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">inheritPrototype(SubType,SuperType);</span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.age);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。</p>
+</blockquote>
+<h4 id="单例模式">单例模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> private = <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		public:<span class="literal">true</span>,</span><br><span class="line">		publicFunc:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			private++;</span><br><span class="line">			<span class="keyword">return</span> privateFunc();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[nginx配置https]]></title>
     <link href="http://blog.xuerlove.com/2015/11/21/nginx%E9%85%8D%E7%BD%AEhttps/"/>
     <id>http://blog.xuerlove.com/2015/11/21/nginx配置https/</id>
@@ -349,32 +503,17 @@
   </entry>
   
   <entry>
-    <title><![CDATA[javascript面向对象相关]]></title>
-    <link href="http://blog.xuerlove.com/2015/11/21/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3/"/>
-    <id>http://blog.xuerlove.com/2015/11/21/javascript面向对象相关/</id>
-    <published>2015-11-21T07:03:01.000Z</published>
-    <updated>2016-04-14T02:15:39.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">`javascript</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">#### for in循环</span><br><span class="line">&gt;for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回</span><br><span class="line"></span><br><span class="line">####继承</span><br><span class="line">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">	F.prototype = o;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType,superType</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> prototype = object(superType.prototype);</span><br><span class="line">	prototype.constructor = subType;</span><br><span class="line">	subType.prototype = prototype;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.color = [<span class="string">"red"</span>,<span class="string">"blue"</span>];</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	SuperType.call(<span class="keyword">this</span>,name);</span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">inheritPrototype(SubType,SuperType);</span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.age);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。</p>
-</blockquote>
-<h4 id="单例模式">单例模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> private = <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		public:<span class="literal">true</span>,</span><br><span class="line">		publicFunc:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			private++;</span><br><span class="line">			<span class="keyword">return</span> privateFunc();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</spa]]>
-    </summary>
-    
-      <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[表单中按回车键自动提交]]></title>
     <link href="http://blog.xuerlove.com/2015/11/20/%E8%A1%A8%E5%8D%95%E4%B8%AD%E6%8C%89%E5%9B%9E%E8%BD%A6%E9%94%AE%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4/"/>
     <id>http://blog.xuerlove.com/2015/11/20/表单中按回车键自动提交/</id>
     <published>2015-11-20T07:03:01.000Z</published>
-    <updated>2016-04-14T02:13:25.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="当form表单中只有一个&lt;input_type=&quot;text&quot;_name=&#39;name&#39;_/&gt;时按回车键将会自动将表单提交。">当form表单中只有一个<code>&lt;input type=&quot;text&quot; name=&#39;name&#39; /&gt;</code>时按回车键将会自动将表单提交。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">'text'</span> <span class="attribute">name</span>=<span class="value">'name'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br><span class="line">```<span class="comment">&lt;!--more--&gt;</span></span><br><span class="line">#### 不需要提交的解决方案</span><br><span class="line">* 添加一个</span><br><span class="line">```javascript</span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">'text'</span> <span class="attribute">style</span>=<span class="value">'display:none'</span>/&gt;</span></span></span><br></pre></td></tr></table></figure>
-<ul>
+    <updated>2016-04-14T02:26:40.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="当form表单中只有一个&lt;input_type=&quot;text&quot;_name=&#39;name&#39;_/&gt;时按回车键将会自动将表单提交。">当form表单中只有一个<code>&lt;input type=&quot;text&quot; name=&#39;name&#39; /&gt;</code>时按回车键将会自动将表单提交。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">'text'</span> <span class="attribute">name</span>=<span class="value">'name'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="不需要提交的解决方案">不需要提交的解决方案</h4><ul>
+<li><p>添加一个</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">'text'</span> style=<span class="string">'display:none'</span>/&gt;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>不显示输入框，然后回车之后也不会提交：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">'text'</span> <span class="attribute">name</span>=<span class="value">'name'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">style</span>=<span class="value">'display:none'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 </li>
@@ -397,7 +536,8 @@
 </ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h4 id="当form表单中只有一个&lt;input_type=&quot;text&quot;_name=&#39;name&#39;_/&gt;时按回车键将会自动将表单提交。">当form表单中只有一个<code>&lt;input type=&quot;text&qu]]>
+    <![CDATA[<h4 id="当form表单中只有一个&lt;input_type=&quot;text&quot;_name=&#39;name&#39;_/&gt;时按回车键将会自动将表单提交。">当form表单中只有一个<code>&lt;input type=&quot;text&quot; name=&#39;name&#39; /&gt;</code>时按回车键将会自动将表单提交。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">'text'</span> <span class="attribute">name</span>=<span class="value">'name'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>]]>
+    
     </summary>
     
       <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
@@ -690,258 +830,6 @@ $(window).scroll(function(){
     </summary>
     
       <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[html页面中meta标签]]></title>
-    <link href="http://blog.xuerlove.com/2015/11/11/html%E9%A1%B5%E9%9D%A2%E4%B8%ADmeta%E6%A0%87%E7%AD%BE/"/>
-    <id>http://blog.xuerlove.com/2015/11/11/html页面中meta标签/</id>
-    <published>2015-11-11T07:03:01.000Z</published>
-    <updated>2016-04-14T02:14:41.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="介绍">介绍</h4><blockquote>
-<p>meta标签提供的数据不会展示页页面当中，但是对于机器来说，这些内容确是重要的，它会告诉机器怎么展示页面，还可以设置搜索引擎对页面的抓取。</p>
-</blockquote>
-<h5 id="属性">属性</h5><table>
-<thead>
-<tr>
-<th style="text-align:left">属性</th>
-<th style="text-align:center">值</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">http-equiv</td>
-<td style="text-align:center">content-type / expire / refresh / set-cookie</td>
-<td style="text-align:center">把content属性关联到HTTP头部</td>
-</tr>
-<tr>
-<td style="text-align:left">name</td>
-<td style="text-align:center">author / description / keywords / generator / revised / others</td>
-<td style="text-align:center">把 content 属性关联到一个名称</td>
-</tr>
-<tr>
-<td style="text-align:left">content</td>
-<td style="text-align:center">text</td>
-<td style="text-align:center">定义用于 content 属性值的格式</td>
-</tr>
-</tbody>
-</table>
-<a id="more"></a>
-<h5 id="SEO相关">SEO相关</h5><ul>
-<li>name=”keywords” 网页内容关键字</li>
-<li>name=”description” 网页内容描述</li>
-<li>name=”robots” 搜索引擎索引方式<br>  none 搜索引擎将忽略此网页，等价于noindex，nofollow。<br>  noindex 搜索引擎不索引此网页。<br>  nofollow 搜索引擎不继续通过此网页的链接索引搜索其它的网页。<br>  all 搜索引擎将索引此网页与继续通过此网页的链接索引，等价于index，follow。<br>  index 搜索引擎索引此网页。<br>  follow 搜索引擎继续通过此网页的链接索引搜索其它的网页。</li>
-<li>http-equiv=”refresh” 页面重定向和刷新,content内的数字代表时间，多少秒后刷新。如果加url,则会重定向到指定网页<br>  <code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=http://www.baidu.com&quot; /&gt;</code></li>
-<li>name=”author” 作者</li>
-<li>针对谷歌GOOGLEBOT使用robots<br>  <code>&lt;meta name=&quot;googlebot&quot; content=&quot;noindex, nofollow&quot; /&gt;</code></li>
-<li>针对百度baiduspider使用robots<br>  <code>&lt;meta name=&quot;baiduspider&quot; content=&quot;noarchive&quot; /&gt;</code></li>
-</ul>
-<h5 id="移动设备">移动设备</h5><ul>
-<li>viewport 优化移动页面显示<ul>
-<li>4.7-5寸设备的viewport宽设为360px；</li>
-<li>5.5寸设备设为400px；</li>
-<li>iphone6设为375px；</li>
-<li>ipone6 plus设为414px。</li>
-</ul>
-</li>
-<li>属性<ul>
-<li>width：宽度（数值 / device-width）（范围从200 到10,000，默认为980 像素）</li>
-<li>height：高度（数值 / device-height）（范围从223 到10,000）</li>
-<li>initial-scale：初始的缩放比例 （范围从&gt;0 到10）</li>
-<li>minimum-scale：允许用户缩放到的最小比例</li>
-<li>maximum-scale：允许用户缩放到的最大比例</li>
-<li>user-scalable：用户是否可以手动缩 (no,yes)</li>
-<li>minimal-ui：可以在页面加载时最小化上下状态栏。（已弃用）</li>
-<li>如果和initial-scale=1同时使用user-scalable=no或maximum-scale=1，则用户将不能放大/缩小网页来看到全部的内容。</li>
-</ul>
-</li>
-<li>应用<ul>
-<li>WebApp全屏<br><code>&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;</code></li>
-<li>隐藏状态栏/设置状态栏颜色<br><code>&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot; /&gt;</code></li>
-<li>添加到主屏后的标题<br><code>&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;标题&quot;&gt;</code></li>
-<li>忽略数字自动识别为电话号码<br><code>&lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot; /&gt;</code></li>
-<li>忽略识别邮箱<br><code>&lt;meta content=&quot;email=no&quot; name=&quot;format-detection&quot; /&gt;</code></li>
-<li>添加智能 App 广告条 Smart App Banne<br><code>&lt;meta name=&quot;apple-itunes-app&quot; content=&quot;app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL&quot;&gt;</code></li>
-</ul>
-</li>
-<li>其他<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"HandheldFriendly"</span> <span class="attribute">content</span>=<span class="value">"true"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 微软的老式浏览器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"MobileOptimized"</span> <span class="attribute">content</span>=<span class="value">"320"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- uc强制竖屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"screen-orientation"</span> <span class="attribute">content</span>=<span class="value">"portrait"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ强制竖屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"x5-orientation"</span> <span class="attribute">content</span>=<span class="value">"portrait"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- UC强制全屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"full-screen"</span> <span class="attribute">content</span>=<span class="value">"yes"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ强制全屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"x5-fullscreen"</span> <span class="attribute">content</span>=<span class="value">"true"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- UC应用模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"browsermode"</span> <span class="attribute">content</span>=<span class="value">"application"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- QQ应用模式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"x5-page-mode"</span> <span class="attribute">content</span>=<span class="value">"app"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- windows phone 点击无高光 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"msapplication-tap-highlight"</span> <span class="attribute">content</span>=<span class="value">"no"</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="网页应用">网页应用</h4><ul>
-<li>编码<br>  <code>&lt;meta charset=&#39;utf-8&#39; /&gt;</code></li>
-<li><p>浏览器优先选择</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"IE=edge,chrome=1"</span> /&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"X-UA-Compatible"</span> <span class="attribute">content</span>=<span class="value">"IE=8"</span> &gt;</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>内核控制：控制浏览器使用哪种内核渲染<br>  <code>&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;</code><br>  可选值：webkit，ie-comp，ie-stand</p>
-</li>
-<li>禁止本地缓存<br>  <code>&lt;meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot;&gt;</code></li>
-<li>Windows 8 tile</li>
-<li>适配：PC-手机页面的对应<br>  <code>&lt;meta name=&quot;mobile-agent&quot; content=&quot;format=html5; url=url&quot;&gt;</code><br>  [wml|xhtml|html5]根据手机页面的协议语言，选择其中一种；<br>  url=”url” 后者代表当前PC页所对应的手机页URL，两者必须是一一对应关系。</li>
-<li>转码申明 （避免转码使用如下）<br>  <code>&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-siteapp&quot; /&gt;</code></li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="介绍">介绍</h4><blockquote>
-<p>meta标签提供的数据不会展示页页面当中，但是对于机器来说，这些内容确是重要的，它会告诉机器怎么展示页面，还可以设置搜索引擎对页面的抓取。</p>
-</blockquote>
-<h5 id="属性">属性</h5><table>
-<thead>
-<tr>
-<th style="text-align:left">属性</th>
-<th style="text-align:center">值</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">http-equiv</td>
-<td style="text-align:center">content-type / expire / refresh / set-cookie</td>
-<td style="text-align:center">把content属性关联到HTTP头部</td>
-</tr>
-<tr>
-<td style="text-align:left">name</td>
-<td style="text-align:center">author / description / keywords / generator / revised / others</td>
-<td style="text-align:center">把 content 属性关联到一个名称</td>
-</tr>
-<tr>
-<td style="text-align:left">content</td>
-<td style="text-align:center">text</td>
-<td style="text-align:center">定义用于 content 属性值的格式</td>
-</tr>
-</tbody>
-</table>]]>
-    
-    </summary>
-    
-      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[浏览器扩展应用开发]]></title>
-    <link href="http://blog.xuerlove.com/2015/11/10/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/"/>
-    <id>http://blog.xuerlove.com/2015/11/10/浏览器扩展应用开发/</id>
-    <published>2015-11-10T07:03:01.000Z</published>
-    <updated>2016-04-14T02:13:12.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="简介">简介</h4><blockquote>
-<p>chrome应用商店里面存放着大量的浏览器应用，这些扩展应用不同于浏览器插件，它们必须依赖浏览器而运行。浏览器应用的本质就是web页面，浏览器支持的API我们都可以使用<br><a id="more"></a></p>
-<h4 id="准备">准备</h4><ul>
-<li>开发浏览器扩招应用不需要我们学习额外的技能，只需要我们日常开发中使用的html,js,css知识足矣。</li>
-<li>项目中包含的文件<ol>
-<li>manifest</li>
-<li>一个或多个html文件</li>
-<li>javascript文件（可选）</li>
-<li>css文件（可选）</li>
-<li>其他文件，例如图片（可选）</li>
-</ol>
-</li>
-<li>这些文件放在同一个根目录下，发布应用时，这个目录全部打包到一个应用名是.crx的压缩文件中。<br>[<a href="https://chrome.google.com/webstore/developer/dashboard]上传应用的时候，可以自动生成.crx文件" target="_blank" rel="external">https://chrome.google.com/webstore/developer/dashboard]上传应用的时候，可以自动生成.crx文件</a><br>或者使用浏览器的 更多工具》扩展程序》打包扩展程序 功能，生成.crx文件。</li>
-</ul>
-</blockquote>
-<h4 id="manifest-json">manifest.json</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"name"</span>: <span class="string">"My Extension"</span>,</span><br><span class="line">	<span class="string">"version"</span>: <span class="string">"2.1"</span>,</span><br><span class="line">	<span class="string">"description"</span>: <span class="string">"Gets information from Google."</span>,</span><br><span class="line">	<span class="string">"icons"</span>: &#123; <span class="string">"128"</span>: <span class="string">"icon_128.png"</span> &#125;,</span><br><span class="line">	<span class="string">"background_page"</span>: <span class="string">"bg.html"</span>,</span><br><span class="line">	<span class="string">"permissions"</span>: [<span class="string">"http://*.google.com/"</span>, <span class="string">"https://*.google.com/"</span>],</span><br><span class="line">	<span class="string">"browser_action"</span>: &#123;</span><br><span class="line">		<span class="string">"default_title"</span>: <span class="string">""</span>,</span><br><span class="line">		<span class="string">"default_icon"</span>: <span class="string">"icon_19.png"</span>,</span><br><span class="line">		<span class="string">"default_popup"</span>: <span class="string">"popup.html"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>manifest.json文件中主要内容都在这里，不难理解</p>
-<h4 id="基本架构">基本架构</h4><ol>
-<li>运行app的主页面，可以使用chrome.tabs.create()或者window.open()来显示内部的HTML文件。也可以直接使用html文件。</li>
-<li><p>Content scripts，如果一个页面要与web页面交互，需要使用一个content scripts，content script脚本是指能够在浏览器已经加载的页面内部运行的javascript脚本。可以将content script看作是网页的一部分，而不是它所在的应用的一部分。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"My extension"</span>,</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">"content_scripts"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"matches"</span>: [<span class="string">"http://www.google.com/*"</span>],</span><br><span class="line">      <span class="string">"css"</span>: [<span class="string">"mystyles.css"</span>],</span><br><span class="line">      <span class="string">"js"</span>: [<span class="string">"jquery.js"</span>, <span class="string">"myscript.js"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line">或者</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"My extension"</span>,</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">"permissions"</span>: [</span><br><span class="line">    <span class="string">"tabs"</span>, <span class="string">"http://www.google.com/*"</span></span><br><span class="line">  ],</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">直接注入</span><br><span class="line"><span class="comment">/* background.html */</span></span><br><span class="line">chrome.browserAction.onClicked.addListener(<span class="function"><span class="keyword">function</span>(<span class="params">tab</span>) </span>&#123;</span><br><span class="line">  chrome.tabs.executeScript(<span class="literal">null</span>,</span><br><span class="line">                           &#123;code:<span class="string">"document.body.bgColor='red'"</span>&#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* manifest.json */</span></span><br><span class="line"><span class="string">"permissions"</span>: [</span><br><span class="line">  <span class="string">"tabs"</span>, <span class="string">"http://*/*"</span></span><br><span class="line">],</span><br><span class="line"></span><br><span class="line">注入文件</span><br><span class="line">chrome.tabs.executeScript(<span class="literal">null</span>, &#123;file: <span class="string">"content_script.js"</span>&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通信 扩展和web页面之间可以通信，使用 getViews()和getBackgroundPage() 可以获得页面的引用，就能操作页面方法，操作页面dom</p>
-</li>
-<li>数据保存，如果是在非隐身模式下，可以使用localStorage，检查窗口是否在隐身模式下，检查Tab或Window对象的incognito属性。</li>
-</ol>
-<h4 id="跨域">跨域</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* manifest.json */</span></span><br><span class="line"><span class="string">"permissions"</span>: [</span><br><span class="line">	<span class="string">"http://api.test.com/"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="简介">简介</h4><blockquote>
-<p>chrome应用商店里面存放着大量的浏览器应用，这些扩展应用不同于浏览器插件，它们必须依赖浏览器而运行。浏览器应用的本质就是web页面，浏览器支持的API我们都可以使用<br>]]>
-    
-    </summary>
-    
-      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[BigPipe]]></title>
-    <link href="http://blog.xuerlove.com/2015/11/09/BigPipe/"/>
-    <id>http://blog.xuerlove.com/2015/11/09/BigPipe/</id>
-    <published>2015-11-09T07:03:01.000Z</published>
-    <updated>2016-04-14T02:13:44.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="BigPipe">BigPipe</h4><blockquote>
-<ol>
-<li>BigPipe就是把网页分解成多个模块，然后通过服务器和浏览器建立管道链接，分别对各个模块进行输出，最后完成一个完整的页面。</li>
-<li>传统方式的页面渲染大致分为两类，一种是使用动态语言jsp，asp.net等进行完整页面的渲染以及交互，另一种是服务端负责渲染最基本的页面结构，或者说是页面上静态的结构，然后由javascript负责渲染页面动态的部分，以及各种交互的部分。<a id="more"></a><ul>
-<li>第一种方式在服务器进行完整的计算渲染后，一次性传输到浏览器端，过程可能会比较长。</li>
-<li>第二种方式页面渲染速度比较快，但是到了客户端后，可能会发出很多网络数据请求，数据请求的过程对性能的影响也是比较大的。<br>那么使用bigpipe的好处就突显出来了。</li>
-<li>首先各个请求都是异步的，互不影响的，当一个请求返回结果后，服务器端就可以继续完成数据处理以及dom元素渲染，然后输出到浏览器端，浏览器端接收到结果后直接渲染页面某一模块。</li>
-<li>其次，浏览器在整个页面阶段只发出了一个请求，那就是页面请求，页面渲染结束期间，这个请求是不会中断的。<br>虽然上面叙述了一些bigpipe的好处，但是有没有发现，由于请求接口的过程是异步的，那么返回时间也是不固定的，就会出现页面渲染并不是按照我们预想的顺序。这时候我们又想出了一个办法，在页面初始阶段返回页面基本骨架，然后各个请求返回结果后，渲染到固定模块内，保证页面不会乱。而bigpipe初始阶段返回不闭合的html，等所有传输结束后返回页面闭合标签，整个过程结束。</li>
-</ul>
-</li>
-<li>http1.1 支持持续的连接，这样就可以发出多个请求，并且接收多个请求。还可以发送流水请求，在一个请求未返回结果的时候就继续发生第二个请求。</li>
-</ol>
-</blockquote>
-<h4 id="nodejs实现">nodejs实现</h4><ol>
-<li>核心就是http.requert()</li>
-<li>html页面访问直接请求nodejs渲染的页面。</li>
-<li>当请求到达nodejs时，nodejs返回一个不闭合html框架。</li>
-<li>nodejs发出多个请求，每个请求都是一个页面的模块部分。</li>
-<li>分别接收到各个请求结果后，处理数据，渲染模版，取到html，返回一个script标签，里面调用客户端脚本，在指定div内写这段html。这段代码就是最简单的<code>document.getElementById(&#39;#id&#39;).innerHTML=html;。</code></li>
-<li>所有请求返回结果后，nodejs返回页面闭合标签。</li>
-<li>其他的页面效果，特效，交互交给javascript。</li>
-</ol>
-<h4 id="简单实现">简单实现</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>) </span>&#123;</span><br><span class="line">	response.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>&#125;);</span><br><span class="line">	response.write(<span class="string">"&lt;!Doctype html&gt;&lt;html lang=\"en\"&gt;&lt;head&gt;&lt;title&gt;bigpipe&lt;/title&gt;"</span>);</span><br><span class="line">	response.write(<span class="string">"&lt;script type=\"text/javascript\"&gt;function load(id,html) &#123; var ele=document.getElementById(id); ele.innerHTML = html;&#125;&lt;/script&gt;"</span>);</span><br><span class="line">	response.write(<span class="string">"&lt;/head&gt;&lt;body&gt;&lt;div id=\"top\"&gt;&lt;/div&gt;"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> url = <span class="string">'http://test.com/a.json'</span>;</span><br><span class="line">	<span class="keyword">var</span> requestHeaders = request.headers;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> options = &#123;</span><br><span class="line">	    url: url,</span><br><span class="line">	    method: <span class="string">"POST"</span>,</span><br><span class="line">	    headers: &#123;</span><br><span class="line">	        <span class="string">"user-agent"</span>: requestHeaders[<span class="string">"user-agent"</span>],</span><br><span class="line">	        <span class="string">"cookie"</span>: requestHeaders[<span class="string">"cookie"</span>]</span><br><span class="line">	    &#125;,</span><br><span class="line">	    timeout: <span class="number">6000</span></span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> post = http.request(options);</span><br><span class="line">	post.addListener(<span class="string">'response'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">		res.addListener(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">var</span> html = dealHtml(data);</span><br><span class="line">			response.write(<span class="string">'&lt;script&gt;load('</span>top<span class="string">','</span>+html+<span class="string">')&lt;/script&gt;'</span>);</span><br><span class="line">		&#125;);</span><br><span class="line">		res.addListener(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			response.end();</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line">	post.end();</span><br><span class="line">	response.write(<span class="string">"&lt;/body&gt;&lt;/html&gt;"</span>);</span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">8998</span>);</span><br></pre></td></tr></table></figure>]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="BigPipe">BigPipe</h4><blockquote>
-<ol>
-<li>BigPipe就是把网页分解成多个模块，然后通过服务器和浏览器建立管道链接，分别对各个模块进行输出，最后完成一个完整的页面。</li>
-<li>传统方式的页面渲染大致分为两类，一种是使用动态语言jsp，asp.net等进行完整页面的渲染以及交互，另一种是服务端负责渲染最基本的页面结构，或者说是页面上静态的结构，然后由javascript负责渲染页面动态的部分，以及各种交互的部分。]]>
-    
-    </summary>
-    
-      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[nodejs调用phantom]]></title>
-    <link href="http://blog.xuerlove.com/2015/11/08/nodejs%E8%B0%83%E7%94%A8phantom/"/>
-    <id>http://blog.xuerlove.com/2015/11/08/nodejs调用phantom/</id>
-    <published>2015-11-08T07:03:01.000Z</published>
-    <updated>2016-04-14T02:16:37.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="phantomjs">phantomjs</h4><blockquote>
-<p>phantomjs能够截图，查看网页请求信息，对页面进行dom操作等等<br>利用phantomjs能够做很多事，例如通过截图对比查看页面是否疵了，网络请求监测网页性能，dom抓取等等<br><a id="more"></a></p>
-<h4 id="安装">安装</h4><ul>
-<li>centos<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install gcc gcc-c++ make git openssl-devel freetype-devel fontconfig-devel </span><br><span class="line">git clone git:<span class="comment">//github.com/ariya/phantomjs.git </span></span><br><span class="line">cd phantomjs </span><br><span class="line">git checkout <span class="number">1.9</span> </span><br><span class="line">./build.sh</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<h4 id="截图">截图</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//snapshot.js</span></span><br><span class="line"><span class="keyword">var</span> page = <span class="built_in">require</span>(<span class="string">'webpage'</span>).create();</span><br><span class="line">page.viewportSize = &#123; width: <span class="number">320</span>, height: <span class="number">640</span> &#125;;</span><br><span class="line">page.open(<span class="string">'http://www.test.com'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">status</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (status !== <span class="string">'success'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'err!'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        page.render(<span class="string">'1.png'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    phantom.exit();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="dom抓取">dom抓取</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> page = <span class="built_in">require</span>(<span class="string">'webpage'</span>).create();</span><br><span class="line">fname = system.args[<span class="number">1</span>];</span><br><span class="line">page.open(<span class="string">"http://www.test.com"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (status !== <span class="string">'success'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'err!'</span>);</span><br><span class="line">        phantom.exit(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> html;</span><br><span class="line">    page.evaluate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">'#kw'</span>).value = <span class="string">'javascript'</span>;</span><br><span class="line">        <span class="built_in">document</span>.querySelector(<span class="string">'#su'</span>).click();</span><br><span class="line">        html = <span class="built_in">document</span>.querySelector(<span class="string">'.content_left'</span>).innerHTML;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//fs.write('/user/test.html',html,'w');</span></span><br><span class="line">    phantom.exit();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="nodejs调用phantomjs">nodejs调用phantomjs</h4><p>需要调用的地方，开一个子线程去做<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> childProcess = <span class="built_in">require</span>(<span class="string">'child_process'</span>);</span><br><span class="line"><span class="keyword">var</span> spawn = childProcess.spawn;</span><br><span class="line"><span class="keyword">var</span> Exec = spawn(<span class="string">'phantomjs'</span>, <span class="string">'/home/user/test.js'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Exec.stdout.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Exec stdout : '</span> + data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Exec.stderr.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Exec stderr : '</span> + data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Exec.on(<span class="string">'close'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'exec close : '</span> + data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="phantomjs">phantomjs</h4><blockquote>
-<p>phantomjs能够截图，查看网页请求信息，对页面进行dom操作等等<br>利用phantomjs能够做很多事，例如通过截图对比查看页面是否疵了，网络请求监测网页性能，dom抓取等等<br>]]>
-    
-    </summary>
-    
-      <category term="nodejs" scheme="http://blog.xuerlove.com/tags/nodejs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[nodejs读取指定路径下文件夹文件]]></title>
-    <link href="http://blog.xuerlove.com/2015/11/07/nodejs%E8%AF%BB%E5%8F%96%E6%8C%87%E5%AE%9A%E8%B7%AF%E5%BE%84%E4%B8%8B%E6%96%87%E4%BB%B6%E5%A4%B9%E6%96%87%E4%BB%B6/"/>
-    <id>http://blog.xuerlove.com/2015/11/07/nodejs读取指定路径下文件夹文件/</id>
-    <published>2015-11-07T07:03:01.000Z</published>
-    <updated>2016-04-14T02:16:33.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="扫描文件以及文件夹">扫描文件以及文件夹</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">scanFolder</span>(<span class="params">path</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> files = [],</span><br><span class="line">        folders = [],</span><br><span class="line">        walk = <span class="function"><span class="keyword">function</span>(<span class="params">path, files, folders</span>)</span>&#123;</span><br><span class="line">            files = fs.readdirSync(path);</span><br><span class="line">            files.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;  </span><br><span class="line">                <span class="keyword">var</span> curPath = path + <span class="string">'/'</span> + item,</span><br><span class="line">                    stats = fs.statSync(curPath);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (stats.isDirectory()) &#123;  </span><br><span class="line">                    walk(curPath, files, folders); </span><br><span class="line">                    folders.push(curPath); </span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                    files.push(curPath); </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;);  </span><br><span class="line">        &#125;;  </span><br><span class="line"></span><br><span class="line">    walk(path, files, folders);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'扫描'</span> + path +<span class="string">'成功'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="string">'files'</span>: files,</span><br><span class="line">        <span class="string">'folders'</span>: folders</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">``</span><span class="string">`&lt;!--more--&gt;</span><br><span class="line">#### 获取每个文件大小</span><br><span class="line">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="keyword">var</span> filesList = [];</span><br><span class="line">states = fs.statSync(path+<span class="string">'/'</span>+file); </span><br><span class="line"><span class="keyword">if</span>(!states.isDirectory())&#123; </span><br><span class="line">   <span class="keyword">var</span> fileObj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">   fileObj.size = states.size;<span class="comment">//文件大小(字节)</span></span><br><span class="line">   fileObj.name = file;<span class="comment">//文件名</span></span><br><span class="line">   fileObj.path = path+<span class="string">'/'</span>+file; <span class="comment">//绝对路径</span></span><br><span class="line">   filesList.push(fileObj);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="扫描文件以及文件夹">扫描文件以及文件夹</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><spa]]>
-    </summary>
-    
-      <category term="nodejs" scheme="http://blog.xuerlove.com/tags/nodejs/"/>
     
   </entry>
   
