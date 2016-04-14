@@ -12,7 +12,7 @@ toc: true
 |http-equiv|	content-type / expire / refresh / set-cookie|	把content属性关联到HTTP头部|
 |name	|author / description / keywords / generator / revised / others|	把 content 属性关联到一个名称|
 |content	|text	|定义用于 content 属性值的格式|
-
+<!--more-->
 ##### SEO相关
 * name=”keywords” 网页内容关键字
 * name=”description” 网页内容描述

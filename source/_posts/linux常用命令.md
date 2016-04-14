@@ -10,6 +10,7 @@ sudo vim ~/.bashrc
 //加入类似环境变量
 export PATH=${PATH}:/home/me/mongodb/mongodb-linux-x86_64-3.0.4/bin
 ```
+<!--more-->
 ##### 修改文件权限
 ```javascript
 sudo chmod -R  777 /data/db

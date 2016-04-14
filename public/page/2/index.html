@@ -95,7 +95,9 @@
 
     </header>
     <div class="entry">
-		 
+		<h5 id="工具">工具</h5><ul>
+<li>Synergy软件</li>
+<li>两台电脑，一套键鼠 
     </div>
     <footer>
 		<div class="alignleft">
@@ -139,7 +141,8 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="引用资源">引用资源</h4><h5 id="css">css</h5><p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;jquery.Jcrop.css&quot;&gt;</code></p>
+<h5 id="JavaScript">JavaScript</h5><p><code>&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</code><br><code>&lt;script src=&quot;jquery.Jcrop.js&quot;&gt;&lt;/script&gt;</code><br> 
     </div>
     <footer>
 		<div class="alignleft">
@@ -183,7 +186,8 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="智能识别裁剪图片">智能识别裁剪图片</h4><p>[github|<a href="https://github.com/jwagner/smartcrop.js">https://github.com/jwagner/smartcrop.js</a>]</p>
+<h4 id="how_to_use">how to use</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SmartCrop.crop(image, &#123;width: <span class="number">100</span>, height: <span class="number">100</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;<span class="built_in">console</span>.log(result);&#125;);</span><br><span class="line"><span class="comment">// &#123;topCrop: &#123;x: 300, y: 200, height: 200, width: 200&#125;&#125;</span></span><br></pre></td></tr></table></figure> 
     </div>
     <footer>
 		<div class="alignleft">
@@ -271,7 +275,9 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="介绍：">介绍：</h4><p>avalon是一个轻量型的MVVM框架</p>
+<h4 id="配置：">配置：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">avalon.config(&#123;</span><br><span class="line">    debug: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>为了方便调试，我们把debug模式设为true,那么avalon源码中的所有调试信息都会在控制台输出，我们把debug设为false就可以屏蔽它们。 
     </div>
     <footer>
 		<div class="alignleft">
@@ -315,7 +321,35 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="介绍">介绍</h4><blockquote>
+<p>meta标签提供的数据不会展示页页面当中，但是对于机器来说，这些内容确是重要的，它会告诉机器怎么展示页面，还可以设置搜索引擎对页面的抓取。</p>
+</blockquote>
+<h5 id="属性">属性</h5><table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:center">值</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">http-equiv</td>
+<td style="text-align:center">content-type / expire / refresh / set-cookie</td>
+<td style="text-align:center">把content属性关联到HTTP头部</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:center">author / description / keywords / generator / revised / others</td>
+<td style="text-align:center">把 content 属性关联到一个名称</td>
+</tr>
+<tr>
+<td style="text-align:left">content</td>
+<td style="text-align:center">text</td>
+<td style="text-align:center">定义用于 content 属性值的格式</td>
+</tr>
+</tbody>
+</table> 
     </div>
     <footer>
 		<div class="alignleft">
@@ -359,7 +393,8 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="简介">简介</h4><blockquote>
+<p>chrome应用商店里面存放着大量的浏览器应用，这些扩展应用不同于浏览器插件，它们必须依赖浏览器而运行。浏览器应用的本质就是web页面，浏览器支持的API我们都可以使用<br> 
     </div>
     <footer>
 		<div class="alignleft">
@@ -403,7 +438,10 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="BigPipe">BigPipe</h4><blockquote>
+<ol>
+<li>BigPipe就是把网页分解成多个模块，然后通过服务器和浏览器建立管道链接，分别对各个模块进行输出，最后完成一个完整的页面。</li>
+<li>传统方式的页面渲染大致分为两类，一种是使用动态语言jsp，asp.net等进行完整页面的渲染以及交互，另一种是服务端负责渲染最基本的页面结构，或者说是页面上静态的结构，然后由javascript负责渲染页面动态的部分，以及各种交互的部分。 
     </div>
     <footer>
 		<div class="alignleft">
@@ -447,7 +485,8 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="phantomjs">phantomjs</h4><blockquote>
+<p>phantomjs能够截图，查看网页请求信息，对页面进行dom操作等等<br>利用phantomjs能够做很多事，例如通过截图对比查看页面是否疵了，网络请求监测网页性能，dom抓取等等<br> 
     </div>
     <footer>
 		<div class="alignleft">

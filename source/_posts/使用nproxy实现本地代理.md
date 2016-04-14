@@ -9,7 +9,7 @@ toc: true
 ##### 安装nproxy
 ```javascript
 sudo npm install -g nproxy
-```javascript
+```
 ##### nproxy介绍
 ```javascript
 Options:
@@ -21,6 +21,7 @@ Options:
     -d, --debug              Enable debug mode
     -n, --networks           Display network interface list
 ```
+<!--more-->
 ##### 开启代理端口
 ```javascript
 nproxy -l replace_rule.js -p 8188

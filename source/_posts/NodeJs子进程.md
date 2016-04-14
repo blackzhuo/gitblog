@@ -8,7 +8,7 @@ toc: true
 	1. child.stdin 标准输入
 	2. child.stdout 标准输出
 	3. child.stderr 标准错误输出
-	4. child.pid 子进程PID
+	4. child.pid 子进程PID<!--more-->
 * 生成子进程的方法:
 	1. `spawn(command,[args],[options])` 启动一个新的进程来执行command，args命令行参数
 	2. `exex(command,[options],callback)` 启动一个新的进程来执行command命令，callback用于在进程结束时获取辨准输入，标准输出，以及错误信息

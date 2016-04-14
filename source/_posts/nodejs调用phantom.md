@@ -6,7 +6,7 @@ toc: true
 #### phantomjs
 >phantomjs能够截图，查看网页请求信息，对页面进行dom操作等等
 利用phantomjs能够做很多事，例如通过截图对比查看页面是否疵了，网络请求监测网页性能，dom抓取等等
-
+<!--more-->
 #### 安装
 * centos
 ```javascript

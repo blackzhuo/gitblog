@@ -95,7 +95,7 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="动态加载js">动态加载js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span>(<span class="params">data,type</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">	script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			script.appendChild(<span class="built_in">document</span>.createTextNode(data));</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			script.src = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">catch</span>(ex)&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			script.text = code</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			script.src = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
     </div>
     <footer>
 		<div class="alignleft">
@@ -139,7 +139,13 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="Node">Node</h4><h5 id="操作节点">操作节点</h5><ul>
+<li>appendChild()<br>一个参数，要插入的节点</li>
+<li>insertBefore()<br>两个参数，要插入的节点和参照的节点</li>
+<li>replaceChild()<br>两个参数，要插入的节点和要替换的节点</li>
+<li>removeChild()<br>一个参数，要移除的节点</li>
+<li>cloneNode()<br>一个参数，布尔值，是否执行深度克隆</li>
+<li>normalize()<br>合并文本节点 
     </div>
     <footer>
 		<div class="alignleft">
@@ -183,7 +189,13 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="shell分类">shell分类</h4><ul>
+<li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
+<li>Bourne Again Shell（/bin/bash）</li>
+<li>C Shell（/usr/bin/csh）</li>
+<li>K Shell（/usr/bin/ksh）</li>
+<li>Shell for Root（/sbin/sh）</li>
+<li>eg. 
     </div>
     <footer>
 		<div class="alignleft">
@@ -227,7 +239,8 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="安装">安装</h4><h5 id="先安装Node-js">先安装Node.js</h5><h5 id="安装nproxy">安装nproxy</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g nproxy</span><br></pre></td></tr></table></figure>
+<h5 id="nproxy介绍">nproxy介绍</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Options:</span><br><span class="line">    -h, --help               output usage information</span><br><span class="line">    -V, --version            output the version number</span><br><span class="line">    -l, --list [list]        Specify the replace rule file</span><br><span class="line">    -p, --port [port]        Specify the port</span><br><span class="line">    -t, --timeout [timeout]  Specify the request timeout(<span class="number">5</span> seconds by <span class="keyword">default</span>)</span><br><span class="line">    -d, --debug              Enable debug mode</span><br><span class="line">    -n, --networks           Display network interface list</span><br></pre></td></tr></table></figure> 
     </div>
     <footer>
 		<div class="alignleft">
@@ -271,7 +284,12 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="安装">安装</h4><h5 id="系统：centos">系统：centos</h5><ul>
+<li>wget下载</li>
+<li>tar 解压</li>
+<li>sudo ./configure —with-http_rewrite_module —with-pcre=../pcre-8.36 —with-* http_stub_status_module —with-http_ssl_module —with-http_realip_module 安装这些模块，如果安装失败，请wget下载缺失的包，解压安装后，再重新执行，等号后面添加模块路径</li>
+<li>sudo make</li>
+<li>sudo make install 
     </div>
     <footer>
 		<div class="alignleft">
@@ -403,7 +421,11 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="getBoundingClientRect">getBoundingClientRect</h4><blockquote>
+<p>计算视口坐标,方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBoundingClientRect所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好，非常好用.</p>
+</blockquote>
+<h4 id="scrollIntoView">scrollIntoView</h4><blockquote>
+<p>可以让元素直接呈现到可视区域，实际上是屏幕显示区的最顶端<br> 
     </div>
     <footer>
 		<div class="alignleft">
@@ -447,7 +469,11 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="什么是异步javascript">什么是异步javascript</h4><blockquote>
+<p>顺序的执行的代码，我们称之为同步代码，异步的过程就是让有些非常耗时的javascript代码放在异步模块中之行，同步代码之行结束后再去之行它。</p>
+</blockquote>
+<h4 id="异步javascript发展过程">异步javascript发展过程</h4><ul>
+<li>回调函数<br>  函数可以作为参数传递给另一个函数，这样的过程称之为回调，当执行完函数的内容后，执行回调函数，来完成异步的模拟。<br>  回调函数可以使程序编的简单易懂，但是耦合性确比较高，维护起来比较麻烦。错误处理容易被忽视，不能return,使用不当会让程序非常臃肿。 
     </div>
     <footer>
 		<div class="alignleft">
@@ -491,7 +517,13 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="css动画">css动画</h4><ul>
+<li>translate</li>
+<li>transation<h4 id="animate">animate</h4></li>
+<li>javascript动画</li>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>requestAnimationFrame 
     </div>
     <footer>
 		<div class="alignleft">

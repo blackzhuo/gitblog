@@ -93,7 +93,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-10-26T07:03:01.000Z" itemprop="datePublished">2015-10-26</time>
-    更新日期:<time datetime="2016-04-13T10:48:46.000Z" itemprop="dateModified">2016-04-13</time>
+    更新日期:<time datetime="2016-04-14T02:15:15.000Z" itemprop="dateModified">2016-04-14</time>
     
   </p>
 </header>
@@ -106,7 +106,7 @@
 		
         <ul>
 <li>浅度复制：对于含有引用类型字段的对象来说，进行浅度复制意味着复制的对象和源对象存在这相同的引用。如果源对象的引用变量的值发生改变，那么被复制的对象的成员值也会发生变化。</li>
-<li>深度复制：复制的对象和源对象是独立的。</li>
+<li>深度复制：复制的对象和源对象是独立的。<a id="more"></a></li>
 <li>javascript中没有拷贝对象的方法，而js中传递引用数据基本都是传址方式。这就会遇到很多麻烦。比如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    name: <span class="string">"张三"</span>,</span><br><span class="line">    age: <span class="number">15</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = o;</span><br><span class="line">a.age = <span class="number">35</span>;</span><br><span class="line"><span class="built_in">console</span>.log(o.age); <span class="comment">// 35</span></span><br><span class="line"><span class="built_in">console</span>.log(a == o); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>

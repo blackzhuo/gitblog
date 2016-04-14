@@ -93,7 +93,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-10-30T07:03:01.000Z" itemprop="datePublished">2015-10-30</time>
-    更新日期:<time datetime="2016-04-13T10:59:25.000Z" itemprop="dateModified">2016-04-13</time>
+    更新日期:<time datetime="2016-04-14T02:15:20.000Z" itemprop="dateModified">2016-04-14</time>
     
   </p>
 </header>
@@ -107,15 +107,15 @@
         <h5 id="自己写逻辑代码进行处理">自己写逻辑代码进行处理</h5><blockquote>
 <ul>
 <li>遍历数组，做必要的类型转换</li>
-<li>选择一种排序方式，快排，冒泡，选择等等完成排序</li>
-</ul>
-</blockquote>
-<h5 id="使用sort方法">使用sort方法</h5><ul>
+<li>选择一种排序方式，快排，冒泡，选择等等完成排序<a id="more"></a>
+<h5 id="使用sort方法">使用sort方法</h5></li>
 <li>sort方法默认生序排序，不会做数据类型转换，按照ascii字母顺序排序</li>
 <li>sort方法会改变数组本身，不会生成新数组</li>
-<li><p>自定义规则排序，给sort传处理函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'2'</span>,<span class="string">'7'</span>,<span class="string">'6'</span>,<span class="string">'11'</span>,<span class="string">'18'</span>,<span class="string">'8'</span>,<span class="string">'9'</span>];</span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">	fx = <span class="built_in">parseInt</span>(x,<span class="number">10</span>);</span><br><span class="line">	fy = <span class="built_in">parseInt</span>(y,<span class="number">10</span>);</span><br><span class="line">	<span class="keyword">return</span> fx&gt;fy?<span class="number">1</span>:-<span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//["2", "6", "7", "8", "9", "11", "18"]</span></span><br></pre></td></tr></table></figure>
+<li>自定义规则排序，给sort传处理函数<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'2'</span>,<span class="string">'7'</span>,<span class="string">'6'</span>,<span class="string">'11'</span>,<span class="string">'18'</span>,<span class="string">'8'</span>,<span class="string">'9'</span>];</span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">	fx = <span class="built_in">parseInt</span>(x,<span class="number">10</span>);</span><br><span class="line">	fy = <span class="built_in">parseInt</span>(y,<span class="number">10</span>);</span><br><span class="line">	<span class="keyword">return</span> fx&gt;fy?<span class="number">1</span>:-<span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//["2", "6", "7", "8", "9", "11", "18"]</span></span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+</blockquote>
+<ul>
 <li><p>比较对象，可以写一个函数对对象进行比较</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> compare = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> fx, fy;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> x === <span class="string">"object"</span> &amp;&amp; <span class="keyword">typeof</span> y === <span class="string">"object"</span> &amp;&amp; x &amp;&amp; y) &#123;</span><br><span class="line">            fx = x[key];</span><br><span class="line">            fy = y[key];</span><br><span class="line">            <span class="keyword">if</span> (fx === fy) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> fx === <span class="keyword">typeof</span> fy) &#123;</span><br><span class="line">                <span class="keyword">return</span> fx &gt; fy ? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">typeof</span> fx &gt; <span class="keyword">typeof</span> fy ? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> (<span class="string">"error.."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>

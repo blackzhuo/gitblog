@@ -12,7 +12,7 @@ avalon.config({
     debug: false
 });
 ```
-为了方便调试，我们把debug模式设为true,那么avalon源码中的所有调试信息都会在控制台输出，我们把debug设为false就可以屏蔽它们。
+为了方便调试，我们把debug模式设为true,那么avalon源码中的所有调试信息都会在控制台输出，我们把debug设为false就可以屏蔽它们。<!--more-->
 #### 定义
 `avalon.define()`
 对html页面的处理：

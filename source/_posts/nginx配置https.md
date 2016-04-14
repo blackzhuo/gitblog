@@ -10,7 +10,7 @@ toc: true
 * sudo ./configure —with-http_rewrite_module —with-pcre=../pcre-8.36 —with-* http_stub_status_module —with-http_ssl_module —with-http_realip_module 安装这些模块，如果安装失败，请wget下载缺失的包，解压安装后，再重新执行，等号后面添加模块路径
 * sudo make
 * sudo make install
-
+<!--more-->
 ##### 配置转发
 ```javascript
 upstream  test{

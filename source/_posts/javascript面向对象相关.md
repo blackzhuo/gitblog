@@ -9,7 +9,7 @@ function check(name,obj){
 	return !(obj.hasOwnProperty) && (name in obj)
 }
 ```javascript
-
+<!--more-->
 #### for in循环
 >for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回
 

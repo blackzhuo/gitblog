@@ -9,7 +9,7 @@ toc: true
 * header中外部 无defer async，async，defer这三种
 * body中同上面，并且body中增加动态添加脚本，动态添加分为两类，直接在脚本中append，另一种是ajax异步去apped.
 脚本中都执行了一段计算的代码，执行起来耗时几秒
-
+<!--more-->
 ##### 执行结果分析
 >* safri:
 	async defer分析同上一篇wiki说明，以后不再说这个

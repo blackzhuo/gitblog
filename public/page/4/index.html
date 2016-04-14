@@ -95,7 +95,7 @@
 
     </header>
     <div class="entry">
-		 
+		<h5 id="方法一_slice方法">方法一 slice方法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"One"</span>,<span class="string">"Two"</span>,<span class="string">"Three"</span>];</span><br><span class="line"><span class="keyword">var</span> arrtoo = arr.slice(<span class="number">0</span>);</span><br></pre></td></tr></table></figure> 
     </div>
     <footer>
 		<div class="alignleft">
@@ -139,7 +139,9 @@
 
     </header>
     <div class="entry">
-		 
+		<ul>
+<li>浅度复制：对于含有引用类型字段的对象来说，进行浅度复制意味着复制的对象和源对象存在这相同的引用。如果源对象的引用变量的值发生改变，那么被复制的对象的成员值也会发生变化。</li>
+<li>深度复制：复制的对象和源对象是独立的。 
     </div>
     <footer>
 		<div class="alignleft">
@@ -183,7 +185,12 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="图片">图片</h4><blockquote>
+<ul>
+<li>给图片添加data-lazy等标签，放图片url,等页面加载完再去做替换，不会阻塞页面onload。</li>
+<li>同样像上面那样，但是等到页面滚动到特殊位置的时候，才去加载对应图片，实现懒加载。</li>
+<li>对于一些大图，我们还可以先给他一个质量低的图片，然后用js创建image对象，给它赋值src,监听它的onload事件，加载完后把url赋给img标签,实现预加载。</li>
+<li>jquery的lazyload插件，给图片设置data-original类似的标签，可以实现懒加载。 
     </div>
     <footer>
 		<div class="alignleft">
@@ -227,7 +234,11 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="javascript加载会对页面加载产生什么影响呢？">javascript加载会对页面加载产生什么影响呢？</h4><h5 id="我们在代码中添加几种脚本">我们在代码中添加几种脚本</h5><blockquote>
+<ul>
+<li>header中行内 无defer async，async，defer这三种</li>
+<li>header中外部 无defer async，async，defer这三种</li>
+<li>body中同上面，并且body中增加动态添加脚本，动态添加分为两类，直接在脚本中append，另一种是ajax异步去apped.<br>脚本中都执行了一段计算的代码，执行起来耗时几秒 
     </div>
     <footer>
 		<div class="alignleft">

@@ -93,7 +93,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-11-05T07:03:01.000Z" itemprop="datePublished">2015-11-05</time>
-    更新日期:<time datetime="2016-04-13T11:13:10.000Z" itemprop="dateModified">2016-04-13</time>
+    更新日期:<time datetime="2016-04-14T02:16:13.000Z" itemprop="dateModified">2016-04-14</time>
     
   </p>
 </header>
@@ -109,6 +109,7 @@
 <li><code>fs.rename(oldPath, newPath, callback)</code><br>传入原路径，新路径，回调方法，回调中主要用来检测err异常信息<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.rename(<span class="string">'jq-1.7.1.js'</span>,<span class="string">'src/jq-1.7.2.js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">if</span>(err)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'rename error'</span>);</span><br><span class="line">    <span class="keyword">throw</span> err;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'rename success'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//新路径中src必须存在，否则会报异常</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h5 id="chmod">chmod</h5><ul>
 <li><code>fs.chmod(path, mode, callback)</code><br>修改文件权限，传入文件路径，权限类型，回调函数。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.chmod(<span class="string">'jq-1.7.2.js'</span>,<span class="number">0777</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(err)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'chmod error'</span>);</span><br><span class="line">    <span class="keyword">throw</span> err;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'chmod success'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
