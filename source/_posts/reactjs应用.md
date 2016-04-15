@@ -9,7 +9,6 @@ toc: true
 * 实时转换工具 `npm install -g react-tools` 启动命令 `jsx --watch src/ build/` （或者页面引入jsx编译工具）
 * 引入fetch https://github.com/github/fetch （引入Promise）
 * jsx http://reactjs.cn/react/docs/jsx-in-depth.html
-```
 <!--more-->
 ##### 过程
 * 通过 React.createClass 定义组件
