@@ -19,7 +19,8 @@ var ractive = new Ractive({
 	el: '#output',
 	template: '#template'
 });
-```<!--more-->
+```
+<!--more-->
 #### 模版内绑定属性
 ```javascript
 //html

@@ -12,7 +12,7 @@ toc: true
 	* 安装依赖模块使用 npm install 模块名
 * 一个主文件 index.js
 
-
+<!--more-->
 #### 例子：
 * package.json
 ```javascript
