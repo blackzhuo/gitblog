@@ -11,24 +11,17 @@ toc: true
 * 引入Promise兼容方案
 * 引入fetch兼容方案（高级浏览器高版本已经支持）
 * 兼容方案以及使用说明见 https://github.com/github/fetch
-
+<!--more-->
 ##### 详解
-* Header
-* Request
-* Response
+
+###### Header
+
+###### Request
+
+###### Response
 
 ##### 示例
 ```javascript
-html
-json
-Response metadata
-Post form
-Post Json
-File Upload
-Sending cookie
-Receiving cookies
-
-
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response
@@ -43,7 +36,7 @@ function parseJSON(response) {
   return response.json()
 }
 
-fetch('/users')
+fetch('/test.json')
   .then(checkStatus)
   .then(parseJSON)
   .then(function(data) {
