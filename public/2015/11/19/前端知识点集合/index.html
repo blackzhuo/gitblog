@@ -93,7 +93,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-11-19T07:03:01.000Z" itemprop="datePublished">2015-11-19</time>
-    更新日期:<time datetime="2016-04-14T02:12:30.000Z" itemprop="dateModified">2016-04-14</time>
+    更新日期:<time datetime="2016-04-19T08:16:06.000Z" itemprop="dateModified">2016-04-19</time>
     
   </p>
 </header>
@@ -121,28 +121,7 @@
 <h4 id="搜索框的值">搜索框的值</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#js_ipt"</span>)</span><br><span class="line">   .focus(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;$(<span class="keyword">this</span>).val(<span class="string">''</span>)&#125;)</span><br><span class="line">   .blur(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);</span><br><span class="line">    ($<span class="keyword">this</span>.val() === <span class="string">''</span>)? $<span class="keyword">this</span>.val(<span class="string">'请搜索...'</span>) : <span class="literal">null</span>;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
 <h4 id="部分刷新">部分刷新</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  $(<span class="string">"#content"</span>).load(url);</span><br><span class="line"> &#125;, <span class="number">5000</span>);</span><br></pre></td></tr></table></figure>
 <h4 id="密码强度">密码强度</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//密码为八位及以上并且字母数字特殊字符三项都包括</span></span><br><span class="line"><span class="keyword">var</span> strongRegex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^(?=.&#123;8,&#125;)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$"</span>, <span class="string">"g"</span>);</span><br><span class="line"><span class="comment">//密码为七位及以上并且字母、数字、特殊字符三项中有两项，强度是中等 </span></span><br><span class="line"><span class="keyword">var</span> mediumRegex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^(?=.&#123;7,&#125;)(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$"</span>, <span class="string">"g"</span>);</span><br><span class="line"><span class="comment">//更多字符</span></span><br><span class="line"><span class="keyword">var</span> enoughRegex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(?=.&#123;6,&#125;).*"</span>, <span class="string">"g"</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="滚动动态加载内容">滚动动态加载内容</h4><p><code>javascript
-var loading = false;
-$(window).scroll(function(){
- if((($(window).scrollTop()+$(window).height())+250)&gt;=$(document).height()){
-   if(loading == false){
-      loading = true;
-      $(&#39;#loadingbar&#39;).css(&quot;display&quot;,&quot;block&quot;);
-      $.ajax({
-          url:&#39;/getData.json&#39;,
-          type:&#39;POST&#39;,
-          dataType:&#39;json&#39;,
-          data:{
-              id:&#39;123&#39;
-          }
-      }).done(function(data){
-          if(data.ret){
-          }
-      });
-    }
-  }
-});</code>javascript</p>
-
+<h4 id="滚动动态加载内容">滚动动态加载内容</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> loading = <span class="literal">false</span>;</span><br><span class="line">$(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="keyword">if</span>((($(<span class="built_in">window</span>).scrollTop()+$(<span class="built_in">window</span>).height())+<span class="number">250</span>)&gt;=$(<span class="built_in">document</span>).height())&#123;</span><br><span class="line">   <span class="keyword">if</span>(loading == <span class="literal">false</span>)&#123;</span><br><span class="line">      loading = <span class="literal">true</span>;</span><br><span class="line">      $(<span class="string">'#loadingbar'</span>).css(<span class="string">"display"</span>,<span class="string">"block"</span>);</span><br><span class="line">      $.ajax(&#123;</span><br><span class="line">		  url:<span class="string">'/getData.json'</span>,</span><br><span class="line">		  type:<span class="string">'POST'</span>,</span><br><span class="line">		  dataType:<span class="string">'json'</span>,</span><br><span class="line">		  data:&#123;</span><br><span class="line">			  id:<span class="string">'123'</span></span><br><span class="line">		  &#125;</span><br><span class="line">	  &#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		  <span class="keyword">if</span>(data.ret)&#123;</span><br><span class="line">		  &#125;</span><br><span class="line">	  &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="string">``</span><span class="string">`javascript</span><br><span class="line"></span><br><span class="line">#### url参数转对象</span><br><span class="line">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="keyword">var</span> search = location.search.substr(<span class="number">1</span>);</span><br><span class="line">    obj = &#123;&#125;;</span><br><span class="line">search.replace(<span class="regexp">/([^?&amp;]+)=([^?&amp;]+)/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">s, v, k</span>) </span>&#123;</span><br><span class="line">    obj[v] = <span class="built_in">decodeURIComponent</span>(k);</span><br><span class="line">    <span class="keyword">return</span> k + <span class="string">'='</span> +  v;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
     </div>
     <footer>
         
@@ -262,7 +241,7 @@ with(document)0[
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/javascript/">javascript</a><small>21</small></li>
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
   
     <li><a href="/tags/linux/">linux</a><small>2</small></li>
   

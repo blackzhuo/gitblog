@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.xuerlove.com/"/>
-  <updated>2016-04-15T12:12:30.000Z</updated>
+  <updated>2016-08-31T13:19:46.000Z</updated>
   <id>http://blog.xuerlove.com/</id>
   
   <author>
@@ -15,28 +15,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[fetch]]></title>
+    <link href="http://blog.xuerlove.com/2016/08/31/fetch/"/>
+    <id>http://blog.xuerlove.com/2016/08/31/fetch/</id>
+    <published>2016-08-31T13:17:37.000Z</published>
+    <updated>2016-08-31T13:19:46.000Z</updated>
+    <content type="html"><![CDATA[<h5 id="介绍">介绍</h5><ul>
+<li>遵循Promise解决方案</li>
+<li>XMLHttpRequest的替代者</li>
+</ul>
+<h5 id="使用">使用</h5><ul>
+<li>引入Promise兼容方案</li>
+<li>引入fetch兼容方案（高级浏览器高版本已经支持）</li>
+<li>兼容方案以及使用说明见 <a href="https://github.com/github/fetch" target="_blank" rel="external">https://github.com/github/fetch</a></li>
+</ul>
+<h5 id="详解">详解</h5><ul>
+<li>Header</li>
+<li>Request</li>
+<li>Response</li>
+</ul>
+<h5 id="示例">示例</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line">json</span><br><span class="line">Response metadata</span><br><span class="line">Post form</span><br><span class="line">Post Json</span><br><span class="line">File Upload</span><br><span class="line">Sending cookie</span><br><span class="line">Receiving cookies</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkStatus</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (response.status &gt;= <span class="number">200</span> &amp;&amp; response.status &lt; <span class="number">300</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> error = <span class="keyword">new</span> <span class="built_in">Error</span>(response.statusText)</span><br><span class="line">    error.response = response</span><br><span class="line">    <span class="keyword">throw</span> error</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseJSON</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> response.json()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'/users'</span>)</span><br><span class="line">  .then(checkStatus)</span><br><span class="line">  .then(parseJSON)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'request succeeded with JSON response'</span>, data)</span><br><span class="line">  &#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'request failed'</span>, error)</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h5 id="介绍">介绍</h5><ul>
+<li>遵循Promise解决方案</li>
+<li>XMLHttpRequest的替代者</li>
+</ul>
+<h5 id="使用">使用</h5><ul>
+<li>引入Promise兼容方案</li>
+<li>引入fetch兼]]>
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[touch开发性能优化]]></title>
     <link href="http://blog.xuerlove.com/2016/04/14/touch%E5%BC%80%E5%8F%91%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     <id>http://blog.xuerlove.com/2016/04/14/touch开发性能优化/</id>
     <published>2016-04-14T02:43:35.000Z</published>
-    <updated>2016-04-15T12:12:30.000Z</updated>
+    <updated>2016-08-31T13:26:00.000Z</updated>
     <content type="html"><![CDATA[<h4 id="介绍">介绍</h4><blockquote>
-<p>不觉间开发touch也有几个月的时间了，之前一直都在做pc端的工作，恍然间发现pc端和touch端开发，也并不能说完全是一回事，当然了代码还是那些代码。这里我要说什么问题呢，就是touch端经常出现的性能相关的问题。通过亲身踩坑，总结一些经验。</p>
+<p>不觉间开发touch也有一段时间了，之前一直都在做pc端的工作，恍然间发现pc端和touch端开发，也并不能说完全是一回事，当然了代码还是那些代码。这里我要说什么问题呢，就是touch端经常出现的性能相关的问题。通过亲身踩坑，总结一些经验。</p>
 </blockquote>
 <a id="more"></a>
 <h4 id="代码">代码</h4><blockquote>
-<p>从代码层面讲，不能得过且过了，务必做到精简，高效。移动端平台分ios android windows phone等，每个平台又有很多手机生产商，每种手机的性能又差异很大，还有些厂商还会自己定制浏览器内核，等等因素吧，导致了移动端经常出现各种差异性的表现，常常顾此失彼。那么就要求我们写的代码效率高一些，逻辑精简些，从程序层面减少因性能带来的问题，这是最好的方法去避免出现一些奇葩问题。还要做好一系列的异常处理措施，不要让代码出现报错的情况。减少dom操作，增加数据缓存机制，离线数据处理等。</p>
+<p>从代码层面讲，不能得过且过，务必做到精简，高效。移动端平台分ios android windows phone等，每个平台又有很多手机生产商，每种手机的性能又差异很大，还有些厂商还会自己定制浏览器内核，等等因素吧，导致了移动端经常出现各种差异性的表现，常常顾此失彼。那么就要求我们写的代码效率高一些，逻辑精简些，从程序层面减少因性能带来的问题，这是最好的方法去避免出现一些奇葩问题。还要做好一系列的异常处理措施，不要让代码出现报错的情况。减少dom操作，增加数据缓存机制，离线数据处理等。</p>
 </blockquote>
 <h4 id="框架">框架</h4><blockquote>
 <p>最近在开发过程中，使用了reactjs这个框架，不得不说这个框架应用起来还是比较顺利的，从开发到最终的页面表现来说，都是比较满意的。但是有一个问题是，在生成的代码中会生成过多的dom节点，这一点需要注意一下。</p>
 </blockquote>
 <h4 id="组件">组件</h4><blockquote>
-<p>应用第三方组建，还是要慎重考虑的，这里就拿…</p>
+<p>应用第三方组建，还是要慎重考虑的，这里就拿iscroll来说，这个组建无疑优化了滑动的体验，但是它是非常耗性能的，还有就是安卓手机上的表现并不理想，在一些滚动监听上也存在问题。</p>
 </blockquote>
-<h4 id="布局与css">布局与css</h4><h4 id="硬件加速">硬件加速</h4><h4 id="hybrid">hybrid</h4>]]></content>
+<h4 id="布局与css">布局与css</h4><blockquote>
+<p>从使用flex到弃用flex, css动画也要注意</p>
+</blockquote>
+<h4 id="硬件加速">硬件加速</h4><blockquote>
+<p>硬件加速是一件好事，但是它的弊端也显露无疑，电池耗电快，手机发热等等</p>
+</blockquote>
+<h4 id="hybrid">hybrid</h4>]]></content>
     <summary type="html">
     <![CDATA[<h4 id="介绍">介绍</h4><blockquote>
-<p>不觉间开发touch也有几个月的时间了，之前一直都在做pc端的工作，恍然间发现pc端和touch端开发，也并不能说完全是一回事，当然了代码还是那些代码。这里我要说什么问题呢，就是touch端经常出现的性能相关的问题。通过亲身踩坑，总结一些经验。</p>
+<p>不觉间开发touch也有一段时间了，之前一直都在做pc端的工作，恍然间发现pc端和touch端开发，也并不能说完全是一回事，当然了代码还是那些代码。这里我要说什么问题呢，就是touch端经常出现的性能相关的问题。通过亲身踩坑，总结一些经验。</p>
 </blockquote>]]>
     
     </summary>
@@ -675,7 +716,7 @@
     <link href="http://blog.xuerlove.com/2015/11/19/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%82%B9%E9%9B%86%E5%90%88/"/>
     <id>http://blog.xuerlove.com/2015/11/19/前端知识点集合/</id>
     <published>2015-11-19T07:03:01.000Z</published>
-    <updated>2016-04-14T02:12:30.000Z</updated>
+    <updated>2016-04-19T08:16:06.000Z</updated>
     <content type="html"><![CDATA[<h4 id="getBoundingClientRect">getBoundingClientRect</h4><blockquote>
 <p>计算视口坐标,方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBoundingClientRect所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好，非常好用.</p>
 </blockquote>
@@ -693,28 +734,7 @@
 <h4 id="搜索框的值">搜索框的值</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#js_ipt"</span>)</span><br><span class="line">   .focus(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;$(<span class="keyword">this</span>).val(<span class="string">''</span>)&#125;)</span><br><span class="line">   .blur(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);</span><br><span class="line">    ($<span class="keyword">this</span>.val() === <span class="string">''</span>)? $<span class="keyword">this</span>.val(<span class="string">'请搜索...'</span>) : <span class="literal">null</span>;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
 <h4 id="部分刷新">部分刷新</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  $(<span class="string">"#content"</span>).load(url);</span><br><span class="line"> &#125;, <span class="number">5000</span>);</span><br></pre></td></tr></table></figure>
 <h4 id="密码强度">密码强度</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//密码为八位及以上并且字母数字特殊字符三项都包括</span></span><br><span class="line"><span class="keyword">var</span> strongRegex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^(?=.&#123;8,&#125;)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$"</span>, <span class="string">"g"</span>);</span><br><span class="line"><span class="comment">//密码为七位及以上并且字母、数字、特殊字符三项中有两项，强度是中等 </span></span><br><span class="line"><span class="keyword">var</span> mediumRegex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"^(?=.&#123;7,&#125;)(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$"</span>, <span class="string">"g"</span>);</span><br><span class="line"><span class="comment">//更多字符</span></span><br><span class="line"><span class="keyword">var</span> enoughRegex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(?=.&#123;6,&#125;).*"</span>, <span class="string">"g"</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="滚动动态加载内容">滚动动态加载内容</h4><p><code>javascript
-var loading = false;
-$(window).scroll(function(){
- if((($(window).scrollTop()+$(window).height())+250)&gt;=$(document).height()){
-   if(loading == false){
-      loading = true;
-      $(&#39;#loadingbar&#39;).css(&quot;display&quot;,&quot;block&quot;);
-      $.ajax({
-          url:&#39;/getData.json&#39;,
-          type:&#39;POST&#39;,
-          dataType:&#39;json&#39;,
-          data:{
-              id:&#39;123&#39;
-          }
-      }).done(function(data){
-          if(data.ret){
-          }
-      });
-    }
-  }
-});</code>javascript</p>
-]]></content>
+<h4 id="滚动动态加载内容">滚动动态加载内容</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> loading = <span class="literal">false</span>;</span><br><span class="line">$(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="keyword">if</span>((($(<span class="built_in">window</span>).scrollTop()+$(<span class="built_in">window</span>).height())+<span class="number">250</span>)&gt;=$(<span class="built_in">document</span>).height())&#123;</span><br><span class="line">   <span class="keyword">if</span>(loading == <span class="literal">false</span>)&#123;</span><br><span class="line">      loading = <span class="literal">true</span>;</span><br><span class="line">      $(<span class="string">'#loadingbar'</span>).css(<span class="string">"display"</span>,<span class="string">"block"</span>);</span><br><span class="line">      $.ajax(&#123;</span><br><span class="line">		  url:<span class="string">'/getData.json'</span>,</span><br><span class="line">		  type:<span class="string">'POST'</span>,</span><br><span class="line">		  dataType:<span class="string">'json'</span>,</span><br><span class="line">		  data:&#123;</span><br><span class="line">			  id:<span class="string">'123'</span></span><br><span class="line">		  &#125;</span><br><span class="line">	  &#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		  <span class="keyword">if</span>(data.ret)&#123;</span><br><span class="line">		  &#125;</span><br><span class="line">	  &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="string">``</span><span class="string">`javascript</span><br><span class="line"></span><br><span class="line">#### url参数转对象</span><br><span class="line">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="keyword">var</span> search = location.search.substr(<span class="number">1</span>);</span><br><span class="line">    obj = &#123;&#125;;</span><br><span class="line">search.replace(<span class="regexp">/([^?&amp;]+)=([^?&amp;]+)/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">s, v, k</span>) </span>&#123;</span><br><span class="line">    obj[v] = <span class="built_in">decodeURIComponent</span>(k);</span><br><span class="line">    <span class="keyword">return</span> k + <span class="string">'='</span> +  v;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
     <summary type="html">
     <![CDATA[<h4 id="getBoundingClientRect">getBoundingClientRect</h4><blockquote>
 <p>计算视口坐标,方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBoundingClientRect所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好，非常好用.</p>
@@ -874,87 +894,6 @@ $(window).scroll(function(){
     <summary type="html">
     <![CDATA[<h4 id="简介">简介</h4><p>Ractive.js是一款简单却功能强大的JS库，它实现了模板，数据绑定，DOM实时更新，事件处理等多个有用的功能。</p>
 <h4 id="应用">应用</h4><p>关联dom和模版<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">'output'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">id</span>=<span class="value">'template'</span> <span class="attribute">type</span>=<span class="value">'text/ractive'</span>&gt;</span><span class="undefined"></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//js</span><br><span class="line">var ractive = new Ractive(&#123;</span><br><span class="line">	el: '#output',</span><br><span class="line">	template: '#template'</span><br><span class="line">&#125;);</span></span><br></pre></td></tr></table></figure></p>]]>
-    
-    </summary>
-    
-      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[avalon应用]]></title>
-    <link href="http://blog.xuerlove.com/2015/11/12/avalon%E5%BA%94%E7%94%A8/"/>
-    <id>http://blog.xuerlove.com/2015/11/12/avalon应用/</id>
-    <published>2015-11-12T07:03:01.000Z</published>
-    <updated>2016-04-14T02:13:33.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="介绍：">介绍：</h4><p>avalon是一个轻量型的MVVM框架</p>
-<h4 id="配置：">配置：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">avalon.config(&#123;</span><br><span class="line">    debug: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>为了方便调试，我们把debug模式设为true,那么avalon源码中的所有调试信息都会在控制台输出，我们把debug设为false就可以屏蔽它们。<a id="more"></a></p>
-<h4 id="定义">定义</h4><p><code>avalon.define()</code><br>对html页面的处理：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span> <span class="attribute">ms-controller</span>=<span class="value">"page_model"</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>&#123;&#123;age&#125;&#125;<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>&#123;&#123;from&#125;&#125;<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"javascript:;"</span> <span class="attribute">ms-click</span>=<span class="value">"check"</span>&gt;</span>click<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = avalon.define(&#123;</span><br><span class="line">    $id: <span class="string">"page_model"</span>,</span><br><span class="line">    name: <span class="string">'wz'</span>,</span><br><span class="line">    age: <span class="number">25</span>,</span><br><span class="line">    from: <span class="string">'changchun'</span></span><br><span class="line">    check: <span class="function"><span class="keyword">function</span>(<span class="params">$events</span>)</span>&#123;</span><br><span class="line">       $events.preventDefault();</span><br><span class="line">       <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>avalon.define定义页面对应的controller</li>
-<li>放在$skipArray数组里面的属性，将不会被扫描</li>
-<li>单向绑定 需要在ms-*属性的值前面加::，或花括号内部的前面加::</li>
-</ul>
-<h4 id="常用属性">常用属性</h4><ul>
-<li><code>ms-duplex / ms-duplex-text —text</code></li>
-<li><code>ms-visible —boolean</code></li>
-<li><code>ms-repeat —list</code></li>
-<li><code>ms-value /</code></li>
-<li><code>ms-attr-*</code> —对应html标签的属性</li>
-<li><code>ms-data</code></li>
-<li><code>ms-click</code></li>
-<li><code>ms-class / ms-hover / ms-active</code></li>
-<li><code>ms-widget</code></li>
-<li><p><code>$watch</code> 属性监控</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">avalon.vmodels.grid.room_checked.$watch(<span class="string">"length"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">     $avalon.vmodels.grid.allchecked = n === $$.grid.all_room.size();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>$unwatch</code> 解除监控</p>
-</li>
-<li><code>$events</code> 对象，avalon中这个对象替代我们之前用的 event<h4 id="扫描">扫描</h4></li>
-<li>把视图中的所有指令全部抽取出来，转换为一个个视图刷新函数，然后放到一个个数组中，当VM的属性变动时，就会执行这些数组的函数。数组里面的东西不定是函数，也可能是对象，但里面肯定有个视图刷新函数。</li>
-<li>avalon.scan，有两个可选参数，第一个是元素节点，第二个是数组，里面为一个个VM。<h4 id="模版">模版</h4></li>
-<li>ms-html 可以加载一段html结构</li>
-<li>ms-include=”template” 负值一个模版变量，用于加载一段html结构</li>
-<li>ms-include-src=”aaa.html” 用于加载一个资源<h4 id="类操作">类操作</h4></li>
-<li>ms-class,</li>
-<li>ms-hover</li>
-<li>ms-active<h4 id="事件绑定">事件绑定</h4></li>
-<li>ms-on-*<h4 id="绑定">绑定</h4></li>
-<li>显示绑定ms-visible</li>
-<li>插入绑定ms-if</li>
-<li>双工绑定ms-duplex</li>
-<li>样式绑定ms-css</li>
-<li>数据绑定ms-data</li>
-<li>属性绑定ms-attr</li>
-<li>循环绑定<ul>
-<li><code>ms-repeat 用于循环数组与对象 循环当前元素</code></li>
-<li><code>ms-each 用于循环数组 循环当前元素的内部</code></li>
-<li><code>ms-with 用于循环对象 循环当前元素的内部</code></li>
-<li><code>el: 默认el，也可以用ms-repeat-item，就变成了item指向当前元素。</code></li>
-<li><code>$first: 判定是否为监控数组的第一个元素</code></li>
-<li><code>$last: 判定是否为监控数组的最后一个元素</code></li>
-<li><code>$index: 得到当前元素的索引值</code></li>
-<li><code>$outer: 得到外围循环的那个元素。</code></li>
-<li><code>$remove: 这是一个方法，用于移除此元素</code></li>
-</ul>
-</li>
-<li>动画绑定ms-effect<h4 id="过滤器">过滤器</h4></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">它只能用于&#123;&#123;&#125;&#125;插值表达式。如果不存在参数，要求直接跟|filter，如果存在参传，则要用小括号括起，参数要有逗号</span><br><span class="line">* html</span><br><span class="line">* uppercase</span><br><span class="line">* lowercase</span><br><span class="line">* truncate – 对长字符串进行截短，truncate(number, truncation), number默认为<span class="number">30</span></span><br><span class="line">* camelize --驼峰化处理</span><br><span class="line">* <span class="built_in">escape</span> --对类似于HTML格式的字符串进行转义</span><br><span class="line">* currency</span><br><span class="line">* number</span><br><span class="line">* date</span><br><span class="line">* 自定义过滤器</span><br><span class="line">avalon.filters.format = <span class="function"><span class="keyword">function</span>(<span class="params">str, args, args2</span>)</span>&#123;</span><br><span class="line">   <span class="comment">//str为原数据，默认传入，此方法必须返回一个值</span></span><br><span class="line">   <span class="comment">/* 具体逻辑 */</span></span><br><span class="line">   <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="AJAX">AJAX</h4><ul>
-<li>功能同jquery ajax<h4 id="路由">路由</h4><h4 id="加载器">加载器</h4><h4 id="自定义指令">自定义指令</h4><h4 id="显示优化">显示优化</h4></li>
-<li><p><code>.ms-controller, [ms-controller]{ visibility:hidden}</code></p>
-</li>
-<li><p>我们在页面使用了大量插值表达式，网速慢时，就会被用户看到，认为是乱码了。为了预防这种情况， 我们可以在样式中定义 <code>.ms-controller, [ms-controller]{ visibility:hidden}</code> 那么当元素被扫描后，它们才会安全显示出来。</p>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="介绍：">介绍：</h4><p>avalon是一个轻量型的MVVM框架</p>
-<h4 id="配置：">配置：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">avalon.config(&#123;</span><br><span class="line">    debug: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>为了方便调试，我们把debug模式设为true,那么avalon源码中的所有调试信息都会在控制台输出，我们把debug设为false就可以屏蔽它们。]]>
     
     </summary>
     
