@@ -28,7 +28,7 @@ toc: true
   "bin": {
     "trans": "./index.js"
   },
-  "author": "wisdom",
+  "author": "黑卓",
   "license": "ISC",
   "dependencies": {
     "color": "^0.11.1",
@@ -43,9 +43,9 @@ toc: true
 #! /usr/bin/env node
 
 /*
- * @Author: wisdom
+ * @Author: 黑卓
  * @Date:   2016-04-07 15:47:33
- * @Last Modified by:   wisdom
+ * @Last Modified by:   黑卓
  * @Last Modified time: 2016-04-07 17:56:40
  */
 
