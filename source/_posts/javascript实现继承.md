@@ -5,7 +5,8 @@ toc: true
 ---
 #### 继承
 
-* 很多语言中都有继承，javascript和其他java等语言不同，他不是一门面向对象的语言，但是他的所有的东西却又都是对象，下面就实现一个继承<!--more-->
+* 很多语言中都有继承，javascript和其他java等语言不同，他不是一门面向对象的语言，但是他的所有的东西却又都是对象，下面就实现一个继承
+<!--more-->
 ```javascript
 //实现一个继承
 function Parent(name, age) {

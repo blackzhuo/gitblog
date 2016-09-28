@@ -18,6 +18,7 @@ toc: true
 * normalize()
 合并文本节点
 <!--more-->
+
 #### Document
 ##### document.getElementById
 * IE7及以前的版本忽略大小写，除此之外必须严格按照大小写

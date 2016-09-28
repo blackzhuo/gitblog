@@ -3,7 +3,8 @@ date: 2015-10-21 15:03:01
 tags: javascript
 toc: true
 ---
-##### 变量做用域<!--more-->
+##### 变量做用域
+<!--more-->
 ```javascript
 // *******
 //--理解变量做用域

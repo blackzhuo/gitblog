@@ -93,7 +93,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-10-24T07:03:01.000Z" itemprop="datePublished">2015-10-24</time>
-    更新日期:<time datetime="2016-04-14T02:15:34.000Z" itemprop="dateModified">2016-04-14</time>
+    更新日期:<time datetime="2016-09-28T08:22:33.000Z" itemprop="dateModified">2016-09-28</time>
     
   </p>
 </header>
@@ -109,7 +109,11 @@
 <li>header中行内 无defer async，async，defer这三种</li>
 <li>header中外部 无defer async，async，defer这三种</li>
 <li>body中同上面，并且body中增加动态添加脚本，动态添加分为两类，直接在脚本中append，另一种是ajax异步去apped.<br>脚本中都执行了一段计算的代码，执行起来耗时几秒<a id="more"></a>
-<h5 id="执行结果分析">执行结果分析</h5></li>
+</li>
+</ul>
+</blockquote>
+<h5 id="执行结果分析">执行结果分析</h5><blockquote>
+<ul>
 <li>safri:<br>  async defer分析同上一篇wiki说明，以后不再说这个<br>  header中任何脚本执行都会阻塞DOMContentLoaded<br>  body内只有async的外部脚本不会阻塞DOMContentLoaded<br>  所有脚本都会阻塞loaded</li>
 <li>firefox:<br>  应该说所有脚本都阻塞了DOMContentLoaded，因为body dy script这个动态添加的脚本是在ready后添加执行的，ready之后添加的脚本会阻塞loaded执行</li>
 <li>chrome:<br>  和safri表现相同</li>

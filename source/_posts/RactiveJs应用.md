@@ -21,6 +21,7 @@ var ractive = new Ractive({
 });
 ```
 <!--more-->
+
 #### 模版内绑定属性
 ```javascript
 //html

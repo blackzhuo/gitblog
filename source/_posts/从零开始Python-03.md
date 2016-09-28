@@ -4,7 +4,8 @@ tags: python
 toc: true
 ---
 ##### list
->数据类型的列表，有序集合，可以执行添加删除操作<!--more-->
+>数据类型的列表，有序集合，可以执行添加删除操作
+<!--more-->
 ```python
 list1 = ['1','qwe','asd1']
 list1 # ['1','qwe','asd1']

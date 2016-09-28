@@ -9,6 +9,7 @@ var arr = ["One","Two","Three"];
 var arrtoo = arr.slice(0);
 ```
 <!--more-->
+
 ##### 方法二 concat方法
 ```javascript
 var arr = ["One","Two","Three"];

@@ -4,7 +4,8 @@ tags: javascript
 toc: true
 ---
 ##### break
->for， while， switch的case分支，使用 break 跳出当前循环；<!--more-->
+>for， while， switch的case分支，使用 break 跳出当前循环；
+<!--more-->
 ```javascript
 for(var i = 0;i<10;i++){
     for(var j = 0;j<10;j++){

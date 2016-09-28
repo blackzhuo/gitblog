@@ -6,7 +6,8 @@ toc: true
 #### 介绍
 * 我们之前用过IIS,Apache等服务器，都是做一些配置，然后启动服务，指定端口等等就在本地开启了一个服务器。
 * 现在我们使用nodejs,一步一步实现一个Http服务器，我们主要用到的是http模块，还会使用fs文件操作，url,path模块用作辅助文件读取。
-* 实现<!--more-->
+* 实现
+<!--more-->
 ```javascript
 //file_types.js
 exports.file_types = {

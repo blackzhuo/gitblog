@@ -10,6 +10,7 @@ toc: true
 * form上传无法取消，没有上传进度，flash上传，非IE浏览器无法传递cookie，插件上传的问题就是跨浏览器上传。
 * HTML5的File API可以很轻松的使用JS来控制文件的读取、写入等一系列的操作。
 <!--more-->
+
 ##### js对象
 * FileList
 File对象的集合,file标签设置multiple，就支持多文件上传

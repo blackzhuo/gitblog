@@ -11,6 +11,7 @@ toc: true
 * Shell for Root（/sbin/sh）
 * eg.
 <!--more-->
+
 ##### `#!`
 >`#!`告诉系统其后路径所指定的程序即是解释此脚本文件的Shell程序。
 * 执行

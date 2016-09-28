@@ -22,6 +22,7 @@ toc: true
 * 复杂数据类型
 	Object(Array,Function,Date,RegExp等)
 <!--more-->
+
 ##### 检测数据类型
 * typeof
 >我们来写个例子，看看typeOf检测变量类型，每种类型都返回什么结果

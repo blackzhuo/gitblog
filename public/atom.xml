@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.xuerlove.com/"/>
-  <updated>2016-08-31T13:46:18.000Z</updated>
+  <updated>2016-09-28T08:21:45.000Z</updated>
   <id>http://blog.xuerlove.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://blog.xuerlove.com/2016/08/31/fetch/"/>
     <id>http://blog.xuerlove.com/2016/08/31/fetch/</id>
     <published>2016-08-31T13:17:37.000Z</published>
-    <updated>2016-08-31T13:46:18.000Z</updated>
+    <updated>2016-09-28T08:21:45.000Z</updated>
     <content type="html"><![CDATA[<h5 id="介绍">介绍</h5><ul>
 <li>遵循Promise解决方案</li>
 <li>XMLHttpRequest的替代者</li>
@@ -28,9 +28,9 @@
 <li>引入Promise兼容方案</li>
 <li>引入fetch兼容方案（高级浏览器高版本已经支持）</li>
 <li>兼容方案以及使用说明见 <a href="https://github.com/github/fetch" target="_blank" rel="external">https://github.com/github/fetch</a><a id="more"></a>
-<h5 id="详解">详解</h5></li>
+</li>
 </ul>
-<h6 id="Header">Header</h6><h6 id="Request">Request</h6><h6 id="Response">Response</h6><h5 id="示例">示例</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkStatus</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (response.status &gt;= <span class="number">200</span> &amp;&amp; response.status &lt; <span class="number">300</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> error = <span class="keyword">new</span> <span class="built_in">Error</span>(response.statusText)</span><br><span class="line">    error.response = response</span><br><span class="line">    <span class="keyword">throw</span> error</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseJSON</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> response.json()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'/test.json'</span>)</span><br><span class="line">  .then(checkStatus)</span><br><span class="line">  .then(parseJSON)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'request succeeded with JSON response'</span>, data)</span><br><span class="line">  &#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'request failed'</span>, error)</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>]]></content>
+<h5 id="详解">详解</h5><h6 id="Header">Header</h6><h6 id="Request">Request</h6><h6 id="Response">Response</h6><h5 id="示例">示例</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkStatus</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (response.status &gt;= <span class="number">200</span> &amp;&amp; response.status &lt; <span class="number">300</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> error = <span class="keyword">new</span> <span class="built_in">Error</span>(response.statusText)</span><br><span class="line">    error.response = response</span><br><span class="line">    <span class="keyword">throw</span> error</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseJSON</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> response.json()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'/test.json'</span>)</span><br><span class="line">  .then(checkStatus)</span><br><span class="line">  .then(parseJSON)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'request succeeded with JSON response'</span>, data)</span><br><span class="line">  &#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'request failed'</span>, error)</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>]]></content>
     <summary type="html">
     <![CDATA[<h5 id="介绍">介绍</h5><ul>
 <li>遵循Promise解决方案</li>
@@ -52,7 +52,7 @@
     <link href="http://blog.xuerlove.com/2016/04/14/touch%E5%BC%80%E5%8F%91%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     <id>http://blog.xuerlove.com/2016/04/14/touch开发性能优化/</id>
     <published>2016-04-14T02:43:35.000Z</published>
-    <updated>2016-08-31T13:26:00.000Z</updated>
+    <updated>2016-09-28T08:23:45.000Z</updated>
     <content type="html"><![CDATA[<h4 id="介绍">介绍</h4><blockquote>
 <p>不觉间开发touch也有一段时间了，之前一直都在做pc端的工作，恍然间发现pc端和touch端开发，也并不能说完全是一回事，当然了代码还是那些代码。这里我要说什么问题呢，就是touch端经常出现的性能相关的问题。通过亲身踩坑，总结一些经验。</p>
 </blockquote>
@@ -89,13 +89,15 @@
     <link href="http://blog.xuerlove.com/2016/04/14/reactjs%E5%BA%94%E7%94%A8/"/>
     <id>http://blog.xuerlove.com/2016/04/14/reactjs应用/</id>
     <published>2016-04-14T02:42:32.000Z</published>
-    <updated>2016-04-15T12:11:57.000Z</updated>
+    <updated>2016-09-28T08:23:36.000Z</updated>
     <content type="html"><![CDATA[<h4 id="reactjs">reactjs</h4><p>官方文档 <a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="external">http://reactjs.cn/react/docs/getting-started.html</a></p>
 <h5 id="引用reactjs框架">引用reactjs框架</h5><ul>
 <li>实时转换工具 <code>npm install -g react-tools</code> 启动命令 <code>jsx --watch src/ build/</code> （或者页面引入jsx编译工具）</li>
 <li>引入fetch <a href="https://github.com/github/fetch" target="_blank" rel="external">https://github.com/github/fetch</a> （引入Promise）</li>
 <li>jsx <a href="http://reactjs.cn/react/docs/jsx-in-depth.html" target="_blank" rel="external">http://reactjs.cn/react/docs/jsx-in-depth.html</a><a id="more"></a>
-<h5 id="过程">过程</h5></li>
+</li>
+</ul>
+<h5 id="过程">过程</h5><ul>
 <li>通过 React.createClass 定义组件</li>
 <li>组件包含的属性，方法(<a href="http://reactjs.cn/react/docs/component-specs.html" target="_blank" rel="external">http://reactjs.cn/react/docs/component-specs.html</a>)<ul>
 <li>render</li>
@@ -184,7 +186,7 @@
     <link href="http://blog.xuerlove.com/2016/04/14/nodejs%E5%BC%80%E5%8F%91%E6%8E%A7%E5%88%B6%E5%8F%B0%E5%B7%A5%E5%85%B7/"/>
     <id>http://blog.xuerlove.com/2016/04/14/nodejs开发控制台工具/</id>
     <published>2016-04-14T02:41:56.000Z</published>
-    <updated>2016-04-15T07:16:14.000Z</updated>
+    <updated>2016-09-28T08:23:08.000Z</updated>
     <content type="html"><![CDATA[<h4 id="环境要求">环境要求</h4><ul>
 <li>nodejs</li>
 </ul>
@@ -234,7 +236,7 @@
     <link href="http://blog.xuerlove.com/2016/04/14/npm%E5%8C%85%E5%BC%80%E5%8F%91/"/>
     <id>http://blog.xuerlove.com/2016/04/14/npm包开发/</id>
     <published>2016-04-14T02:41:29.000Z</published>
-    <updated>2016-04-15T07:15:39.000Z</updated>
+    <updated>2016-09-28T08:23:32.000Z</updated>
     <content type="html"><![CDATA[<h4 id="环境要求">环境要求</h4><ul>
 <li>nodejs</li>
 </ul>
@@ -247,9 +249,11 @@
 <li>一个主文件 index.js</li>
 <li>一个lib文件夹<ul>
 <li>存放源文件<a id="more"></a>
-<h4 id="例子">例子</h4></li>
+</li>
 </ul>
 </li>
+</ul>
+<h4 id="例子">例子</h4><ul>
 <li><p>package.json</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"node-tools"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -313,7 +317,7 @@
     <link href="http://blog.xuerlove.com/2015/11/25/%E5%8A%A8%E6%80%81%E8%84%9A%E6%9C%AC/"/>
     <id>http://blog.xuerlove.com/2015/11/25/动态脚本/</id>
     <published>2015-11-25T07:03:01.000Z</published>
-    <updated>2016-04-14T02:12:35.000Z</updated>
+    <updated>2016-09-28T08:20:32.000Z</updated>
     <content type="html"><![CDATA[<h4 id="动态加载js">动态加载js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span>(<span class="params">data,type</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">	script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			script.appendChild(<span class="built_in">document</span>.createTextNode(data));</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			script.src = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">catch</span>(ex)&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			script.text = code</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			script.src = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="动态样式">动态样式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadStyle</span>(<span class="params">data,type</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> style = <span class="built_in">document</span>.createElement(<span class="string">"style"</span>);</span><br><span class="line">	style.type = <span class="string">"text/css"</span>;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			style.appendChild(<span class="built_in">document</span>.createTextNode(data));</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			style.href = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">catch</span>(ex)&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			style.styleSheet.cssText = css;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			style.href = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>];</span><br><span class="line">	head.appendChild(style);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
@@ -331,7 +335,7 @@
     <link href="http://blog.xuerlove.com/2015/11/24/DOM%E6%93%8D%E4%BD%9C/"/>
     <id>http://blog.xuerlove.com/2015/11/24/DOM操作/</id>
     <published>2015-11-24T07:03:01.000Z</published>
-    <updated>2016-04-14T02:14:38.000Z</updated>
+    <updated>2016-09-28T08:21:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="Node">Node</h4><h5 id="操作节点">操作节点</h5><ul>
 <li>appendChild()<br>一个参数，要插入的节点</li>
 <li>insertBefore()<br>两个参数，要插入的节点和参照的节点</li>
@@ -339,7 +343,9 @@
 <li>removeChild()<br>一个参数，要移除的节点</li>
 <li>cloneNode()<br>一个参数，布尔值，是否执行深度克隆</li>
 <li>normalize()<br>合并文本节点<a id="more"></a>
-<h4 id="Document">Document</h4><h5 id="document-getElementById">document.getElementById</h5></li>
+</li>
+</ul>
+<h4 id="Document">Document</h4><h5 id="document-getElementById">document.getElementById</h5><ul>
 <li>IE7及以前的版本忽略大小写，除此之外必须严格按照大小写</li>
 <li>如果不传参数返回null</li>
 <li>IE7及以前的版本如果表单元素name属性和某元素id相等，会返回表单元素<h5 id="document-getElementsByTagName">document.getElementsByTagName</h5></li>
@@ -444,7 +450,7 @@
     <link href="http://blog.xuerlove.com/2015/11/23/shell%E5%9F%BA%E7%A1%80/"/>
     <id>http://blog.xuerlove.com/2015/11/23/shell基础/</id>
     <published>2015-11-23T07:03:01.000Z</published>
-    <updated>2016-04-14T02:17:26.000Z</updated>
+    <updated>2016-09-28T08:23:38.000Z</updated>
     <content type="html"><![CDATA[<h4 id="shell分类">shell分类</h4><ul>
 <li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
 <li>Bourne Again Shell（/bin/bash）</li>
@@ -452,22 +458,24 @@
 <li>K Shell（/usr/bin/ksh）</li>
 <li>Shell for Root（/sbin/sh）</li>
 <li>eg.<a id="more"></a>
+</li>
+</ul>
 <h5 id="#!"><code>#!</code></h5><blockquote>
 <p><code>#!</code>告诉系统其后路径所指定的程序即是解释此脚本文件的Shell程序。</p>
-</blockquote>
-</li>
+<ul>
 <li>执行<ul>
 <li><code>./test.sh</code>使用想对路径</li>
 <li>sh test.sh</li>
 </ul>
 </li>
-<li><p>变量</p>
-<ul>
+<li>变量<ul>
 <li>直接使用变量名 <code>test=&quot;123&quot;</code></li>
 </ul>
 </li>
-<li><p>变量名和等号之间不能有空格</p>
-</li>
+</ul>
+</blockquote>
+<ul>
+<li>变量名和等号之间不能有空格</li>
 <li>首个字符必须为字母（a-z，A-Z）。</li>
 <li>中间不能有空格，可以使用下划线（_）。</li>
 <li>不能使用标点符号。</li>
@@ -573,7 +581,7 @@
     <link href="http://blog.xuerlove.com/2015/11/22/%E4%BD%BF%E7%94%A8nproxy%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86/"/>
     <id>http://blog.xuerlove.com/2015/11/22/使用nproxy实现本地代理/</id>
     <published>2015-11-22T07:03:01.000Z</published>
-    <updated>2016-04-14T02:12:26.000Z</updated>
+    <updated>2016-09-28T08:20:22.000Z</updated>
     <content type="html"><![CDATA[<h4 id="安装">安装</h4><h5 id="先安装Node-js">先安装Node.js</h5><h5 id="安装nproxy">安装nproxy</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g nproxy</span><br></pre></td></tr></table></figure>
 <h5 id="nproxy介绍">nproxy介绍</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Options:</span><br><span class="line">    -h, --help               output usage information</span><br><span class="line">    -V, --version            output the version number</span><br><span class="line">    -l, --list [list]        Specify the replace rule file</span><br><span class="line">    -p, --port [port]        Specify the port</span><br><span class="line">    -t, --timeout [timeout]  Specify the request timeout(<span class="number">5</span> seconds by <span class="keyword">default</span>)</span><br><span class="line">    -d, --debug              Enable debug mode</span><br><span class="line">    -n, --networks           Display network interface list</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -626,16 +634,16 @@
     <link href="http://blog.xuerlove.com/2015/11/21/nginx%E9%85%8D%E7%BD%AEhttps/"/>
     <id>http://blog.xuerlove.com/2015/11/21/nginx配置https/</id>
     <published>2015-11-21T07:03:01.000Z</published>
-    <updated>2016-04-14T02:15:58.000Z</updated>
+    <updated>2016-09-28T08:22:55.000Z</updated>
     <content type="html"><![CDATA[<h4 id="安装">安装</h4><h5 id="系统：centos">系统：centos</h5><ul>
 <li>wget下载</li>
 <li>tar 解压</li>
 <li>sudo ./configure —with-http_rewrite_module —with-pcre=../pcre-8.36 —with-* http_stub_status_module —with-http_ssl_module —with-http_realip_module 安装这些模块，如果安装失败，请wget下载缺失的包，解压安装后，再重新执行，等号后面添加模块路径</li>
 <li>sudo make</li>
 <li>sudo make install<a id="more"></a>
-<h5 id="配置转发">配置转发</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">upstream  test&#123;</span><br><span class="line">     server **.**.**.**:****;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">        listen **.**.**.**:<span class="number">8888</span>;</span><br><span class="line">        server_name test.test.com;</span><br><span class="line">        charset utf8;</span><br><span class="line">        gzip                    off;</span><br><span class="line">        gzip_http_version       <span class="number">1.1</span>;</span><br><span class="line">        gzip_buffers            <span class="number">256</span> <span class="number">64</span>k;</span><br><span class="line">        gzip_comp_level         <span class="number">5</span>;</span><br><span class="line">        gzip_min_length         <span class="number">1000</span>;</span><br><span class="line">        gzip_types              application/x-javascript text/javascript text/plain text/xml text/css image/jpeg image/jpg image/png image/gif application/x-shockwave-flash image/x-icon;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">         proxy_set_header  Host  $host;</span><br><span class="line">         proxy_set_header  X-Real-IP  $remote_addr;</span><br><span class="line">         proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        location ~ <span class="regexp">/test/</span> &#123;</span><br><span class="line">                proxy_pass http:<span class="comment">//test;</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h5 id="配置转发">配置转发</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">upstream  test&#123;</span><br><span class="line">     server **.**.**.**:****;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">        listen **.**.**.**:<span class="number">8888</span>;</span><br><span class="line">        server_name test.test.com;</span><br><span class="line">        charset utf8;</span><br><span class="line">        gzip                    off;</span><br><span class="line">        gzip_http_version       <span class="number">1.1</span>;</span><br><span class="line">        gzip_buffers            <span class="number">256</span> <span class="number">64</span>k;</span><br><span class="line">        gzip_comp_level         <span class="number">5</span>;</span><br><span class="line">        gzip_min_length         <span class="number">1000</span>;</span><br><span class="line">        gzip_types              application/x-javascript text/javascript text/plain text/xml text/css image/jpeg image/jpg image/png image/gif application/x-shockwave-flash image/x-icon;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">         proxy_set_header  Host  $host;</span><br><span class="line">         proxy_set_header  X-Real-IP  $remote_addr;</span><br><span class="line">         proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        location ~ <span class="regexp">/test/</span> &#123;</span><br><span class="line">                proxy_pass http:<span class="comment">//test;</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="支持https">支持https</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">upstream  test&#123;</span><br><span class="line">     server **.**.**.**:****;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">        listen **.**.**.**:<span class="number">443</span> ssl;</span><br><span class="line">        server_name test.test.com;</span><br><span class="line">        charset utf8;</span><br><span class="line">        gzip                    off;</span><br><span class="line">        gzip_http_version       <span class="number">1.1</span>;</span><br><span class="line">        gzip_buffers            <span class="number">256</span> <span class="number">64</span>k;</span><br><span class="line">        gzip_comp_level         <span class="number">5</span>;</span><br><span class="line">        gzip_min_length         <span class="number">1000</span>;</span><br><span class="line">        gzip_types              application/x-javascript text/javascript text/plain text/xml text/css image/jpeg image/jpg image/png image/gif application/x-shockwave-flash image/x-icon;</span><br><span class="line"></span><br><span class="line">        ssl on;</span><br><span class="line">        ssl_certificate             /home/q/nginx/conf/server.crt;</span><br><span class="line">        ssl_certificate_key         /home/q/nginx/conf/server.key;</span><br><span class="line">        ssl_session_timeout         <span class="number">5</span>m;</span><br><span class="line">        ssl_protocols               SSLv3 TLSv1;</span><br><span class="line">        ssl_ciphers                 ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;</span><br><span class="line">        ssl_prefer_server_ciphers   on;</span><br><span class="line"></span><br><span class="line">         proxy_set_header  Host  $host;</span><br><span class="line">         proxy_set_header  X-Real-IP  $remote_addr;</span><br><span class="line">         proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        location ~ <span class="regexp">/test/</span> &#123;</span><br><span class="line">                proxy_pass http:<span class="comment">//test;</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="证书">证书</h5><ul>
 <li><p>两种方式</p>
@@ -672,7 +680,7 @@
     <link href="http://blog.xuerlove.com/2015/11/20/%E8%A1%A8%E5%8D%95%E4%B8%AD%E6%8C%89%E5%9B%9E%E8%BD%A6%E9%94%AE%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4/"/>
     <id>http://blog.xuerlove.com/2015/11/20/表单中按回车键自动提交/</id>
     <published>2015-11-20T07:03:01.000Z</published>
-    <updated>2016-04-14T02:26:40.000Z</updated>
+    <updated>2016-09-28T08:21:11.000Z</updated>
     <content type="html"><![CDATA[<h4 id="当form表单中只有一个&lt;input_type=&quot;text&quot;_name=&#39;name&#39;_/&gt;时按回车键将会自动将表单提交。">当form表单中只有一个<code>&lt;input type=&quot;text&quot; name=&#39;name&#39; /&gt;</code>时按回车键将会自动将表单提交。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">'text'</span> <span class="attribute">name</span>=<span class="value">'name'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="不需要提交的解决方案">不需要提交的解决方案</h4><ul>
@@ -714,14 +722,14 @@
     <link href="http://blog.xuerlove.com/2015/11/19/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%82%B9%E9%9B%86%E5%90%88/"/>
     <id>http://blog.xuerlove.com/2015/11/19/前端知识点集合/</id>
     <published>2015-11-19T07:03:01.000Z</published>
-    <updated>2016-04-19T08:16:06.000Z</updated>
+    <updated>2016-09-28T08:20:29.000Z</updated>
     <content type="html"><![CDATA[<h4 id="getBoundingClientRect">getBoundingClientRect</h4><blockquote>
 <p>计算视口坐标,方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBoundingClientRect所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好，非常好用.</p>
 </blockquote>
 <h4 id="scrollIntoView">scrollIntoView</h4><blockquote>
 <p>可以让元素直接呈现到可视区域，实际上是屏幕显示区的最顶端<br><a id="more"></a></p>
-<h4 id="检查图片是否加在完">检查图片是否加在完</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'img'</span>).load(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'load over'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </blockquote>
+<h4 id="检查图片是否加在完">检查图片是否加在完</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'img'</span>).load(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'load over'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h4 id="修复加载失败的图片">修复加载失败的图片</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'img'</span>).on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="keyword">this</span>).prop(<span class="string">'src'</span>,<span class="string">'/default.png'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h4 id="回到顶部">回到顶部</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).animate(&#123;scrollTop:<span class="number">0</span>&#125;,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
 <h4 id="图片预加载">图片预加载</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$.preLoad = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,len = <span class="built_in">arguments</span>.length;i&lt;len;i++)&#123;</span><br><span class="line">		<span class="keyword">var</span> $img = $(<span class="string">'&lt;img&gt;'</span>);</span><br><span class="line">		$img.attr(<span class="string">'src'</span>,<span class="built_in">arguments</span>[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> imgList = [<span class="string">'/img1.png'</span>,<span class="string">'/img2.png'</span>];</span><br><span class="line">$.preLoad(imgList);</span><br><span class="line"><span class="string">``</span><span class="string">`javascript</span><br><span class="line">#### visible</span><br><span class="line">`</span><span class="string">``</span>javascript</span><br><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'visibilitychange'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (e.target.visibilityState === <span class="string">'visible'</span>) &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'visible'</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'hidden'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -751,7 +759,7 @@
     <link href="http://blog.xuerlove.com/2015/11/18/%E5%BC%82%E6%AD%A5javascript/"/>
     <id>http://blog.xuerlove.com/2015/11/18/异步javascript/</id>
     <published>2015-11-18T07:03:01.000Z</published>
-    <updated>2016-04-14T02:13:07.000Z</updated>
+    <updated>2016-09-28T08:20:53.000Z</updated>
     <content type="html"><![CDATA[<h4 id="什么是异步javascript">什么是异步javascript</h4><blockquote>
 <p>顺序的执行的代码，我们称之为同步代码，异步的过程就是让有些非常耗时的javascript代码放在异步模块中之行，同步代码之行结束后再去之行它。</p>
 </blockquote>
@@ -812,11 +820,13 @@
     <link href="http://blog.xuerlove.com/2015/11/16/Synergy%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%B8%AA%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%AB%E9%94%AE%E9%BC%A0/"/>
     <id>http://blog.xuerlove.com/2015/11/16/Synergy实现多个主机之间共享键鼠/</id>
     <published>2015-11-16T07:03:01.000Z</published>
-    <updated>2016-04-14T02:17:32.000Z</updated>
+    <updated>2016-09-28T08:23:42.000Z</updated>
     <content type="html"><![CDATA[<h5 id="工具">工具</h5><ul>
 <li>Synergy软件</li>
 <li>两台电脑，一套键鼠<a id="more"></a>
-<h5 id="使用方法">使用方法</h5></li>
+</li>
+</ul>
+<h5 id="使用方法">使用方法</h5><ul>
 <li>A电脑做为共享键鼠的主机</li>
 <li>B电脑去使用共享的键鼠</li>
 <li>A电脑打开软件后选择共享选项</li>
@@ -840,7 +850,7 @@
     <link href="http://blog.xuerlove.com/2015/11/15/Jcrop/"/>
     <id>http://blog.xuerlove.com/2015/11/15/Jcrop/</id>
     <published>2015-11-15T07:03:01.000Z</published>
-    <updated>2016-04-14T02:15:45.000Z</updated>
+    <updated>2016-09-28T08:22:42.000Z</updated>
     <content type="html"><![CDATA[<h4 id="引用资源">引用资源</h4><h5 id="css">css</h5><p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;jquery.Jcrop.css&quot;&gt;</code></p>
 <h5 id="JavaScript">JavaScript</h5><p><code>&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</code><br><code>&lt;script src=&quot;jquery.Jcrop.js&quot;&gt;&lt;/script&gt;</code><br><a id="more"></a></p>
 <h5 id="使用">使用</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img id=<span class="string">"image"</span> src=<span class="string">"image.jpg"</span>&gt;</span><br><span class="line"></span><br><span class="line">$(<span class="string">'#image'</span>).Jcrop();</span><br></pre></td></tr></table></figure>
@@ -862,7 +872,7 @@
     <link href="http://blog.xuerlove.com/2015/11/14/smartcropJs/"/>
     <id>http://blog.xuerlove.com/2015/11/14/smartcropJs/</id>
     <published>2015-11-14T07:03:01.000Z</published>
-    <updated>2016-04-14T02:17:30.000Z</updated>
+    <updated>2016-09-28T08:23:40.000Z</updated>
     <content type="html"><![CDATA[<h4 id="智能识别裁剪图片">智能识别裁剪图片</h4><p>[github|<a href="https://github.com/jwagner/smartcrop.js" target="_blank" rel="external">https://github.com/jwagner/smartcrop.js</a>]</p>
 <h4 id="how_to_use">how to use</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SmartCrop.crop(image, &#123;width: <span class="number">100</span>, height: <span class="number">100</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;<span class="built_in">console</span>.log(result);&#125;);</span><br><span class="line"><span class="comment">// &#123;topCrop: &#123;x: 300, y: 200, height: 200, width: 200&#125;&#125;</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -883,7 +893,7 @@
     <link href="http://blog.xuerlove.com/2015/11/13/RactiveJs%E5%BA%94%E7%94%A8/"/>
     <id>http://blog.xuerlove.com/2015/11/13/RactiveJs应用/</id>
     <published>2015-11-13T07:03:01.000Z</published>
-    <updated>2016-04-15T07:15:52.000Z</updated>
+    <updated>2016-09-28T08:23:34.000Z</updated>
     <content type="html"><![CDATA[<h4 id="简介">简介</h4><p>Ractive.js是一款简单却功能强大的JS库，它实现了模板，数据绑定，DOM实时更新，事件处理等多个有用的功能。</p>
 <h4 id="应用">应用</h4><p>关联dom和模版<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">'output'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">id</span>=<span class="value">'template'</span> <span class="attribute">type</span>=<span class="value">'text/ractive'</span>&gt;</span><span class="undefined"></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//js</span><br><span class="line">var ractive = new Ractive(&#123;</span><br><span class="line">	el: '#output',</span><br><span class="line">	template: '#template'</span><br><span class="line">&#125;);</span></span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>

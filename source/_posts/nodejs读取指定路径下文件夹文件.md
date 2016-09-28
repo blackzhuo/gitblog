@@ -32,7 +32,9 @@ function scanFolder(path){
         'folders': folders
     }
 }
-```<!--more-->
+```
+<!--more-->
+
 #### 获取每个文件大小
 ```javascript
 var filesList = [];

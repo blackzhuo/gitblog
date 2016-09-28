@@ -14,6 +14,7 @@ toc: true
 * 一个lib文件夹
 	* 存放源文件
 <!--more-->
+
 #### 例子
 * package.json
 ```javascript

@@ -21,6 +21,7 @@ fs.rename('jq-1.7.1.js','src/jq-1.7.2.js', function(err){
 //新路径中src必须存在，否则会报异常
 ```
 <!--more-->
+
 ##### chmod
 * `fs.chmod(path, mode, callback)`
 修改文件权限，传入文件路径，权限类型，回调函数。

@@ -16,6 +16,7 @@ function getElementLeft(element){
 }
 ```
 <!--more-->
+
 ##### 元素距上方偏移量
 ```javascript
 function getElementTop(element){

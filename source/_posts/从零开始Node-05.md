@@ -15,6 +15,7 @@ brew install mongodb
 brew install node
 sudo npm install -g express
 ```
+<!--more-->
 
 ###### 安装路径
 mongo安装在 `/usr/local/bin/mongo` 这个路径

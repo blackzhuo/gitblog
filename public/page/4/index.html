@@ -95,7 +95,7 @@
 
     </header>
     <div class="entry">
-		 
+		<h4 id="phantomjs">phantomjs</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var webPage = require(<span class="string">'webpage'</span>).create();</span><br><span class="line">var fs = require(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">var url = <span class="string">'www.test.com'</span>;</span><br><span class="line">var downloadPath = <span class="string">'/home/test/'</span>;</span><br><span class="line">var dom = <span class="string">'#js_test'</span>;</span><br><span class="line"></span><br><span class="line">webPage.open(url, function(status) &#123;</span><br><span class="line">	<span class="keyword">if</span> (status !== <span class="string">'success'</span>) &#123;</span><br><span class="line">		console.log(<span class="string">'err'</span>);</span><br><span class="line">		phantom.exit(<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	var html = webPage.evaluate(function() &#123;</span><br><span class="line">		<span class="keyword">return</span> document.querySelector(dom).innerHTML;</span><br><span class="line">	&#125;);</span><br><span class="line">	var dateStr = (<span class="keyword">new</span> Date()).getTime();</span><br><span class="line">	fs.write(downloadPath + dateStr + <span class="string">'.html'</span>, html,</span><br><span class="line">			<span class="string">'w'</span>);</span><br><span class="line">	console.log(<span class="string">'success'</span>);</span><br><span class="line">	phantom.exit(<span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure> 
     </div>
     <footer>
 		<div class="alignleft">
@@ -186,7 +186,7 @@
 
     </header>
     <div class="entry">
-		<h4 id="http">http</h4><h5 id="http-createServer是创建服务器的核心<!-more->">http.createServer是创建服务器的核心 
+		<h4 id="http">http</h4><h5 id="http-createServer是创建服务器的核心">http.createServer是创建服务器的核心</h5> 
     </div>
     <footer>
 		<div class="alignleft">

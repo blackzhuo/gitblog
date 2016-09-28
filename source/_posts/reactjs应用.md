@@ -10,6 +10,7 @@ toc: true
 * 引入fetch https://github.com/github/fetch （引入Promise）
 * jsx http://reactjs.cn/react/docs/jsx-in-depth.html
 <!--more-->
+
 ##### 过程
 * 通过 React.createClass 定义组件
 * 组件包含的属性，方法(http://reactjs.cn/react/docs/component-specs.html)

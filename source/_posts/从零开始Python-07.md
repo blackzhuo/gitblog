@@ -11,6 +11,7 @@ for i in x:
     print i
 ```
 <!--more-->
+
 ##### 迭代索引
 ```python
 x=['asd','zxc','123']

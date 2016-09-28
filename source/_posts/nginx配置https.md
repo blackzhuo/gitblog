@@ -11,6 +11,7 @@ toc: true
 * sudo make
 * sudo make install
 <!--more-->
+
 ##### 配置转发
 ```javascript
 upstream  test{

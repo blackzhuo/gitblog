@@ -93,7 +93,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-10-04T11:20:11.000Z" itemprop="datePublished">2015-10-04</time>
-    更新日期:<time datetime="2015-11-23T11:41:44.000Z" itemprop="dateModified">2015-11-23</time>
+    更新日期:<time datetime="2016-09-28T08:21:50.000Z" itemprop="dateModified">2016-09-28</time>
     
   </p>
 </header>
@@ -109,14 +109,16 @@
 <li>背景<br>我们之前在浏览器端操作文件，一般都是通过flash,silverlight或者ActiveX插件，这些实现都是依赖第三方插件，不够独立也伴随着升级带来的不稳定，也不够通用，使用了这些技术后也很难进行跨平台、跨浏览器、跨设备等情况下实现统一的表现。<br>之前图片上传方式，1、form提交。2、flash上传。3、插件上传。</li>
 <li>form上传无法取消，没有上传进度，flash上传，非IE浏览器无法传递cookie，插件上传的问题就是跨浏览器上传。</li>
 <li>HTML5的File API可以很轻松的使用JS来控制文件的读取、写入等一系列的操作。<a id="more"></a>
-<h5 id="js对象">js对象</h5></li>
+</li>
+</ul>
+</blockquote>
+<h5 id="js对象">js对象</h5><ul>
 <li>FileList<br>File对象的集合,file标签设置multiple，就支持多文件上传<br><code>&lt;input type=&quot;file&quot; multiple=&quot;multiple&quot; name=&quot;file&quot; id=&quot;js_file&quot; /&gt;</code></li>
 <li>Blob<br>原始数据对象<br>使用slice方法可以读取原始数据中的某块数据<br>属性：size（数据的大小），type（数据的MIME类型）</li>
 <li>File<br>继承自Blob对象,指向一个具体的文件<br>属性：name（文件名), lastModifiedDate（最后修改时间)</li>
 <li>FileReader<br>读取文件数据</li>
 <li>URL scheme</li>
 </ul>
-</blockquote>
 <h5 id="FileReader">FileReader</h5><ul>
 <li>三个方法<ul>
 <li>readAsBinaryString(Blob blob);传入一个Blob对象，读取数据的结果作为二进制字符串的形式放到FileReader的result属性中。</li>

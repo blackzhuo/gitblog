@@ -4,7 +4,8 @@ tags: nodejs
 toc: true
 ---
 #### http
-##### http.createServer是创建服务器的核心<!--more-->
+##### http.createServer是创建服务器的核心
+<!--more-->
 ```javascript
 var http = require('http');
 var server = http.createServer(function(req,res){

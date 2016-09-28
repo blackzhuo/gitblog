@@ -5,7 +5,8 @@ toc: true
 ---
 ##### 函数
 ###### 内置函数
-> 可以引用math包，里面有很多数学函数<!--more-->
+> 可以引用math包，里面有很多数学函数
+<!--more-->
 `import math`
 * abs(x)
 ```python
