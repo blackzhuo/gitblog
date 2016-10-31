@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.xuerlove.com/"/>
-  <updated>2016-09-28T08:21:45.000Z</updated>
+  <updated>2016-10-31T11:58:14.000Z</updated>
   <id>http://blog.xuerlove.com/</id>
   
   <author>
@@ -13,6 +13,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[mongodb]]></title>
+    <link href="http://blog.xuerlove.com/2016/10/31/mongodb/"/>
+    <id>http://blog.xuerlove.com/2016/10/31/mongodb/</id>
+    <published>2016-10-31T11:57:13.000Z</published>
+    <updated>2016-10-31T11:58:14.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="环境">环境</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">centeros</span><br></pre></td></tr></table></figure>
+<h4 id="下载">下载</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.2.10.tgz</span><br></pre></td></tr></table></figure>
+<h4 id="解压">解压</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf mongodb-linux-x86_64-3.2.10.tgz</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="加入PATH">加入PATH</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd mongodb-linux-x86_64-3.2.10&#10;export PATH=/home/q/mongodb-linux-x86_64-3.2.10/bin:$PATH</span><br></pre></td></tr></table></figure>
+<h4 id="创建基础文件">创建基础文件</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p data/db&#10;sudo mkdir logs&#10;sudo vim ./bin/mongodb.conf&#10;&#10;#&#21152;&#20837;&#20869;&#23481;&#10;port=27017&#10;dbpath=/home/q/mongodb-linux-x86_64-3.2.10/data/db&#10;logpath=/home/q/mongodb-linux-x86_64-3.2.10/logs/db.logs&#10;logappend=true</span><br></pre></td></tr></table></figure>
+<h4 id="启动服务">启动服务</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mongod -config /home/q/mongodb-linux-x86_64-3.2.10/bin/mongodb.conf  --fork --auth</span><br></pre></td></tr></table></figure>
+<h4 id="连接数据库">连接数据库</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo</span><br></pre></td></tr></table></figure>
+<h4 id="添加用户">添加用户</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use admin&#10;db.createUser(&#10;  &#123;&#10;    user:&#34;superuser&#34;,&#10;    pwd:&#34;pwd&#34;,&#10;    roles:[&#34;root&#34;]&#10;  &#125;&#10;)</span><br></pre></td></tr></table></figure>
+<h4 id="认证">认证</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use admin&#10;db.auth(&#39;superuser&#39;,&#39;pwd&#39;)</span><br></pre></td></tr></table></figure>
+<h4 id="添加用户-1">添加用户</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(&#10;   &#123;&#10;     user: &#34;zhuo.wu&#34;,&#10;     pwd: &#34;zhuo.wu&#34;,&#10;     roles: [ &#34;readWrite&#34;, &#34;dbAdmin&#34; ]&#10;   &#125;&#10;)</span><br></pre></td></tr></table></figure>
+<h4 id="查看用户">查看用户</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show users</span><br></pre></td></tr></table></figure>
+<h4 id="创建数据库">创建数据库</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use testDB</span><br></pre></td></tr></table></figure>
+<h4 id="创建集合">创建集合</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.test.insert(&#123;&#39;k&#39;:&#39;123&#39;&#125;)&#10;show dbs&#10;db.test.find()</span><br></pre></td></tr></table></figure>
+<h4 id="删除集合">删除集合</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.test.drop()</span><br></pre></td></tr></table></figure>
+<h4 id="删除数据库">删除数据库</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
+<h4 id="数据库备份">数据库备份</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mongodump -u=superuser -p=pwd&#10;#mongodump -h dbhost -d dbname -o dbdirectory</span><br></pre></td></tr></table></figure>
+<h4 id="数据库恢复">数据库恢复</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mongodump -u=superuser -p=pwd&#10;#mongorestore -h dbhost -d dbname --directoryperdb dbdirectory</span><br></pre></td></tr></table></figure>
+<h4 id="定时备份数据库">定时备份数据库</h4><ul>
+<li><p>备份目录</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /home/mongo/temp &#38;&#38; sudo chmod -R 777 /home/mongo/temp&#10;sudo mkdir -p /home/mongo/all &#38;&#38; sudo chmod -R 777 /home/mongo/all</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>备份脚本<br>sudo vim /home/schedule/mongo.sh</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh&#10;user=superuser&#10;passwprd=pwd&#10;deldays=2&#10;backdate=`date +%Y-%m-%d`&#10;backname=&#34;mg_$backdate.tar.gz&#34;&#10;mongodump=/home/q/mongodb-linux-x86_64-3.2.10/bin/mongodump&#10;temp=/home/mongo/temp&#10;all=/home/mongo/all&#10;cd $temp&#10;rm -rf $temp/*&#10;mkdir -p $temp/$backdate&#10;$mongodump -u $user -p $passwprd -o $temp/$backdate&#10;tar -zcvf $all/$backname $temp/$backdate&#10;find $all/ -mtime +$deldays -delete</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改权限</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R 777 /home/schedule/mongo.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定时任务<br>sudo vim /etc/crontab</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">40 18 * * * root /home/schedule/mongo.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启定时任务</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/rc.d/init.d/crond restart</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开机启动</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chkconfig crond on</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动服务</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service crond start</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="关闭数据库">关闭数据库</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use admin&#10;db.auth(&#39;superuser&#39;,&#39;pwd&#39;)&#10;db.shutdownServer()&#10;#or&#10;db.adminCommand(&#123;shutdown : 1, force : true&#125;)&#10;#or&#10;db.shutdownServer(&#123;force : true&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="常见问题">常见问题</h4><ul>
+<li>数据库非正常关闭lock<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /home/q/mongodb-linux-x86_64-3.2.10/data/db/mongod.lock&#10;sudo mongod --dbpath /home/q/mongodb-linux-x86_64-3.2.10/data/db --repair&#10;sudo ./mongod --dbpath /home/q/mongodb-linux-x86_64-3.2.10/data/db</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="推荐数据库软件">推荐数据库软件</h4><ul>
+<li>Mac: Toad (app store)</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="环境">环境</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">centeros</span><br></pre></td></tr></table></figure>
+<h4 id="下载">下载</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.2.10.tgz</span><br></pre></td></tr></table></figure>
+<h4 id="解压">解压</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf mongodb-linux-x86_64-3.2.10.tgz</span><br></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+      <category term="linux" scheme="http://blog.xuerlove.com/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[fetch]]></title>
@@ -881,27 +948,6 @@
     <summary type="html">
     <![CDATA[<h4 id="智能识别裁剪图片">智能识别裁剪图片</h4><p>[github|<a href="https://github.com/jwagner/smartcrop.js">https://github.com/jwagner/smartcrop.js</a>]</p>
 <h4 id="how_to_use">how to use</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SmartCrop.crop(image, &#123;width: <span class="number">100</span>, height: <span class="number">100</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;<span class="built_in">console</span>.log(result);&#125;);</span><br><span class="line"><span class="comment">// &#123;topCrop: &#123;x: 300, y: 200, height: 200, width: 200&#125;&#125;</span></span><br></pre></td></tr></table></figure>]]>
-    
-    </summary>
-    
-      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[RactiveJs应用]]></title>
-    <link href="http://blog.xuerlove.com/2015/11/13/RactiveJs%E5%BA%94%E7%94%A8/"/>
-    <id>http://blog.xuerlove.com/2015/11/13/RactiveJs应用/</id>
-    <published>2015-11-13T07:03:01.000Z</published>
-    <updated>2016-09-28T08:23:34.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="简介">简介</h4><p>Ractive.js是一款简单却功能强大的JS库，它实现了模板，数据绑定，DOM实时更新，事件处理等多个有用的功能。</p>
-<h4 id="应用">应用</h4><p>关联dom和模版<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">'output'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">id</span>=<span class="value">'template'</span> <span class="attribute">type</span>=<span class="value">'text/ractive'</span>&gt;</span><span class="undefined"></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//js</span><br><span class="line">var ractive = new Ractive(&#123;</span><br><span class="line">	el: '#output',</span><br><span class="line">	template: '#template'</span><br><span class="line">&#125;);</span></span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h4 id="模版内绑定属性">模版内绑定属性</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">'output'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">id</span>=<span class="value">'template'</span> <span class="attribute">type</span>=<span class="value">'text/ractive'</span>&gt;</span><span class="handlebars"><span class="xml"></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">greeting</span>&#125;&#125;</span><span class="xml"> </span><span class="expression">&#123;&#123;<span class="variable">name</span>&#125;&#125;</span><span class="xml">!<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"></span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//js</span><br><span class="line">var ractive = new Ractive(&#123;</span><br><span class="line">	el: '#output',</span><br><span class="line">	template: '#template'，</span><br><span class="line">        data: &#123;</span><br><span class="line">	    greeting: 'Hello',</span><br><span class="line">	    name: 'world'</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span></span><br></pre></td></tr></table></figure>
-<h4 id="配置">配置</h4><h4 id="模版">模版</h4><h4 id="mustache模版">mustache模版</h4><h4 id="数据和绑定">数据和绑定</h4><h4 id="事件">事件</h4><h4 id="过度效果和动画">过度效果和动画</h4><h4 id="组件">组件</h4><h4 id="API">API</h4><h4 id="插件">插件</h4><h4 id="待续">待续</h4>]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="简介">简介</h4><p>Ractive.js是一款简单却功能强大的JS库，它实现了模板，数据绑定，DOM实时更新，事件处理等多个有用的功能。</p>
-<h4 id="应用">应用</h4><p>关联dom和模版<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;div id=<span class="string">'output'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">id</span>=<span class="value">'template'</span> <span class="attribute">type</span>=<span class="value">'text/ractive'</span>&gt;</span><span class="undefined"></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//js</span><br><span class="line">var ractive = new Ractive(&#123;</span><br><span class="line">	el: '#output',</span><br><span class="line">	template: '#template'</span><br><span class="line">&#125;);</span></span><br></pre></td></tr></table></figure></p>]]>
     
     </summary>
     

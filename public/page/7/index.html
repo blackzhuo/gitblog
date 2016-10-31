@@ -86,6 +86,50 @@
   <div class="post-content">
     <header>
       
+        <time datetime="2015-10-05T13:11:49.000Z"><a href="/2015/10/05/Dom元素尺寸相关/">2015-10-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/05/Dom元素尺寸相关/">Dom元素尺寸相关</a></h1>
+  
+
+    </header>
+    <div class="entry">
+		<h5 id="元素距左侧偏移量">元素距左侧偏移量</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> leftval = element.offsetLeft;</span><br><span class="line">	<span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line">	<span class="keyword">while</span>(current !== <span class="literal">null</span>)&#123;</span><br><span class="line">		leftVal += current.offsetLeft;</span><br><span class="line">		current = current.offsetParent;</span><br><span class="line">   &#125;</span><br><span class="line">	<span class="keyword">return</span> leftVal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+    </div>
+    <footer>
+		<div class="alignleft">
+		<a href="/2015/10/05/Dom元素尺寸相关/#more" class="more-link">Read more</a>
+		</div>
+    <div class="comments-count">
+       <a href="/2015/10/05/Dom元素尺寸相关/#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="2015/10/05/Dom元素尺寸相关/" data-count-type="comments"></span>
+       </a>
+    </div>
+    <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
         <time datetime="2015-10-04T11:20:11.000Z"><a href="/2015/10/04/html5文件上传/">2015-10-04</a></time>
       
       
@@ -320,7 +364,7 @@
   
     <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
   
-    <li><a href="/tags/linux/">linux</a><small>2</small></li>
+    <li><a href="/tags/linux/">linux</a><small>3</small></li>
   
     <li><a href="/tags/nodejs/">nodejs</a><small>14</small></li>
   
