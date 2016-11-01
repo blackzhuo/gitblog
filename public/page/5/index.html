@@ -86,6 +86,55 @@
   <div class="post-content">
     <header>
       
+        <time datetime="2015-10-25T07:03:01.000Z"><a href="/2015/10/25/延迟加载解决方案/">2015-10-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/25/延迟加载解决方案/">延迟加载解决方案</a></h1>
+  
+
+    </header>
+    <div class="entry">
+		<h4 id="图片">图片</h4><blockquote>
+<ul>
+<li>给图片添加data-lazy等标签，放图片url,等页面加载完再去做替换，不会阻塞页面onload。</li>
+<li>同样像上面那样，但是等到页面滚动到特殊位置的时候，才去加载对应图片，实现懒加载。</li>
+<li>对于一些大图，我们还可以先给他一个质量低的图片，然后用js创建image对象，给它赋值src,监听它的onload事件，加载完后把url赋给img标签,实现预加载。</li>
+<li>jquery的lazyload插件，给图片设置data-original类似的标签，可以实现懒加载。 
+    </div>
+    <footer>
+		<div class="alignleft">
+		<a href="/2015/10/25/延迟加载解决方案/#more" class="more-link">Read more</a>
+		</div>
+    <div class="comments-count">
+       <a href="/2015/10/25/延迟加载解决方案/#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="2015/10/25/延迟加载解决方案/" data-count-type="comments"></span>
+       </a>
+    </div>
+    <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
         <time datetime="2015-10-24T07:03:01.000Z"><a href="/2015/10/24/javascript脚本执行对页面加载的影响/">2015-10-24</a></time>
       
       
@@ -490,58 +539,6 @@
 
 
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2015-10-15T06:33:42.000Z"><a href="/2015/10/15/从零开始Node-04/">2015-10-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/10/15/从零开始Node-04/">从零开始Node-04</a></h1>
-  
-
-    </header>
-    <div class="entry">
-		<h5 id="web开发">web开发</h5><blockquote>
-<ul>
-<li>使用express框架</li>
-<li>版本 4.x</li>
-<li>安装 sudo npm uninstall -g express</li>
-<li>安装 sudo npm install -g express-generator,4.x以后的版本需要安装这个</li>
-<li>初始化工程 express -e webApp 使用express -h会发现，-e是使用ejs模版</li>
-<li>webApp工程创建完毕，我们执行 cd webApp &amp;&amp; sudo npm install 为工程安装相关依赖</li>
-<li>package.json会比以往的不同 
-    </div>
-    <footer>
-		<div class="alignleft">
-		<a href="/2015/10/15/从零开始Node-04/#more" class="more-link">Read more</a>
-		</div>
-    <div class="comments-count">
-       <a href="/2015/10/15/从零开始Node-04/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/10/15/从零开始Node-04/" data-count-type="comments"></span>
-       </a>
-    </div>
-    <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
     <nav id="page-navs">
@@ -601,7 +598,7 @@
   
     <li><a href="/tags/linux/">linux</a><small>3</small></li>
   
-    <li><a href="/tags/nodejs/">nodejs</a><small>14</small></li>
+    <li><a href="/tags/nodejs/">nodejs</a><small>15</small></li>
   
     <li><a href="/tags/python/">python</a><small>7</small></li>
   

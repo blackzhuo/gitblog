@@ -4,29 +4,27 @@ tags: linux
 toc: true
 ---
 #### 环境
-```shell
-centeros
-```
+* centeros
 
 #### 下载
-```shell
+```javascript
 wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.2.10.tgz
 ```
 
 #### 解压
-```shell
+```javascript
 sudo tar -zxvf mongodb-linux-x86_64-3.2.10.tgz 
 ```
 
 <!--more-->
 #### 加入PATH
-```shell
+```javascript
 cd mongodb-linux-x86_64-3.2.10
 export PATH=/home/q/mongodb-linux-x86_64-3.2.10/bin:$PATH
 ```
 
 #### 创建基础文件
-```shell
+```javascript
 sudo mkdir -p data/db
 sudo mkdir logs
 sudo vim ./bin/mongodb.conf
@@ -39,17 +37,17 @@ logappend=true
 ```
 
 #### 启动服务
-```shell
+```javascript
 sudo mongod -config /home/q/mongodb-linux-x86_64-3.2.10/bin/mongodb.conf  --fork --auth
 ```
 
 #### 连接数据库
-```shell
+```javascript
 mongo
 ```
 
 #### 添加用户
-```shell
+```javascript
 use admin
 db.createUser(
   {
@@ -61,13 +59,13 @@ db.createUser(
 ```
 
 #### 认证
-```shell
+```javascript
 use admin
 db.auth('superuser','pwd')
 ```
 
 #### 添加用户
-```shell
+```javascript
 db.createUser(
    {
      user: "zhuo.wu",
@@ -78,54 +76,54 @@ db.createUser(
 ```
 
 #### 查看用户
-```shell
+```javascript
 show users
 ```
 
 #### 创建数据库
-```shell
+```javascript
 use testDB
 ```
 
 #### 创建集合
-```shell
+```javascript
 db.test.insert({'k':'123'})
 show dbs
 db.test.find()
 ```
 
 #### 删除集合
-```shell
+```javascript
 db.test.drop()
 ```
 
 #### 删除数据库
-```shell
+```javascript
 db.dropDatabase()
 ```
 
 #### 数据库备份
-```shell
+```javascript
 sudo mongodump -u=superuser -p=pwd
 #mongodump -h dbhost -d dbname -o dbdirectory
 ```
 
 #### 数据库恢复
-```shell
+```javascript
 sudo mongodump -u=superuser -p=pwd
 #mongorestore -h dbhost -d dbname --directoryperdb dbdirectory
 ```
 
 #### 定时备份数据库
 * 备份目录
-```shell
+```javascript
 sudo mkdir -p /home/mongo/temp && sudo chmod -R 777 /home/mongo/temp
 sudo mkdir -p /home/mongo/all && sudo chmod -R 777 /home/mongo/all
 ```
 
 * 备份脚本
 sudo vim /home/schedule/mongo.sh
-```shell
+```javascript
 #!/bin/sh
 user=superuser
 passwprd=pwd
@@ -144,34 +142,34 @@ find $all/ -mtime +$deldays -delete
 ```
 
 * 修改权限
-```shell
+```javascript
 sudo chmod -R 777 /home/schedule/mongo.sh
 ```
 
 * 定时任务
 sudo vim /etc/crontab
-```shell
+```javascript
 40 18 * * * root /home/schedule/mongo.sh
 ```
 
 * 重启定时任务
-```shell
+```javascript
 sudo /etc/rc.d/init.d/crond restart
 ```
 
 * 开机启动
-```shell
+```javascript
 sudo chkconfig crond on
 ```
 
 * 启动服务
-```shell
+```javascript
 sudo service crond start
 ```
 
 
 #### 关闭数据库
-```shell
+```javascript
 use admin
 db.auth('superuser','pwd')
 db.shutdownServer()
@@ -183,7 +181,7 @@ db.shutdownServer({force : true})
 
 #### 常见问题
 * 数据库非正常关闭lock
-```shell
+```javascript
 sudo rm -rf /home/q/mongodb-linux-x86_64-3.2.10/data/db/mongod.lock
 sudo mongod --dbpath /home/q/mongodb-linux-x86_64-3.2.10/data/db --repair
 sudo ./mongod --dbpath /home/q/mongodb-linux-x86_64-3.2.10/data/db
