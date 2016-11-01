@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.xuerlove.com/"/>
-  <updated>2016-11-01T04:09:59.000Z</updated>
+  <updated>2016-11-01T08:46:19.000Z</updated>
   <id>http://blog.xuerlove.com/</id>
   
   <author>
@@ -19,11 +19,12 @@
     <link href="http://blog.xuerlove.com/2016/10/31/nodejs-mongodb/"/>
     <id>http://blog.xuerlove.com/2016/10/31/nodejs-mongodb/</id>
     <published>2016-10-31T12:53:27.000Z</published>
-    <updated>2016-11-01T04:09:59.000Z</updated>
+    <updated>2016-11-01T08:46:19.000Z</updated>
     <content type="html"><![CDATA[<p>这篇文章中，我们使用nodejs搭建简易服务器，然后开发一个登录过程中使用的增删改查接口，数据库使用mongoDB,操作数据库模块选用mongoose。</p>
 <h4 id="创建nodejs工程">创建nodejs工程</h4><blockquote>
 <p>npm init<br>创建package.json文件</p>
 </blockquote>
+<a id="more"></a>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">name</span>": <span class="value"><span class="string">"nodeblog"</span></span>,</span><br><span class="line">  "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0.0"</span></span>,</span><br><span class="line">  "<span class="attribute">description</span>": <span class="value"><span class="string">""</span></span>,</span><br><span class="line">  "<span class="attribute">main</span>": <span class="value"><span class="string">"index.js"</span></span>,</span><br><span class="line">  "<span class="attribute">scripts</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">test</span>": <span class="value"><span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">author</span>": <span class="value"><span class="string">""</span></span>,</span><br><span class="line">  "<span class="attribute">license</span>": <span class="value"><span class="string">"ISC"</span></span>,</span><br><span class="line">  "<span class="attribute">dependencies</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">express</span>": <span class="value"><span class="string">"^4.14.0"</span></span>,</span><br><span class="line">    "<span class="attribute">mongoose</span>": <span class="value"><span class="string">"^4.6.5"</span></span>,</span><br><span class="line">    "<span class="attribute">url</span>": <span class="value"><span class="string">"^0.11.0"</span></span><br><span class="line">  </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>dependencies中显示的是安装的依赖包，下面有安装过程，先不用考虑</p>
@@ -56,7 +57,9 @@
     <summary type="html">
     <![CDATA[<p>这篇文章中，我们使用nodejs搭建简易服务器，然后开发一个登录过程中使用的增删改查接口，数据库使用mongoDB,操作数据库模块选用mongoose。</p>
 <h4 id="创建nodejs工程">创建nodejs工程</h4><blockquote>
-<p>npm i]]>
+<p>npm init<br>创建package.json文件</p>
+</blockquote>]]>
+    
     </summary>
     
       <category term="nodejs" scheme="http://blog.xuerlove.com/tags/nodejs/"/>

@@ -9,6 +9,8 @@ toc: true
 >npm init 
 >创建package.json文件
 
+<!--more-->
+
 ```json
 {
   "name": "nodeblog",
