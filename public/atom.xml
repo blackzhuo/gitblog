@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.xuerlove.com/"/>
-  <updated>2016-11-01T08:46:19.000Z</updated>
+  <updated>2016-11-02T12:55:21.000Z</updated>
   <id>http://blog.xuerlove.com/</id>
   
   <author>
@@ -13,6 +13,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[nodejs利用session做登录控制]]></title>
+    <link href="http://blog.xuerlove.com/2016/11/02/nodejs%E5%88%A9%E7%94%A8session%E5%81%9A%E7%99%BB%E5%BD%95%E6%8E%A7%E5%88%B6/"/>
+    <id>http://blog.xuerlove.com/2016/11/02/nodejs利用session做登录控制/</id>
+    <published>2016-11-02T12:53:28.000Z</published>
+    <updated>2016-11-02T12:55:21.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="background">background</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;登录的场景在我们日常应用中有很多，登录的实现过程大家都很清楚，无非就是拿着用户名密去数据库中查询，如果查到了就表示这个人是系统用户，可以登录并且使用系统。那么当用户访问系统页面的时候，我们怎么判断他是不是登录过了呢，这个时候就引出了session。<br>&nbsp; &nbsp;&nbsp;&nbsp;session翻译成会话，session的生命周期和浏览器的生命周期一致，session从创建的一刻起开始生效，浏览器关闭session销毁。session是客户端与服务器之间保持状态的解决方案。这种会话的匹配是通过cookie来实现的。</p>
+<a id="more"></a>
+<h4 id="express-session">express-session</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;express-session是基于express框架的专门处理session的中间件，安装 <code>sudo npm install express-session --save</code> , session的解析过程需要用到cookieParser, 安装 <code>sudo npm install cookieParser --save</code> , 我们在使用的时候，只需要把express-session加入到中间件中，这样所有的路由就都能使用它了，我们可以在req.session中设置和读取session的值。</p>
+<h5 id="应用">应用</h5><p>改造上一节中的例子，这里只介绍一些增加项<br>app.js (引用session，加入中间件)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">'express-session'</span>);</span><br><span class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">app.use(cookieParser());</span><br><span class="line">app.use(session(&#123;</span><br><span class="line">  resave: <span class="literal">false</span>,</span><br><span class="line">  saveUninitialized: <span class="literal">true</span>,</span><br><span class="line">  name: <span class="string">'user'</span>,</span><br><span class="line">  cookie: &#123; maxAge: <span class="number">80000</span> &#125;,</span><br><span class="line">  secret: <span class="string">'wz'</span></span><br><span class="line">&#125;));</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>routes/index.js (路由中检查登录session是否存在)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">restrict</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (req.session.user) &#123;</span><br><span class="line">    next();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    res.redirect(<span class="string">'/login.page'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">router.get(<span class="string">'/index.page'</span>,restrict, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</span><br><span class="line">  res.send(<span class="string">'success'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">router.get(<span class="string">'/login.page'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</span><br><span class="line">  res.send(<span class="string">'login'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">router.get(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>)</span>&#123;</span><br><span class="line">    login(req, res, next);</span><br><span class="line">&#125;);</span><br><span class="line">router.get(<span class="string">'/logout'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</span><br><span class="line">  req.session.destroy(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    res.redirect(<span class="string">'/login.page'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>main/login.js (只增加了注释部分的代码)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">queryData</span>(<span class="params">req, res, next,query</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> query = query ? <span class="built_in">JSON</span>.parse(query) : &#123;&#125;;</span><br><span class="line">    pageModule.find(query).exec(<span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">        res.writeHead(<span class="number">200</span>, &#123;</span><br><span class="line">            <span class="string">"Content-Type"</span>: <span class="string">"application/json;charset=UTF-8"</span></span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">if</span>(err)&#123;</span><br><span class="line">            result = <span class="built_in">JSON</span>.stringify(dbError);</span><br><span class="line">            res.end(result);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(data &amp;&amp; data.length)&#123;</span><br><span class="line">            <span class="comment">//只增加了登录成功后，创建一个session的过程</span></span><br><span class="line">            req.session.user = data[<span class="number">0</span>].username;</span><br><span class="line">            dbSuccess.data = data;</span><br><span class="line">            result = <span class="built_in">JSON</span>.stringify(dbSuccess);</span><br><span class="line">            res.end(result);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            result = <span class="built_in">JSON</span>.stringify(dbError);</span><br><span class="line">            res.end(result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="测试过程">测试过程</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> http:<span class="comment">//127.0.0.1:3000/index.page</span></span><br><span class="line"><span class="number">2.</span> http:<span class="comment">//127.0.0.1:3000/login?type=find</span></span><br><span class="line"><span class="number">3.</span> http:<span class="comment">//127.0.0.1:3000/index.page</span></span><br></pre></td></tr></table></figure>
+<p>分别输入三个url，观察现象，第一个url输入的时候，因为不存在session,所以会跳转到登录页面，<br>第二个url为模拟登录过程，创建了一个session，第三个url访问主页，此时存在session,所以可以看到首页内容。</p>
+<h4 id="express-session常用参数">express-session常用参数</h4><ul>
+<li>cookie Object类型，设置cookie的一些属性</li>
+<li>domain cookie作用域</li>
+<li>expires cookie失效时间</li>
+<li>httpOnly 禁止客户端访问</li>
+<li>maxAge 实效时长</li>
+<li>path cookie路径</li>
+<li>name 这是session id的值</li>
+<li>resave 允许重新设置session</li>
+<li>saveUninitialized 是否session可以修改</li>
+<li>secret cookie密钥</li>
+<li>store session存储方式 mongodb等</li>
+</ul>
+<h4 id="express-session常用方法">express-session常用方法</h4><ul>
+<li>Session.regenerate() 创建session</li>
+<li>Session.destroy() 销毁session</li>
+<li>Session.reload() 重载session</li>
+<li>Session.save() 保存session</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="background">background</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;登录的场景在我们日常应用中有很多，登录的实现过程大家都很清楚，无非就是拿着用户名密去数据库中查询，如果查到了就表示这个人是系统用户，可以登录并且使用系统。那么当用户访问系统页面的时候，我们怎么判断他是不是登录过了呢，这个时候就引出了session。<br>&nbsp; &nbsp;&nbsp;&nbsp;session翻译成会话，session的生命周期和浏览器的生命周期一致，session从创建的一刻起开始生效，浏览器关闭session销毁。session是客户端与服务器之间保持状态的解决方案。这种会话的匹配是通过cookie来实现的。</p>]]>
+    
+    </summary>
+    
+      <category term="nodejs" scheme="http://blog.xuerlove.com/tags/nodejs/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[nodejs+mongodb]]></title>
@@ -728,6 +771,31 @@
   </entry>
   
   <entry>
+    <title><![CDATA[javascript面向对象相关]]></title>
+    <link href="http://blog.xuerlove.com/2015/11/21/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3/"/>
+    <id>http://blog.xuerlove.com/2015/11/21/javascript面向对象相关/</id>
+    <published>2015-11-21T07:03:01.000Z</published>
+    <updated>2016-04-14T02:27:52.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="for_in循环">for in循环</h4><blockquote>
+<p>for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回</p>
+</blockquote>
+<p>####继承<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">	F.prototype = o;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType,superType</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> prototype = object(superType.prototype);</span><br><span class="line">	prototype.constructor = subType;</span><br><span class="line">	subType.prototype = prototype;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.color = [<span class="string">"red"</span>,<span class="string">"blue"</span>];</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	SuperType.call(<span class="keyword">this</span>,name);</span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">inheritPrototype(SubType,SuperType);</span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.age);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。</p>
+</blockquote>
+<h4 id="单例模式">单例模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> private = <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		public:<span class="literal">true</span>,</span><br><span class="line">		publicFunc:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			private++;</span><br><span class="line">			<span class="keyword">return</span> privateFunc();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[nginx配置https]]></title>
     <link href="http://blog.xuerlove.com/2015/11/21/nginx%E9%85%8D%E7%BD%AEhttps/"/>
     <id>http://blog.xuerlove.com/2015/11/21/nginx配置https/</id>
@@ -770,31 +838,6 @@
     </summary>
     
       <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[javascript面向对象相关]]></title>
-    <link href="http://blog.xuerlove.com/2015/11/21/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3/"/>
-    <id>http://blog.xuerlove.com/2015/11/21/javascript面向对象相关/</id>
-    <published>2015-11-21T07:03:01.000Z</published>
-    <updated>2016-04-14T02:27:52.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="for_in循环">for in循环</h4><blockquote>
-<p>for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回</p>
-</blockquote>
-<p>####继承<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">	F.prototype = o;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType,superType</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> prototype = object(superType.prototype);</span><br><span class="line">	prototype.constructor = subType;</span><br><span class="line">	subType.prototype = prototype;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.color = [<span class="string">"red"</span>,<span class="string">"blue"</span>];</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	SuperType.call(<span class="keyword">this</span>,name);</span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">inheritPrototype(SubType,SuperType);</span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.age);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。</p>
-</blockquote>
-<h4 id="单例模式">单例模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> private = <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		public:<span class="literal">true</span>,</span><br><span class="line">		publicFunc:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			private++;</span><br><span class="line">			<span class="keyword">return</span> privateFunc();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]>
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
     
   </entry>
   
@@ -965,28 +1008,6 @@
     </summary>
     
       <category term="tools" scheme="http://blog.xuerlove.com/tags/tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Jcrop]]></title>
-    <link href="http://blog.xuerlove.com/2015/11/15/Jcrop/"/>
-    <id>http://blog.xuerlove.com/2015/11/15/Jcrop/</id>
-    <published>2015-11-15T07:03:01.000Z</published>
-    <updated>2016-09-28T08:22:42.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="引用资源">引用资源</h4><h5 id="css">css</h5><p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;jquery.Jcrop.css&quot;&gt;</code></p>
-<h5 id="JavaScript">JavaScript</h5><p><code>&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</code><br><code>&lt;script src=&quot;jquery.Jcrop.js&quot;&gt;&lt;/script&gt;</code><br><a id="more"></a></p>
-<h5 id="使用">使用</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;img id=<span class="string">"image"</span> src=<span class="string">"image.jpg"</span>&gt;</span><br><span class="line"></span><br><span class="line">$(<span class="string">'#image'</span>).Jcrop();</span><br></pre></td></tr></table></figure>
-<h5 id="参数">参数</h5><p>|属性    |值    |描述|<br>|| :– ||:–: ||:–: ||<br>|allowSelect|    true|    允许新选框|<br>|allowMove|    true    |允许选框移动|<br>|allowResize|    true|    允许选框缩放|<br>|aspectRatio|    1    |选框宽高比。说明：width/height|<br>|keySupport|    true|    支持键盘控制。按键列表：上下左右（移动选框）、Esc（取消选框）|<br>|dragEdges|    true|    允许拖动边框|<br>|boxWidth    |100|    画布宽度|<br>|boxHeight|    100    |画布高度|<br>|minSelect|    [10,10]|    选择框最小选择尺寸。说明：若选择框小于该尺寸，则自动取消选择|<br>|maxSize|    [10,10]|    选择框最大尺寸|<br>|minSize    |[10,10]|    选择框最小尺寸|<br>|onChange|    function(data){}|    选择框改变时的事件|<br>|onSelect    |function(data){}|    选择框选定时的事件|<br>|onDblClick    |function(data){}|    在选择框内双击时的事件|<br>|onRelease    |function(data){}|    取消选择框时的事件|<br>后面四个回调函数的参数data是一个对象，包含所选尺寸的x,y,w,h</p>
-<h5 id="API介绍">API介绍</h5><p>|方法|    描述|<br>|| :– ||:–: ||<br>|getBounds()    |获取图片实际尺寸，格式为：[w, h]|<br>|getWidgetSize()    |获取图片显示尺寸，格式为：[w, h]|<br>|getScaleFactor()    |获取图片缩放的比例，格式为：[w, h]|</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="引用资源">引用资源</h4><h5 id="css">css</h5><p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;jquery.Jcrop.css&quot;&gt;</code></p>
-<h5 id="JavaScript">JavaScript</h5><p><code>&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</code><br><code>&lt;script src=&quot;jquery.Jcrop.js&quot;&gt;&lt;/script&gt;</code><br>]]>
-    
-    </summary>
-    
-      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
     
   </entry>
   
