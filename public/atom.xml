@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.xuerlove.com/"/>
-  <updated>2016-11-03T11:51:01.000Z</updated>
+  <updated>2017-02-07T05:51:50.000Z</updated>
   <id>http://blog.xuerlove.com/</id>
   
   <author>
@@ -15,11 +15,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[linux下创建服务]]></title>
+    <link href="http://blog.xuerlove.com/2017/02/07/linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://blog.xuerlove.com/2017/02/07/linux下创建服务/</id>
+    <published>2017-02-07T05:42:57.000Z</published>
+    <updated>2017-02-07T05:51:50.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="概述">概述</h4><p>我们通过在 /etc/init.d/ 目录下创建bash脚本，实现自定义服务，通过service命令，能够调用服务中的方法，通常一个服务存在 start stop restart status方法。<br><a id="more"></a></p>
+<h4 id="例如">例如</h4><p>test<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line"><span class="comment"># chkconfig: 2345 20 81</span></span><br><span class="line"><span class="comment"># description: test</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">  start)</span><br><span class="line">  <span class="built_in">echo</span> -n <span class="string">"starting test:"</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"OK"</span></span><br><span class="line">  ;;</span><br><span class="line">  stop)</span><br><span class="line">  <span class="built_in">echo</span> -n <span class="string">"shutdown test:"</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"OK"</span></span><br><span class="line">  ;;</span><br><span class="line">  status)</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"test instance is running..."</span></span><br><span class="line">  ;;</span><br><span class="line">  restart)</span><br><span class="line">  <span class="variable">$0</span> stop</span><br><span class="line">  <span class="variable">$0</span> start</span><br><span class="line">  ;;</span><br><span class="line">  *)</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"Usage:`basename <span class="variable">$0</span>` start|stop|status|restart"</span></span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> $?</span><br></pre></td></tr></table></figure></p>
+<p>我们在 /etc/init.d/ 下面添加 test 脚本，然后给文件权限 sudo chmod -R 755, 之后我们就能够通过 </p>
+<ul>
+<li>sudo service start </li>
+<li>sudo service stop </li>
+<li>sudo service restart </li>
+<li>sudo service status </li>
+<li>sudo service<br>这些命令去调用我们的服务了</li>
+</ul>
+<h4 id="加入开机启动_chkconfig">加入开机启动 chkconfig</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">usage:   chkconfig [--list] [--type &lt;<span class="built_in">type</span>&gt;] [name]</span><br><span class="line">         chkconfig --add &lt;name&gt;</span><br><span class="line">         chkconfig --del &lt;name&gt;</span><br><span class="line">         chkconfig --override &lt;name&gt;</span><br><span class="line">         chkconfig [--level &lt;levels&gt;] [--type &lt;<span class="built_in">type</span>&gt;] &lt;name&gt; &lt;on|off|reset|resetpriorities&gt;</span><br></pre></td></tr></table></figure>
+<p>sudo chkconfig –add test<br>sudo chkconfig test on</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="概述">概述</h4><p>我们通过在 /etc/init.d/ 目录下创建bash脚本，实现自定义服务，通过service命令，能够调用服务中的方法，通常一个服务存在 start stop restart status方法。<br>]]>
+    
+    </summary>
+    
+      <category term="linux" scheme="http://blog.xuerlove.com/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[微信小程序开发]]></title>
     <link href="http://blog.xuerlove.com/2016/11/03/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     <id>http://blog.xuerlove.com/2016/11/03/微信小程序开发/</id>
     <published>2016-11-03T11:17:42.000Z</published>
-    <updated>2016-11-03T11:51:01.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h5 id="准备">准备</h5><ul>
 <li>开发环境<ul>
 <li>下载开发工具 (<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html" target="_blank" rel="external">https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html</a>)</li>
@@ -95,7 +123,7 @@
     <link href="http://blog.xuerlove.com/2016/11/02/nodejs%E5%88%A9%E7%94%A8session%E5%81%9A%E7%99%BB%E5%BD%95%E6%8E%A7%E5%88%B6/"/>
     <id>http://blog.xuerlove.com/2016/11/02/nodejs利用session做登录控制/</id>
     <published>2016-11-02T12:53:28.000Z</published>
-    <updated>2016-11-02T12:55:21.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="background">background</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;登录的场景在我们日常应用中有很多，登录的实现过程大家都很清楚，无非就是拿着用户名密去数据库中查询，如果查到了就表示这个人是系统用户，可以登录并且使用系统。那么当用户访问系统页面的时候，我们怎么判断他是不是登录过了呢，这个时候就引出了session。<br>&nbsp; &nbsp;&nbsp;&nbsp;session翻译成会话，session的生命周期和浏览器的生命周期一致，session从创建的一刻起开始生效，浏览器关闭session销毁。session是客户端与服务器之间保持状态的解决方案。这种会话的匹配是通过cookie来实现的。</p>
 <a id="more"></a>
 <h4 id="express-session">express-session</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;express-session是基于express框架的专门处理session的中间件，安装 <code>sudo npm install express-session --save</code> , session的解析过程需要用到cookieParser, 安装 <code>sudo npm install cookieParser --save</code> , 我们在使用的时候，只需要把express-session加入到中间件中，这样所有的路由就都能使用它了，我们可以在req.session中设置和读取session的值。</p>
@@ -138,7 +166,7 @@
     <link href="http://blog.xuerlove.com/2016/10/31/nodejs-mongodb/"/>
     <id>http://blog.xuerlove.com/2016/10/31/nodejs-mongodb/</id>
     <published>2016-10-31T12:53:27.000Z</published>
-    <updated>2016-11-01T08:46:19.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<p>这篇文章中，我们使用nodejs搭建简易服务器，然后开发一个登录过程中使用的增删改查接口，数据库使用mongoDB,操作数据库模块选用mongoose。</p>
 <h4 id="创建nodejs工程">创建nodejs工程</h4><blockquote>
 <p>npm init<br>创建package.json文件</p>
@@ -190,7 +218,7 @@
     <link href="http://blog.xuerlove.com/2016/10/31/mongodb/"/>
     <id>http://blog.xuerlove.com/2016/10/31/mongodb/</id>
     <published>2016-10-31T11:57:13.000Z</published>
-    <updated>2016-10-31T12:15:16.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="环境">环境</h4><ul>
 <li>centeros</li>
 </ul>
@@ -261,7 +289,7 @@
     <link href="http://blog.xuerlove.com/2016/08/31/fetch/"/>
     <id>http://blog.xuerlove.com/2016/08/31/fetch/</id>
     <published>2016-08-31T13:17:37.000Z</published>
-    <updated>2016-09-28T08:21:45.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h5 id="介绍">介绍</h5><ul>
 <li>遵循Promise解决方案</li>
 <li>XMLHttpRequest的替代者</li>
@@ -294,7 +322,7 @@
     <link href="http://blog.xuerlove.com/2016/04/14/touch%E5%BC%80%E5%8F%91%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     <id>http://blog.xuerlove.com/2016/04/14/touch开发性能优化/</id>
     <published>2016-04-14T02:43:35.000Z</published>
-    <updated>2016-09-28T08:23:45.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="介绍">介绍</h4><blockquote>
 <p>不觉间开发touch也有一段时间了，之前一直都在做pc端的工作，恍然间发现pc端和touch端开发，也并不能说完全是一回事，当然了代码还是那些代码。这里我要说什么问题呢，就是touch端经常出现的性能相关的问题。通过亲身踩坑，总结一些经验。</p>
 </blockquote>
@@ -331,7 +359,7 @@
     <link href="http://blog.xuerlove.com/2016/04/14/reactjs%E5%BA%94%E7%94%A8/"/>
     <id>http://blog.xuerlove.com/2016/04/14/reactjs应用/</id>
     <published>2016-04-14T02:42:32.000Z</published>
-    <updated>2016-09-28T08:23:36.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="reactjs">reactjs</h4><p>官方文档 <a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="external">http://reactjs.cn/react/docs/getting-started.html</a></p>
 <h5 id="引用reactjs框架">引用reactjs框架</h5><ul>
 <li>实时转换工具 <code>npm install -g react-tools</code> 启动命令 <code>jsx --watch src/ build/</code> （或者页面引入jsx编译工具）</li>
@@ -428,7 +456,7 @@
     <link href="http://blog.xuerlove.com/2016/04/14/nodejs%E5%BC%80%E5%8F%91%E6%8E%A7%E5%88%B6%E5%8F%B0%E5%B7%A5%E5%85%B7/"/>
     <id>http://blog.xuerlove.com/2016/04/14/nodejs开发控制台工具/</id>
     <published>2016-04-14T02:41:56.000Z</published>
-    <updated>2016-09-28T09:45:36.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="环境要求">环境要求</h4><ul>
 <li>nodejs</li>
 </ul>
@@ -478,7 +506,7 @@
     <link href="http://blog.xuerlove.com/2016/04/14/npm%E5%8C%85%E5%BC%80%E5%8F%91/"/>
     <id>http://blog.xuerlove.com/2016/04/14/npm包开发/</id>
     <published>2016-04-14T02:41:29.000Z</published>
-    <updated>2016-09-28T08:23:32.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="环境要求">环境要求</h4><ul>
 <li>nodejs</li>
 </ul>
@@ -534,7 +562,7 @@
     <link href="http://blog.xuerlove.com/2016/04/14/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80/"/>
     <id>http://blog.xuerlove.com/2016/04/14/移动端布局/</id>
     <published>2016-04-14T02:39:45.000Z</published>
-    <updated>2016-04-15T07:16:22.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<ol>
 <li><p>黏性布局 POSITION:STICKY（通过判断支持该属性的浏览器使用该布局） – <a href="http://hao.jser.com/archive/7970/" target="_blank" rel="external">http://hao.jser.com/archive/7970/</a></p>
 <a id="more"></a>
@@ -559,7 +587,7 @@
     <link href="http://blog.xuerlove.com/2015/11/25/%E5%8A%A8%E6%80%81%E8%84%9A%E6%9C%AC/"/>
     <id>http://blog.xuerlove.com/2015/11/25/动态脚本/</id>
     <published>2015-11-25T07:03:01.000Z</published>
-    <updated>2016-09-28T08:20:32.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="动态加载js">动态加载js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span>(<span class="params">data,type</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">	script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			script.appendChild(<span class="built_in">document</span>.createTextNode(data));</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			script.src = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">catch</span>(ex)&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			script.text = code</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			script.src = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="动态样式">动态样式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadStyle</span>(<span class="params">data,type</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> style = <span class="built_in">document</span>.createElement(<span class="string">"style"</span>);</span><br><span class="line">	style.type = <span class="string">"text/css"</span>;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			style.appendChild(<span class="built_in">document</span>.createTextNode(data));</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			style.href = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">catch</span>(ex)&#123;</span><br><span class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</span><br><span class="line">			style.styleSheet.cssText = css;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			style.href = data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>];</span><br><span class="line">	head.appendChild(style);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
@@ -577,7 +605,7 @@
     <link href="http://blog.xuerlove.com/2015/11/24/DOM%E6%93%8D%E4%BD%9C/"/>
     <id>http://blog.xuerlove.com/2015/11/24/DOM操作/</id>
     <published>2015-11-24T07:03:01.000Z</published>
-    <updated>2016-09-28T08:21:41.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="Node">Node</h4><h5 id="操作节点">操作节点</h5><ul>
 <li>appendChild()<br>一个参数，要插入的节点</li>
 <li>insertBefore()<br>两个参数，要插入的节点和参照的节点</li>
@@ -692,7 +720,7 @@
     <link href="http://blog.xuerlove.com/2015/11/23/shell%E5%9F%BA%E7%A1%80/"/>
     <id>http://blog.xuerlove.com/2015/11/23/shell基础/</id>
     <published>2015-11-23T07:03:01.000Z</published>
-    <updated>2016-09-28T08:23:38.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="shell分类">shell分类</h4><ul>
 <li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
 <li>Bourne Again Shell（/bin/bash）</li>
@@ -823,7 +851,7 @@
     <link href="http://blog.xuerlove.com/2015/11/22/%E4%BD%BF%E7%94%A8nproxy%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86/"/>
     <id>http://blog.xuerlove.com/2015/11/22/使用nproxy实现本地代理/</id>
     <published>2015-11-22T07:03:01.000Z</published>
-    <updated>2016-09-28T08:20:22.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="安装">安装</h4><h5 id="先安装Node-js">先安装Node.js</h5><h5 id="安装nproxy">安装nproxy</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g nproxy</span><br></pre></td></tr></table></figure>
 <h5 id="nproxy介绍">nproxy介绍</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Options:</span><br><span class="line">    -h, --help               output usage information</span><br><span class="line">    -V, --version            output the version number</span><br><span class="line">    -l, --list [list]        Specify the replace rule file</span><br><span class="line">    -p, --port [port]        Specify the port</span><br><span class="line">    -t, --timeout [timeout]  Specify the request timeout(<span class="number">5</span> seconds by <span class="keyword">default</span>)</span><br><span class="line">    -d, --debug              Enable debug mode</span><br><span class="line">    -n, --networks           Display network interface list</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -851,7 +879,7 @@
     <link href="http://blog.xuerlove.com/2015/11/21/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3/"/>
     <id>http://blog.xuerlove.com/2015/11/21/javascript面向对象相关/</id>
     <published>2015-11-21T07:03:01.000Z</published>
-    <updated>2016-04-14T02:27:52.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="for_in循环">for in循环</h4><blockquote>
@@ -876,7 +904,7 @@
     <link href="http://blog.xuerlove.com/2015/11/21/nginx%E9%85%8D%E7%BD%AEhttps/"/>
     <id>http://blog.xuerlove.com/2015/11/21/nginx配置https/</id>
     <published>2015-11-21T07:03:01.000Z</published>
-    <updated>2016-09-28T08:22:55.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="安装">安装</h4><h5 id="系统：centos">系统：centos</h5><ul>
 <li>wget下载</li>
 <li>tar 解压</li>
@@ -922,7 +950,7 @@
     <link href="http://blog.xuerlove.com/2015/11/20/%E8%A1%A8%E5%8D%95%E4%B8%AD%E6%8C%89%E5%9B%9E%E8%BD%A6%E9%94%AE%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4/"/>
     <id>http://blog.xuerlove.com/2015/11/20/表单中按回车键自动提交/</id>
     <published>2015-11-20T07:03:01.000Z</published>
-    <updated>2016-09-28T08:21:11.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="当form表单中只有一个&lt;input_type=&quot;text&quot;_name=&#39;name&#39;_/&gt;时按回车键将会自动将表单提交。">当form表单中只有一个<code>&lt;input type=&quot;text&quot; name=&#39;name&#39; /&gt;</code>时按回车键将会自动将表单提交。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">'text'</span> <span class="attribute">name</span>=<span class="value">'name'</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="不需要提交的解决方案">不需要提交的解决方案</h4><ul>
@@ -964,7 +992,7 @@
     <link href="http://blog.xuerlove.com/2015/11/19/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%82%B9%E9%9B%86%E5%90%88/"/>
     <id>http://blog.xuerlove.com/2015/11/19/前端知识点集合/</id>
     <published>2015-11-19T07:03:01.000Z</published>
-    <updated>2016-09-28T08:20:29.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="getBoundingClientRect">getBoundingClientRect</h4><blockquote>
 <p>计算视口坐标,方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBoundingClientRect所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好，非常好用.</p>
 </blockquote>
@@ -1001,7 +1029,7 @@
     <link href="http://blog.xuerlove.com/2015/11/18/%E5%BC%82%E6%AD%A5javascript/"/>
     <id>http://blog.xuerlove.com/2015/11/18/异步javascript/</id>
     <published>2015-11-18T07:03:01.000Z</published>
-    <updated>2016-09-28T08:20:53.000Z</updated>
+    <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="什么是异步javascript">什么是异步javascript</h4><blockquote>
 <p>顺序的执行的代码，我们称之为同步代码，异步的过程就是让有些非常耗时的javascript代码放在异步模块中之行，同步代码之行结束后再去之行它。</p>
 </blockquote>
@@ -1022,38 +1050,6 @@
     </summary>
     
       <category term="javascript" scheme="http://blog.xuerlove.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[动画]]></title>
-    <link href="http://blog.xuerlove.com/2015/11/17/%E5%8A%A8%E7%94%BB/"/>
-    <id>http://blog.xuerlove.com/2015/11/17/动画/</id>
-    <published>2015-11-17T07:03:01.000Z</published>
-    <updated>2016-04-14T02:12:41.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="css动画">css动画</h4><ul>
-<li>translate</li>
-<li>transation<h4 id="animate">animate</h4></li>
-<li>javascript动画</li>
-<li>setTimeout</li>
-<li>setInterval</li>
-<li>requestAnimationFrame<a id="more"></a>
-<h4 id="jquery动画">jquery动画</h4></li>
-<li>animate<h4 id="js动画库">js动画库</h4><h4 id="canvas动画">canvas动画</h4></li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="css动画">css动画</h4><ul>
-<li>translate</li>
-<li>transation<h4 id="animate">animate</h4></li>
-<li>javascript动画</li>
-<li>setTimeout</li>
-<li>setInterval</li>
-<li>requestAnimationFrame]]>
-    
-    </summary>
-    
-      <category term="web" scheme="http://blog.xuerlove.com/tags/web/"/>
     
   </entry>
   
