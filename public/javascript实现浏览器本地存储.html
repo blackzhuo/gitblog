@@ -1,0 +1,485 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>javascript实现浏览器本地存储 | 黑卓</title>
+  <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
+  <meta name="author" content="黑卓">
+  
+  <meta name="description" content="frontend">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="javascript实现浏览器本地存储"/>
+  <meta property="og:site_name" content="黑卓"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+    <meta name="Robots" content="index,follow,NOODP">
+    <meta name="keywords" content="javascript实现浏览器本地存储" />
+    <meta name="description" content="javascript实现浏览器本地存储" />
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="黑卓" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="黑卓" title="黑卓"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">黑卓</h1>
+				<h2 class="blog-motto">Encode my life</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	javascript实现浏览器本地存储
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.xuerlove.com" title="黑卓">黑卓</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-10-02T11:08:17.000Z" itemprop="datePublished">2015-10-02</time>
+    更新日期:<time datetime="2016-12-07T12:04:41.000Z" itemprop="dateModified">2016-12-07</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#高级浏览器"><span class="toc-number">1.</span> <span class="toc-text">高级浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#localStorage"><span class="toc-number">1.1.</span> <span class="toc-text">localStorage</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#IE低版本浏览器（IE8以下的版本）"><span class="toc-number">1.2.</span> <span class="toc-text">IE低版本浏览器（IE8以下的版本）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#兼容所有浏览器"><span class="toc-number">1.3.</span> <span class="toc-text">兼容所有浏览器</span></a></li></ol></li></ol>
+			</div>
+		
+        <h4 id="高级浏览器">高级浏览器</h4><h5 id="localStorage">localStorage</h5><blockquote>
+<p>一旦存储，除非手动删除，否则永远存储在浏览器本地。</p>
+</blockquote>
+<ul>
+<li>优点：容量大，最大可支持5M</li>
+<li>缺点：IE8以下的版本不支持，安全性也差，不适合保存敏感数据。</li>
+<li><p>隐私模式下localStorage，只能读取，不能写入，使用前需要检测是否支持，检测代码：</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isSupport</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> storage = <span class="built_in">window</span>.localStorage;</div><div class="line">    <span class="keyword">if</span>(!storage)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> key = <span class="string">'jason'</span>;</div><div class="line">    <span class="keyword">try</span>&#123;</div><div class="line">        storage.setItem(key, <span class="string">'jason'</span>);</div><div class="line">        storage.removeItem(key);</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;<span class="keyword">catch</span> (error)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>localStorage对象可以将数据永久保存在客户端。</p>
+<ul>
+<li>存储：localStorage.setItem(key,value)<ul>
+<li>如果key存在时，更新value</li>
+</ul>
+</li>
+<li>获取：localStorage.getItem(key)<ul>
+<li>如果key不存在返回null</li>
+</ul>
+</li>
+<li>删除：localStorage.removeItem(key)<ul>
+<li>一旦删除，key对应的数据将会全部删除</li>
+</ul>
+</li>
+<li>全部清除：localStorage.clear()</li>
+<li>某些时候使用removeItem逐个删除太麻烦，可以使用clear,执行的后果是会清除所有localStorage对象保存的数据</li>
+<li>遍历localStorage存储的key<ul>
+<li><code>.length</code> 数据总量，例：localStorage.length</li>
+<li><code>.key(index)</code> 获取key，例：var key=localStorage.key(index);</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储JSON格式数据<ul>
+<li><code>JSON.stringify(data)</code> 将一个对象转换成JSON格式的数据串,返回转换后的串</li>
+<li><code>JSON.parse(data)</code> 将数据解析成对象，返回解析后的对象</li>
+</ul>
+</li>
+</ul>
+<h5 id="IE低版本浏览器（IE8以下的版本）">IE低版本浏览器（IE8以下的版本）</h5><ul>
+<li><p>ActiveXObject</p>
+<blockquote>
+<p>ActiveXObject 对象为 Microsoft 扩展，仅在 Internet Explorer 中受支持。<br>ActiveXObject(“htmlfile”)创建的文档是一个完美的HTML文档，它拥有document.title,document.body等HTML DOM专有的属性，还能运行javascript。全局变量this就是我们要找的全局对象，它还拥有我们想要的一切，Array，Boolean，String，Date，Object等等。</p>
+</blockquote>
+</li>
+<li><p>userData</p>
+<blockquote>
+<p>UserData是微软为IE专门在系统中开辟的一块存储空间<br>正常情况下，这个文件夹在个人文件夹下 <code>Application Data\Microsoft\Internet Explorer\UserData</code><br>线上使用时，单个文件的大小限制是128KB，一个域名下总共可以保存1024KB的文件，文件个数应该没有限制。在受限站点里这两个值分别是64KB和640KB，所以如果考虑到各种情况的话，单个文件最好能控制64KB以下,xml格式的文件</p>
+</blockquote>
+</li>
+<li><p>低版本就是使用UserData进行存储，数据存储在硬盘上</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//javascript</span></div><div class="line">o = <span class="built_in">document</span>.createElement(<span class="string">'input'</span>);</div><div class="line">o.type = <span class="string">"hidden"</span>;</div><div class="line">o.addBehavior (<span class="string">"#default#userData"</span>);</div><div class="line"><span class="comment">//UserData.o.style.behavior = "url('#default#userData')" ;</span></div><div class="line"><span class="comment">//上面的语句也是一样的作用</span></div><div class="line"><span class="built_in">document</span>.body.appendChild(o);</div><div class="line">&lt;!--html--&gt;</div><div class="line">//说白了UserData就是样式里的一个Behavior，所以这样写也是一样的：</div><div class="line">&lt;input type=hidden class= storeuserData /&gt;</div><div class="line">&lt;style&gt;</div><div class="line">.storeuserData &#123;behavior:url(#default#userData);&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>UserData对象有以下的属性和方法：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">expires</td>
+<td style="text-align:center">设置或读取文件过期时间</td>
+</tr>
+<tr>
+<td style="text-align:left">XMLDocument</td>
+<td style="text-align:center">读取文件的XML DOM</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">getAttribute</td>
+<td style="text-align:center">读取指定属性的值</td>
+</tr>
+<tr>
+<td style="text-align:left">load</td>
+<td style="text-align:center">打开文件</td>
+</tr>
+<tr>
+<td style="text-align:left">removeAttribute</td>
+<td style="text-align:center">删除指定的属性</td>
+</tr>
+<tr>
+<td style="text-align:left">save</td>
+<td style="text-align:center">保存文件</td>
+</tr>
+<tr>
+<td style="text-align:left">setAttribute</td>
+<td style="text-align:center">为指定属性赋值</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>UserData文件实际上就是一个XML文件，通过文件名-&gt;属性的方式保存字符串，如以下一段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">o.setAttribute(<span class="string">"code"</span>, <span class="string">"hello world!"</span>);</div><div class="line">o.save(<span class="string">"baidu"</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行后，UserData文件夹中会生成一个baidu[1].xml文件，其中的内容是：</p>
+<ul>
+<li><code>&lt;ROOTSTUB code=&quot;hello,world!&quot;/&gt;</code></li>
+</ul>
+</li>
+<li>在一个文件中可以有多个属性，也就是可以存储多种不同的数据。</li>
+</ul>
+<h5 id="兼容所有浏览器">兼容所有浏览器</h5><blockquote>
+<p>store.js就是使用上述两种方式进行兼容使用，从而达到兼容所有浏览器的本地存储</p>
+</blockquote>
+
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/javascript数组.html" class="alignleft prev" title="javascript数组">javascript数组</a>
+    
+    
+    <a href="/如何调试移动端网页.html" class="alignright next" title="如何调试移动端网页">如何调试移动端网页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="javascript实现浏览器本地存储.html" data-title="javascript实现浏览器本地存储" data-url="http://www.xuerlove.com/javascript实现浏览器本地存储.html"></div>
+		<!-- 多说评论框 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- 
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.xuerlove.com">
+  </form>
+</div>
+-->
+
+<div class="search">
+  <form>
+    <input type="search" id="chillax-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 18px;">web</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1761611997&verifier=58d84e73&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
+<li><a href="http://home.cnblogs.com/u/alisalixue/" title="橙子Alisa" target="_blank">橙子Alisa</a></li>
+<li><a href="http://home.cnblogs.com/u/wuzhuo/" title="彼岸小山" target="_blank">彼岸小山</a></li>
+<li><a href="http://home.cnblogs.com/u/xiaoxueqiu/" title="筱雪球" target="_blank">筱雪球</a></li>
+<li><a href="http://blog.csdn.net/CoderYue" title="CoderYue" target="_blank">CoderYue</a></li>
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>4</small></li>
+  
+    <li><a href="/tags/nodejs/">nodejs</a><small>16</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>7</small></li>
+  
+    <li><a href="/tags/tools/">tools</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>20</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Never stop.  <br/>
+			Never give up.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1761611997" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/wuzhuo0425" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/wuzhuo0425" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:wuzhuo0425@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright"> © 2017 
+		
+		<a href="http://www.xuerlove.com/about" target="_blank" title="黑卓">黑卓</a>
+		
+		</p>
+	<script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>   
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<!-- <script src="/js/counter.js"></script> -->
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!--
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
+</script>
+-->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuerlove"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

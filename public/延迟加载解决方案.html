@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>延迟加载解决方案 | 黑卓</title>
+  <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
+  <meta name="author" content="黑卓">
+  
+  <meta name="description" content="frontend">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="延迟加载解决方案"/>
+  <meta property="og:site_name" content="黑卓"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+    <meta name="Robots" content="index,follow,NOODP">
+    <meta name="keywords" content="延迟加载解决方案" />
+    <meta name="description" content="延迟加载解决方案" />
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="黑卓" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="黑卓" title="黑卓"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">黑卓</h1>
+				<h2 class="blog-motto">Encode my life</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	延迟加载解决方案
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.xuerlove.com" title="黑卓">黑卓</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-10-25T07:03:01.000Z" itemprop="datePublished">2015-10-25</time>
+    更新日期:<time datetime="2016-12-07T12:04:41.000Z" itemprop="dateModified">2016-12-07</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#图片"><span class="toc-number">1.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#非图片"><span class="toc-number">2.</span> <span class="toc-text">非图片</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#优点"><span class="toc-number">2.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缺点"><span class="toc-number">2.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol>
+			</div>
+		
+        <h4 id="图片">图片</h4><blockquote>
+<ul>
+<li>给图片添加data-lazy等标签，放图片url,等页面加载完再去做替换，不会阻塞页面onload。</li>
+<li>同样像上面那样，但是等到页面滚动到特殊位置的时候，才去加载对应图片，实现懒加载。</li>
+<li>对于一些大图，我们还可以先给他一个质量低的图片，然后用js创建image对象，给它赋值src,监听它的onload事件，加载完后把url赋给img标签,实现预加载。</li>
+<li>jquery的lazyload插件，给图片设置data-original类似的标签，可以实现懒加载。<a id="more"></a>
+说了这么多，再看看怎么判断浏览器滚动到了哪里，哪些需要加载。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 浏览器可视区域 </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClient</span>(<span class="params"></span>)</span>&#123; </div><div class="line">    <span class="keyword">var</span> l, t, w, h; </div><div class="line">    l = <span class="built_in">document</span>.documentElement.scrollLeft || <span class="built_in">document</span>.body.scrollLeft; </div><div class="line">    t = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop; </div><div class="line">    w = <span class="built_in">document</span>.documentElement.clientWidth; </div><div class="line">    h = <span class="built_in">document</span>.documentElement.clientHeight; </div><div class="line">    <span class="keyword">return</span> &#123; <span class="attr">left</span>: l, <span class="attr">top</span>: t, <span class="attr">width</span>: w, <span class="attr">height</span>: h &#125;; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 待加载资源位置 </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSubClient</span>(<span class="params">p</span>)</span>&#123; </div><div class="line">    <span class="keyword">var</span> l = <span class="number">0</span>, t = <span class="number">0</span>, w, h; </div><div class="line">    w = p.offsetWidth; </div><div class="line">    h = p.offsetHeight; </div><div class="line">    <span class="keyword">while</span>(p.offsetParent)&#123; </div><div class="line">        l += p.offsetLeft; </div><div class="line">        t += p.offsetTop; </div><div class="line">        p = p.offsetParent; </div><div class="line">    &#125; </div><div class="line">    <span class="keyword">return</span> &#123; <span class="attr">left</span>: l, <span class="attr">top</span>: t, <span class="attr">width</span>: w, <span class="attr">height</span>: h &#125;; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 判断两个矩形是否相交,如果相交说明dom已经出现在了窗口，需要加载了</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">intens</span>(<span class="params">rec1, rec2</span>)</span>&#123; </div><div class="line">    <span class="keyword">var</span> lc1, lc2, tc1, tc2, w1, h1; </div><div class="line">    lc1 = rec1.left + rec1.width / <span class="number">2</span>; </div><div class="line">    lc2 = rec2.left + rec2.width / <span class="number">2</span>; </div><div class="line">    tc1 = rec1.top + rec1.height / <span class="number">2</span> ; </div><div class="line">    tc2 = rec2.top + rec2.height / <span class="number">2</span> ; </div><div class="line">    w1 = (rec1.width + rec2.width) / <span class="number">2</span> ; </div><div class="line">    h1 = (rec1.height + rec2.height) / <span class="number">2</span>; </div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.abs(lc1 - lc2) &lt; w1 &amp;&amp; <span class="built_in">Math</span>.abs(tc1 - tc2) &lt; h1 ; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 判断某个区域是否出现在可视区域 </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">domArr, prec1, callback</span>)</span>&#123; </div><div class="line">    <span class="keyword">var</span> prec2; </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = domArr.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123; </div><div class="line">        <span class="keyword">if</span> (domArr[i]) &#123; </div><div class="line">            prec2 = getSubClient(domArr[i]); </div><div class="line">            <span class="keyword">if</span> (intens(prec1, prec2)) &#123; </div><div class="line">                callback(domArr[i]); </div><div class="line">                <span class="keyword">delete</span> domArr[i]; </div><div class="line">            &#125; </div><div class="line">        &#125; </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 检查dom是否出现在可视区域 </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params"></span>)</span>&#123; </div><div class="line">    <span class="keyword">var</span> prec1 = getClient(); </div><div class="line">    test(eleArr, prec1, <span class="function"><span class="keyword">function</span>(<span class="params">dom</span>)</span>&#123; </div><div class="line">        dom.innerHTML ＝ <span class="string">'123'</span>;</div><div class="line">    &#125;) </div><div class="line">&#125; </div><div class="line"><span class="keyword">var</span> ele1 = <span class="built_in">document</span>.getElementById(<span class="string">"js_ele1"</span>); </div><div class="line"><span class="keyword">var</span> ele2 = <span class="built_in">document</span>.getElementById(<span class="string">"js_ele2"</span>); </div><div class="line"><span class="keyword">var</span> eleArr = [ele1, ele2]; </div><div class="line"><span class="built_in">window</span>.onscroll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">    check();</div><div class="line">&#125; </div><div class="line"><span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">    check(); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="非图片">非图片</h4><ul>
+<li>有些在可视区外加载的列表，页面比较靠底部，不需要页面加载的时候就展示，可以等页面滚动到相应的位置再去发请求，做渲染之类的</li>
+<li>还有些动画效果也可以这样</li>
+<li>但是注意，要做个判断，这样的动作应该只一次就够了</li>
+</ul>
+<h5 id="优点">优点</h5><ul>
+<li>提高网页响应速度，毕竟图片加载会阻塞onload事件</li>
+<li>影响网页收录与排名，因为蜘蛛爬页面的时候，如果响应速度快，页面优化值会高</li>
+<li>减少请求，降低服务器压力，减少流量</li>
+</ul>
+<h5 id="缺点">缺点</h5><ul>
+<li>图片不会被收录</li>
+<li>如果响应速度慢，会看到图片加载过程</li>
+</ul>
+
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/javascript对象的深度拷贝.html" class="alignleft prev" title="javascript对象的深度拷贝">javascript对象的深度拷贝</a>
+    
+    
+    <a href="/javascript脚本执行对页面加载的影响.html" class="alignright next" title="javascript脚本执行对页面加载的影响">javascript脚本执行对页面加载的影响</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="延迟加载解决方案.html" data-title="延迟加载解决方案" data-url="http://www.xuerlove.com/延迟加载解决方案.html"></div>
+		<!-- 多说评论框 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- 
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.xuerlove.com">
+  </form>
+</div>
+-->
+
+<div class="search">
+  <form>
+    <input type="search" id="chillax-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 18px;">web</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1761611997&verifier=58d84e73&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
+<li><a href="http://home.cnblogs.com/u/alisalixue/" title="橙子Alisa" target="_blank">橙子Alisa</a></li>
+<li><a href="http://home.cnblogs.com/u/wuzhuo/" title="彼岸小山" target="_blank">彼岸小山</a></li>
+<li><a href="http://home.cnblogs.com/u/xiaoxueqiu/" title="筱雪球" target="_blank">筱雪球</a></li>
+<li><a href="http://blog.csdn.net/CoderYue" title="CoderYue" target="_blank">CoderYue</a></li>
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>4</small></li>
+  
+    <li><a href="/tags/nodejs/">nodejs</a><small>16</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>7</small></li>
+  
+    <li><a href="/tags/tools/">tools</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>20</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Never stop.  <br/>
+			Never give up.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1761611997" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/wuzhuo0425" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/wuzhuo0425" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:wuzhuo0425@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright"> © 2017 
+		
+		<a href="http://www.xuerlove.com/about" target="_blank" title="黑卓">黑卓</a>
+		
+		</p>
+	<script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>   
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<!-- <script src="/js/counter.js"></script> -->
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!--
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
+</script>
+-->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuerlove"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

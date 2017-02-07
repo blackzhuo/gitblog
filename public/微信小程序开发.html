@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>微信小程序开发 | 黑卓</title>
+  <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
+  <meta name="author" content="黑卓">
+  
+  <meta name="description" content="frontend">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="微信小程序开发"/>
+  <meta property="og:site_name" content="黑卓"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+    <meta name="Robots" content="index,follow,NOODP">
+    <meta name="keywords" content="微信小程序开发" />
+    <meta name="description" content="微信小程序开发" />
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="黑卓" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="黑卓" title="黑卓"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">黑卓</h1>
+				<h2 class="blog-motto">Encode my life</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	微信小程序开发
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.xuerlove.com" title="黑卓">黑卓</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-11-03T11:17:42.000Z" itemprop="datePublished">2016-11-03</time>
+    更新日期:<time datetime="2016-12-07T12:04:41.000Z" itemprop="dateModified">2016-12-07</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#准备"><span class="toc-number">1.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#开始"><span class="toc-number">2.</span> <span class="toc-text">开始</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#项目目录"><span class="toc-number">3.</span> <span class="toc-text">项目目录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#简单理解"><span class="toc-number">4.</span> <span class="toc-text">简单理解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#资料大全"><span class="toc-number">5.</span> <span class="toc-text">资料大全</span></a></li></ol>
+			</div>
+		
+        <h5 id="准备">准备</h5><ul>
+<li>开发环境<ul>
+<li>下载开发工具 (<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html" target="_blank" rel="external">https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html</a>)</li>
+<li>按照网上教程破解 (<a href="https://github.com/gavinkwoe/weapp-ide-crack" target="_blank" rel="external">https://github.com/gavinkwoe/weapp-ide-crack</a>)</li>
+<li>或者直接下载破解好的包</li>
+</ul>
+</li>
+<li>学习资料<ul>
+<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/" target="_blank" rel="external">https://mp.weixin.qq.com/debug/wxadoc/dev/</a></li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h5 id="开始">开始</h5><ul>
+<li>打开微信web开发者工具</li>
+<li>AppID选择 无AppID 或者 随便写一个(破解后)</li>
+<li>项目名称随便写</li>
+<li>开发目录选择一个空的文件夹</li>
+</ul>
+<h5 id="项目目录">项目目录</h5><ul>
+<li>文件<ul>
+<li>app.js 必须 项目的主文件 小程序的逻辑</li>
+<li>app.json 必须 小程序的公共设置</li>
+<li>app.wxss 非必须 存放小程序的公共样式</li>
+<li>各个文件编写规范以及配置的意义资料中讲的很详细,就不重新描述了。</li>
+</ul>
+</li>
+<li>开发<blockquote>
+<p>这个小应用中调用了一些wx的组件以及API,实现了一个列表的下拉刷新，上拉加载，每一项的左划菜单(删除，收藏等),开发时间有限，实现的比较粗糙，主要是为了把小程序开发这一套走一遍，知道小程序想干什么，能干什么，怎么干。下面只贴了部分代码。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// app.js</span></div><div class="line">App(&#123;</div><div class="line">  <span class="attr">onLaunch</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'App Launch'</span>)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">onShow</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'App Show'</span>)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">onHide</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'App Hide'</span>)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">globalData</span>: &#123;</div><div class="line">    <span class="attr">userInfo</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">nightMode</span>: <span class="literal">false</span></div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// app.json</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"pages"</span>: [</div><div class="line">    <span class="string">"page/component/index/index"</span>,</div><div class="line">    <span class="string">"page/component/pic/pic"</span>,</div><div class="line">    <span class="string">"page/component/fav/fav"</span>,</div><div class="line">    <span class="string">"page/component/about/about"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"window"</span>: &#123;</div><div class="line">    <span class="string">"navigationBarTextStyle"</span>: <span class="string">"white"</span>,</div><div class="line">    <span class="string">"navigationBarTitleText"</span>: <span class="string">"Jokes"</span>,</div><div class="line">    <span class="string">"navigationBarBackgroundColor"</span>: <span class="string">"#353336"</span>,</div><div class="line">    <span class="string">"backgroundColor"</span>: <span class="string">"#353336"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"tabBar"</span>: &#123;</div><div class="line">    <span class="string">"color"</span>: <span class="string">"#000000"</span>,</div><div class="line">    <span class="string">"selectedColor"</span>: <span class="string">"#ffffff"</span>,</div><div class="line">    <span class="string">"borderStyle"</span>: <span class="string">"black"</span>,</div><div class="line">    <span class="string">"backgroundColor"</span>: <span class="string">"#413f40"</span>,</div><div class="line">    <span class="string">"list"</span>: [&#123;</div><div class="line">      <span class="string">"pagePath"</span>: <span class="string">"page/component/index/index"</span>,</div><div class="line">      <span class="string">"iconPath"</span>: <span class="string">"image/icon_jokes_default.png"</span>,</div><div class="line">      <span class="string">"selectedIconPath"</span>: <span class="string">"image/icon_jokes_active.png"</span>,</div><div class="line">      <span class="string">"text"</span>: <span class="string">"Jokes"</span></div><div class="line">    &#125;, &#123;</div><div class="line">      <span class="string">"pagePath"</span>: <span class="string">"page/component/pic/pic"</span>,</div><div class="line">      <span class="string">"iconPath"</span>: <span class="string">"image/icon_pic_default.png"</span>,</div><div class="line">      <span class="string">"selectedIconPath"</span>: <span class="string">"image/icon_pic_active.png"</span>,</div><div class="line">      <span class="string">"text"</span>: <span class="string">"Jokes"</span></div><div class="line">    &#125;, &#123;</div><div class="line">      <span class="string">"pagePath"</span>: <span class="string">"page/component/fav/fav"</span>,</div><div class="line">      <span class="string">"iconPath"</span>: <span class="string">"image/icon_fav_default.png"</span>,</div><div class="line">      <span class="string">"selectedIconPath"</span>: <span class="string">"image/icon_fav_active.png"</span>,</div><div class="line">      <span class="string">"text"</span>: <span class="string">"fav"</span></div><div class="line">    &#125;, &#123;</div><div class="line">      <span class="string">"pagePath"</span>: <span class="string">"page/component/about/about"</span>,</div><div class="line">      <span class="string">"iconPath"</span>: <span class="string">"image/icon_settings_default.png"</span>,</div><div class="line">      <span class="string">"selectedIconPath"</span>: <span class="string">"image/icon_settings_active.png"</span>,</div><div class="line">      <span class="string">"text"</span>: <span class="string">"Settings"</span></div><div class="line">    &#125;]</div><div class="line">  &#125;,</div><div class="line">  <span class="string">"networkTimeout"</span>: &#123;</div><div class="line">    <span class="string">"request"</span>: <span class="number">10000</span>,</div><div class="line">    <span class="string">"connectSocket"</span>: <span class="number">10000</span>,</div><div class="line">    <span class="string">"uploadFile"</span>: <span class="number">10000</span>,</div><div class="line">    <span class="string">"downloadFile"</span>: <span class="number">10000</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"debug"</span>: <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// app.wxss</div><div class="line">page &#123;</div><div class="line">  background-color: #fbf9fe;</div><div class="line">  height: 100%;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// page/component/index/index.js</span></div><div class="line"><span class="keyword">var</span> jodeData,startX,startY,endX,endY,moveStart,</div><div class="line">    topAdImgs = [</div><div class="line">        <span class="string">'../../../image/ad/1.jpg'</span>,</div><div class="line">        <span class="string">'../../../image/ad/2.jpg'</span>,</div><div class="line">        <span class="string">'../../../image/ad/3.jpg'</span>,</div><div class="line">        <span class="string">'../../../image/ad/4.jpg'</span>,</div><div class="line">        <span class="string">'../../../image/ad/5.jpg'</span></div><div class="line">    ];</div><div class="line"></div><div class="line">Page(&#123;</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">list</span>: [],</div><div class="line">    <span class="attr">itemToView</span>: <span class="string">''</span>,</div><div class="line">    <span class="attr">scrollTop</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">currentPage</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">bottomHidden</span>: <span class="string">'none'</span>,</div><div class="line">    <span class="attr">modalHidden</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">modalText</span>: <span class="string">''</span>,</div><div class="line">    <span class="attr">topImages</span>:topAdImgs,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">colorMap</span>: [<span class="string">'#86a3c1'</span>,<span class="string">'#86d1cc'</span>,<span class="string">'#bdd4e4'</span>,<span class="string">'#debf88'</span>,<span class="string">'#f9af02'</span>],</div><div class="line">  <span class="attr">parse</span>: <span class="function"><span class="keyword">function</span>(<span class="params">html</span>) </span>&#123;</div><div class="line">    html = html.replace(<span class="regexp">/(&lt;p&gt;)|(&lt;\/p&gt;)|(\t)|(&amp;nbsp;)/gm</span>, <span class="string">""</span>);</div><div class="line">    <span class="keyword">return</span> html;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">prefixData</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> favJokes = wx.getStorageSync(<span class="string">'favJokes'</span>) || [];</div><div class="line">    data.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</div><div class="line">      item.ct = item.ct.substr(<span class="number">0</span>,<span class="number">19</span>);</div><div class="line">      <span class="keyword">if</span>(item.type === <span class="number">1</span>)&#123;</div><div class="line">        item.text = self.parse(item.text);  </div><div class="line">      &#125;</div><div class="line">      item.background = self.colorMap[index%<span class="number">5</span>];</div><div class="line">      item.right = <span class="string">'0%'</span>;</div><div class="line">      item.hidden = <span class="string">'block'</span>;</div><div class="line">      item.hasFav = <span class="string">'none'</span>;</div><div class="line">      favJokes.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">fitem,findex</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(fitem.id === item.id)&#123;</div><div class="line">          item.hasFav = <span class="string">'block'</span>;</div><div class="line">        &#125;</div><div class="line">      &#125;);</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> data;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">onLoad</span>: <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">    wx.request(&#123;</div><div class="line">      <span class="attr">url</span>: <span class="string">'https://123.test.com/joke_text?page='</span> + self.data.currentPage,</div><div class="line">      <span class="attr">data</span>: &#123;&#125;,</div><div class="line">      <span class="attr">header</span>: &#123;</div><div class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span></div><div class="line">      &#125;,</div><div class="line">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> data = res.data;</div><div class="line">        data = self.prefixData(data);</div><div class="line">        self.setData(&#123;</div><div class="line">          <span class="attr">bottomHidden</span>: <span class="string">'none'</span></div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">if</span>(self.data.currentPage === <span class="number">1</span>)&#123;</div><div class="line">          self.setData(&#123;</div><div class="line">            <span class="attr">list</span>: data</div><div class="line">          &#125;);</div><div class="line">          self.toPos(self.data.currentPage);  </div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">          data = self.data.list.concat(data);</div><div class="line">          self.setData(&#123;</div><div class="line">            <span class="attr">list</span>: data</div><div class="line">          &#125;);</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">error</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        self.setData(&#123;</div><div class="line">          <span class="attr">bottomHidden</span>: <span class="string">'none'</span></div><div class="line">        &#125;);</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">toPos</span>: <span class="function"><span class="keyword">function</span>(<span class="params">page</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      self.setData(&#123;</div><div class="line">        <span class="attr">itemToView</span>: <span class="string">'item'</span> + (page<span class="number">-1</span>) * <span class="number">20</span></div><div class="line">      &#125;);</div><div class="line">    &#125;,<span class="number">1000</span>);</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">reDealData</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> allJodes = <span class="keyword">this</span>.data.list;</div><div class="line">    <span class="keyword">var</span> favJokes = wx.getStorageSync(<span class="string">'favJokes'</span>) || [];</div><div class="line">    allJodes.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</div><div class="line">      item.hasFav = <span class="string">'none'</span>;</div><div class="line">      favJokes.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">fitem,findex</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(fitem.id === item.id)&#123;</div><div class="line">          item.hasFav = <span class="string">'block'</span>;</div><div class="line">        &#125;</div><div class="line">      &#125;);</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">this</span>.setData(&#123;</div><div class="line">      <span class="attr">list</span>: allJodes</div><div class="line">    &#125;);</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">onShow</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.reDealData();</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">topUpdate</span>: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.setData(&#123;</div><div class="line">      <span class="attr">currentPage</span>: <span class="number">1</span>,</div><div class="line">      <span class="attr">itemToView</span>: <span class="string">'top'</span></div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">this</span>.onLoad();</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">bottomLoad</span>: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> page = <span class="keyword">this</span>.data.currentPage;</div><div class="line">    page = page + <span class="number">1</span>;</div><div class="line">    <span class="keyword">this</span>.setData(&#123;</div><div class="line">      <span class="attr">bottomHidden</span>: <span class="string">'block'</span>,</div><div class="line">      <span class="attr">currentPage</span>: page</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">this</span>.onLoad();</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">itemScroll</span>: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">itemClick</span>: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="comment">// wx.navigationTo(&#123;url:""&#125;);</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">itemStart</span>: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> touch = event.touches[<span class="number">0</span>];</div><div class="line">    startX = touch.clientX;</div><div class="line">    startY = touch.clientY;</div><div class="line">    moveStart = <span class="literal">true</span>;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">itemMove</span>: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> dataIndex = event.currentTarget.dataset.idx;</div><div class="line">    jodeData = <span class="keyword">this</span>.data.list;</div><div class="line">    <span class="keyword">if</span>(moveStart)&#123;</div><div class="line">      <span class="keyword">var</span> touch = event.touches[<span class="number">0</span>];</div><div class="line">      endX = touch.clientX;</div><div class="line">      endY = touch.clientY;</div><div class="line">      <span class="keyword">if</span>(<span class="built_in">Math</span>.abs(startX - endX) &gt;= <span class="built_in">Math</span>.abs(startY - endY))&#123;</div><div class="line">        <span class="keyword">if</span>(endX - startX &lt;= <span class="number">-5</span>)&#123;</div><div class="line">          jodeData.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</div><div class="line">            item.right = <span class="string">'0%'</span>;</div><div class="line">          &#125;);</div><div class="line">          jodeData[dataIndex].right = <span class="string">"20%"</span>;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">          jodeData.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index</span>)</span>&#123;</div><div class="line">            item.right = <span class="string">'0%'</span>;</div><div class="line">          &#125;);</div><div class="line">        &#125;</div><div class="line">        self.setData(&#123;</div><div class="line">          <span class="attr">list</span>: jodeData</div><div class="line">        &#125;);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    moveStart = <span class="literal">false</span>;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">modalChange</span>:<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.setData(&#123;</div><div class="line">      <span class="attr">modalHidden</span>: <span class="literal">true</span>,</div><div class="line">      <span class="attr">modalText</span>: <span class="string">''</span></div><div class="line">    &#125;)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">tapFav</span>:<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> dataIndex = event.currentTarget.dataset.idx;</div><div class="line">    <span class="keyword">var</span> allJodes = <span class="keyword">this</span>.data.list;</div><div class="line">    <span class="keyword">var</span> curJokes = allJodes[dataIndex];</div><div class="line">    curJokes.right = <span class="string">'0%'</span>;</div><div class="line">    <span class="keyword">var</span> favJokes = wx.getStorageSync(<span class="string">'favJokes'</span>) || [];</div><div class="line">    <span class="keyword">if</span>(curJokes.hasFav !== <span class="string">'block'</span>)&#123;</div><div class="line">      curJokes.hasFav = <span class="string">'block'</span>;</div><div class="line">      favJokes.unshift(curJokes);</div><div class="line">      wx.setStorageSync(<span class="string">'favJokes'</span>, favJokes);</div><div class="line">      <span class="keyword">this</span>.setData(&#123;</div><div class="line">        <span class="attr">list</span>: allJodes</div><div class="line">      &#125;);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">      <span class="keyword">this</span>.setData(&#123;</div><div class="line">        <span class="attr">list</span>: allJodes,</div><div class="line">        <span class="attr">modalHidden</span>: <span class="literal">false</span>,</div><div class="line">        <span class="attr">modalText</span>: <span class="string">'添加过了'</span></div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">tapDel</span>:<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> dataIndex = event.currentTarget.dataset.idx;</div><div class="line">    <span class="keyword">var</span> allJodes = <span class="keyword">this</span>.data.list;</div><div class="line">    <span class="keyword">var</span> curJokes = allJodes[dataIndex];</div><div class="line">    curJokes.right = <span class="string">'0%'</span>;</div><div class="line">    curJokes.hidden = <span class="string">'none'</span>;</div><div class="line">    <span class="keyword">this</span>.setData(&#123;</div><div class="line">      <span class="attr">list</span>: allJodes</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">// page/component/index/index.wxml</div><div class="line"><span class="tag">&lt;<span class="name">modal</span> <span class="attr">class</span>=<span class="string">"modal"</span> <span class="attr">hidden</span>=<span class="string">"&#123;&#123;modalHidden&#125;&#125;"</span> </span></div><div class="line">    <span class="attr">no-cancel</span> <span class="attr">bindconfirm</span>=<span class="string">"modalChange"</span>&gt;</div><div class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span> &#123;&#123;modalText&#125;&#125; <span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">modal</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"index"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">swiper</span> <span class="attr">class</span>=<span class="string">"top-swiper"</span> <span class="attr">indicator-dots</span>=<span class="string">"true"</span></span></div><div class="line">		  <span class="attr">autoplay</span>=<span class="string">"true"</span> <span class="attr">interval</span>=<span class="string">"5000"</span> <span class="attr">duration</span>=<span class="string">"1000"</span>&gt;</div><div class="line">		  <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;topImages&#125;&#125;"</span>&gt;</span></div><div class="line">		    <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></div><div class="line">		      <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"&#123;&#123;item&#125;&#125;"</span> <span class="attr">class</span>=<span class="string">"slide-image"</span>/&gt;</span></div><div class="line">		    <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></div><div class="line">		  <span class="tag">&lt;/<span class="name">block</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">scroll-view</span> <span class="attr">class</span>=<span class="string">"scroll-view"</span> </span></div><div class="line">    	    <span class="attr">scroll-y</span>=<span class="string">"true"</span> <span class="attr">bindscrolltoupper</span>=<span class="string">"topUpdate"</span></div><div class="line">    	    <span class="attr">bindscrolltolower</span>=<span class="string">"bottomLoad"</span> <span class="attr">bindscroll</span>=<span class="string">"itemScroll"</span> </div><div class="line">    	    <span class="attr">scroll-into-view</span>=<span class="string">"&#123;&#123;itemToView&#125;&#125;"</span> </div><div class="line">    	    <span class="attr">scroll-top</span>=<span class="string">"&#123;&#123;scrollTop&#125;&#125;"</span> </div><div class="line">    	    <span class="attr">upper-threshold</span>=<span class="string">"20"</span> </div><div class="line">    	    <span class="attr">lower-threshold</span>=<span class="string">"30"</span>&gt;</div><div class="line">	    	<span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"list-container"</span>&gt;</span></div><div class="line">	    		<span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"top"</span> <span class="attr">class</span>=<span class="string">"pull-update"</span>&gt;</span></div><div class="line">	    			正在更新</div><div class="line">            <span class="tag">&lt;<span class="name">image</span> <span class="attr">style</span>=<span class="string">"width: 30rpx; height: 30rpx;margin-left:10rpx;"</span> </span></div><div class="line">		            <span class="attr">mode</span>=<span class="string">"scaleToFill"</span> <span class="attr">src</span>=<span class="string">"../../../image/loading.gif"</span>&gt;<span class="tag">&lt;/<span class="name">image</span>&gt;</span></div><div class="line">	    		<span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line">		    	<span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:for</span>=<span class="string">"&#123;&#123;list&#125;&#125;"</span>&gt;</span></div><div class="line">		        <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"item&#123;&#123;index&#125;&#125;"</span> <span class="attr">data-idx</span>=<span class="string">"&#123;&#123;index&#125;&#125;"</span> <span class="attr">class</span>=<span class="string">"item"</span></span></div><div class="line">		            <span class="attr">style</span>=<span class="string">"background:&#123;&#123;item.background&#125;&#125;;right:&#123;&#123;item.right&#125;&#125;;display:&#123;&#123;item.hidden&#125;&#125;;"</span> </div><div class="line">		            <span class="attr">bindtap</span>=<span class="string">"itemClick"</span> <span class="attr">bindtouchstart</span>=<span class="string">"itemStart"</span> <span class="attr">bindtouchmove</span>=<span class="string">"itemMove"</span>&gt;</div><div class="line">		        	<span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"info-container"</span>&gt;</span></div><div class="line">			          <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"date"</span>&gt;</span></div><div class="line">			          	&#123;&#123;item.ct&#125;&#125;</div><div class="line">			          <span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line">  			        <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:if</span>=<span class="string">"&#123;&#123;item.type == 1&#125;&#125;"</span>&gt;</span></div><div class="line">  						    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">  			          	&#123;&#123;item.text&#125;&#125;</div><div class="line">  			          <span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line">  					    <span class="tag">&lt;/<span class="name">block</span>&gt;</span></div><div class="line">  					    <span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:else</span>&gt;</span></div><div class="line">  					  	  <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">  				          	<span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">"img-info"</span> <span class="attr">mode</span>=<span class="string">"aspectFit"</span> </span></div><div class="line">  				          	    <span class="attr">src</span>=<span class="string">"&#123;&#123;item.img&#125;&#125;"</span>&gt;<span class="tag">&lt;/<span class="name">image</span>&gt;</span></div><div class="line">  				          <span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line">  				          <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></div><div class="line">  				          	&#123;&#123;item.title&#125;&#125;</div><div class="line">  				          <span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line">  					    <span class="tag">&lt;/<span class="name">block</span>&gt;</span></div><div class="line">  			      <span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line">		          <span class="tag">&lt;<span class="name">image</span> <span class="attr">class</span>=<span class="string">"fav-icon"</span> <span class="attr">mode</span>=<span class="string">"scaleToFill"</span> </span></div><div class="line">		            <span class="attr">src</span>=<span class="string">"../../../image/fav.png"</span> <span class="attr">style</span>=<span class="string">"display:&#123;&#123;item.hasFav&#125;&#125;"</span>&gt;<span class="tag">&lt;/<span class="name">image</span>&gt;</span></div><div class="line">        	    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"opt-item opt-fav"</span> <span class="attr">catchtap</span>=<span class="string">"tapFav"</span> <span class="attr">data-idx</span>=<span class="string">"&#123;&#123;index&#125;&#125;"</span>&gt;</span>喜欢<span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line">        	    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"opt-item opt-del"</span> <span class="attr">catchtap</span>=<span class="string">"tapDel"</span> <span class="attr">data-idx</span>=<span class="string">"&#123;&#123;index&#125;&#125;"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line">		        <span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line">			    <span class="tag">&lt;/<span class="name">block</span>&gt;</span></div><div class="line">			    <span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"bottom"</span> <span class="attr">class</span>=<span class="string">"pull-load"</span> <span class="attr">style</span>=<span class="string">"display:&#123;&#123;bottomHidden&#125;&#125;;"</span>&gt;</span></div><div class="line">	    			正在加载</div><div class="line">            <span class="tag">&lt;<span class="name">image</span> <span class="attr">style</span>=<span class="string">"width: 30rpx; height: 30rpx;margin-left:10rpx;"</span></span></div><div class="line">	    			            <span class="attr">mode</span>=<span class="string">"scaleToFill"</span> <span class="attr">src</span>=<span class="string">"../../../image/loading.gif"</span>&gt;<span class="tag">&lt;/<span class="name">image</span>&gt;</span></div><div class="line">	    		<span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line">			  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;/<span class="name">scroll-view</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// page/component/index/index.wxss</span></div><div class="line">@<span class="keyword">import</span> <span class="string">'../../common/wxss/base.wxss'</span>;</div><div class="line">@<span class="keyword">import</span> <span class="string">'../../common/wxss/common.wxss'</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// page/common/wxss/base.wxss</div><div class="line">.index&#123;</div><div class="line">    background-color: #FBF9FE;</div><div class="line">    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;</div><div class="line">    flex: 1;</div><div class="line">    min-height: 100%;</div><div class="line">    font-size: 32rpx;</div><div class="line">&#125;</div><div class="line">.body&#123;</div><div class="line">    overflow: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div></pre></td><td class="code"><pre><div class="line">// page/common/wxss/common.wxss</div><div class="line">.top-swiper&#123;</div><div class="line">    height: 300rpx;</div><div class="line">    width: 100%;</div><div class="line">&#125;</div><div class="line">.slide-image&#123;</div><div class="line">    height: 300rpx;</div><div class="line">    width: 100%;</div><div class="line">&#125;</div><div class="line">.scroll-view&#123;</div><div class="line">    height: 860rpx;</div><div class="line">&#125;</div><div class="line">.pic-view&#123;</div><div class="line">    height: 1160rpx;</div><div class="line">&#125;</div><div class="line">.list-container&#123;</div><div class="line">    margin: 40rpx 0;</div><div class="line">&#125;</div><div class="line">.pull-update&#123;</div><div class="line">    text-align: center;</div><div class="line">    height: 40rpx;</div><div class="line">    line-height: 40rpx;</div><div class="line">    margin-top: -40rpx;</div><div class="line">&#125;</div><div class="line">.pull-load&#123;</div><div class="line">    text-align: center;</div><div class="line">    height: 40rpx;</div><div class="line">    line-height: 40rpx;</div><div class="line">&#125;</div><div class="line">.item&#123;</div><div class="line">    position: relative;</div><div class="line">    display: block;</div><div class="line">    width: 100%;</div><div class="line">  text-align: left;</div><div class="line">  vertical-align: middle;</div><div class="line">  background-color: #fff;</div><div class="line">    border-radius: 3;</div><div class="line">    border: 0 none;</div><div class="line">    margin: 0;</div><div class="line">    min-height: 200rpx;</div><div class="line">    box-sizing: border-box;</div><div class="line">    transition: all .25s ease;</div><div class="line">    -webkit-transition: all .25s ease;</div><div class="line">&#125;</div><div class="line">.opt-item&#123;</div><div class="line">    position: absolute;</div><div class="line">    height: 100%;</div><div class="line">    width: 10%;</div><div class="line">    box-sizing: border-box;</div><div class="line">    padding-left: 20rpx;</div><div class="line">    min-height: 200rpx;</div><div class="line">    writing-mode: vertical-lr;</div><div class="line">    text-align: center;</div><div class="line">    vertical-align: middle;</div><div class="line">    display: inline-block;</div><div class="line">&#125;</div><div class="line">.opt-fav&#123;</div><div class="line">    color: #fff;</div><div class="line">    right: -10%;</div><div class="line">    background: #868484;</div><div class="line">&#125;</div><div class="line">.opt-del&#123;</div><div class="line">    color: #fff;</div><div class="line">    right: -20%;</div><div class="line">    background: #dc4545;</div><div class="line">&#125;</div><div class="line">.fav-del&#123;</div><div class="line">    color: #fff;</div><div class="line">    right: -10%;</div><div class="line">    background: #dc4545;</div><div class="line">&#125;</div><div class="line">.info-container&#123;</div><div class="line">    padding: 0 10rpx;</div><div class="line">&#125;</div><div class="line">.date&#123;</div><div class="line">    color: #fff;</div><div class="line">    text-align: left;</div><div class="line">    padding:18rpx 8rpx 8rpx 8rpx;</div><div class="line">&#125;</div><div class="line">.title&#123;</div><div class="line">    font-size: 28rpx;</div><div class="line">    color: #fff;</div><div class="line">    text-align: left;</div><div class="line">    padding:8rpx 8rpx 18rpx 8rpx;</div><div class="line">    color: #333;</div><div class="line">&#125;</div><div class="line">.content&#123;</div><div class="line">    font-size: 28rpx;</div><div class="line">    text-align: left;</div><div class="line">    padding:8rpx 8rpx 18rpx 8rpx;</div><div class="line">    color: #333;</div><div class="line">&#125;</div><div class="line">.blank-icon&#123;</div><div class="line">    margin: 0 auto;</div><div class="line">&#125;</div><div class="line">.fav-icon&#123;</div><div class="line">    position: absolute;</div><div class="line">    right: 0;</div><div class="line">    top: 0;</div><div class="line">    width: 60rpx;</div><div class="line">    height: 60rpx;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="简单理解">简单理解</h5><ul>
+<li>小程序开发起来难度适中，主要是对框架，API以及组建的了解，开发过程中简单的拼凑，加上自己逻辑的串联，就可以完成一个小应用</li>
+<li>对于前端开发来说，成本是非常低的，css，js语法一样，然后就是html，html就相当于我们使用一个新的模版引擎，更加强大的mustache</li>
+<li>更像是hybrid开发，我们有调起原生的功能的能力，而又不需要去注册一堆方法(和app约定的方法),例如相册，定位，罗盘，网络，系统信息等</li>
+<li>我们不用过多考虑路由的问题，兼容的问题</li>
+<li>网络请求没有跨域产生的问题</li>
+<li>解决了跨平台，多设备下的交互一致性</li>
+</ul>
+<h5 id="资料大全">资料大全</h5><p><a href="https://github.com/justjavac/awesome-wechat-weapp?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">https://github.com/justjavac/awesome-wechat-weapp?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io</a></p>
+
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/web/">web</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/linux下创建服务.html" class="alignleft prev" title="linux下创建服务">linux下创建服务</a>
+    
+    
+    <a href="/nodejs利用session做登录控制.html" class="alignright next" title="nodejs利用session做登录控制">nodejs利用session做登录控制</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="微信小程序开发.html" data-title="微信小程序开发" data-url="http://www.xuerlove.com/微信小程序开发.html"></div>
+		<!-- 多说评论框 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- 
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.xuerlove.com">
+  </form>
+</div>
+-->
+
+<div class="search">
+  <form>
+    <input type="search" id="chillax-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 18px;">web</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1761611997&verifier=58d84e73&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
+<li><a href="http://home.cnblogs.com/u/alisalixue/" title="橙子Alisa" target="_blank">橙子Alisa</a></li>
+<li><a href="http://home.cnblogs.com/u/wuzhuo/" title="彼岸小山" target="_blank">彼岸小山</a></li>
+<li><a href="http://home.cnblogs.com/u/xiaoxueqiu/" title="筱雪球" target="_blank">筱雪球</a></li>
+<li><a href="http://blog.csdn.net/CoderYue" title="CoderYue" target="_blank">CoderYue</a></li>
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>4</small></li>
+  
+    <li><a href="/tags/nodejs/">nodejs</a><small>16</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>7</small></li>
+  
+    <li><a href="/tags/tools/">tools</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>20</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Never stop.  <br/>
+			Never give up.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1761611997" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/wuzhuo0425" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/wuzhuo0425" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:wuzhuo0425@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright"> © 2017 
+		
+		<a href="http://www.xuerlove.com/about" target="_blank" title="黑卓">黑卓</a>
+		
+		</p>
+	<script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>   
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<!-- <script src="/js/counter.js"></script> -->
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!--
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
+</script>
+-->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuerlove"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

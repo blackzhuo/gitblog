@@ -1,7 +1,7 @@
 <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 <script src="<%- config.root %>js/jquery.imagesloaded.min.js"></script>
 <script src="<%- config.root %>js/gallery.js"></script>
-<script src="<%- config.root %>js/counter.js"></script>
+<!-- <script src="<%- config.root %>js/counter.js"></script> -->
 
 <% if (config.disqus_shortname){ %>
 <script type="text/javascript">
@@ -28,7 +28,7 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 <% } %>
 <%- partial('totop') %>
 <script src="<%- config.root %>js/totop.js"></script>
-
+<!--
 <script type="text/javascript">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
   (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
@@ -37,7 +37,7 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 
   _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
 </script>
-
+-->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"<%- theme.duoshuo_shortname %>"};

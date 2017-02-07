@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.xuerlove.com/"/>
-  <updated>2017-02-07T05:51:50.000Z</updated>
+  <updated>2017-02-07T11:55:28.000Z</updated>
   <id>http://www.xuerlove.com/</id>
   
   <author>
@@ -15,9 +15,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[前端笔试题集]]></title>
+    <link href="http://www.xuerlove.com/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AF%95%E9%A2%98%E9%9B%86.html"/>
+    <id>http://www.xuerlove.com/前端笔试题集.html</id>
+    <published>2017-02-07T08:25:43.000Z</published>
+    <updated>2017-02-07T11:55:28.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="笔试题集">笔试题集</h4><h5 id="viewport禁止页面放大">viewport禁止页面放大</h5><p>通过设置页面meta标签viewport的值，可以设置页面的宽高度以及缩放行为</p>
+<ul>
+<li>initial-scale  设置页面初始缩放比例<br>＊ minimum-scale 设置缩放最小比例<br>＊ maximum-scale 设置缩放最大比例<br>＊ user-scalable 设置用户是否可以用手控制缩放<br>通过设置 initial-scale=1 user-scalable=no 或者 initial-scale=1 maximum-scale=1 禁止用户放大或者缩小网页。</li>
+</ul>
+<a id="more"></a>
+<h5 id="data-*_属性的作用">data-* 属性的作用</h5><p>使用 data-<em> 可以嵌入自定义数据，可以存储页面或者应用程序的私有自定义数据，使得html元素可以嵌入数据。可以通过javascript设置和获取data-</em>的数据。data-*的属性必须以data开头，不能包含大写字母的任意字符串。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span> <span class="attr">data-val</span>=<span class="string">"ddd"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</div><div class="line"><span class="built_in">console</span>.log(test.dataset.val);</div><div class="line">test.dataset.val = <span class="string">'eee'</span>;</div><div class="line"><span class="built_in">console</span>.log(test.dataset.val);</div></pre></td></tr></table></figure>
+<h5 id="cookie_sessionStorage_localStorage">cookie sessionStorage localStorage</h5><ul>
+<li>cookie:<br>存储在浏览器中，有域名和path的限制，在所有同源窗口中共享，可以设置过期时间，默认是浏览器关闭失效，存储大小最大4k，cookie的值会随每次http的请求进行传输，所以cookie应该尽量少而且精简，不至于影响网页性能，通常用来存储一些用户登录信息等，应该做好加密工作，不要存储一些太过机密的数据。原生接口不太友好，二次封装后用起来更方便。</li>
+<li>localStorage<br>存储在浏览器中，有域名限制，在所有同源窗口中共享，不能设置过期时间(可以自己通过数据去控制),永久有效，存储大小最大5M, 值不会随http传输携带，可以存储一些本地数据，在性能优化，数据缓存上都可以使用，不要存储机密数据，防止隐私泄漏，xss攻击等。原生接口支持的比较好，但是可以封装让其对对象数组支持的更好。<br>老版本ie浏览器不支持改属性，可以使用store.js，通过userData进行兼容处理过了。</li>
+<li>sessionStorage<br>存储在浏览器中，有域名和窗口的限制，不同浏览器窗口同源也不共享，不可以设置过期时间，仅在当前会话下有效，关闭页面或者关闭浏览器都会被清除，存储大小最大5M，可以存储一些页面的临时数据，或者页面运行期间的一些流程控制，值不会随http传输携带，不要存储机密数据，防止隐私泄漏，xss攻击等。原生接口支持的比较好，但是可以封装让其对对象数组支持的更好。</li>
+</ul>
+<h5 id="浏览器的标准模式，怪异模式">浏览器的标准模式，怪异模式</h5><p>HTML和CSS标准完成之前，各个浏览器对HTML和CSS的解析有各自不同的实现，很多旧的网页是按照非标准去设计实现的，在标准形成之后，为了向后兼容，所以现代浏览器都会有两种渲染模式，标准模式和怪异模式。具体使用哪种渲染模式，通过DOCTYPE去区分，当浏览器遇到正确的DOCTYPE的时候，就用标准模式渲染，遇到错误的DOCTYPE或者没有DOCTYPE声明的，则使用怪异模式渲染。</p>
+<ul>
+<li>盒模型差异<br>标准模式下CSS盒模型宽高不包含内边距和边框<br>怪异模式下CSS盒模型宽高包含内边距和边框<br>＊ 行内元素垂直对齐<br>标准模式下将会对齐到盒内文本的基线，怪异模式下对齐到底部。</li>
+</ul>
+<h5 id="盒模型宽高|box-sizing">盒模型宽高|box-sizing</h5><ul>
+<li>标准模式下<br>盒子总宽度 = width + padding + border + margin</li>
+<li>怪异模式下<br>内容宽度包含 content + padding + border<br>盒子总宽度 = width + margin</li>
+<li>box-sizing<br>content-box : 采用标准模式解析计算(默认值)<br>border-box : 采用怪异模式解析计算</li>
+</ul>
+<h5 id="函数中arguments">函数中arguments</h5><p>arguments是一个对象，该对象的属性值是从0-n的数字，所以访问的时候可以像数组那样访问，但它却不是数组，它还拥有length属性，返回的是属性的长度，callee属性返回的是正在被执行的function,可以在递归调用时使用,caller属性返回的是对函数的引用，该函数调用了当前函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用Array对象的方法可以将arguments转换成数组</span></div><div class="line"><span class="keyword">var</span> argsArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div></pre></td></tr></table></figure></p>
+<h5 id="typeof">typeof</h5><p>typeof可以检测数据类型</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="笔试题集">笔试题集</h4><h5 id="viewport禁止页面放大">viewport禁止页面放大</h5><p>通过设置页面meta标签viewport的值，可以设置页面的宽高度以及缩放行为</p>
+<ul>
+<li>initial-scale  设置页面初始缩放比例<br>＊ minimum-scale 设置缩放最小比例<br>＊ maximum-scale 设置缩放最大比例<br>＊ user-scalable 设置用户是否可以用手控制缩放<br>通过设置 initial-scale=1 user-scalable=no 或者 initial-scale=1 maximum-scale=1 禁止用户放大或者缩小网页。</li>
+</ul>]]>
+    
+    </summary>
+    
+      <category term="web" scheme="http://www.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[linux下创建服务]]></title>
-    <link href="http://www.xuerlove.com/2017/02/07/linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://www.xuerlove.com/2017/02/07/linux下创建服务/</id>
+    <link href="http://www.xuerlove.com/linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1.html"/>
+    <id>http://www.xuerlove.com/linux下创建服务.html</id>
     <published>2017-02-07T05:42:57.000Z</published>
     <updated>2017-02-07T05:51:50.000Z</updated>
     <content type="html"><![CDATA[<h4 id="概述">概述</h4><p>我们通过在 /etc/init.d/ 目录下创建bash脚本，实现自定义服务，通过service命令，能够调用服务中的方法，通常一个服务存在 start stop restart status方法。<br><a id="more"></a></p>
@@ -44,8 +86,8 @@
   
   <entry>
     <title><![CDATA[微信小程序开发]]></title>
-    <link href="http://www.xuerlove.com/2016/11/03/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
-    <id>http://www.xuerlove.com/2016/11/03/微信小程序开发/</id>
+    <link href="http://www.xuerlove.com/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91.html"/>
+    <id>http://www.xuerlove.com/微信小程序开发.html</id>
     <published>2016-11-03T11:17:42.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h5 id="准备">准备</h5><ul>
@@ -120,8 +162,8 @@
   
   <entry>
     <title><![CDATA[nodejs利用session做登录控制]]></title>
-    <link href="http://www.xuerlove.com/2016/11/02/nodejs%E5%88%A9%E7%94%A8session%E5%81%9A%E7%99%BB%E5%BD%95%E6%8E%A7%E5%88%B6/"/>
-    <id>http://www.xuerlove.com/2016/11/02/nodejs利用session做登录控制/</id>
+    <link href="http://www.xuerlove.com/nodejs%E5%88%A9%E7%94%A8session%E5%81%9A%E7%99%BB%E5%BD%95%E6%8E%A7%E5%88%B6.html"/>
+    <id>http://www.xuerlove.com/nodejs利用session做登录控制.html</id>
     <published>2016-11-02T12:53:28.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="background">background</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;登录的场景在我们日常应用中有很多，登录的实现过程大家都很清楚，无非就是拿着用户名密去数据库中查询，如果查到了就表示这个人是系统用户，可以登录并且使用系统。那么当用户访问系统页面的时候，我们怎么判断他是不是登录过了呢，这个时候就引出了session。<br>&nbsp; &nbsp;&nbsp;&nbsp;session翻译成会话，session的生命周期和浏览器的生命周期一致，session从创建的一刻起开始生效，浏览器关闭session销毁。session是客户端与服务器之间保持状态的解决方案。这种会话的匹配是通过cookie来实现的。</p>
@@ -163,8 +205,8 @@
   
   <entry>
     <title><![CDATA[nodejs+mongodb]]></title>
-    <link href="http://www.xuerlove.com/2016/10/31/nodejs-mongodb/"/>
-    <id>http://www.xuerlove.com/2016/10/31/nodejs-mongodb/</id>
+    <link href="http://www.xuerlove.com/nodejs-mongodb.html"/>
+    <id>http://www.xuerlove.com/nodejs-mongodb.html</id>
     <published>2016-10-31T12:53:27.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<p>这篇文章中，我们使用nodejs搭建简易服务器，然后开发一个登录过程中使用的增删改查接口，数据库使用mongoDB,操作数据库模块选用mongoose。</p>
@@ -215,8 +257,8 @@
   
   <entry>
     <title><![CDATA[mongodb]]></title>
-    <link href="http://www.xuerlove.com/2016/10/31/mongodb/"/>
-    <id>http://www.xuerlove.com/2016/10/31/mongodb/</id>
+    <link href="http://www.xuerlove.com/mongodb.html"/>
+    <id>http://www.xuerlove.com/mongodb.html</id>
     <published>2016-10-31T11:57:13.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="环境">环境</h4><ul>
@@ -286,8 +328,8 @@
   
   <entry>
     <title><![CDATA[fetch]]></title>
-    <link href="http://www.xuerlove.com/2016/08/31/fetch/"/>
-    <id>http://www.xuerlove.com/2016/08/31/fetch/</id>
+    <link href="http://www.xuerlove.com/fetch.html"/>
+    <id>http://www.xuerlove.com/fetch.html</id>
     <published>2016-08-31T13:17:37.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h5 id="介绍">介绍</h5><ul>
@@ -319,8 +361,8 @@
   
   <entry>
     <title><![CDATA[touch开发性能优化]]></title>
-    <link href="http://www.xuerlove.com/2016/04/14/touch%E5%BC%80%E5%8F%91%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    <id>http://www.xuerlove.com/2016/04/14/touch开发性能优化/</id>
+    <link href="http://www.xuerlove.com/touch%E5%BC%80%E5%8F%91%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.html"/>
+    <id>http://www.xuerlove.com/touch开发性能优化.html</id>
     <published>2016-04-14T02:43:35.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="介绍">介绍</h4><blockquote>
@@ -356,8 +398,8 @@
   
   <entry>
     <title><![CDATA[reactjs应用]]></title>
-    <link href="http://www.xuerlove.com/2016/04/14/reactjs%E5%BA%94%E7%94%A8/"/>
-    <id>http://www.xuerlove.com/2016/04/14/reactjs应用/</id>
+    <link href="http://www.xuerlove.com/reactjs%E5%BA%94%E7%94%A8.html"/>
+    <id>http://www.xuerlove.com/reactjs应用.html</id>
     <published>2016-04-14T02:42:32.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="reactjs">reactjs</h4><p>官方文档 <a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="external">http://reactjs.cn/react/docs/getting-started.html</a></p>
@@ -453,8 +495,8 @@
   
   <entry>
     <title><![CDATA[nodejs开发控制台工具]]></title>
-    <link href="http://www.xuerlove.com/2016/04/14/nodejs%E5%BC%80%E5%8F%91%E6%8E%A7%E5%88%B6%E5%8F%B0%E5%B7%A5%E5%85%B7/"/>
-    <id>http://www.xuerlove.com/2016/04/14/nodejs开发控制台工具/</id>
+    <link href="http://www.xuerlove.com/nodejs%E5%BC%80%E5%8F%91%E6%8E%A7%E5%88%B6%E5%8F%B0%E5%B7%A5%E5%85%B7.html"/>
+    <id>http://www.xuerlove.com/nodejs开发控制台工具.html</id>
     <published>2016-04-14T02:41:56.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="环境要求">环境要求</h4><ul>
@@ -503,8 +545,8 @@
   
   <entry>
     <title><![CDATA[npm包开发]]></title>
-    <link href="http://www.xuerlove.com/2016/04/14/npm%E5%8C%85%E5%BC%80%E5%8F%91/"/>
-    <id>http://www.xuerlove.com/2016/04/14/npm包开发/</id>
+    <link href="http://www.xuerlove.com/npm%E5%8C%85%E5%BC%80%E5%8F%91.html"/>
+    <id>http://www.xuerlove.com/npm包开发.html</id>
     <published>2016-04-14T02:41:29.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="环境要求">环境要求</h4><ul>
@@ -559,8 +601,8 @@
   
   <entry>
     <title><![CDATA[移动端布局]]></title>
-    <link href="http://www.xuerlove.com/2016/04/14/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80/"/>
-    <id>http://www.xuerlove.com/2016/04/14/移动端布局/</id>
+    <link href="http://www.xuerlove.com/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80.html"/>
+    <id>http://www.xuerlove.com/移动端布局.html</id>
     <published>2016-04-14T02:39:45.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<ol>
@@ -584,8 +626,8 @@
   
   <entry>
     <title><![CDATA[动态脚本]]></title>
-    <link href="http://www.xuerlove.com/2015/11/25/%E5%8A%A8%E6%80%81%E8%84%9A%E6%9C%AC/"/>
-    <id>http://www.xuerlove.com/2015/11/25/动态脚本/</id>
+    <link href="http://www.xuerlove.com/%E5%8A%A8%E6%80%81%E8%84%9A%E6%9C%AC.html"/>
+    <id>http://www.xuerlove.com/动态脚本.html</id>
     <published>2015-11-25T07:03:01.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="动态加载js">动态加载js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span>(<span class="params">data,type</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</div><div class="line">	script.type = <span class="string">"text/javascript"</span>;</div><div class="line">	<span class="keyword">try</span>&#123;</div><div class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</div><div class="line">			script.appendChild(<span class="built_in">document</span>.createTextNode(data));</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			script.src = data;</div><div class="line">		&#125;</div><div class="line">	&#125;<span class="keyword">catch</span>(ex)&#123;</div><div class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</div><div class="line">			script.text = code</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			script.src = data;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">document</span>.body.appendChild(script);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -602,8 +644,8 @@
   
   <entry>
     <title><![CDATA[DOM操作]]></title>
-    <link href="http://www.xuerlove.com/2015/11/24/DOM%E6%93%8D%E4%BD%9C/"/>
-    <id>http://www.xuerlove.com/2015/11/24/DOM操作/</id>
+    <link href="http://www.xuerlove.com/DOM%E6%93%8D%E4%BD%9C.html"/>
+    <id>http://www.xuerlove.com/DOM操作.html</id>
     <published>2015-11-24T07:03:01.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="Node">Node</h4><h5 id="操作节点">操作节点</h5><ul>
@@ -717,8 +759,8 @@
   
   <entry>
     <title><![CDATA[shell基础]]></title>
-    <link href="http://www.xuerlove.com/2015/11/23/shell%E5%9F%BA%E7%A1%80/"/>
-    <id>http://www.xuerlove.com/2015/11/23/shell基础/</id>
+    <link href="http://www.xuerlove.com/shell%E5%9F%BA%E7%A1%80.html"/>
+    <id>http://www.xuerlove.com/shell基础.html</id>
     <published>2015-11-23T07:03:01.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="shell分类">shell分类</h4><ul>
@@ -848,8 +890,8 @@
   
   <entry>
     <title><![CDATA[使用nproxy实现本地代理]]></title>
-    <link href="http://www.xuerlove.com/2015/11/22/%E4%BD%BF%E7%94%A8nproxy%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86/"/>
-    <id>http://www.xuerlove.com/2015/11/22/使用nproxy实现本地代理/</id>
+    <link href="http://www.xuerlove.com/%E4%BD%BF%E7%94%A8nproxy%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86.html"/>
+    <id>http://www.xuerlove.com/使用nproxy实现本地代理.html</id>
     <published>2015-11-22T07:03:01.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="安装">安装</h4><h5 id="先安装Node-js">先安装Node.js</h5><h5 id="安装nproxy">安装nproxy</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g nproxy</div></pre></td></tr></table></figure>
@@ -876,8 +918,8 @@
   
   <entry>
     <title><![CDATA[nginx配置https]]></title>
-    <link href="http://www.xuerlove.com/2015/11/21/nginx%E9%85%8D%E7%BD%AEhttps/"/>
-    <id>http://www.xuerlove.com/2015/11/21/nginx配置https/</id>
+    <link href="http://www.xuerlove.com/nginx%E9%85%8D%E7%BD%AEhttps.html"/>
+    <id>http://www.xuerlove.com/nginx配置https.html</id>
     <published>2015-11-21T07:03:01.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="安装">安装</h4><h5 id="系统：centos">系统：centos</h5><ul>
@@ -922,8 +964,8 @@
   
   <entry>
     <title><![CDATA[javascript面向对象相关]]></title>
-    <link href="http://www.xuerlove.com/2015/11/21/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3/"/>
-    <id>http://www.xuerlove.com/2015/11/21/javascript面向对象相关/</id>
+    <link href="http://www.xuerlove.com/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3.html"/>
+    <id>http://www.xuerlove.com/javascript面向对象相关.html</id>
     <published>2015-11-21T07:03:01.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -947,8 +989,8 @@
   
   <entry>
     <title><![CDATA[表单中按回车键自动提交]]></title>
-    <link href="http://www.xuerlove.com/2015/11/20/%E8%A1%A8%E5%8D%95%E4%B8%AD%E6%8C%89%E5%9B%9E%E8%BD%A6%E9%94%AE%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4/"/>
-    <id>http://www.xuerlove.com/2015/11/20/表单中按回车键自动提交/</id>
+    <link href="http://www.xuerlove.com/%E8%A1%A8%E5%8D%95%E4%B8%AD%E6%8C%89%E5%9B%9E%E8%BD%A6%E9%94%AE%E8%87%AA%E5%8A%A8%E6%8F%90%E4%BA%A4.html"/>
+    <id>http://www.xuerlove.com/表单中按回车键自动提交.html</id>
     <published>2015-11-20T07:03:01.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="当form表单中只有一个&lt;input_type=&quot;text&quot;_name=&#39;name&#39;_/&gt;时按回车键将会自动将表单提交。">当form表单中只有一个<code>&lt;input type=&quot;text&quot; name=&#39;name&#39; /&gt;</code>时按回车键将会自动将表单提交。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">name</span>=<span class="string">'name'</span> /&gt;</span></span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -989,8 +1031,8 @@
   
   <entry>
     <title><![CDATA[前端知识点集合]]></title>
-    <link href="http://www.xuerlove.com/2015/11/19/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%82%B9%E9%9B%86%E5%90%88/"/>
-    <id>http://www.xuerlove.com/2015/11/19/前端知识点集合/</id>
+    <link href="http://www.xuerlove.com/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%82%B9%E9%9B%86%E5%90%88.html"/>
+    <id>http://www.xuerlove.com/前端知识点集合.html</id>
     <published>2015-11-19T07:03:01.000Z</published>
     <updated>2016-12-07T12:04:41.000Z</updated>
     <content type="html"><![CDATA[<h4 id="getBoundingClientRect">getBoundingClientRect</h4><blockquote>
@@ -1021,35 +1063,6 @@
     </summary>
     
       <category term="web" scheme="http://www.xuerlove.com/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[异步javascript]]></title>
-    <link href="http://www.xuerlove.com/2015/11/18/%E5%BC%82%E6%AD%A5javascript/"/>
-    <id>http://www.xuerlove.com/2015/11/18/异步javascript/</id>
-    <published>2015-11-18T07:03:01.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="什么是异步javascript">什么是异步javascript</h4><blockquote>
-<p>顺序的执行的代码，我们称之为同步代码，异步的过程就是让有些非常耗时的javascript代码放在异步模块中之行，同步代码之行结束后再去之行它。</p>
-</blockquote>
-<h4 id="异步javascript发展过程">异步javascript发展过程</h4><ul>
-<li>回调函数<br>  函数可以作为参数传递给另一个函数，这样的过程称之为回调，当执行完函数的内容后，执行回调函数，来完成异步的模拟。<br>  回调函数可以使程序编的简单易懂，但是耦合性确比较高，维护起来比较麻烦。错误处理容易被忽视，不能return,使用不当会让程序非常臃肿。<a id="more"></a></li>
-<li>事件监听<br>  通过事件监听，触发达到异步执行代码的过程。</li>
-<li>发布订阅<br>  我们可以创建发布／订阅模式，或者观察者模式，通过订阅，发布的过程来实现异步</li>
-<li>Promises<br>  Promises是一种规范，Promises允许我们通过链式调用的方式编写代码，增强了代码的可读性。</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="什么是异步javascript">什么是异步javascript</h4><blockquote>
-<p>顺序的执行的代码，我们称之为同步代码，异步的过程就是让有些非常耗时的javascript代码放在异步模块中之行，同步代码之行结束后再去之行它。</p>
-</blockquote>
-<h4 id="异步javascript发展过程">异步javascript发展过程</h4><ul>
-<li>回调函数<br>  函数可以作为参数传递给另一个函数，这样的过程称之为回调，当执行完函数的内容后，执行回调函数，来完成异步的模拟。<br>  回调函数可以使程序编的简单易懂，但是耦合性确比较高，维护起来比较麻烦。错误处理容易被忽视，不能return,使用不当会让程序非常臃肿。]]>
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://www.xuerlove.com/tags/javascript/"/>
     
   </entry>
   

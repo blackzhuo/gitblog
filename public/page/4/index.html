@@ -16,6 +16,7 @@
 	</script>
   
   <title>第 4 页 | 黑卓</title>
+  <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
   <meta name="author" content="黑卓">
   
   <meta name="description" content="frontend">
@@ -86,26 +87,28 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-11-07T07:03:01.000Z"><a href="/2015/11/07/nodejs读取指定路径下文件夹文件/">2015-11-07</a></time>
+        <time datetime="2015-11-08T07:03:01.000Z"><a href="/nodejs调用phantom.html">2015-11-08</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/11/07/nodejs读取指定路径下文件夹文件/">nodejs读取指定路径下文件夹文件</a></h1>
+    <h1 class="title"><a href="/nodejs调用phantom.html">nodejs调用phantom</a></h1>
   
 
     </header>
     <div class="entry">
-		<h4 id="扫描文件以及文件夹">扫描文件以及文件夹</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">scanFolder</span>(<span class="params">path</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> files = [],</div><div class="line">        folders = [],</div><div class="line">        walk = <span class="function"><span class="keyword">function</span>(<span class="params">path, files, folders</span>)</span>&#123;</div><div class="line">            files = fs.readdirSync(path);</div><div class="line">            files.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;  </div><div class="line">                <span class="keyword">var</span> curPath = path + <span class="string">'/'</span> + item,</div><div class="line">                    stats = fs.statSync(curPath);</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (stats.isDirectory()) &#123;  </div><div class="line">                    walk(curPath, files, folders); </div><div class="line">                    folders.push(curPath); </div><div class="line">                &#125; <span class="keyword">else</span> &#123;  </div><div class="line">                    files.push(curPath); </div><div class="line">                &#125;  </div><div class="line">            &#125;);  </div><div class="line">        &#125;;  </div><div class="line"></div><div class="line">    walk(path, files, folders);</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'扫描'</span> + path +<span class="string">'成功'</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="string">'files'</span>: files,</div><div class="line">        <span class="string">'folders'</span>: folders</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure> 
+		<h4 id="phantomjs">phantomjs</h4><blockquote>
+<p>phantomjs能够截图，查看网页请求信息，对页面进行dom操作等等<br>利用phantomjs能够做很多事，例如通过截图对比查看页面是否疵了，网络请求监测网页性能，dom抓取等等<br> 
     </div>
     <footer>
 		<div class="alignleft">
-		<a href="/2015/11/07/nodejs读取指定路径下文件夹文件/#more" class="more-link">Read more</a>
+		<a href="/nodejs调用phantom.html#more" class="more-link">Read more</a>
 		</div>
     <div class="comments-count">
-       <a href="/2015/11/07/nodejs读取指定路径下文件夹文件/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/11/07/nodejs读取指定路径下文件夹文件/" data-count-type="comments"></span>
+       <a href="/nodejs调用phantom.html#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="nodejs调用phantom.html" data-count-type="comments"></span>
        </a>
     </div>
+    
     <div class="clearfix"></div>
     </footer>
   </div>
@@ -130,11 +133,56 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-11-06T07:03:01.000Z"><a href="/2015/11/06/nodejs网页抓取/">2015-11-06</a></time>
+        <time datetime="2015-11-07T07:03:01.000Z"><a href="/nodejs读取指定路径下文件夹文件.html">2015-11-07</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/11/06/nodejs网页抓取/">nodejs网页抓取</a></h1>
+    <h1 class="title"><a href="/nodejs读取指定路径下文件夹文件.html">nodejs读取指定路径下文件夹文件</a></h1>
+  
+
+    </header>
+    <div class="entry">
+		<h4 id="扫描文件以及文件夹">扫描文件以及文件夹</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">scanFolder</span>(<span class="params">path</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> files = [],</div><div class="line">        folders = [],</div><div class="line">        walk = <span class="function"><span class="keyword">function</span>(<span class="params">path, files, folders</span>)</span>&#123;</div><div class="line">            files = fs.readdirSync(path);</div><div class="line">            files.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;  </div><div class="line">                <span class="keyword">var</span> curPath = path + <span class="string">'/'</span> + item,</div><div class="line">                    stats = fs.statSync(curPath);</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (stats.isDirectory()) &#123;  </div><div class="line">                    walk(curPath, files, folders); </div><div class="line">                    folders.push(curPath); </div><div class="line">                &#125; <span class="keyword">else</span> &#123;  </div><div class="line">                    files.push(curPath); </div><div class="line">                &#125;  </div><div class="line">            &#125;);  </div><div class="line">        &#125;;  </div><div class="line"></div><div class="line">    walk(path, files, folders);</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'扫描'</span> + path +<span class="string">'成功'</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="string">'files'</span>: files,</div><div class="line">        <span class="string">'folders'</span>: folders</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure> 
+    </div>
+    <footer>
+		<div class="alignleft">
+		<a href="/nodejs读取指定路径下文件夹文件.html#more" class="more-link">Read more</a>
+		</div>
+    <div class="comments-count">
+       <a href="/nodejs读取指定路径下文件夹文件.html#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="nodejs读取指定路径下文件夹文件.html" data-count-type="comments"></span>
+       </a>
+    </div>
+    
+    <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2015-11-06T07:03:01.000Z"><a href="/nodejs网页抓取.html">2015-11-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/nodejs网页抓取.html">nodejs网页抓取</a></h1>
   
 
     </header>
@@ -147,13 +195,14 @@
     </div>
     <footer>
 		<div class="alignleft">
-		<a href="/2015/11/06/nodejs网页抓取/#more" class="more-link">Read more</a>
+		<a href="/nodejs网页抓取.html#more" class="more-link">Read more</a>
 		</div>
     <div class="comments-count">
-       <a href="/2015/11/06/nodejs网页抓取/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/11/06/nodejs网页抓取/" data-count-type="comments"></span>
+       <a href="/nodejs网页抓取.html#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="nodejs网页抓取.html" data-count-type="comments"></span>
        </a>
     </div>
+    
     <div class="clearfix"></div>
     </footer>
   </div>
@@ -178,11 +227,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-11-05T07:03:01.000Z"><a href="/2015/11/05/nodejs中fs模块/">2015-11-05</a></time>
+        <time datetime="2015-11-05T07:03:01.000Z"><a href="/nodejs中fs模块.html">2015-11-05</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/11/05/nodejs中fs模块/">nodejs中fs模块</a></h1>
+    <h1 class="title"><a href="/nodejs中fs模块.html">nodejs中fs模块</a></h1>
   
 
     </header>
@@ -195,13 +244,14 @@
     </div>
     <footer>
 		<div class="alignleft">
-		<a href="/2015/11/05/nodejs中fs模块/#more" class="more-link">Read more</a>
+		<a href="/nodejs中fs模块.html#more" class="more-link">Read more</a>
 		</div>
     <div class="comments-count">
-       <a href="/2015/11/05/nodejs中fs模块/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/11/05/nodejs中fs模块/" data-count-type="comments"></span>
+       <a href="/nodejs中fs模块.html#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="nodejs中fs模块.html" data-count-type="comments"></span>
        </a>
     </div>
+    
     <div class="clearfix"></div>
     </footer>
   </div>
@@ -226,11 +276,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-11-04T07:03:01.000Z"><a href="/2015/11/04/javascript变量提升与函数声明/">2015-11-04</a></time>
+        <time datetime="2015-11-04T07:03:01.000Z"><a href="/javascript变量提升与函数声明.html">2015-11-04</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/11/04/javascript变量提升与函数声明/">javascript变量提升与函数声明</a></h1>
+    <h1 class="title"><a href="/javascript变量提升与函数声明.html">javascript变量提升与函数声明</a></h1>
   
 
     </header>
@@ -243,13 +293,14 @@
     </div>
     <footer>
 		<div class="alignleft">
-		<a href="/2015/11/04/javascript变量提升与函数声明/#more" class="more-link">Read more</a>
+		<a href="/javascript变量提升与函数声明.html#more" class="more-link">Read more</a>
 		</div>
     <div class="comments-count">
-       <a href="/2015/11/04/javascript变量提升与函数声明/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/11/04/javascript变量提升与函数声明/" data-count-type="comments"></span>
+       <a href="/javascript变量提升与函数声明.html#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="javascript变量提升与函数声明.html" data-count-type="comments"></span>
        </a>
     </div>
+    
     <div class="clearfix"></div>
     </footer>
   </div>
@@ -274,11 +325,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-11-03T07:03:01.000Z"><a href="/2015/11/03/javascript实现继承/">2015-11-03</a></time>
+        <time datetime="2015-11-03T07:03:01.000Z"><a href="/javascript实现继承.html">2015-11-03</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/11/03/javascript实现继承/">javascript实现继承</a></h1>
+    <h1 class="title"><a href="/javascript实现继承.html">javascript实现继承</a></h1>
   
 
     </header>
@@ -288,13 +339,14 @@
     </div>
     <footer>
 		<div class="alignleft">
-		<a href="/2015/11/03/javascript实现继承/#more" class="more-link">Read more</a>
+		<a href="/javascript实现继承.html#more" class="more-link">Read more</a>
 		</div>
     <div class="comments-count">
-       <a href="/2015/11/03/javascript实现继承/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/11/03/javascript实现继承/" data-count-type="comments"></span>
+       <a href="/javascript实现继承.html#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="javascript实现继承.html" data-count-type="comments"></span>
        </a>
     </div>
+    
     <div class="clearfix"></div>
     </footer>
   </div>
@@ -319,11 +371,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-11-02T07:03:01.000Z"><a href="/2015/11/02/爬虫/">2015-11-02</a></time>
+        <time datetime="2015-11-02T07:03:01.000Z"><a href="/爬虫.html">2015-11-02</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/11/02/爬虫/">爬虫</a></h1>
+    <h1 class="title"><a href="/爬虫.html">爬虫</a></h1>
   
 
     </header>
@@ -332,13 +384,14 @@
     </div>
     <footer>
 		<div class="alignleft">
-		<a href="/2015/11/02/爬虫/#more" class="more-link">Read more</a>
+		<a href="/爬虫.html#more" class="more-link">Read more</a>
 		</div>
     <div class="comments-count">
-       <a href="/2015/11/02/爬虫/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/11/02/爬虫/" data-count-type="comments"></span>
+       <a href="/爬虫.html#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="爬虫.html" data-count-type="comments"></span>
        </a>
     </div>
+    
     <div class="clearfix"></div>
     </footer>
   </div>
@@ -363,11 +416,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-11-01T07:03:01.000Z"><a href="/2015/11/01/NodeJs搭建Http服务器/">2015-11-01</a></time>
+        <time datetime="2015-11-01T07:03:01.000Z"><a href="/NodeJs搭建Http服务器.html">2015-11-01</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/11/01/NodeJs搭建Http服务器/">NodeJs搭建Http服务器</a></h1>
+    <h1 class="title"><a href="/NodeJs搭建Http服务器.html">NodeJs搭建Http服务器</a></h1>
   
 
     </header>
@@ -379,13 +432,14 @@
     </div>
     <footer>
 		<div class="alignleft">
-		<a href="/2015/11/01/NodeJs搭建Http服务器/#more" class="more-link">Read more</a>
+		<a href="/NodeJs搭建Http服务器.html#more" class="more-link">Read more</a>
 		</div>
     <div class="comments-count">
-       <a href="/2015/11/01/NodeJs搭建Http服务器/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/11/01/NodeJs搭建Http服务器/" data-count-type="comments"></span>
+       <a href="/NodeJs搭建Http服务器.html#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="NodeJs搭建Http服务器.html" data-count-type="comments"></span>
        </a>
     </div>
+    
     <div class="clearfix"></div>
     </footer>
   </div>
@@ -410,11 +464,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-10-31T07:03:01.000Z"><a href="/2015/10/31/NodeJs模块之http/">2015-10-31</a></time>
+        <time datetime="2015-10-31T07:03:01.000Z"><a href="/NodeJs模块之http.html">2015-10-31</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/10/31/NodeJs模块之http/">NodeJs模块之http</a></h1>
+    <h1 class="title"><a href="/NodeJs模块之http.html">NodeJs模块之http</a></h1>
   
 
     </header>
@@ -423,13 +477,14 @@
     </div>
     <footer>
 		<div class="alignleft">
-		<a href="/2015/10/31/NodeJs模块之http/#more" class="more-link">Read more</a>
+		<a href="/NodeJs模块之http.html#more" class="more-link">Read more</a>
 		</div>
     <div class="comments-count">
-       <a href="/2015/10/31/NodeJs模块之http/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/10/31/NodeJs模块之http/" data-count-type="comments"></span>
+       <a href="/NodeJs模块之http.html#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="NodeJs模块之http.html" data-count-type="comments"></span>
        </a>
     </div>
+    
     <div class="clearfix"></div>
     </footer>
   </div>
@@ -454,11 +509,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-10-30T07:03:01.000Z"><a href="/2015/10/30/javascript数组排序/">2015-10-30</a></time>
+        <time datetime="2015-10-30T07:03:01.000Z"><a href="/javascript数组排序.html">2015-10-30</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/10/30/javascript数组排序/">javascript数组排序</a></h1>
+    <h1 class="title"><a href="/javascript数组排序.html">javascript数组排序</a></h1>
   
 
     </header>
@@ -470,63 +525,14 @@
     </div>
     <footer>
 		<div class="alignleft">
-		<a href="/2015/10/30/javascript数组排序/#more" class="more-link">Read more</a>
+		<a href="/javascript数组排序.html#more" class="more-link">Read more</a>
 		</div>
     <div class="comments-count">
-       <a href="/2015/10/30/javascript数组排序/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/10/30/javascript数组排序/" data-count-type="comments"></span>
+       <a href="/javascript数组排序.html#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="javascript数组排序.html" data-count-type="comments"></span>
        </a>
     </div>
-    <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
     
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2015-10-29T07:03:01.000Z"><a href="/2015/10/29/NodeJs子进程/">2015-10-29</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/10/29/NodeJs子进程/">NodeJs子进程</a></h1>
-  
-
-    </header>
-    <div class="entry">
-		<h5 id="child_process">child_process</h5><blockquote>
-<ul>
-<li>NodeJs的子进程有很多和系统交互的接口，我们先看一下主要的API:<ol>
-<li>child.stdin 标准输入</li>
-<li>child.stdout 标准输出</li>
-<li>child.stderr 标准错误输出</li>
-<li>child.pid 子进程PID 
-    </div>
-    <footer>
-		<div class="alignleft">
-		<a href="/2015/10/29/NodeJs子进程/#more" class="more-link">Read more</a>
-		</div>
-    <div class="comments-count">
-       <a href="/2015/10/29/NodeJs子进程/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/10/29/NodeJs子进程/" data-count-type="comments"></span>
-       </a>
-    </div>
     <div class="clearfix"></div>
     </footer>
   </div>
@@ -599,7 +605,7 @@
   
     <li><a href="/tags/tools/">tools</a><small>1</small></li>
   
-    <li><a href="/tags/web/">web</a><small>19</small></li>
+    <li><a href="/tags/web/">web</a><small>20</small></li>
   
   </ul>
 </div>
@@ -641,12 +647,20 @@
 		<a href="http://www.xuerlove.com/about" target="_blank" title="黑卓">黑卓</a>
 		
 		</p>
+	<script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>   
 </div>
 </footer>
   <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
-<script src="/js/counter.js"></script>
+<!-- <script src="/js/counter.js"></script> -->
 
 
 
@@ -663,7 +677,7 @@
 <a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
 </div>
 <script src="/js/totop.js"></script>
-
+<!--
 <script type="text/javascript">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
   (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
@@ -672,7 +686,7 @@
 
   _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
 </script>
-
+-->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"xuerlove"};

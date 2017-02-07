@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>shell基础 | 黑卓</title>
+  <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
+  <meta name="author" content="黑卓">
+  
+  <meta name="description" content="frontend">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="shell基础"/>
+  <meta property="og:site_name" content="黑卓"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+    <meta name="Robots" content="index,follow,NOODP">
+    <meta name="keywords" content="shell基础" />
+    <meta name="description" content="shell基础" />
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="黑卓" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="黑卓" title="黑卓"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">黑卓</h1>
+				<h2 class="blog-motto">Encode my life</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	shell基础
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.xuerlove.com" title="黑卓">黑卓</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-11-23T07:03:01.000Z" itemprop="datePublished">2015-11-23</time>
+    更新日期:<time datetime="2016-12-07T12:04:41.000Z" itemprop="dateModified">2016-12-07</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#shell分类"><span class="toc-number">1.</span> <span class="toc-text">shell分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="##!"><span class="toc-number">1.1.</span> <span class="toc-text">#!</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用语句给变量赋值"><span class="toc-number">1.2.</span> <span class="toc-text">使用语句给变量赋值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用变量"><span class="toc-number">1.3.</span> <span class="toc-text">使用变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串"><span class="toc-number">1.4.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#拼接字符串"><span class="toc-number">1.5.</span> <span class="toc-text">拼接字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串长度"><span class="toc-number">1.6.</span> <span class="toc-text">字符串长度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#截取字符串"><span class="toc-number">1.7.</span> <span class="toc-text">截取字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查找字符串"><span class="toc-number">1.8.</span> <span class="toc-text">查找字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数组"><span class="toc-number">1.9.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数组长度"><span class="toc-number">1.10.</span> <span class="toc-text">数组长度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注释"><span class="toc-number">1.11.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#echo"><span class="toc-number">1.12.</span> <span class="toc-text">echo</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#read"><span class="toc-number">1.13.</span> <span class="toc-text">read</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#显示"><span class="toc-number">1.14.</span> <span class="toc-text">显示</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#不换行"><span class="toc-number">1.15.</span> <span class="toc-text">不换行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#输出到文件"><span class="toc-number">1.16.</span> <span class="toc-text">输出到文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#原格式输出"><span class="toc-number">1.17.</span> <span class="toc-text">原格式输出</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#显示执行结果"><span class="toc-number">1.18.</span> <span class="toc-text">显示执行结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#test命令"><span class="toc-number">1.19.</span> <span class="toc-text">test命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文件测试"><span class="toc-number">1.20.</span> <span class="toc-text">文件测试</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#for"><span class="toc-number">1.21.</span> <span class="toc-text">for</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#while"><span class="toc-number">1.22.</span> <span class="toc-text">while</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#until"><span class="toc-number">1.23.</span> <span class="toc-text">until</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#case"><span class="toc-number">1.24.</span> <span class="toc-text">case</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#break"><span class="toc-number">1.25.</span> <span class="toc-text">break</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#continue"><span class="toc-number">1.26.</span> <span class="toc-text">continue</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#函数"><span class="toc-number">1.27.</span> <span class="toc-text">函数</span></a></li></ol></li></ol>
+			</div>
+		
+        <h4 id="shell分类">shell分类</h4><ul>
+<li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
+<li>Bourne Again Shell（/bin/bash）</li>
+<li>C Shell（/usr/bin/csh）</li>
+<li>K Shell（/usr/bin/ksh）</li>
+<li>Shell for Root（/sbin/sh）</li>
+<li>eg.<a id="more"></a>
+</li>
+</ul>
+<h5 id="#!"><code>#!</code></h5><blockquote>
+<p><code>#!</code>告诉系统其后路径所指定的程序即是解释此脚本文件的Shell程序。</p>
+<ul>
+<li>执行<ul>
+<li><code>./test.sh</code>使用想对路径</li>
+<li>sh test.sh</li>
+</ul>
+</li>
+<li>变量<ul>
+<li>直接使用变量名 <code>test=&quot;123&quot;</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>变量名和等号之间不能有空格</li>
+<li>首个字符必须为字母（a-z，A-Z）。</li>
+<li>中间不能有空格，可以使用下划线（_）。</li>
+<li>不能使用标点符号。</li>
+<li>不能使用bash里的关键字（可用help命令查看保留关键字）。</li>
+</ul>
+<h5 id="使用语句给变量赋值">使用语句给变量赋值</h5><ul>
+<li>for file inls /etc``</li>
+</ul>
+<h5 id="使用变量">使用变量</h5><blockquote>
+<p>在变量名前添加美元符号 <code>$</code><br><code>$test</code>或者<code>${test}</code></p>
+</blockquote>
+<h5 id="字符串">字符串</h5><ul>
+<li>单引号<ul>
+<li>不能使用变量</li>
+<li>不能出现单引号，不能使用转译字符</li>
+</ul>
+</li>
+<li>双引号<ul>
+<li>可以使用变量</li>
+<li>可以使用转译字符</li>
+</ul>
+</li>
+</ul>
+<h5 id="拼接字符串">拼接字符串</h5><ul>
+<li>不需要使用 <code>+</code> 符号<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">name=<span class="string">"zhuo"</span></div><div class="line">say=<span class="string">"hi "</span>$name<span class="string">" !"</span></div><div class="line">says = <span class="string">"hi $&#123;name&#125; !"</span></div><div class="line">echo say says</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="字符串长度">字符串长度</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string="tetetete"</div><div class="line">echo $&#123;#string&#125;</div></pre></td></tr></table></figure>
+<h5 id="截取字符串">截取字符串</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string=<span class="string">"tetetete"</span></div><div class="line">echo $&#123;<span class="attr">string</span>:<span class="number">2</span>:<span class="number">4</span>&#125;</div></pre></td></tr></table></figure>
+<h5 id="查找字符串">查找字符串</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string=<span class="string">"asdfsdf werfvsd"</span></div><div class="line">echo <span class="string">`expr index "$string" is`</span></div></pre></td></tr></table></figure>
+<h5 id="数组">数组</h5><p>创建数组以及访问数组<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">arr=(1,2,3,4,5)</div><div class="line">#或者</div><div class="line">arr[0]=1</div><div class="line">arr[1]=2</div><div class="line">arr[2]=3</div><div class="line">#访问</div><div class="line">echo $&#123;arr[0]&#125;</div><div class="line">#访问所有元素</div><div class="line">echo $&#123;arr[@]&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="数组长度">数组长度</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">len=$&#123;#arr[@]&#125;</div></pre></td></tr></table></figure>
+<p>或者<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">len=$&#123;$arr[*]&#125;</div></pre></td></tr></table></figure></p>
+<p>数组单个元素长度<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">len=$&#123;$arr[n]&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="注释">注释</h5><ul>
+<li>不支持多行注释，单行注释使用#</li>
+<li>开发过程中，为方便注释，可以把需要注释的代码放在一个函数中<h5 id="echo">echo</h5>输出字符串<br>echo string<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">echo &quot;test&quot;</div><div class="line">echo test</div><div class="line">echo &quot;\&quot;test\&quot;&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="read">read</h5><p>输入字符<br>read name<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line">read name</div><div class="line">echo <span class="string">"$&#123;name&#125;"</span></div></pre></td></tr></table></figure></p>
+<h5 id="显示">显示</h5><p><code>-e</code>开启转义<br>换行<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo -e "test!\n" # \n换行</div><div class="line">echo "ok"</div></pre></td></tr></table></figure></p>
+<h5 id="不换行">不换行</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo -e "test!\c" # \c不换行</div><div class="line">echo "ok"</div></pre></td></tr></table></figure>
+<h5 id="输出到文件">输出到文件</h5><p><code>echo &quot;test&quot; &gt; test.txt</code></p>
+<h5 id="原格式输出">原格式输出</h5><p>使用单引号，不进行转义</p>
+<h5 id="显示执行结果">显示执行结果</h5><p><code>echo</code>data``</p>
+<h5 id="test命令">test命令</h5><p>检测某个条件是否成立</p>
+<pre><code>* 数值测试
+<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-eq	等于则为真</div><div class="line">-ne	不等于则为真</div><div class="line">-gt	大于则为真</div><div class="line">-ge	大于等于则为真</div><div class="line">-lt	小于则为真</div><div class="line">-le	小于等于则为真</div></pre></td></tr></table></figure></span>
+
+<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">x=read</div><div class="line">y=read</div><div class="line"><span class="keyword">if</span> test $[x] -eq $[y]</div><div class="line">then</div><div class="line">	echo <span class="string">"ok"</span></div><div class="line">elif test $x -gt $y</div><div class="line">	echo <span class="string">"gt"</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	echo <span class="string">"bad"</span></div><div class="line">fi</div></pre></td></tr></table></figure></span>
+
+* 字符串测试
+<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">=	等于则为真</div><div class="line">!=	不相等则为真</div><div class="line">-z 字符串	字符串长度伪则为真</div><div class="line">-n 字符串	字符串长度不伪则为真</div></pre></td></tr></table></figure></span>
+
+<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">x=read</div><div class="line">y=read</div><div class="line"><span class="keyword">if</span> test $x -eq $y</div><div class="line">then</div><div class="line">	echo <span class="string">"ok"</span></div><div class="line">elif test $x -gt $y</div><div class="line">	echo <span class="string">"gt"</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	echo <span class="string">"bad"</span></div><div class="line">fi</div></pre></td></tr></table></figure></span>
+</code></pre><h5 id="文件测试">文件测试</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">-e 文件名	如果文件存在则为真</div><div class="line">-r 文件名	如果文件存在且可读则为真</div><div class="line">-w 文件名	如果文件存在且可写则为真</div><div class="line">-x 文件名	如果文件存在且可执行则为真</div><div class="line">-s 文件名	如果文件存在且至少有一个字符则为真</div><div class="line">-d 文件名	如果文件存在且为目录则为真</div><div class="line">-f 文件名	如果文件存在且为普通文件则为真</div><div class="line">-c 文件名	如果文件存在且为字符型特殊文件则为真</div><div class="line">-b 文件名	如果文件存在且为块特殊文件则为真</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> test -e ./blog</div><div class="line">then </div><div class="line">	echo <span class="string">'file exists'</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	echo <span class="string">'file does not exists'</span></div><div class="line">fi</div><div class="line"><span class="string">``</span><span class="string">`javascript</span></div><div class="line">`Shell还提供了 与( -a )、或( -o )、非( ! ) 三个逻辑操作符用于将测试条件连接起来，优先级：”!” “-a” “-o”<span class="string">`</span></div><div class="line">##### 流程控制</div><div class="line">* if else</div><div class="line">`<span class="string">``</span>javascript</div><div class="line">x=read</div><div class="line">y=read</div><div class="line"><span class="keyword">if</span> test $x -eq $y</div><div class="line">then</div><div class="line">	echo <span class="string">"ok"</span></div><div class="line">elif test $x -gt $y</div><div class="line">	echo <span class="string">"gt"</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	echo <span class="string">"bad"</span></div><div class="line">fi</div></pre></td></tr></table></figure>
+<h5 id="for">for</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> it <span class="keyword">in</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span></div><div class="line"><span class="keyword">do</span></div><div class="line">	echo $it</div><div class="line">done</div></pre></td></tr></table></figure>
+<h5 id="while">while</h5><p>条件为真则执行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">count=<span class="number">1</span></div><div class="line"><span class="keyword">while</span>(($count&lt;<span class="number">10</span>))</div><div class="line"><span class="keyword">do</span></div><div class="line">	echo $count</div><div class="line">	<span class="keyword">let</span> <span class="string">"count++"</span></div><div class="line">done</div></pre></td></tr></table></figure></p>
+<h5 id="until">until</h5><p>直到条件为真停止,用法与while相同<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">count=<span class="number">100</span></div><div class="line">until(($count&lt;=<span class="number">10</span>))</div><div class="line"><span class="keyword">do</span></div><div class="line">	echo $count</div><div class="line">	<span class="keyword">let</span> <span class="string">"count--"</span></div><div class="line">done</div></pre></td></tr></table></figure></p>
+<h5 id="case">case</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">echo <span class="string">'请输入1-3的数字:'</span></div><div class="line">read num</div><div class="line"><span class="keyword">case</span> $num <span class="keyword">in</span></div><div class="line">	<span class="number">1</span>) echo <span class="string">'你输入了1'</span></div><div class="line">	;;</div><div class="line">	<span class="number">2</span>) echo <span class="string">'你输入了2'</span></div><div class="line">	;;</div><div class="line">	<span class="number">3</span>) echo <span class="string">'你输入了3'</span></div><div class="line">	;;</div><div class="line">	*) echo <span class="string">'你没有输入1到3的数字'</span></div><div class="line">	;;</div><div class="line">esac</div></pre></td></tr></table></figure>
+<h5 id="break">break</h5><p>跳出所有循环</p>
+<h5 id="continue">continue</h5><p>结束当前循环，继续执行下一次循环</p>
+<h5 id="函数">函数</h5><ul>
+<li>定义方式,不需要带参数</li>
+<li>function fun()</li>
+<li>fun()<ul>
+<li>参数返回，使用return</li>
+<li>函数调用，直接使用函数名，不需要加括号，带有参数直接在后面列出，用空格间隔</li>
+<li>函数返回值在调用函数后，可以通过$?使用</li>
+<li>函数中的参数，可以使用$n来表示，n&gt;10的时候，使用${n}</li>
+<li>特殊参数<ul>
+<li><code>$#</code> 传递到脚本的参数个数</li>
+<li><code>$*</code> 以一个单字符串显示所有向脚本传递的参数</li>
+<li><code>$$</code> 脚本运行的当前进程ID号</li>
+<li><code>$!</code> 后台运行的最后一个进程的ID号</li>
+<li><code>$@</code> 与$*相同，但是使用时加引号，并在引号中返回每个参数。</li>
+<li><code>$-</code> 显示Shell使用的当前选项，与set命令功能相同。</li>
+<li><code>$?</code> 显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/linux/">linux</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/DOM操作.html" class="alignleft prev" title="DOM操作">DOM操作</a>
+    
+    
+    <a href="/使用nproxy实现本地代理.html" class="alignright next" title="使用nproxy实现本地代理">使用nproxy实现本地代理</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="shell基础.html" data-title="shell基础" data-url="http://www.xuerlove.com/shell基础.html"></div>
+		<!-- 多说评论框 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- 
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.xuerlove.com">
+  </form>
+</div>
+-->
+
+<div class="search">
+  <form>
+    <input type="search" id="chillax-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 18px;">web</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1761611997&verifier=58d84e73&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
+<li><a href="http://home.cnblogs.com/u/alisalixue/" title="橙子Alisa" target="_blank">橙子Alisa</a></li>
+<li><a href="http://home.cnblogs.com/u/wuzhuo/" title="彼岸小山" target="_blank">彼岸小山</a></li>
+<li><a href="http://home.cnblogs.com/u/xiaoxueqiu/" title="筱雪球" target="_blank">筱雪球</a></li>
+<li><a href="http://blog.csdn.net/CoderYue" title="CoderYue" target="_blank">CoderYue</a></li>
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>4</small></li>
+  
+    <li><a href="/tags/nodejs/">nodejs</a><small>16</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>7</small></li>
+  
+    <li><a href="/tags/tools/">tools</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>20</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Never stop.  <br/>
+			Never give up.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1761611997" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/wuzhuo0425" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/wuzhuo0425" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:wuzhuo0425@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright"> © 2017 
+		
+		<a href="http://www.xuerlove.com/about" target="_blank" title="黑卓">黑卓</a>
+		
+		</p>
+	<script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>   
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<!-- <script src="/js/counter.js"></script> -->
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!--
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
+</script>
+-->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuerlove"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
