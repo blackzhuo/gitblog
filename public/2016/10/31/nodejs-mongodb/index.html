@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>nodejs+mongodb | 黑卓</title>
+  <meta name="author" content="黑卓">
+  
+  <meta name="description" content="frontend">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="nodejs+mongodb"/>
+  <meta property="og:site_name" content="黑卓"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+    <meta name="Robots" content="index,follow,NOODP">
+    <meta name="keywords" content="nodejs+mongodb" />
+    <meta name="description" content="nodejs+mongodb" />
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="黑卓" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="黑卓" title="黑卓"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">黑卓</h1>
+				<h2 class="blog-motto">Encode my life</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	nodejs+mongodb
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.xuerlove.com" title="黑卓">黑卓</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2016-10-31T12:53:27.000Z" itemprop="datePublished">2016-10-31</time>
+    更新日期:<time datetime="2016-12-07T12:04:41.000Z" itemprop="dateModified">2016-12-07</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建nodejs工程"><span class="toc-number">1.</span> <span class="toc-text">创建nodejs工程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用express"><span class="toc-number">2.</span> <span class="toc-text">使用express</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#app-js"><span class="toc-number">3.</span> <span class="toc-text">app.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用mongoose"><span class="toc-number">4.</span> <span class="toc-text">使用mongoose</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装其他模块"><span class="toc-number">5.</span> <span class="toc-text">安装其他模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nodejs操作数据库"><span class="toc-number">6.</span> <span class="toc-text">nodejs操作数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试url"><span class="toc-number">7.</span> <span class="toc-text">测试url</span></a></li></ol>
+			</div>
+		
+        <p>这篇文章中，我们使用nodejs搭建简易服务器，然后开发一个登录过程中使用的增删改查接口，数据库使用mongoDB,操作数据库模块选用mongoose。</p>
+<h4 id="创建nodejs工程">创建nodejs工程</h4><blockquote>
+<p>npm init<br>创建package.json文件</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"nodeblog"</span>,</div><div class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</div><div class="line">  <span class="attr">"description"</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">"main"</span>: <span class="string">"index.js"</span>,</div><div class="line">  <span class="attr">"scripts"</span>: &#123;</div><div class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"author"</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</div><div class="line">  <span class="attr">"dependencies"</span>: &#123;</div><div class="line">    <span class="attr">"express"</span>: <span class="string">"^4.14.0"</span>,</div><div class="line">    <span class="attr">"mongoose"</span>: <span class="string">"^4.6.5"</span>,</div><div class="line">    <span class="attr">"url"</span>: <span class="string">"^0.11.0"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>dependencies中显示的是安装的依赖包，下面有安装过程，先不用考虑</p>
+</blockquote>
+<h4 id="使用express">使用express</h4><blockquote>
+<p>sudo npm install express –save<br>快速构建web应用模块 资料: <a href="http://www.expressjs.com.cn/4x/api.html" target="_blank" rel="external">http://www.expressjs.com.cn/4x/api.html</a></p>
+</blockquote>
+<h4 id="app-js">app.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">  res.send(<span class="string">'hello world'</span>);</div><div class="line">&#125;);</div><div class="line">app.listen(<span class="number">3000</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'nodejs server start, listen port 3000'</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>浏览器打开 <a href="http://127.0.0.1:3000/" target="_blank" rel="external">http://127.0.0.1:3000/</a> 页面显示 hello world</p>
+</blockquote>
+<h4 id="使用mongoose">使用mongoose</h4><blockquote>
+<p>sudo npm install mongoose –save<br>数据库操作模块</p>
+</blockquote>
+<h4 id="安装其他模块">安装其他模块</h4><blockquote>
+<p>sudo npm install url –save<br>辅助解析url参数</p>
+</blockquote>
+<h4 id="nodejs操作数据库">nodejs操作数据库</h4><blockquote>
+<p>app.js 程序主文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> routes = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);</div><div class="line">app.use(<span class="string">'/'</span>, routes);</div><div class="line">app.listen(<span class="number">3000</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'nodejs server start, listen port 3000'</span>);</div></pre></td></tr></table></figure></p>
+<p>routes/index.js 路由文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> router = express.Router();</div><div class="line"><span class="keyword">var</span> login = <span class="built_in">require</span>(<span class="string">'../main/login'</span>);</div><div class="line">router.get([<span class="string">'/login'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">    login(req, res, next);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">module</span>.exports = router;</div></pre></td></tr></table></figure></p>
+<p>main/config.js 数据库配置文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> config = &#123;</div><div class="line">	<span class="attr">dbHost</span>: <span class="string">'127.0.0.1'</span>,</div><div class="line">	<span class="attr">dbPort</span>: <span class="string">'27017'</span>,</div><div class="line">	<span class="attr">dbAdmin</span>: <span class="string">'superuser'</span>,</div><div class="line">	<span class="attr">dbPassword</span>: <span class="string">'pwd'</span></div><div class="line">&#125;;</div><div class="line"><span class="built_in">module</span>.exports = config;</div></pre></td></tr></table></figure></p>
+<p>main/loginSchema.js 数据库表结构<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line"><span class="keyword">var</span> loginSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</div><div class="line">	<span class="attr">username</span>: <span class="built_in">String</span>,</div><div class="line">	<span class="attr">userpassword</span>: <span class="built_in">String</span></div><div class="line">&#125;);</div><div class="line"><span class="built_in">module</span>.exports = loginSchema;</div></pre></td></tr></table></figure></p>
+<p>main/login.js 登录增删改查逻辑文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>),</div><div class="line">    mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>),</div><div class="line">    loginSchema = <span class="built_in">require</span>(<span class="string">'./loginSchema'</span>),</div><div class="line">    config = <span class="built_in">require</span>(<span class="string">'./config'</span>);</div><div class="line"><span class="keyword">var</span> opt = &#123;</div><div class="line">        <span class="attr">user</span>: config.dbAdmin,</div><div class="line">        <span class="attr">pass</span>: config.dbPassword,</div><div class="line">        <span class="attr">auth</span>: &#123;</div><div class="line">            <span class="attr">authdb</span>: <span class="string">'admin'</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    db = mongoose.createConnection(config.dbHost, <span class="string">'userinfo'</span>, config.dbPort, opt),</div><div class="line">    pageModule = db.model(<span class="string">"user"</span>, loginSchema);</div><div class="line"><span class="keyword">var</span> result,</div><div class="line">    dbSuccess = &#123;</div><div class="line">    	<span class="attr">ret</span>:<span class="literal">true</span>,</div><div class="line">    	<span class="attr">data</span>:&#123;&#125;</div><div class="line">    &#125;, </div><div class="line">    dbError = &#123;</div><div class="line">    	<span class="attr">ret</span>:<span class="literal">false</span>,</div><div class="line">    	<span class="attr">data</span>:<span class="string">'fail'</span></div><div class="line">    &#125;;</div><div class="line"><span class="comment">/**</span></div><div class="line"> *  存储数据</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">saveData</span>(<span class="params">req, res, next, pageData</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> pageDataModule = <span class="keyword">new</span> pageModule(<span class="built_in">JSON</span>.parse(pageData));</div><div class="line">    pageDataModule.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">        res.writeHead(<span class="number">200</span>, &#123;</div><div class="line">            <span class="string">"Content-Type"</span>: <span class="string">"application/json;charset=UTF-8"</span></div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">if</span>(err)&#123;</div><div class="line">            result = <span class="built_in">JSON</span>.stringify(dbError);</div><div class="line">            res.end(result);</div><div class="line">        &#125;</div><div class="line">        dbSuccess.data = <span class="string">'操作成功'</span>;</div><div class="line">        result = <span class="built_in">JSON</span>.stringify(dbSuccess);</div><div class="line">        res.end(result);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"> *  删除数据</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deleteData</span>(<span class="params">req, res, next,query</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> query = query ? <span class="built_in">JSON</span>.parse(query) : &#123;&#125;;</div><div class="line">    pageModule.remove(query).exec(<span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</div><div class="line">        res.writeHead(<span class="number">200</span>, &#123;</div><div class="line">            <span class="string">"Content-Type"</span>: <span class="string">"application/json;charset=UTF-8"</span></div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">if</span>(err)&#123;</div><div class="line">            result = <span class="built_in">JSON</span>.stringify(dbError);</div><div class="line">            res.end(result);</div><div class="line">        &#125;</div><div class="line">        dbSuccess.data = <span class="string">'操作成功'</span>;</div><div class="line">        result = <span class="built_in">JSON</span>.stringify(dbSuccess);</div><div class="line">        res.end(result);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"> *  更新数据</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateData</span>(<span class="params">req, res, next,query, pageData</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> query = query ? <span class="built_in">JSON</span>.parse(query) : &#123;&#125;;</div><div class="line">    pageData = <span class="built_in">JSON</span>.parse(pageData);</div><div class="line">    pageModule.findOneAndUpdate(query, pageData).exec(<span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</div><div class="line">        res.writeHead(<span class="number">200</span>, &#123;</div><div class="line">            <span class="string">"Content-Type"</span>: <span class="string">"application/json;charset=UTF-8"</span></div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">if</span>(err)&#123;</div><div class="line">            result = <span class="built_in">JSON</span>.stringify(dbError);</div><div class="line">            res.end(result);</div><div class="line">        &#125;</div><div class="line">        dbSuccess.data = <span class="string">'操作成功'</span>;</div><div class="line">        result = <span class="built_in">JSON</span>.stringify(dbSuccess);</div><div class="line">        res.end(result);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"> *  查询数据</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">queryData</span>(<span class="params">req, res, next,query</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> query = query ? <span class="built_in">JSON</span>.parse(query) : &#123;&#125;;</div><div class="line">    pageModule.find(query).exec(<span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</div><div class="line">        res.writeHead(<span class="number">200</span>, &#123;</div><div class="line">            <span class="string">"Content-Type"</span>: <span class="string">"application/json;charset=UTF-8"</span></div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">if</span>(err)&#123;</div><div class="line">            result = <span class="built_in">JSON</span>.stringify(dbError);</div><div class="line">            res.end(result);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(data &amp;&amp; data.length)&#123;</div><div class="line">            dbSuccess.data = data;</div><div class="line">            result = <span class="built_in">JSON</span>.stringify(dbSuccess);</div><div class="line">            res.end(result);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            result = <span class="built_in">JSON</span>.stringify(dbError);</div><div class="line">            res.end(result);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">/**</span></div><div class="line"> *  增删改查入口</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">login</span>(<span class="params">req, res, next</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> queryObj = url.parse(<span class="built_in">decodeURIComponent</span>(req.url), <span class="literal">true</span>).query,</div><div class="line">	    type = queryObj.type,</div><div class="line">	    query = queryObj.query,</div><div class="line">	    pageData = queryObj.pageData;</div><div class="line">	<span class="keyword">switch</span>(type)&#123;</div><div class="line">		<span class="keyword">case</span> <span class="string">'add'</span>:</div><div class="line">			saveData(req, res, next,pageData);</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">'delete'</span>:</div><div class="line">			deleteData(req, res, next,query);</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">'update'</span>:</div><div class="line">			updateData(req, res, next,query, pageData)</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="string">'find'</span>:</div><div class="line">			queryData(req, res, next,query)</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">default</span>:</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">module</span>.exports = login;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="测试url">测试url</h4><p>1.<a href="http://127.0.0.1:3000/login?type=add&amp;pageData={&quot;username&quot;:&quot;wz&quot;,&quot;userpassword&quot;:&quot;wz&quot;}" target="_blank" rel="external">http://127.0.0.1:3000/login?type=add&amp;pageData={&quot;username&quot;:&quot;wz&quot;,&quot;userpassword&quot;:&quot;wz&quot;}</a><br>2.<a href="http://127.0.0.1:3000/login?type=find" target="_blank" rel="external">http://127.0.0.1:3000/login?type=find</a><br>3.<a href="http://127.0.0.1:3000/login?type=update&amp;query={&quot;username&quot;:&quot;wz&quot;}&amp;pageData={&quot;username&quot;:&quot;ww&quot;,&quot;userpassword&quot;:&quot;wz&quot;}" target="_blank" rel="external">http://127.0.0.1:3000/login?type=update&amp;query={&quot;username&quot;:&quot;wz&quot;}&amp;pageData={&quot;username&quot;:&quot;ww&quot;,&quot;userpassword&quot;:&quot;wz&quot;}</a><br>4.<a href="http://127.0.0.1:3000/login?type=delete&amp;query={&quot;username&quot;:&quot;ww&quot;}" target="_blank" rel="external">http://127.0.0.1:3000/login?type=delete&amp;query={&quot;username&quot;:&quot;ww&quot;}</a></p>
+<blockquote>
+<p>提供的测试url分别做了：1 向数据库中插入一条数据，2 在数据库中查找users表中所有数据，3 修改第一步中添加的数据，4 删除第三步中修改的数据。都以json格式返回给客户端。</p>
+</blockquote>
+
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/nodejs/">nodejs</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2016/11/02/nodejs利用session做登录控制/" class="alignleft prev" title="nodejs利用session做登录控制">nodejs利用session做登录控制</a>
+    
+    
+    <a href="/2016/10/31/mongodb/" class="alignright next" title="mongodb">mongodb</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2016/10/31/nodejs-mongodb/" data-title="nodejs+mongodb" data-url="http://www.xuerlove.com/2016/10/31/nodejs-mongodb/"></div>
+		<!-- 多说评论框 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- 
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.xuerlove.com">
+  </form>
+</div>
+-->
+
+<div class="search">
+  <form>
+    <input type="search" id="chillax-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 18px;">web</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1761611997&verifier=58d84e73&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
+<li><a href="http://home.cnblogs.com/u/alisalixue/" title="橙子Alisa" target="_blank">橙子Alisa</a></li>
+<li><a href="http://home.cnblogs.com/u/wuzhuo/" title="彼岸小山" target="_blank">彼岸小山</a></li>
+<li><a href="http://home.cnblogs.com/u/xiaoxueqiu/" title="筱雪球" target="_blank">筱雪球</a></li>
+<li><a href="http://blog.csdn.net/CoderYue" title="CoderYue" target="_blank">CoderYue</a></li>
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>4</small></li>
+  
+    <li><a href="/tags/nodejs/">nodejs</a><small>16</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>7</small></li>
+  
+    <li><a href="/tags/tools/">tools</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>19</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Never stop.  <br/>
+			Never give up.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1761611997" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/wuzhuo0425" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/wuzhuo0425" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:wuzhuo0425@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright"> © 2017 
+		
+		<a href="http://www.xuerlove.com/about" target="_blank" title="黑卓">黑卓</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
+</script>
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuerlove"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

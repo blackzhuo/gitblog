@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  <title>BigPipe | 黑卓</title>
+  <meta name="author" content="黑卓">
+  
+  <meta name="description" content="frontend">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="BigPipe"/>
+  <meta property="og:site_name" content="黑卓"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+    <meta name="Robots" content="index,follow,NOODP">
+    <meta name="keywords" content="BigPipe" />
+    <meta name="description" content="BigPipe" />
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="黑卓" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="黑卓" title="黑卓"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">黑卓</h1>
+				<h2 class="blog-motto">Encode my life</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	BigPipe
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.xuerlove.com" title="黑卓">黑卓</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-11-09T07:03:01.000Z" itemprop="datePublished">2015-11-09</time>
+    更新日期:<time datetime="2016-12-07T12:04:41.000Z" itemprop="dateModified">2016-12-07</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#BigPipe"><span class="toc-number">1.</span> <span class="toc-text">BigPipe</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nodejs实现"><span class="toc-number">2.</span> <span class="toc-text">nodejs实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单实现"><span class="toc-number">3.</span> <span class="toc-text">简单实现</span></a></li></ol>
+			</div>
+		
+        <h4 id="BigPipe">BigPipe</h4><blockquote>
+<ol>
+<li>BigPipe就是把网页分解成多个模块，然后通过服务器和浏览器建立管道链接，分别对各个模块进行输出，最后完成一个完整的页面。</li>
+<li>传统方式的页面渲染大致分为两类，一种是使用动态语言jsp，asp.net等进行完整页面的渲染以及交互，另一种是服务端负责渲染最基本的页面结构，或者说是页面上静态的结构，然后由javascript负责渲染页面动态的部分，以及各种交互的部分。<a id="more"></a>
+<ul>
+<li>第一种方式在服务器进行完整的计算渲染后，一次性传输到浏览器端，过程可能会比较长。</li>
+<li>第二种方式页面渲染速度比较快，但是到了客户端后，可能会发出很多网络数据请求，数据请求的过程对性能的影响也是比较大的。<br>那么使用bigpipe的好处就突显出来了。</li>
+<li>首先各个请求都是异步的，互不影响的，当一个请求返回结果后，服务器端就可以继续完成数据处理以及dom元素渲染，然后输出到浏览器端，浏览器端接收到结果后直接渲染页面某一模块。</li>
+<li>其次，浏览器在整个页面阶段只发出了一个请求，那就是页面请求，页面渲染结束期间，这个请求是不会中断的。<br>虽然上面叙述了一些bigpipe的好处，但是有没有发现，由于请求接口的过程是异步的，那么返回时间也是不固定的，就会出现页面渲染并不是按照我们预想的顺序。这时候我们又想出了一个办法，在页面初始阶段返回页面基本骨架，然后各个请求返回结果后，渲染到固定模块内，保证页面不会乱。而bigpipe初始阶段返回不闭合的html，等所有传输结束后返回页面闭合标签，整个过程结束。</li>
+</ul>
+</li>
+<li>http1.1 支持持续的连接，这样就可以发出多个请求，并且接收多个请求。还可以发送流水请求，在一个请求未返回结果的时候就继续发生第二个请求。</li>
+</ol>
+</blockquote>
+<h4 id="nodejs实现">nodejs实现</h4><ol>
+<li>核心就是http.requert()</li>
+<li>html页面访问直接请求nodejs渲染的页面。</li>
+<li>当请求到达nodejs时，nodejs返回一个不闭合html框架。</li>
+<li>nodejs发出多个请求，每个请求都是一个页面的模块部分。</li>
+<li>分别接收到各个请求结果后，处理数据，渲染模版，取到html，返回一个script标签，里面调用客户端脚本，在指定div内写这段html。这段代码就是最简单的<code>document.getElementById(&#39;#id&#39;).innerHTML=html;。</code></li>
+<li>所有请求返回结果后，nodejs返回页面闭合标签。</li>
+<li>其他的页面效果，特效，交互交给javascript。</li>
+</ol>
+<h4 id="简单实现">简单实现</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>) </span>&#123;</div><div class="line">	response.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>&#125;);</div><div class="line">	response.write(<span class="string">"&lt;!Doctype html&gt;&lt;html lang=\"en\"&gt;&lt;head&gt;&lt;title&gt;bigpipe&lt;/title&gt;"</span>);</div><div class="line">	response.write(<span class="string">"&lt;script type=\"text/javascript\"&gt;function load(id,html) &#123; var ele=document.getElementById(id); ele.innerHTML = html;&#125;&lt;/script&gt;"</span>);</div><div class="line">	response.write(<span class="string">"&lt;/head&gt;&lt;body&gt;&lt;div id=\"top\"&gt;&lt;/div&gt;"</span>);</div><div class="line"></div><div class="line">	<span class="keyword">var</span> url = <span class="string">'http://test.com/a.json'</span>;</div><div class="line">	<span class="keyword">var</span> requestHeaders = request.headers;</div><div class="line"></div><div class="line">	<span class="keyword">var</span> options = &#123;</div><div class="line">	    <span class="attr">url</span>: url,</div><div class="line">	    <span class="attr">method</span>: <span class="string">"POST"</span>,</div><div class="line">	    <span class="attr">headers</span>: &#123;</div><div class="line">	        <span class="string">"user-agent"</span>: requestHeaders[<span class="string">"user-agent"</span>],</div><div class="line">	        <span class="string">"cookie"</span>: requestHeaders[<span class="string">"cookie"</span>]</div><div class="line">	    &#125;,</div><div class="line">	    <span class="attr">timeout</span>: <span class="number">6000</span></div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	<span class="keyword">var</span> post = http.request(options);</div><div class="line">	post.addListener(<span class="string">'response'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">		res.addListener(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">			<span class="keyword">var</span> html = dealHtml(data);</div><div class="line">			response.write(<span class="string">'&lt;script&gt;load('</span>top<span class="string">','</span>+html+<span class="string">')&lt;/script&gt;'</span>);</div><div class="line">		&#125;);</div><div class="line">		res.addListener(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			response.end();</div><div class="line">		&#125;);</div><div class="line">	&#125;);</div><div class="line">	post.end();</div><div class="line">	response.write(<span class="string">"&lt;/body&gt;&lt;/html&gt;"</span>);</div><div class="line"></div><div class="line">&#125;).listen(<span class="number">8998</span>);</div></pre></td></tr></table></figure>
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/web/">web</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2015/11/10/浏览器扩展应用开发/" class="alignleft prev" title="浏览器扩展应用开发">浏览器扩展应用开发</a>
+    
+    
+    <a href="/2015/11/08/nodejs调用phantom/" class="alignright next" title="nodejs调用phantom">nodejs调用phantom</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2015/11/09/BigPipe/" data-title="BigPipe" data-url="http://www.xuerlove.com/2015/11/09/BigPipe/"></div>
+		<!-- 多说评论框 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- 
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.xuerlove.com">
+  </form>
+</div>
+-->
+
+<div class="search">
+  <form>
+    <input type="search" id="chillax-search-input" placeholder="搜索">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 18px;">web</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1761611997&verifier=58d84e73&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
+<li><a href="http://home.cnblogs.com/u/alisalixue/" title="橙子Alisa" target="_blank">橙子Alisa</a></li>
+<li><a href="http://home.cnblogs.com/u/wuzhuo/" title="彼岸小山" target="_blank">彼岸小山</a></li>
+<li><a href="http://home.cnblogs.com/u/xiaoxueqiu/" title="筱雪球" target="_blank">筱雪球</a></li>
+<li><a href="http://blog.csdn.net/CoderYue" title="CoderYue" target="_blank">CoderYue</a></li>
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>4</small></li>
+  
+    <li><a href="/tags/nodejs/">nodejs</a><small>16</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>7</small></li>
+  
+    <li><a href="/tags/tools/">tools</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>19</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Never stop.  <br/>
+			Never give up.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1761611997" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/wuzhuo0425" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/wuzhuo0425" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:wuzhuo0425@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright"> © 2017 
+		
+		<a href="http://www.xuerlove.com/about" target="_blank" title="黑卓">黑卓</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
+</script>
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuerlove"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
