@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.xuerlove.com/"/>
-  <updated>2017-02-07T11:55:28.000Z</updated>
+  <updated>2017-02-08T05:21:36.000Z</updated>
   <id>http://www.xuerlove.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://www.xuerlove.com/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AF%95%E9%A2%98%E9%9B%86.html"/>
     <id>http://www.xuerlove.com/前端笔试题集.html</id>
     <published>2017-02-07T08:25:43.000Z</published>
-    <updated>2017-02-07T11:55:28.000Z</updated>
+    <updated>2017-02-08T05:21:36.000Z</updated>
     <content type="html"><![CDATA[<h4 id="笔试题集">笔试题集</h4><h5 id="viewport禁止页面放大">viewport禁止页面放大</h5><p>通过设置页面meta标签viewport的值，可以设置页面的宽高度以及缩放行为</p>
 <ul>
 <li>initial-scale  设置页面初始缩放比例<br>＊ minimum-scale 设置缩放最小比例<br>＊ maximum-scale 设置缩放最大比例<br>＊ user-scalable 设置用户是否可以用手控制缩放<br>通过设置 initial-scale=1 user-scalable=no 或者 initial-scale=1 maximum-scale=1 禁止用户放大或者缩小网页。</li>
@@ -45,10 +45,7 @@
 <h5 id="typeof">typeof</h5><p>typeof可以检测数据类型</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h4 id="笔试题集">笔试题集</h4><h5 id="viewport禁止页面放大">viewport禁止页面放大</h5><p>通过设置页面meta标签viewport的值，可以设置页面的宽高度以及缩放行为</p>
-<ul>
-<li>initial-scale  设置页面初始缩放比例<br>＊ minimum-scale 设置缩放最小比例<br>＊ maximum-scale 设置缩放最大比例<br>＊ user-scalable 设置用户是否可以用手控制缩放<br>通过设置 initial-scale=1 user-scalable=no 或者 initial-scale=1 maximum-scale=1 禁止用户放大或者缩小网页。</li>
-</ul>]]>
+    <![CDATA[前端笔试题集大全]]>
     
     </summary>
     
@@ -89,16 +86,16 @@
     <link href="http://www.xuerlove.com/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91.html"/>
     <id>http://www.xuerlove.com/微信小程序开发.html</id>
     <published>2016-11-03T11:17:42.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-08T06:07:00.000Z</updated>
     <content type="html"><![CDATA[<h5 id="准备">准备</h5><ul>
 <li>开发环境<ul>
-<li>下载开发工具 (<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html" target="_blank" rel="external">https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html</a>)</li>
-<li>按照网上教程破解 (<a href="https://github.com/gavinkwoe/weapp-ide-crack" target="_blank" rel="external">https://github.com/gavinkwoe/weapp-ide-crack</a>)</li>
+<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html" target="_blank" rel="external">下载开发工具</a></li>
+<li><a href="https://github.com/gavinkwoe/weapp-ide-crack" target="_blank" rel="external">按照网上教程破解</a></li>
 <li>或者直接下载破解好的包</li>
 </ul>
 </li>
 <li>学习资料<ul>
-<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/" target="_blank" rel="external">https://mp.weixin.qq.com/debug/wxadoc/dev/</a></li>
+<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/" target="_blank" rel="external">学习资料</a></li>
 </ul>
 </li>
 </ul>
@@ -138,18 +135,18 @@
 <li>网络请求没有跨域产生的问题</li>
 <li>解决了跨平台，多设备下的交互一致性</li>
 </ul>
-<h5 id="资料大全">资料大全</h5><p><a href="https://github.com/justjavac/awesome-wechat-weapp?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">https://github.com/justjavac/awesome-wechat-weapp?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io</a></p>
+<h5 id="资料大全">资料大全</h5><p><a href="https://github.com/justjavac/awesome-wechat-weapp?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">资料大全</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h5 id="准备">准备</h5><ul>
 <li>开发环境<ul>
-<li>下载开发工具 (<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html">https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html</a>)</li>
-<li>按照网上教程破解 (<a href="https://github.com/gavinkwoe/weapp-ide-crack">https://github.com/gavinkwoe/weapp-ide-crack</a>)</li>
+<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html">下载开发工具</a></li>
+<li><a href="https://github.com/gavinkwoe/weapp-ide-crack">按照网上教程破解</a></li>
 <li>或者直接下载破解好的包</li>
 </ul>
 </li>
 <li>学习资料<ul>
-<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/">https://mp.weixin.qq.com/debug/wxadoc/dev/</a></li>
+<li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/">学习资料</a></li>
 </ul>
 </li>
 </ul>]]>
@@ -917,6 +914,31 @@
   </entry>
   
   <entry>
+    <title><![CDATA[javascript面向对象相关]]></title>
+    <link href="http://www.xuerlove.com/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3.html"/>
+    <id>http://www.xuerlove.com/javascript面向对象相关.html</id>
+    <published>2015-11-21T07:03:01.000Z</published>
+    <updated>2016-12-07T12:04:41.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="for_in循环">for in循环</h4><blockquote>
+<p>for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回</p>
+</blockquote>
+<p>####继承<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">	F.prototype = o;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType,superType</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> prototype = object(superType.prototype);</div><div class="line">	prototype.constructor = subType;</div><div class="line">	subType.prototype = prototype;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.color = [<span class="string">"red"</span>,<span class="string">"blue"</span>];</div><div class="line">&#125;</div><div class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">	SuperType.call(<span class="keyword">this</span>,name);</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line">inheritPrototype(SubType,SuperType);</div><div class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.age);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。</p>
+</blockquote>
+<h4 id="单例模式">单例模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> private = <span class="number">0</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">public</span>:<span class="literal">true</span>,</div><div class="line">		<span class="attr">publicFunc</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			private++;</div><div class="line">			<span class="keyword">return</span> privateFunc();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;();</div></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://www.xuerlove.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[nginx配置https]]></title>
     <link href="http://www.xuerlove.com/nginx%E9%85%8D%E7%BD%AEhttps.html"/>
     <id>http://www.xuerlove.com/nginx配置https.html</id>
@@ -959,31 +981,6 @@
     </summary>
     
       <category term="web" scheme="http://www.xuerlove.com/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[javascript面向对象相关]]></title>
-    <link href="http://www.xuerlove.com/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3.html"/>
-    <id>http://www.xuerlove.com/javascript面向对象相关.html</id>
-    <published>2015-11-21T07:03:01.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="for_in循环">for in循环</h4><blockquote>
-<p>for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回</p>
-</blockquote>
-<p>####继承<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">	F.prototype = o;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType,superType</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> prototype = object(superType.prototype);</div><div class="line">	prototype.constructor = subType;</div><div class="line">	subType.prototype = prototype;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.color = [<span class="string">"red"</span>,<span class="string">"blue"</span>];</div><div class="line">&#125;</div><div class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">	SuperType.call(<span class="keyword">this</span>,name);</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line">inheritPrototype(SubType,SuperType);</div><div class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.age);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。</p>
-</blockquote>
-<h4 id="单例模式">单例模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> private = <span class="number">0</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">public</span>:<span class="literal">true</span>,</div><div class="line">		<span class="attr">publicFunc</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			private++;</div><div class="line">			<span class="keyword">return</span> privateFunc();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;();</div></pre></td></tr></table></figure>]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]>
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://www.xuerlove.com/tags/javascript/"/>
     
   </entry>
   

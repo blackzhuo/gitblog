@@ -5,7 +5,8 @@
 # Site
 title: 黑卓
 subtitle: Encode my life
-description: frontend
+description: 
+cover: cover
 author: 黑卓
 language: zh-CN
 timezone:
@@ -19,10 +20,10 @@ permalink: :title.html
 permalink_defaults:
 
 # 自动生成sitemap
-#sitemap:
-#  path: sitemap.xml
-#baidusitemap:
-#  path: baidusitemap.xml
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
 
 # Directory
 source_dir: source
@@ -80,7 +81,11 @@ theme: concise
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: https://github.com/wuzhuo0425/blog.git
-  branch: gh-pages
-  message: commit
+  - type: git
+    repo: https://github.com/wuzhuo0425/blog.git
+    branch: gh-pages
+    message: commit
+  - type: git
+    repo: https://git.coding.net/wuzhuo0425/wuzhuo0425.git
+    branch: coding-pages
+    message: commit

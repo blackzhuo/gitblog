@@ -4,42 +4,36 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
-  <script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
   
   <title>javascript实现浏览器本地存储 | 黑卓</title>
+  <meta name="Robots" content="index,follow,NOODP">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
+  <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
   <meta name="author" content="黑卓">
   
-  <meta name="description" content="frontend">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="高级浏览器localStorage
+一旦存储，除非手动删除，否则永远存储在浏览器本地。
 
+
+优点：容量大，最大可支持5M
+缺点：IE8以下的版本不支持，安全性也差，不适合保存敏感数据。
+隐私模式下localStorage，只能读取，不能写入，使用前需要检测是否支持，检测代码：">
+  
+  
+  <meta name="keywords" content="javascript实现浏览器本地存储" />
+  
   <meta property="og:title" content="javascript实现浏览器本地存储"/>
   <meta property="og:site_name" content="黑卓"/>
-
   
-    <meta property="og:image" content="undefined"/>
+    <meta property="og:image" content="cover"/>
   
-
-    <meta name="Robots" content="index,follow,NOODP">
-    <meta name="keywords" content="javascript实现浏览器本地存储" />
-    <meta name="description" content="javascript实现浏览器本地存储" />
-
   <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
   <link rel="alternate" href="/atom.xml" title="黑卓" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
 </head>
 
 
@@ -305,12 +299,45 @@ with(document)0[
   </form>
 </div>
 -->
-
 <div class="search">
-  <form>
     <input type="search" id="chillax-search-input" placeholder="搜索">
-  </form>
 </div>
+<script type="text/javascript">
+    var cse;
+    
+    //处理结果回调函数示例
+    function display (data) {
+        console.log(data);
+    }
+
+    //初始化回调函数示例
+    function init () {
+        cse = new BCse.Search("12392821776104440786");    //参数为您的API引擎ID，已自动填写，必需。
+    }
+
+    function loadScript () { 
+        var script = document.createElement("script"); 
+        script.type = "text/javascript";
+        script.charset = "utf-8";
+        script.src = "http://zhannei.baidu.com/api/customsearch/apiaccept?sid=12392821776104440786&v=2.0&callback=init";
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(script, s);
+    }
+
+    loadScript();
+
+    $('#chillax-search-input').on('keydown', function(evt){
+		evt =  evt || window.event;
+		var key = evt.keyCode || evt.which;
+    	if (key === 13) {
+            evt.preventDefault();
+            var val = $('#chillax-search-input').val();
+	    	if(cse && val){
+	    		cse.getResult(val, display);
+	    	}
+        }
+    });
+</script>
 
   
 
@@ -395,6 +422,15 @@ with(document)0[
 		<a href="http://www.xuerlove.com/about" target="_blank" title="黑卓">黑卓</a>
 		
 		</p>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
 	<script>
     (function(){
         var bp = document.createElement('script');

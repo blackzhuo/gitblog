@@ -39,6 +39,15 @@
 		<% } %>
 		</p>
 	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?<%- theme.baidu_sid %>";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<script>
     (function(){
         var bp = document.createElement('script');
         bp.src = '//push.zhanzhang.baidu.com/push.js';

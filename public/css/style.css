@@ -86,7 +86,7 @@ a:hover {
     margin-right: -300px;
   }
 }
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 900px) {
   #main-col {
     margin-right: 0;
     float: none;
@@ -100,7 +100,7 @@ a:hover {
     margin-right: 300px;
   }
 }
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 900px) {
   #wrapper {
     margin-right: 0;
   }
@@ -218,11 +218,10 @@ body >header a {
   padding-left: 1em;
 }
 header nav {
-  float: left;
-  width: 100%;
+  float: right;
+  width: auto;
   font-size: 112.5%;
   padding-top: 0.5em;
-  max-height: 0.01em;
   -webkit-transition: max-height 1s ease-out;
   -moz-transition: max-height 1s ease-out;
   -o-transition: max-height 1s ease-out;
@@ -232,6 +231,10 @@ header nav {
 @media only screen and (min-width: 568px) {
   header nav {
     width: 50%;
+    float: right;
+    width: auto;
+    margin-top: 1em;
+    max-height: none;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -249,6 +252,9 @@ header nav ul {
   header nav ul {
     float: right;
   }
+}
+header nav ul li {
+  float: left;
 }
 @media only screen and (min-width: 1024px) {
   header nav ul li {
@@ -1211,7 +1217,7 @@ article footer .addthis iframe {
   .social-font {
     width: 18em;
     position: absolute;
-    right: -3em;
+    right: 0;
     top: 3em;
   }
 }

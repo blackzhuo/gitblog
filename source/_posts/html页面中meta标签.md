@@ -7,11 +7,12 @@ toc: true
 >meta标签提供的数据不会展示页页面当中，但是对于机器来说，这些内容确是重要的，它会告诉机器怎么展示页面，还可以设置搜索引擎对页面的抓取。
 
 ##### 属性
-|属性  |	 值  | 描述|
-| :--------| :--: | :--:|
-|http-equiv|	content-type / expire / refresh / set-cookie|	把content属性关联到HTTP头部|
-|name	|author / description / keywords / generator / revised / others|	把 content 属性关联到一个名称|
-|content	|text	|定义用于 content 属性值的格式|
+key | value | des
+---- | ------ | ----
+http-equiv | content-type / expire / refresh / set-cookie |	把content属性关联到HTTP头部
+name | author / description / keywords / generator / revised / others |	把 content 属性关联到一个名称
+content | text	| 定义用于 content 属性值的格式
+
 <!--more-->
 
 ##### SEO相关

@@ -6,9 +6,42 @@
   </form>
 </div>
 -->
-
 <div class="search">
-  <form>
     <input type="search" id="chillax-search-input" placeholder="<%= __('search') %>">
-  </form>
 </div>
+<script type="text/javascript">
+    var cse;
+    
+    //处理结果回调函数示例
+    function display (data) {
+        console.log(data);
+    }
+
+    //初始化回调函数示例
+    function init () {
+        cse = new BCse.Search("12392821776104440786");    //参数为您的API引擎ID，已自动填写，必需。
+    }
+
+    function loadScript () { 
+        var script = document.createElement("script"); 
+        script.type = "text/javascript";
+        script.charset = "utf-8";
+        script.src = "http://zhannei.baidu.com/api/customsearch/apiaccept?sid=12392821776104440786&v=2.0&callback=init";
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(script, s);
+    }
+
+    loadScript();
+
+    $('#chillax-search-input').on('keydown', function(evt){
+		evt =  evt || window.event;
+		var key = evt.keyCode || evt.which;
+    	if (key === 13) {
+            evt.preventDefault();
+            var val = $('#chillax-search-input').val();
+	    	if(cse && val){
+	    		cse.getResult(val, display);
+	    	}
+        }
+    });
+</script>

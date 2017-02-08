@@ -73,10 +73,14 @@ body
   padding-left 1em
 
 header nav
-  float left    
-  width 100%
+  float right    
+  width auto
   @media phone
     width 50%
+    float right
+    width auto
+    margin-top 1em
+    max-height none
   @media tablet
     float right
     width auto
@@ -84,13 +88,13 @@ header nav
     max-height none
   font-size font-size+12.5
   padding-top 0.5em
-  max-height 0.01em
   transition max-height 1s ease-out
   ul
     list-style none
     @media tablet
       float right
   ul li
+    float left
     @media tablet
       float left
   ul li a

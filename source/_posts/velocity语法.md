@@ -4,12 +4,18 @@ tags: web
 toc: true
 ---
 ##### velocity
->基本语法包括`#set`、`#if` 、`#else`、`#end`、`#foreach`、`#end`、`#iinclude`、`#parse`、`#macro`等
+基本语法包括
+```javascript
+#set, #if, #else, #end, #foreach, #end, #iinclude, #parse, #macro
+```
 
 ###### 注释
-`##单行注释`
-`#* 多行注释 *#`
-`#** 文档格式 存储诸如文档作者、版本信息 *#`
+```javascript
+##单行注释
+#* 多行注释 *#
+#** 文档格式 存储诸如文档作者、版本信息 *#
+```
+
 <!--more-->
 
 ###### 引入本地文件
