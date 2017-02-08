@@ -82,7 +82,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-02-07T08:25:43.000Z" itemprop="datePublished">2017-02-07</time>
-    更新日期:<time datetime="2017-02-08T05:21:36.000Z" itemprop="dateModified">2017-02-08</time>
+    更新日期:<time datetime="2017-02-08T10:24:27.000Z" itemprop="dateModified">2017-02-08</time>
     
   </p>
 </header>
@@ -90,7 +90,7 @@
 		
 			<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#笔试题集"><span class="toc-number">1.</span> <span class="toc-text">笔试题集</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#viewport禁止页面放大"><span class="toc-number">1.1.</span> <span class="toc-text">viewport禁止页面放大</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#data-*_属性的作用"><span class="toc-number">1.2.</span> <span class="toc-text">data-* 属性的作用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cookie_sessionStorage_localStorage"><span class="toc-number">1.3.</span> <span class="toc-text">cookie sessionStorage localStorage</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#浏览器的标准模式，怪异模式"><span class="toc-number">1.4.</span> <span class="toc-text">浏览器的标准模式，怪异模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#盒模型宽高|box-sizing"><span class="toc-number">1.5.</span> <span class="toc-text">盒模型宽高|box-sizing</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#函数中arguments"><span class="toc-number">1.6.</span> <span class="toc-text">函数中arguments</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#typeof"><span class="toc-number">1.7.</span> <span class="toc-text">typeof</span></a></li></ol></li></ol>
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#笔试题集"><span class="toc-number">1.</span> <span class="toc-text">笔试题集</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#viewport禁止页面放大"><span class="toc-number">1.1.</span> <span class="toc-text">viewport禁止页面放大</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#data-*_属性的作用"><span class="toc-number">1.2.</span> <span class="toc-text">data-* 属性的作用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cookie_sessionStorage_localStorage"><span class="toc-number">1.3.</span> <span class="toc-text">cookie sessionStorage localStorage</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#浏览器的标准模式，怪异模式"><span class="toc-number">1.4.</span> <span class="toc-text">浏览器的标准模式，怪异模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#盒模型宽高|box-sizing"><span class="toc-number">1.5.</span> <span class="toc-text">盒模型宽高|box-sizing</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#函数中arguments"><span class="toc-number">1.6.</span> <span class="toc-text">函数中arguments</span></a></li></ol></li></ol>
 			</div>
 		
         <h4 id="笔试题集">笔试题集</h4><h5 id="viewport禁止页面放大">viewport禁止页面放大</h5><p>通过设置页面meta标签viewport的值，可以设置页面的宽高度以及缩放行为</p>
@@ -115,7 +115,6 @@
 <li>box-sizing<br>content-box : 采用标准模式解析计算(默认值)<br>border-box : 采用怪异模式解析计算</li>
 </ul>
 <h5 id="函数中arguments">函数中arguments</h5><p>arguments是一个对象，该对象的属性值是从0-n的数字，所以访问的时候可以像数组那样访问，但它却不是数组，它还拥有length属性，返回的是属性的长度，callee属性返回的是正在被执行的function,可以在递归调用时使用,caller属性返回的是对函数的引用，该函数调用了当前函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用Array对象的方法可以将arguments转换成数组</span></div><div class="line"><span class="keyword">var</span> argsArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div></pre></td></tr></table></figure></p>
-<h5 id="typeof">typeof</h5><p>typeof可以检测数据类型</p>
 
     </div>
     <footer>

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.xuerlove.com/"/>
-  <updated>2017-02-08T05:21:36.000Z</updated>
+  <updated>2017-02-08T10:24:27.000Z</updated>
   <id>http://www.xuerlove.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://www.xuerlove.com/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AF%95%E9%A2%98%E9%9B%86.html"/>
     <id>http://www.xuerlove.com/前端笔试题集.html</id>
     <published>2017-02-07T08:25:43.000Z</published>
-    <updated>2017-02-08T05:21:36.000Z</updated>
+    <updated>2017-02-08T10:24:27.000Z</updated>
     <content type="html"><![CDATA[<h4 id="笔试题集">笔试题集</h4><h5 id="viewport禁止页面放大">viewport禁止页面放大</h5><p>通过设置页面meta标签viewport的值，可以设置页面的宽高度以及缩放行为</p>
 <ul>
 <li>initial-scale  设置页面初始缩放比例<br>＊ minimum-scale 设置缩放最小比例<br>＊ maximum-scale 设置缩放最大比例<br>＊ user-scalable 设置用户是否可以用手控制缩放<br>通过设置 initial-scale=1 user-scalable=no 或者 initial-scale=1 maximum-scale=1 禁止用户放大或者缩小网页。</li>
@@ -42,7 +42,6 @@
 <li>box-sizing<br>content-box : 采用标准模式解析计算(默认值)<br>border-box : 采用怪异模式解析计算</li>
 </ul>
 <h5 id="函数中arguments">函数中arguments</h5><p>arguments是一个对象，该对象的属性值是从0-n的数字，所以访问的时候可以像数组那样访问，但它却不是数组，它还拥有length属性，返回的是属性的长度，callee属性返回的是正在被执行的function,可以在递归调用时使用,caller属性返回的是对函数的引用，该函数调用了当前函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用Array对象的方法可以将arguments转换成数组</span></div><div class="line"><span class="keyword">var</span> argsArr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div></pre></td></tr></table></figure></p>
-<h5 id="typeof">typeof</h5><p>typeof可以检测数据类型</p>
 ]]></content>
     <summary type="html">
     <![CDATA[前端笔试题集大全]]>
