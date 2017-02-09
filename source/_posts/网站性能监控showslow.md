@@ -6,7 +6,7 @@ toc: true
 date: 2017-02-09 14:33:53
 ---
 今天，性能是一个我们常谈的话题，网站性能的重要性不言而喻。
-[showslow](https://github.com/sergeychernyshev/showslow/wiki)是一个github上开源的，能够帮助我们监控网站性能的工具。我们可以使用yslow和pagespeed等工具生成分析结果并以图标的方式展现出来。从而全面了解我们网站有哪些方面需要改进。
+[showslow](https://github.com/sergeychernyshev/showslow/wiki)是一个github上开源的，能够帮助我们监控网站性能的工具。我们可以使用yslow和pagespeed等工具生成分析结果并以图表的方式展现出来。从而全面了解我们网站有哪些方面需要改进。
 
 <!--more-->
 
