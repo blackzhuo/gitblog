@@ -1,0 +1,9 @@
+const connect = require('connect');
+const serveStatic = require('serve-static');
+const path = require('path');
+connect().use(serveStatic(path.join(__dirname, '../')),{
+	acceptRanges: true,
+	dotfiles: 'allow'
+}).listen(8998, function() {
+    console.log('Server running on 8998...');
+});
