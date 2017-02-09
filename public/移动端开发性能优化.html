@@ -5,20 +5,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>touch开发性能优化 | 黑卓</title>
+  <title>移动端开发性能优化 | 黑卓</title>
   <meta name="Robots" content="index,follow,NOODP">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
   <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
   <meta name="author" content="黑卓">
   
-  <meta name="description" content="介绍
-不觉间开发touch也有一段时间了，之前一直都在做pc端的工作，恍然间发现pc端和touch端开发，也并不能说完全是一回事，当然了代码还是那些代码。这里我要说什么问题呢，就是touch端经常出现的性能相关的问题。通过亲身踩坑，总结一些经验。">
+  <meta name="description" content="移动端开发性能优化">
   
   
-  <meta name="keywords" content="touch开发性能优化" />
+  <meta name="keywords" content="移动端开发性能优化,性能优化">
   
-  <meta property="og:title" content="touch开发性能优化"/>
+  <meta property="og:title" content="移动端开发性能优化"/>
   <meta property="og:site_name" content="黑卓"/>
   
     <meta property="og:image" content="cover"/>
@@ -75,7 +74,7 @@
   <div class="post-content">
     <header class="article-info clearfix">
   <h1 itemprop="name">
-	touch开发性能优化
+	移动端开发性能优化
   </h1>
   <p class="article-author">By
     
@@ -83,7 +82,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-04-14T02:43:35.000Z" itemprop="datePublished">2016-04-14</time>
-    更新日期:<time datetime="2016-12-07T12:04:41.000Z" itemprop="dateModified">2016-12-07</time>
+    更新日期:<time datetime="2017-02-09T04:24:13.000Z" itemprop="dateModified">2017-02-09</time>
     
   </p>
 </header>
@@ -91,29 +90,36 @@
 		
 			<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#框架"><span class="toc-number">3.</span> <span class="toc-text">框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组件"><span class="toc-number">4.</span> <span class="toc-text">组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布局与css"><span class="toc-number">5.</span> <span class="toc-text">布局与css</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬件加速"><span class="toc-number">6.</span> <span class="toc-text">硬件加速</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hybrid"><span class="toc-number">7.</span> <span class="toc-text">hybrid</span></a></li></ol>
+				<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#代码"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#框架"><span class="toc-number">3.</span> <span class="toc-text">框架</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#组件"><span class="toc-number">4.</span> <span class="toc-text">组件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#布局与css"><span class="toc-number">5.</span> <span class="toc-text">布局与css</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#硬件加速"><span class="toc-number">6.</span> <span class="toc-text">硬件加速</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#优化点"><span class="toc-number">7.</span> <span class="toc-text">优化点</span></a></li></ol>
 			</div>
 		
-        <h4 id="介绍">介绍</h4><blockquote>
-<p>不觉间开发touch也有一段时间了，之前一直都在做pc端的工作，恍然间发现pc端和touch端开发，也并不能说完全是一回事，当然了代码还是那些代码。这里我要说什么问题呢，就是touch端经常出现的性能相关的问题。通过亲身踩坑，总结一些经验。</p>
-</blockquote>
+        <h5 id="介绍">介绍</h5><p>移动端这几年可以说发展的特别快，并且以绝对的优势超过了pc端，所以移动端的应用也越来越多，越来越重要。移动端不同于pc端，从设备的性能，网络差异，屏幕大小都有很大的差异，所以移动端的性能要尤为注意，力争我们的网站在移动端性能达到最佳。</p>
 <a id="more"></a>
-<h4 id="代码">代码</h4><blockquote>
-<p>从代码层面讲，不能得过且过，务必做到精简，高效。移动端平台分ios android windows phone等，每个平台又有很多手机生产商，每种手机的性能又差异很大，还有些厂商还会自己定制浏览器内核，等等因素吧，导致了移动端经常出现各种差异性的表现，常常顾此失彼。那么就要求我们写的代码效率高一些，逻辑精简些，从程序层面减少因性能带来的问题，这是最好的方法去避免出现一些奇葩问题。还要做好一系列的异常处理措施，不要让代码出现报错的情况。减少dom操作，增加数据缓存机制，离线数据处理等。</p>
-</blockquote>
-<h4 id="框架">框架</h4><blockquote>
-<p>最近在开发过程中，使用了reactjs这个框架，不得不说这个框架应用起来还是比较顺利的，从开发到最终的页面表现来说，都是比较满意的。但是有一个问题是，在生成的代码中会生成过多的dom节点，这一点需要注意一下。</p>
-</blockquote>
-<h4 id="组件">组件</h4><blockquote>
-<p>应用第三方组建，还是要慎重考虑的，这里就拿iscroll来说，这个组建无疑优化了滑动的体验，但是它是非常耗性能的，还有就是安卓手机上的表现并不理想，在一些滚动监听上也存在问题。</p>
-</blockquote>
-<h4 id="布局与css">布局与css</h4><blockquote>
-<p>从使用flex到弃用flex, css动画也要注意</p>
-</blockquote>
-<h4 id="硬件加速">硬件加速</h4><blockquote>
-<p>硬件加速是一件好事，但是它的弊端也显露无疑，电池耗电快，手机发热等等</p>
-</blockquote>
-<h4 id="hybrid">hybrid</h4>
+<h5 id="代码">代码</h5><p>从代码层面讲，务必做到精简，高效。移动端平台分ios android windows phone等，每个平台又有很多手机生产商，每种手机的性能又差异很大，还有些厂商还会自己定制浏览器内核，等等因素吧，导致了移动端经常出现各种差异性的表现，常常顾此失彼。那么就要求我们写的代码效率高一些，逻辑精简些，从程序层面减少因性能带来的问题，这是最好的方法去避免出现一些奇葩问题。还要做好一系列的异常处理措施，不要让代码出现报错的情况。减少dom操作，增加数据缓存机制，离线数据处理等，另外代码的精简也可以让页面下载资源的时间减少。</p>
+<h5 id="框架">框架</h5><p>最近在开发过程中，使用了reactjs这个框架，不得不说这个框架应用起来还是比较顺利的，从开发到最终的页面表现来说，都是比较满意的。但是有一个问题是，在生成的代码中会生成过多的dom节点，这一点需要注意一下。因为在hybrid中，dom元素过多可能会影响页面性能，甚至导致app崩溃。</p>
+<h5 id="组件">组件</h5><p>应用第三方组件，要慎重考虑，这里就拿iscroll来说，这个组建无疑优化了滑动的体验，但是它是非常耗性能的，还有就是安卓手机上的表现并不理想，在一些滚动监听上也存在问题。</p>
+<h5 id="布局与css">布局与css</h5><p>合理的布局能够有效的减少显示上的bug，常见的就是fixed的问题，以及input框和软键盘的问题。</p>
+<h5 id="硬件加速">硬件加速</h5><p>硬件加速是一件好事，但是它的弊端也显露无疑，电池耗电快，手机发热等等</p>
+<h5 id="优化点">优化点</h5><ul>
+<li>合并域名，减少dns解析的时间</li>
+<li>请求数量尽量少，相应的数据尽量精简</li>
+<li>请求尽量并发，不要串行</li>
+<li>静态资源使用单独的域名，做到cookie free，有条件的话使用cdn</li>
+<li>合并小图标，使用雪碧图，使用font代替图标</li>
+<li>去掉没用cookie，cookie命名尽量简短，cookie值尽量精简</li>
+<li>完善本地缓存数据（优先展示出缓存数据，数据返回后再更新）</li>
+<li>注意jsonp的请求，jsonp会阻塞页面加载，阻塞页面操作，做好超时异常判断</li>
+<li>压缩html中的空格换行，使用gzip压缩</li>
+<li>css规则不要太复杂，去掉没用的css，css放在head中，js放在body底部</li>
+<li>尽量使用原生方法</li>
+<li>减少dom操作，尽量缓存dom</li>
+<li>touch端应该考虑使用离线存储(cache manifest)</li>
+<li>hybrid尽量使用离线包机制</li>
+<li>对于过长的页面，应该考虑优先加载精简页面(短页面)，点击底部加载更多按钮，根据当前gps,network记录当前网络情况(页面其余部分加载时间小于一定范围即可以认定网络好)，下次在一定范围内打开页面默认加载全的页面，否则展示精简页面，对一些低版本的系统，可以让它永远展示精简页面，查看全部才能看到全部内容，这样能够保证用户看到页面的速度</li>
+<li>页面内容按需加载，模块可以使用滚动加载，图片使用懒加载</li>
+<li>页面渲染尽量不要依赖接口数据返回，接口的不稳定性可能会拖累页面加载时间</li>
+</ul>
+
     </div>
     <footer>
         
@@ -181,7 +187,7 @@ with(document)0[
 	
 	<section id="comment">
 		<!-- 多说评论框 start -->
-		<div class="ds-thread" data-thread-key="touch开发性能优化.html" data-title="touch开发性能优化" data-url="http://www.xuerlove.com/touch开发性能优化.html"></div>
+		<div class="ds-thread" data-thread-key="移动端开发性能优化.html" data-title="移动端开发性能优化" data-url="http://www.xuerlove.com/移动端开发性能优化.html"></div>
 		<!-- 多说评论框 end -->
 	</section>
 	
@@ -241,7 +247,7 @@ with(document)0[
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 18px;">web</a>
+    <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/nodejs/" style="font-size: 17.5px;">nodejs</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 20px;">web</a>
   </div>
 </div>
 
@@ -251,13 +257,14 @@ with(document)0[
   <div class="widget tag">
 <h3 class="title">友情链接</h3>
 <ul class="entry">
+<li><a href="https://alisa1124.github.io/" title="橙子blog" target="_blank">橙子blog</a></li>
+<li><a href="http://home.cnblogs.com/u/alisalixue/" title="橙子Alisa" target="_blank">橙子Alisa</a></li>
+<li><a href="http://blog.csdn.net/CoderYue" title="CoderYue" target="_blank">CoderYue</a></li>
 <li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
 <li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
 <li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
-<li><a href="http://home.cnblogs.com/u/alisalixue/" title="橙子Alisa" target="_blank">橙子Alisa</a></li>
 <li><a href="http://home.cnblogs.com/u/wuzhuo/" title="彼岸小山" target="_blank">彼岸小山</a></li>
 <li><a href="http://home.cnblogs.com/u/xiaoxueqiu/" title="筱雪球" target="_blank">筱雪球</a></li>
-<li><a href="http://blog.csdn.net/CoderYue" title="CoderYue" target="_blank">CoderYue</a></li>
 </ul>
 </div>
 
@@ -276,7 +283,7 @@ with(document)0[
   
     <li><a href="/tags/tools/">tools</a><small>1</small></li>
   
-    <li><a href="/tags/web/">web</a><small>20</small></li>
+    <li><a href="/tags/web/">web</a><small>22</small></li>
   
   </ul>
 </div>
