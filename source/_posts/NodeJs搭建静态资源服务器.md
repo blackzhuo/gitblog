@@ -1,13 +1,15 @@
-title: NodeJs搭建Http服务器
+title: NodeJs搭建静态资源服务器
 date: 2015-11-01 15:03:01
 tags: nodejs
 toc: true
 ---
-#### 介绍
-* 我们之前用过IIS,Apache等服务器，都是做一些配置，然后启动服务，指定端口等等就在本地开启了一个服务器。
-* 现在我们使用nodejs,一步一步实现一个Http服务器，我们主要用到的是http模块，还会使用fs文件操作，url,path模块用作辅助文件读取。
-* 实现
+这里我们使用nodejs,一步一步实现一个静态资源服务器。
+
 <!--more-->
+
+##### 实现1
+我们主要用到的是http模块，还会使用fs文件操作，url,path模块用作辅助文件读取。
+
 ```javascript
 //file_types.js
 exports.file_types = {
@@ -24,6 +26,7 @@ exports.file_types = {
   	"png": "image/png"
 };
 ```
+
 ```javascript
 var http = require('http');
 var fs=require('fs');
@@ -69,4 +72,30 @@ server.on('request',function(req,res){
     });
 });
 ```
-* 我们创建了文件的映射规则，对于不用类型的文件，输出不用的文件头，找不到文件返回404,读取错误返回500
+
+我们创建了文件的映射规则，对于不用类型的文件，输出不用的文件头，找不到文件返回404,读取错误返回500
+
+##### 实现2
+主要使用connect的static方法
+```javascript
+var http = require('http');  
+var path = require('path');
+var connect = require('connect');  
+var port = 8998;
+var app = connect()
+        .use(connect.logger('tiny'))
+        .use(connect.query())
+        .use(connect.bodyParser())
+        .use(connect["static"](path.join(__dirname, '../'), {
+          hidden: true,
+          redirect: true,
+          index: 'null'
+        })).use(connect.directory(path.join(__dirname, '../')));
+
+var server = http.createServer(app);
+server.listen(port);
+server.on("listening", function(e) {
+  console.log("blog server 运行成功, 端口为 " + port + ".");
+  return console.log("按 Ctrl + C 结束进程.");
+});
+```

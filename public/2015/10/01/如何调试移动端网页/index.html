@@ -12,15 +12,10 @@
   <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
   <meta name="author" content="黑卓">
   
-  <meta name="description" content="真机上调试移动端的页面1. mac safri ios设备safri
-步骤：
-
-在设置&amp;gt;safri&amp;gt;高级web检查器（打开）
-mac下safri 偏好设置&amp;gt;高级&amp;gt;显示开发菜单
-在手机safri访问网址，在开发中找到自己的设备，找到网址，点击就可以调试">
+  <meta name="description" content="如何调试移动端网页">
   
   
-  <meta name="keywords" content="如何调试移动端网页" />
+  <meta name="keywords" content="移动端调试，真机调试，调试">
   
   <meta property="og:title" content="如何调试移动端网页"/>
   <meta property="og:site_name" content="黑卓"/>
@@ -87,7 +82,7 @@ mac下safri 偏好设置&amp;gt;高级&amp;gt;显示开发菜单
     </p>
   <p class="article-time">
     <time datetime="2015-10-01T09:50:37.000Z" itemprop="datePublished">2015-10-01</time>
-    更新日期:<time datetime="2016-12-07T12:04:41.000Z" itemprop="dateModified">2016-12-07</time>
+    更新日期:<time datetime="2017-02-16T07:15:24.000Z" itemprop="dateModified">2017-02-16</time>
     
   </p>
 </header>
@@ -95,20 +90,17 @@ mac下safri 偏好设置&amp;gt;高级&amp;gt;显示开发菜单
 		
 			<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#真机上调试移动端的页面"><span class="toc-number">1.</span> <span class="toc-text">真机上调试移动端的页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-_mac_safri_ios设备safri"><span class="toc-number">1.1.</span> <span class="toc-text">1. mac safri ios设备safri</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-_DebugGap"><span class="toc-number">1.2.</span> <span class="toc-text">2. DebugGap</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-_Weinre"><span class="toc-number">1.3.</span> <span class="toc-text">3. Weinre</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-_vorlon"><span class="toc-number">1.4.</span> <span class="toc-text">4. vorlon</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-_UC浏览器开发版"><span class="toc-number">1.5.</span> <span class="toc-text">5. UC浏览器开发版</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-_Chrome"><span class="toc-number">1.6.</span> <span class="toc-text">6. Chrome</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-_Firefox"><span class="toc-number">1.7.</span> <span class="toc-text">7. Firefox</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-_Opera"><span class="toc-number">1.8.</span> <span class="toc-text">8. Opera</span></a></li></ol></li></ol>
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#真机上调试移动端的页面"><span class="toc-number">1.</span> <span class="toc-text">真机上调试移动端的页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-_mac_safri_ios设备safri"><span class="toc-number">1.1.</span> <span class="toc-text">1. mac safri ios设备safri</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-_DebugGap"><span class="toc-number">1.2.</span> <span class="toc-text">2. DebugGap</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-_Weinre"><span class="toc-number">1.3.</span> <span class="toc-text">3. Weinre</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-_vorlon"><span class="toc-number">1.4.</span> <span class="toc-text">4. vorlon</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-_UC浏览器开发版"><span class="toc-number">1.5.</span> <span class="toc-text">5. UC浏览器开发版</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-_Chrome"><span class="toc-number">1.6.</span> <span class="toc-text">6. Chrome</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-_Firefox"><span class="toc-number">1.7.</span> <span class="toc-text">7. Firefox</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-_Opera"><span class="toc-number">1.8.</span> <span class="toc-text">8. Opera</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-_browsersync"><span class="toc-number">1.9.</span> <span class="toc-text">9. browsersync</span></a></li></ol></li></ol>
 			</div>
 		
-        <h4 id="真机上调试移动端的页面">真机上调试移动端的页面</h4><h5 id="1-_mac_safri_ios设备safri">1. mac safri ios设备safri</h5><blockquote>
-<p>步骤：</p>
+        <h4 id="真机上调试移动端的页面">真机上调试移动端的页面</h4><h5 id="1-_mac_safri_ios设备safri">1. mac safri ios设备safri</h5><p>步骤：</p>
 <ol>
 <li>在设置&gt;safri&gt;高级web检查器（打开）</li>
 <li>mac下safri 偏好设置&gt;高级&gt;显示开发菜单</li>
 <li>在手机safri访问网址，在开发中找到自己的设备，找到网址，点击就可以调试<a id="more"></a>
 </li>
 </ol>
-</blockquote>
-<h5 id="2-_DebugGap">2. DebugGap</h5><blockquote>
-<p>官网地址：<a href="http://www.debuggap.com/" target="_blank" rel="external">http://www.debuggap.com/</a></p>
+<h5 id="2-_DebugGap">2. DebugGap</h5><p>官网地址：<a href="http://www.debuggap.com/" target="_blank" rel="external">http://www.debuggap.com/</a></p>
 <ul>
 <li>介绍<ul>
 <li>支持 windows、mac、linux</li>
@@ -151,9 +143,7 @@ mac下safri 偏好设置&amp;gt;高级&amp;gt;显示开发菜单
 </ul>
 </li>
 </ul>
-</blockquote>
-<h5 id="3-_Weinre">3. Weinre</h5><blockquote>
-<p>使用方法</p>
+<h5 id="3-_Weinre">3. Weinre</h5><p>使用方法</p>
 <ul>
 <li>windows安装 <code>npm -g install weinre</code></li>
 <li><code>weinre —httpPort 8081 —boundHost -all-</code> 用这个打开8081调试端口</li>
@@ -162,35 +152,27 @@ mac下safri 偏好设置&amp;gt;高级&amp;gt;显示开发菜单
 <li>需要调试的页面加上这个脚本，需要将上面代码中的localhost替换为电脑ip，手机访问页面也可以</li>
 <li>anonymous 这个可以换成自己的标识，这样多人调试的时候也不会混乱了。</li>
 </ul>
-</blockquote>
-<h5 id="4-_vorlon">4. vorlon</h5><blockquote>
-<p>使用方法<br>基于 Node.js 和 Socket.IO 开发。<br>调试css比较靠谱，其安装方法以及调试方式和Weinre比较类似，但是更容易定位问题，忽略内容，直观的都是dom结构</p>
+<h5 id="4-_vorlon">4. vorlon</h5><p>使用方法<br>基于 Node.js 和 Socket.IO 开发。<br>调试css比较靠谱，其安装方法以及调试方式和Weinre比较类似，但是更容易定位问题，忽略内容，直观的都是dom结构</p>
 <ul>
 <li>安装 <code>npm i -g vorlon</code></li>
 <li>运行 <code>vorlon</code></li>
 <li>需要调试的页面上添加 <code>&lt;script src=&quot;http://localhost:1337/vorlon.js&quot;&gt;&lt;/script&gt;</code>这样一段标签</li>
 <li>浏览器访问 <code>http://localhost:1337</code> 就可以调试了</li>
 </ul>
-</blockquote>
-<h5 id="5-_UC浏览器开发版">5. UC浏览器开发版</h5><blockquote>
-<p>准备</p>
+<h5 id="5-_UC浏览器开发版">5. UC浏览器开发版</h5><p>准备</p>
 <ul>
 <li>adb tool。</li>
 <li>UC浏览器开发版本(apk)。</li>
 <li>usb数据线一根<br>WIFI的调试方法，保证pc和手机在同一个网段，在PC上打开Chrome或Safari，在地址栏输入：手机IP + :9998，在手机端会弹出确认按钮，点击确认后，就可在pc上看到效果了</li>
 </ul>
-</blockquote>
-<h5 id="6-_Chrome">6. Chrome</h5><blockquote>
-<p>调试方法</p>
+<h5 id="6-_Chrome">6. Chrome</h5><p>调试方法</p>
 <ul>
 <li>翻墙。</li>
 <li>PC Chrome最新版</li>
 <li>安卓 Chrome最新版</li>
 <li>插线后，在chrome浏览器输入 chrome://inspect</li>
 </ul>
-</blockquote>
-<h5 id="7-_Firefox">7. Firefox</h5><blockquote>
-<p>调试方法</p>
+<h5 id="7-_Firefox">7. Firefox</h5><p>调试方法</p>
 <ul>
 <li>PC Firefox 15+</li>
 <li>Android Firefox 15+</li>
@@ -202,14 +184,12 @@ mac下safri 偏好设置&amp;gt;高级&amp;gt;显示开发菜单
 <li>PC端Firefox打开about:config，设置devtools.debugger.remote-enabled为True</li>
 <li>接下来找到桌面端Firefox-菜单-工具-Web开发者-远程链接。保证端口号和上面开启的端口号一致就好了。</li>
 </ul>
-</blockquote>
-<h5 id="8-_Opera">8. Opera</h5><blockquote>
-<p>调试方法</p>
+<h5 id="8-_Opera">8. Opera</h5><p>调试方法</p>
 <ul>
 <li>打开pc opera control+shift+i 打开调试，点击右上角远程调试设置端口，在用模拟器输入opera:debug，连接端口，就可以了</li>
 <li>上面这个方法有些过时 打开新版的手机opera浏览器，输入opera:debug，里面讲解了调试方式，工具就是adb和pc chrome浏览器<br>稍微麻烦一点，因为要装一些软件，完成后可以用pc端模拟器调试也可以用真机调试。</li>
 </ul>
-</blockquote>
+<h5 id="9-_browsersync">9. browsersync</h5><p>这是一个开发利器，能让浏览器实时、快速响应文件更改（html、js、css、sass、less等）并自动刷新页面。可以同时在PC、平板、手机等设备下同时进项调试。</p>
 
     </div>
     <footer>

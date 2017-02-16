@@ -5,22 +5,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>NodeJs搭建Http服务器 | 黑卓</title>
+  <title>NodeJs搭建静态资源服务器 | 黑卓</title>
   <meta name="Robots" content="index,follow,NOODP">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
   <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
   <meta name="author" content="黑卓">
   
-  <meta name="description" content="介绍
-我们之前用过IIS,Apache等服务器，都是做一些配置，然后启动服务，指定端口等等就在本地开启了一个服务器。
-现在我们使用nodejs,一步一步实现一个Http服务器，我们主要用到的是http模块，还会使用fs文件操作，url,path模块用作辅助文件读取。
-实现">
+  <meta name="description" content="这里我们使用nodejs,一步一步实现一个静态资源服务器。">
   
   
-  <meta name="keywords" content="NodeJs搭建Http服务器" />
+  <meta name="keywords" content="NodeJs搭建静态资源服务器" />
   
-  <meta property="og:title" content="NodeJs搭建Http服务器"/>
+  <meta property="og:title" content="NodeJs搭建静态资源服务器"/>
   <meta property="og:site_name" content="黑卓"/>
   
     <meta property="og:image" content="cover"/>
@@ -77,7 +74,7 @@
   <div class="post-content">
     <header class="article-info clearfix">
   <h1 itemprop="name">
-	NodeJs搭建Http服务器
+	NodeJs搭建静态资源服务器
   </h1>
   <p class="article-author">By
     
@@ -85,7 +82,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-11-01T07:03:01.000Z" itemprop="datePublished">2015-11-01</time>
-    更新日期:<time datetime="2016-12-07T12:04:41.000Z" itemprop="dateModified">2016-12-07</time>
+    更新日期:<time datetime="2017-02-16T07:02:34.000Z" itemprop="dateModified">2017-02-16</time>
     
   </p>
 </header>
@@ -93,20 +90,16 @@
 		
 			<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li></ol>
+				<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#实现1"><span class="toc-number">1.</span> <span class="toc-text">实现1</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#实现2"><span class="toc-number">2.</span> <span class="toc-text">实现2</span></a></li></ol>
 			</div>
 		
-        <h4 id="介绍">介绍</h4><ul>
-<li>我们之前用过IIS,Apache等服务器，都是做一些配置，然后启动服务，指定端口等等就在本地开启了一个服务器。</li>
-<li>现在我们使用nodejs,一步一步实现一个Http服务器，我们主要用到的是http模块，还会使用fs文件操作，url,path模块用作辅助文件读取。</li>
-<li>实现<a id="more"></a>
+        <p>这里我们使用nodejs,一步一步实现一个静态资源服务器。</p>
+<a id="more"></a>
+<h5 id="实现1">实现1</h5><p>我们主要用到的是http模块，还会使用fs文件操作，url,path模块用作辅助文件读取。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//file_types.js</span></div><div class="line">exports.file_types = &#123;</div><div class="line">	<span class="string">"html"</span>: <span class="string">"text/html"</span>,</div><div class="line">	<span class="string">"js"</span>: <span class="string">"text/javascript"</span>,</div><div class="line">  	<span class="string">"css"</span>: <span class="string">"text/css"</span>,</div><div class="line">  	<span class="string">"json"</span>: <span class="string">"application/json"</span>,</div><div class="line">  	<span class="string">"xml"</span>: <span class="string">"text/xml"</span>,</div><div class="line"> 	<span class="string">"txt"</span>: <span class="string">"text/plain"</span>,</div><div class="line">  	<span class="string">"gif"</span>: <span class="string">"image/gif"</span>,</div><div class="line">  	<span class="string">"jpeg"</span>: <span class="string">"image/jpeg"</span>,</div><div class="line">  	<span class="string">"jpg"</span>: <span class="string">"image/jpeg"</span>,</div><div class="line">  	<span class="string">"ico"</span>: <span class="string">"image/x-icon"</span>,</div><div class="line">  	<span class="string">"png"</span>: <span class="string">"image/png"</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-</li>
-</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">var</span> fs=<span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">var</span> url=<span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line"><span class="keyword">var</span> path=<span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> file_types=<span class="built_in">require</span>(<span class="string">'./file_types'</span>).file_types;</div><div class="line"></div><div class="line"><span class="keyword">var</span> listen_port = <span class="string">'8998'</span>;</div><div class="line"><span class="keyword">var</span> server = <span class="keyword">new</span> http.Server();</div><div class="line">server.listen(listen_port);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"Server is start ... port: "</span> + listen_port + <span class="string">"..."</span>);</div><div class="line"></div><div class="line">server.on(<span class="string">'request'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> pathname = url.parse(req.url).pathname;</div><div class="line">    <span class="keyword">var</span> realPath = path.join(<span class="string">"assets"</span>, pathname);</div><div class="line">    <span class="keyword">var</span> extname = path.extname(realPath);</div><div class="line">    extname = extname ? extname.slice(<span class="number">1</span>) : <span class="string">'unknown'</span>;</div><div class="line">    fs.exists(realPath, <span class="function"><span class="keyword">function</span> (<span class="params">exists</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!exists) &#123;</div><div class="line">            res.writeHead(<span class="number">404</span>, &#123;</div><div class="line">                <span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span></div><div class="line">            &#125;);</div><div class="line"></div><div class="line">            res.write(pathname + <span class="string">" is not found"</span>);</div><div class="line">            res.end();</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            fs.readFile(realPath, <span class="function"><span class="keyword">function</span> (<span class="params">err, content</span>) </span>&#123;</div><div class="line">                <span class="keyword">if</span> (err) &#123;</div><div class="line">                    res.writeHead(<span class="number">500</span>, &#123;</div><div class="line">                        <span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span></div><div class="line">                    &#125;);</div><div class="line">                    res.end(err);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">var</span> contentType = file_types[extname] || <span class="string">"text/plain"</span>;</div><div class="line">                    res.writeHead(<span class="number">200</span>, &#123;</div><div class="line">                        <span class="string">'Content-Type'</span>: contentType</div><div class="line">                    &#125;);</div><div class="line">                    res.write(content);</div><div class="line">                    res.end();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<ul>
-<li>我们创建了文件的映射规则，对于不用类型的文件，输出不用的文件头，找不到文件返回404,读取错误返回500</li>
-</ul>
+<p>我们创建了文件的映射规则，对于不用类型的文件，输出不用的文件头，找不到文件返回404,读取错误返回500</p>
+<h5 id="实现2">实现2</h5><p>主要使用connect的static方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);  </div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> connect = <span class="built_in">require</span>(<span class="string">'connect'</span>);  </div><div class="line"><span class="keyword">var</span> port = <span class="number">8998</span>;</div><div class="line"><span class="keyword">var</span> app = connect()</div><div class="line">        .use(connect.logger(<span class="string">'tiny'</span>))</div><div class="line">        .use(connect.query())</div><div class="line">        .use(connect.bodyParser())</div><div class="line">        .use(connect[<span class="string">"static"</span>](path.join(__dirname, <span class="string">'../'</span>), &#123;</div><div class="line">          <span class="attr">hidden</span>: <span class="literal">true</span>,</div><div class="line">          <span class="attr">redirect</span>: <span class="literal">true</span>,</div><div class="line">          <span class="attr">index</span>: <span class="string">'null'</span></div><div class="line">        &#125;)).use(connect.directory(path.join(__dirname, <span class="string">'../'</span>)));</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = http.createServer(app);</div><div class="line">server.listen(port);</div><div class="line">server.on(<span class="string">"listening"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"blog server 运行成功, 端口为 "</span> + port + <span class="string">"."</span>);</div><div class="line">  <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">"按 Ctrl + C 结束进程."</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 
     </div>
     <footer>
@@ -175,7 +168,7 @@ with(document)0[
 	
 	<section id="comment">
 		<!-- 多说评论框 start -->
-		<div class="ds-thread" data-thread-key="2015/11/01/NodeJs搭建Http服务器/" data-title="NodeJs搭建Http服务器" data-url="http://www.xuerlove.com/2015/11/01/NodeJs搭建Http服务器/"></div>
+		<div class="ds-thread" data-thread-key="2015/11/01/NodeJs搭建静态资源服务器/" data-title="NodeJs搭建静态资源服务器" data-url="http://www.xuerlove.com/2015/11/01/NodeJs搭建静态资源服务器/"></div>
 		<!-- 多说评论框 end -->
 	</section>
 	
