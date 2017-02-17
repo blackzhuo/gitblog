@@ -82,7 +82,7 @@ theme: concise
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   - type: git
-    repo: https://github.com/wuzhuo0425/blog.git
+    repo: https://github.com/blackzhuo/blog.git
     branch: gh-pages
     message: commit
   - type: git
