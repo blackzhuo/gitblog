@@ -12,8 +12,7 @@
   <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
   <meta name="author" content="黑卓">
   
-  <meta name="description" content="函数内置函数
-可以引用math包，里面有很多数学函数">
+  <meta name="description" content="函数内置函数可以引用math包，里面有很多数学函数">
   
   
   <meta name="keywords" content="从零开始Python-06" />
@@ -83,7 +82,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-10-11T13:11:24.000Z" itemprop="datePublished">2015-10-11</time>
-    更新日期:<time datetime="2017-02-17T03:13:09.000Z" itemprop="dateModified">2017-02-17</time>
+    更新日期:<time datetime="2017-02-17T06:13:25.000Z" itemprop="dateModified">2017-02-17</time>
     
   </p>
 </header>
@@ -94,14 +93,11 @@
 				<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#函数"><span class="toc-number">1.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#内置函数"><span class="toc-number">1.1.</span> <span class="toc-text">内置函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#编写函数"><span class="toc-number">1.2.</span> <span class="toc-text">编写函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#返回多个值"><span class="toc-number">1.3.</span> <span class="toc-text">返回多个值</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#递归函数"><span class="toc-number">1.4.</span> <span class="toc-text">递归函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#默认参数"><span class="toc-number">1.5.</span> <span class="toc-text">默认参数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#可变参数"><span class="toc-number">1.6.</span> <span class="toc-text">可变参数</span></a></li></ol></li></ol>
 			</div>
 		
-        <h5 id="函数">函数</h5><h6 id="内置函数">内置函数</h6><blockquote>
-<p>可以引用math包，里面有很多数学函数<br><a id="more"></a><br><code>import math</code></p>
+        <h5 id="函数">函数</h5><h6 id="内置函数">内置函数</h6><p>可以引用math包，里面有很多数学函数<br><a id="more"></a><br><code>import math</code></p>
 <ul>
-<li>abs(x)<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">abs(<span class="number">-1</span>)</div><div class="line">abs(<span class="number">11</span>)</div></pre></td></tr></table></figure>
+<li><p>abs(x)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">abs(<span class="number">-1</span>)</div><div class="line">abs(<span class="number">11</span>)</div></pre></td></tr></table></figure>
 </li>
-</ul>
-</blockquote>
-<ul>
 <li><p>cmp(x,y)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cmp(<span class="number">1</span>,<span class="number">2</span>) <span class="comment">#-1</span></div><div class="line">cmp(<span class="number">1</span>,<span class="number">-1</span>) <span class="comment">#1</span></div><div class="line">cmp(<span class="number">1</span>,<span class="number">1</span>) <span class="comment">#0</span></div></pre></td></tr></table></figure>
 </li>
@@ -112,15 +108,11 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">str(<span class="number">111</span>) <span class="comment">#'111'</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h6 id="编写函数">编写函数</h6><blockquote>
-<p>使用def语句<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myFuc</span><span class="params">(a)</span>:</span></div><div class="line">    <span class="keyword">return</span> a+<span class="string">'...ok'</span></div></pre></td></tr></table></figure></p>
-</blockquote>
+<h6 id="编写函数">编写函数</h6><p>使用def语句<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myFuc</span><span class="params">(a)</span>:</span></div><div class="line">    <span class="keyword">return</span> a+<span class="string">'...ok'</span></div></pre></td></tr></table></figure></p>
 <p>如果没有返回结果，函数也会返回None,return None可以简写为return</p>
 <h6 id="返回多个值">返回多个值</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myFuc</span><span class="params">(x,y)</span>:</span></div><div class="line">    xx = x+<span class="number">1</span></div><div class="line">    yy = y+<span class="number">1</span></div><div class="line">    <span class="keyword">return</span> xx,yy</div><div class="line"></div><div class="line">a,b = myFuc(<span class="number">1</span>,<span class="number">2</span>) <span class="comment">#2,3</span></div></pre></td></tr></table></figure>
 <p>实际返回的是一个tuple,由于是()包着的，所以从语法上讲可以省略括号,多个变量可以同时接收一个tuple,按照对应的位置赋值</p>
-<h6 id="递归函数">递归函数</h6><blockquote>
-<p>自身调用自身的函数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myFuc</span><span class="params">(x)</span>:</span></div><div class="line">    <span class="keyword">if</span> x==<span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">return</span> x * myFuc(x<span class="number">-1</span>)</div></pre></td></tr></table></figure></p>
-</blockquote>
+<h6 id="递归函数">递归函数</h6><p>自身调用自身的函数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myFuc</span><span class="params">(x)</span>:</span></div><div class="line">    <span class="keyword">if</span> x==<span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line"></div><div class="line"><span class="keyword">return</span> x * myFuc(x<span class="number">-1</span>)</div></pre></td></tr></table></figure></p>
 <h6 id="默认参数">默认参数</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">myFuc</span><span class="params">(x,y=<span class="number">2</span>)</span>:</span></div><div class="line">    <span class="keyword">return</span> x*y</div></pre></td></tr></table></figure>
 <h6 id="可变参数">可变参数</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">muFuc</span><span class="params">(*args)</span>:</span></div><div class="line">    sum = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> args:</div><div class="line">        sum = sum+x</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> sum</div><div class="line"></div><div class="line"><span class="comment">#args 看成tuple</span></div></pre></td></tr></table></figure>
     </div>

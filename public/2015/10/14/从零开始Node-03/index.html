@@ -12,8 +12,7 @@
   <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
   <meta name="author" content="黑卓">
   
-  <meta name="description" content="Node.js API全局对象
-在javascript中，window是全局对象在Node.js中，global是全局对象。">
+  <meta name="description" content="Node.js API全局对象在javascript中，window是全局对象在Node.js中，global是全局对象。">
   
   
   <meta name="keywords" content="从零开始Node-03" />
@@ -83,7 +82,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-10-14T05:34:43.000Z" itemprop="datePublished">2015-10-14</time>
-    更新日期:<time datetime="2017-02-17T03:13:09.000Z" itemprop="dateModified">2017-02-17</time>
+    更新日期:<time datetime="2017-02-17T06:11:54.000Z" itemprop="dateModified">2017-02-17</time>
     
   </p>
 </header>
@@ -94,243 +93,112 @@
 				<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#Node-js_API"><span class="toc-number">1.</span> <span class="toc-text">Node.js API</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#全局对象"><span class="toc-number">1.1.</span> <span class="toc-text">全局对象</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#process"><span class="toc-number">1.2.</span> <span class="toc-text">process</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#console"><span class="toc-number">1.3.</span> <span class="toc-text">console</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#util"><span class="toc-number">2.</span> <span class="toc-text">util</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#event"><span class="toc-number">3.</span> <span class="toc-text">event</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#fs"><span class="toc-number">4.</span> <span class="toc-text">fs</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HTTP服务器"><span class="toc-number">5.</span> <span class="toc-text">HTTP服务器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HTTP客户端"><span class="toc-number">6.</span> <span class="toc-text">HTTP客户端</span></a></li></ol>
 			</div>
 		
-        <h5 id="Node-js_API">Node.js API</h5><h6 id="全局对象">全局对象</h6><blockquote>
-<p>在javascript中，window是全局对象<br>在Node.js中，global是全局对象。<br><a id="more"></a><br>满足全局变量的条件：</p>
+        <h5 id="Node-js_API">Node.js API</h5><h6 id="全局对象">全局对象</h6><p>在javascript中，window是全局对象<br>在Node.js中，global是全局对象。<br><a id="more"></a><br>满足全局变量的条件：</p>
 <ul>
 <li>最外层定义的变量</li>
 <li>全局对象的属性</li>
 <li>隐式定义的变量<br>全局变量过多定义过于随意会带来全局变量污染的问题，为了避免全局变量污染，在定义变量的时候使用var</li>
 </ul>
-</blockquote>
 <h6 id="process">process</h6><p>Node.js的进程对象</p>
 <ul>
-<li>Event: ‘exit’<blockquote>
-<p>process退出时会出发</p>
-</blockquote>
-</li>
-<li>Event: ‘uncaughtException’<blockquote>
-<p>process发生异常时触发</p>
-</blockquote>
-</li>
+<li>Event: ‘exit’<br>process退出时会出发</li>
+<li>Event: ‘uncaughtException’<br>process发生异常时触发</li>
 <li><p>process自定义事件</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">process.on(<span class="string">'test'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>))</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">    process.exit(<span class="number">0</span>);</div><div class="line">&#125;</div><div class="line">process.emmit(<span class="string">'test'</span>,<span class="string">'emmit test'</span>);</div></pre></td></tr></table></figure>
 </li>
-<li><p>process.stdin</p>
-<blockquote>
-<p>标准输入流</p>
+<li><p>process.stdin<br>标准输入流</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">process.stdin.resume();</div><div class="line">process.stdin.setEncoding(<span class="string">'utf8'</span>);</div><div class="line">process.stdin.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123; </div><div class="line">    process.stdout.write(<span class="string">'data：'</span> + data.toString());</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</blockquote>
 </li>
-<li><p>process.stdout</p>
-<blockquote>
-<p>标准输出流,比console.log()更底层</p>
+<li><p>process.stdout<br>标准输出流,比console.log()更底层</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">process.stdout.write(‘data’)</div></pre></td></tr></table></figure>
-</blockquote>
 </li>
-<li><p>process.argv</p>
-<blockquote>
-<p>命令行参数数组</p>
+<li><p>process.argv<br>命令行参数数组</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(process.argv); <span class="comment">//存储为 test.js</span></div><div class="line"></div><div class="line"><span class="comment">//执行</span></div><div class="line">node test.js <span class="number">1</span> <span class="string">"asd"</span> age=<span class="number">12</span></div></pre></td></tr></table></figure>
-</blockquote>
 </li>
-<li><p>process.nextTick(callback)</p>
-<blockquote>
-<p>为事件循环设置一项任务，在下次事件循环调用响应时调用callback</p>
+<li><p>process.nextTick(callback)<br>为事件循环设置一项任务，在下次事件循环调用响应时调用callback</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deal</span>(<span class="params">args,callback</span>)</span>&#123;</div><div class="line">    doit(args);</div><div class="line">    process.nextTick(callback);</div><div class="line">&#125;</div><div class="line">deal(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    dome();</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//如果doit 和 dome都是很耗时的函数，这样把耗时的操作拆分成两个事件，减少了每个事件执行时间，提高了事件响应速度。</span></div><div class="line"></div><div class="line"><span class="comment">//比setTimeout(fn,times)效率更高</span></div></pre></td></tr></table></figure>
-</blockquote>
 </li>
-<li><p>process.pid、process.title、process.arch、process.platform</p>
-<blockquote>
-<p>进程id，进程名字，进程架构(系统架构，X86)，进程平台(操作系统)</p>
-</blockquote>
+<li><p>process.pid、process.title、process.arch、process.platform<br>进程id，进程名字，进程架构(系统架构，X86)，进程平台(操作系统)</p>
 </li>
-<li>process.execPath<blockquote>
-<p>返回当前node.js进程的启动命令路径</p>
-</blockquote>
-</li>
-<li>process.memorUsage()<blockquote>
-<p>进程的内存使用情况</p>
-</blockquote>
-</li>
-<li>process.kill(pid, signal=’SIGTERM’)<blockquote>
-<p>发出一个kill信号给指定pid</p>
-</blockquote>
-</li>
-<li>process.exit(code=0)<blockquote>
-<p>kill当前进程，退出本进程<br>…</p>
-</blockquote>
-</li>
+<li>process.execPath<br>返回当前node.js进程的启动命令路径</li>
+<li>process.memorUsage()<br>进程的内存使用情况</li>
+<li>process.kill(pid, signal=’SIGTERM’)<br>发出一个kill信号给指定pid</li>
+<li>process.exit(code=0)<br>kill当前进程，退出本进程<br>…</li>
 </ul>
 <h6 id="console">console</h6><ul>
-<li><p>console.log()</p>
-<blockquote>
-<p>向标准输出流打印字符并以换行符结</p>
+<li><p>console.log()<br>向标准输出流打印字符并以换行符结</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">123</span>); <span class="comment">//123</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'d% world'</span>,hello); <span class="comment">//hello world</span></div></pre></td></tr></table></figure>
-</blockquote>
 </li>
-<li><p>console.error()</p>
-<blockquote>
-<p>向标准错误流输出</p>
-</blockquote>
+<li><p>console.error()<br>向标准错误流输出</p>
 </li>
-<li>console.trace()<blockquote>
-<p>向标准错误流输出当前调用栈</p>
-</blockquote>
-</li>
-<li>console.info()<blockquote>
-<p>如果只有一个参数，输出这个参数的字符串形式<br>如果有多个参数，格式输出<br>如果没有参数，只打印一个换行符</p>
-</blockquote>
-</li>
-<li>console.warn()<blockquote>
-<p>输出警告</p>
-</blockquote>
-</li>
-<li>console.dir(obj)<blockquote>
-<p>将obj作为参数传递给util.inspect并执行，将返回的结果打印到stdout</p>
-</blockquote>
-</li>
-<li>console.time(label)<blockquote>
-<p>统计操作执行的时间</p>
-</blockquote>
-</li>
-<li><p>console.timeEnd(label)</p>
-<blockquote>
-<p>统计操作执行的时间</p>
+<li>console.trace()<br>向标准错误流输出当前调用栈</li>
+<li>console.info()<br>如果只有一个参数，输出这个参数的字符串形式<br>如果有多个参数，格式输出<br>如果没有参数，只打印一个换行符</li>
+<li>console.warn()<br>输出警告</li>
+<li>console.dir(obj)<br>将obj作为参数传递给util.inspect并执行，将返回的结果打印到stdout</li>
+<li>console.time(label)<br>统计操作执行的时间</li>
+<li><p>console.timeEnd(label)<br>统计操作执行的时间</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.time(<span class="string">'start'</span>);</div><div class="line"><span class="keyword">var</span> count=<span class="number">0</span>;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">9999</span>;i++)</div><div class="line">&#123;</div><div class="line">    count+=i;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'sum='</span>+sum);</div><div class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'end'</span>);</div></pre></td></tr></table></figure>
-</blockquote>
 </li>
-<li><p>console.assert()</p>
-<blockquote>
-<p>计算结果为真返回true</p>
-</blockquote>
+<li><p>console.assert()<br>计算结果为真返回true</p>
 </li>
 </ul>
-<h5 id="util">util</h5><blockquote>
-<p>提供常用函数的集合</p>
+<h5 id="util">util</h5><p>提供常用函数的集合</p>
 <ul>
-<li>util.inherits<br>是一个实现对象间实现继承的函数<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">parent</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'parent'</span>;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">55</span>;</div><div class="line">    <span class="keyword">this</span>.do = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'1:'</span> + <span class="keyword">this</span>.name);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;</div><div class="line">parent.prototype.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'2:'</span> + <span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">child</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'child'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">util.inherits(child,parent);</div><div class="line"></div><div class="line"><span class="keyword">var</span> testParent = <span class="keyword">new</span> Parent();</div><div class="line">testParent.show(); <span class="comment">//2:parent</span></div><div class="line">testParent.do(); <span class="comment">//1:parent</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> testChild = <span class="keyword">new</span> child(); </div><div class="line">testchild.show(); <span class="comment">//2:child</span></div><div class="line"></div><div class="line"><span class="comment">//仅仅继承了在原型中定义的函数，而构造函数内部的属性没有继承。</span></div></pre></td></tr></table></figure>
+<li><p>util.inherits<br>是一个实现对象间实现继承的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">parent</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'parent'</span>;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">55</span>;</div><div class="line">    <span class="keyword">this</span>.do = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'1:'</span> + <span class="keyword">this</span>.name);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;</div><div class="line">parent.prototype.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'2:'</span> + <span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">child</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'child'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">util.inherits(child,parent);</div><div class="line"></div><div class="line"><span class="keyword">var</span> testParent = <span class="keyword">new</span> Parent();</div><div class="line">testParent.show(); <span class="comment">//2:parent</span></div><div class="line">testParent.do(); <span class="comment">//1:parent</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> testChild = <span class="keyword">new</span> child(); </div><div class="line">testchild.show(); <span class="comment">//2:child</span></div><div class="line"></div><div class="line"><span class="comment">//仅仅继承了在原型中定义的函数，而构造函数内部的属性没有继承。</span></div></pre></td></tr></table></figure>
 </li>
-</ul>
-</blockquote>
-<ul>
-<li>util.inspect<blockquote>
-<p>将任意对象转换成字符串的方法，通常用在调试和错误输出的时候<br>1.接收至少一个对象，要转换的对象<br>2.showHidden，可选，true 输出更多隐藏信息<br>3.depth 最大递归层数，默认为2，null表示不限层数<br>4.color 如果为true，输出将会带颜色<br>5.注意：并不是简单的以字符串输出，即便定义了toString也不会调用</p>
-</blockquote>
+<li><p>util.inspect<br>将任意对象转换成字符串的方法，通常用在调试和错误输出的时候<br>1.接收至少一个对象，要转换的对象<br>2.showHidden，可选，true 输出更多隐藏信息<br>3.depth 最大递归层数，默认为2，null表示不限层数<br>4.color 如果为true，输出将会带颜色<br>5.注意：并不是简单的以字符串输出，即便定义了toString也不会调用</p>
 </li>
-<li>util.isArray()<blockquote>
-<p>如果给定的参数 “object” 是一个数组返回true，否则返回false。</p>
-</blockquote>
-</li>
-<li>util.isRegExp()<blockquote>
-<p>如果给定的参数 “object” 是一个正则表达式返回true，否则返回false。</p>
-</blockquote>
-</li>
-<li>util.isDate()<blockquote>
-<p>如果给定的参数 “object” 是一个日期返回true，否则返回false。</p>
-</blockquote>
-</li>
-<li>util.isError()<blockquote>
-<p>如果给定的参数 “object” 是一个错误对象返回true，否则返回false。</p>
-</blockquote>
-</li>
-<li><p>util.format()</p>
-<blockquote>
-<p>返回一个格式化后的字符串</p>
+<li>util.isArray()<br>如果给定的参数 “object” 是一个数组返回true，否则返回false。</li>
+<li>util.isRegExp()<br>如果给定的参数 “object” 是一个正则表达式返回true，否则返回false。</li>
+<li>util.isDate()<br>如果给定的参数 “object” 是一个日期返回true，否则返回false。</li>
+<li>util.isError()<br>如果给定的参数 “object” 是一个错误对象返回true，否则返回false。</li>
+<li><p>util.format()<br>返回一个格式化后的字符串</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// %s - String.</span></div><div class="line"><span class="comment">// %d - Number (both integer and float).</span></div><div class="line"><span class="comment">// %j - JSON.</span></div><div class="line"><span class="comment">// %% - single percent sign ('%'). This does not consume an argument.</span></div><div class="line">util.format(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">//1 2 3</span></div><div class="line">util.format(<span class="string">'%s:%s'</span>, <span class="string">'asd'</span>, <span class="string">'qwe'</span>); <span class="comment">//asd:qwe</span></div></pre></td></tr></table></figure>
-</blockquote>
 </li>
 <li><p>util.debug()</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>(<span class="string">'util'</span>).debug(<span class="string">'debug'</span>);</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h5 id="event">event</h5><blockquote>
-<p>events模块不仅用于用户代码与Node.js下层事件循环的交互，还几乎被所有模块依赖。<br>events.EventEmitter,事件发射与事件监听器功能的封装<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>);</div><div class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter();</div><div class="line">emitter.on(<span class="string">'test_event'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">param</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'1-'</span>, param);</div><div class="line">&#125;);</div><div class="line">emitter.on(<span class="string">'test_event'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">param</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'2-'</span>, param);</div><div class="line">&#125;);</div><div class="line">emitter.emit(<span class="string">'test_event'</span>, <span class="number">123</span>);</div><div class="line"></div><div class="line"><span class="comment">// 1-123 </span></div><div class="line"><span class="comment">// 2-123</span></div></pre></td></tr></table></figure></p>
-</blockquote>
+<h5 id="event">event</h5><p>events模块不仅用于用户代码与Node.js下层事件循环的交互，还几乎被所有模块依赖。<br>events.EventEmitter,事件发射与事件监听器功能的封装<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>);</div><div class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter();</div><div class="line">emitter.on(<span class="string">'test_event'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">param</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'1-'</span>, param);</div><div class="line">&#125;);</div><div class="line">emitter.on(<span class="string">'test_event'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">param</span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'2-'</span>, param);</div><div class="line">&#125;);</div><div class="line">emitter.emit(<span class="string">'test_event'</span>, <span class="number">123</span>);</div><div class="line"></div><div class="line"><span class="comment">// 1-123 </span></div><div class="line"><span class="comment">// 2-123</span></div></pre></td></tr></table></figure></p>
 <ul>
-<li>EventEmitter.on(event, listener)<blockquote>
-<p>注册一个监听器，接收事件名和回调函数</p>
-</blockquote>
-</li>
-<li>EventEmitter.emit(event, [arg1], [arg2], […])<blockquote>
-<p>接收事件名，传递参数</p>
-</blockquote>
-</li>
-<li>EventEmitter.once(event, listener)<blockquote>
-<p>注册一个单次的监听器，触发一次后就解除</p>
-</blockquote>
-</li>
-<li>EventEmitter.removeListener(event, listener)<blockquote>
-<p>解除指定的监听器</p>
-</blockquote>
-</li>
-<li>EventEmitter.removeAllListeners([event])<blockquote>
-<p>解除所有监听器</p>
-</blockquote>
-</li>
-<li>emitter.listeners(event)<blockquote>
-<p>返回值接收到event所有注册监听的集合</p>
-</blockquote>
-</li>
-<li>emitter.setMaxListeners(n)<blockquote>
-<p>给EventEmitter设置最大监听数,默认是10个</p>
-</blockquote>
-</li>
-<li><p>error事件</p>
-<blockquote>
-<p>error触发时,EventEmitter如果没有响应的监听器,Node.js 会把它当作异常,退出程序并打印调用栈。我们一般要为会发射 error 事件的对象设置监听器,避免遇到错误后整个程序崩溃</p>
+<li>EventEmitter.on(event, listener)<br>注册一个监听器，接收事件名和回调函数</li>
+<li>EventEmitter.emit(event, [arg1], [arg2], […])<br>接收事件名，传递参数</li>
+<li>EventEmitter.once(event, listener)<br>注册一个单次的监听器，触发一次后就解除</li>
+<li>EventEmitter.removeListener(event, listener)<br>解除指定的监听器</li>
+<li>EventEmitter.removeAllListeners([event])<br>解除所有监听器</li>
+<li>emitter.listeners(event)<br>返回值接收到event所有注册监听的集合</li>
+<li>emitter.setMaxListeners(n)<br>给EventEmitter设置最大监听数,默认是10个</li>
+<li><p>error事件<br>error触发时,EventEmitter如果没有响应的监听器,Node.js 会把它当作异常,退出程序并打印调用栈。我们一般要为会发射 error 事件的对象设置监听器,避免遇到错误后整个程序崩溃</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>);</div><div class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter();</div><div class="line">emitter.emit(<span class="string">'error'</span>);</div></pre></td></tr></table></figure>
-</blockquote>
 </li>
-<li><p>继承EventEmitter</p>
-<blockquote>
-<p>只要是支持事件响应的核心模块都是 EventEmitter 的子类</p>
-</blockquote>
+<li><p>继承EventEmitter<br>只要是支持事件响应的核心模块都是 EventEmitter 的子类</p>
 </li>
 </ul>
-<h5 id="fs">fs</h5><blockquote>
-<p>文件操作模块，提供了文件的读取、写入、更名、删除、遍历目录、链接等</p>
-</blockquote>
+<h5 id="fs">fs</h5><p>文件操作模块，提供了文件的读取、写入、更名、删除、遍历目录、链接等</p>
 <ul>
-<li><p>fs.readFile</p>
-<blockquote>
-<p>异步读取<br>fs.readFile(filename,[encoding],[callback(err,data)])</p>
+<li><p>fs.readFile<br>异步读取<br>fs.readFile(filename,[encoding],[callback(err,data)])</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line">fs.readFile(<span class="string">'data.txt'</span>, <span class="string">'utf-8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (err) &#123;</div><div class="line">        <span class="built_in">console</span>.error(err);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</blockquote>
 </li>
-<li><p>fs.readFileSync</p>
-<blockquote>
-<p>同步读取<br>fs.readFileSync(filename, [encoding])</p>
-</blockquote>
+<li><p>fs.readFileSync<br>同步读取<br>fs.readFileSync(filename, [encoding])</p>
 </li>
-<li>fs.open<blockquote>
-<p>fs.open(path, flags, [mode], [callback(err, fd)])<br>1.path文件路径<br>2.flags</p>
-</blockquote>
-</li>
+<li>fs.open<br>fs.open(path, flags, [mode], [callback(err, fd)])<br>1.path文件路径<br>2.flags</li>
 <li>r 读取模式</li>
 <li>r+ 读写模式</li>
 <li>w 写入模式，不存在创建</li>
 <li>w+ 读写模式，不存在创建</li>
 <li>a 追加模式，不存在创建</li>
 <li>a+ 读取追加模式打开，不存在创建<br>3.mode 创建文件时指定的文件权限</li>
-<li>fs.read<blockquote>
-<p><code>fs.read(fd, buffer, offset, length, position, [callback(err, bytesRead, buffer)])</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line">fs.open(<span class="string">'data.txt'</span>, <span class="string">'r'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, fd</span>) </span>&#123; </div><div class="line">    <span class="keyword">if</span> (err) &#123;</div><div class="line">        <span class="built_in">console</span>.error(err);</div><div class="line">        <span class="keyword">return</span>; </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">8</span>);</div><div class="line">    fs.read(fd, buf, <span class="number">0</span>, <span class="number">8</span>, <span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, bytes, buffer</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;  </div><div class="line">            <span class="built_in">console</span>.error(err); </div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'data: '</span> + bytes);</div><div class="line">        <span class="built_in">console</span>.log(buffer);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</blockquote>
+<li>fs.read<br><code>fs.read(fd, buffer, offset, length, position, [callback(err, bytesRead, buffer)])</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line">fs.open(<span class="string">'data.txt'</span>, <span class="string">'r'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, fd</span>) </span>&#123; </div><div class="line">    <span class="keyword">if</span> (err) &#123;</div><div class="line">        <span class="built_in">console</span>.error(err);</div><div class="line">        <span class="keyword">return</span>; </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">8</span>);</div><div class="line">    fs.read(fd, buf, <span class="number">0</span>, <span class="number">8</span>, <span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, bytes, buffer</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;  </div><div class="line">            <span class="built_in">console</span>.error(err); </div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'data: '</span> + bytes);</div><div class="line">        <span class="built_in">console</span>.log(buffer);</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h5 id="HTTP服务器">HTTP服务器</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123; </div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/html'</span>&#125;); </div><div class="line">    res.write(<span class="string">'&lt;h1&gt;Hello&lt;/h1&gt;'</span>);</div><div class="line">    res.end(<span class="string">'&lt;p&gt;Hello World&lt;/p&gt;'</span>);</div><div class="line">&#125;).listen(<span class="number">3000</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"server is start...port 3000."</span>);</div></pre></td></tr></table></figure>
 <ul>
-<li><p>http.Server</p>
-<blockquote>
-<p>http模块中的HTTP服务器对象<br>http.Server的事件<br>1.request 客户端请求到来时触发<br>2.connection TCP连接建立时触发<br>3.close 服务器关闭时触发<br>4.checkContinue<br>5.upgrade<br>6.clientError</p>
+<li><p>http.Server<br>http模块中的HTTP服务器对象<br>http.Server的事件<br>1.request 客户端请求到来时触发<br>2.connection TCP连接建立时触发<br>3.close 服务器关闭时触发<br>4.checkContinue<br>5.upgrade<br>6.clientError</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">var</span> server = <span class="keyword">new</span> http.Server(); </div><div class="line">server.on(<span class="string">'request'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/html'</span>&#125;); </div><div class="line">    res.write(<span class="string">'&lt;h1&gt;Hello&lt;/h1&gt;'</span>);</div><div class="line">    res.end(<span class="string">'&lt;p&gt;Hello World&lt;/p&gt;'</span>);</div><div class="line">&#125;); </div><div class="line">server.listen(<span class="number">3000</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"server is start...port 3000."</span>);</div></pre></td></tr></table></figure>
-</blockquote>
 </li>
-<li><p>http.ServerRequest</p>
-<blockquote>
-<p>http.ServerRequest提供了三个事件控制请求体传输<br>1.data 请求体数据到来时，事件触发<br>2.end 请求体传输结束时触发<br>3.close 请求结束时触发，用户强制终止了传输也会触发<br>属性<br>1.complete<br>2.httpVersion<br>3.method<br>4.url<br>5.headers<br>6.trailers<br>7.connection<br>7.socket<br>8.client<br>获取GET请求内容</p>
+<li><p>http.ServerRequest<br>http.ServerRequest提供了三个事件控制请求体传输<br>1.data 请求体数据到来时，事件触发<br>2.end 请求体传输结束时触发<br>3.close 请求结束时触发，用户强制终止了传输也会触发<br>属性<br>1.complete<br>2.httpVersion<br>3.method<br>4.url<br>5.headers<br>6.trailers<br>7.connection<br>7.socket<br>8.client<br>获取GET请求内容</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>); </div><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>); </div><div class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123; </div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;); </div><div class="line">    res.end(util.inspect(url.parse(req.url, <span class="literal">true</span>)));</div><div class="line">&#125;).listen(<span class="number">3000</span>);</div><div class="line"></div><div class="line"><span class="comment">//请求 http://127.0.0.1:3000/text/id=123&amp;key=qwe</span></div></pre></td></tr></table></figure>
-</blockquote>
 </li>
 </ul>
 <p>获取POST请求内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>); </div><div class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123; </div><div class="line">    <span class="keyword">var</span> post = <span class="string">''</span>;</div><div class="line">    req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123; </div><div class="line">        post += chunk;</div><div class="line">    &#125;);</div><div class="line">    req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        post = querystring.parse(post); res.end(util.inspect(post));</div><div class="line">    &#125;);</div><div class="line">&#125;).listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure></p>
@@ -338,25 +206,13 @@
 <li>http.ServerResponse<br>response.writeHead(statusCode, [headers]) 向请求的客户端发送相应头<br>response.write(data, [encoding]) 向请求的客户端发送响应内容<br>response.end([data], [encoding]) 响应结束，告知客户端所有发送已经完成</li>
 </ul>
 <h5 id="HTTP客户端">HTTP客户端</h5><ul>
-<li><p>http.request(options, callback)</p>
-<blockquote>
-<p>option 常用的参数<br>host 请求网站的域名或者IP地址<br>port 请求网站的端口，默认80<br>method 请求方法，默认是GET<br>path 请求的相对于根的路径<br>headers 一个关联的数组对象，为请求头的内容<br>callback 传递一个参数，为http.ClientResponse的实例<br>tp.request 返回一个http.ClientRequest的实例</p>
-</blockquote>
+<li><p>http.request(options, callback)<br>option 常用的参数<br>host 请求网站的域名或者IP地址<br>port 请求网站的端口，默认80<br>method 请求方法，默认是GET<br>path 请求的相对于根的路径<br>headers 一个关联的数组对象，为请求头的内容<br>callback 传递一个参数，为http.ClientResponse的实例<br>tp.request 返回一个http.ClientRequest的实例</p>
 </li>
-<li><p>http.get(options, callback)</p>
-<blockquote>
-<p>更加简便的方法用于处 理GET请求<br>函数<br>write<br>end<br>request.abort()，终止正在发送的请求<br>request.setTimeout(timeout, [callback]) 设置请求超时时间，请求超时以后,callback 将会被调用<br>request.setNoDelay([noDelay])<br>request.setSocketKeepAlive([enable], [initialDelay])</p>
-</blockquote>
+<li><p>http.get(options, callback)<br>更加简便的方法用于处 理GET请求<br>函数<br>write<br>end<br>request.abort()，终止正在发送的请求<br>request.setTimeout(timeout, [callback]) 设置请求超时时间，请求超时以后,callback 将会被调用<br>request.setNoDelay([noDelay])<br>request.setSocketKeepAlive([enable], [initialDelay])</p>
 </li>
-<li><p>http.ClientRequest</p>
-<blockquote>
-<p>它表示一个正在处理的请求，其头部已经进入请求队列</p>
-</blockquote>
+<li><p>http.ClientRequest<br>它表示一个正在处理的请求，其头部已经进入请求队列</p>
 </li>
-<li><p>http.ClientResponse</p>
-<blockquote>
-<p>事件<br>data 数据到达，传递参数chunk，表示接收到的数据<br>end 传输结束<br>close 连接结束<br>属性<br>statusCode HTTP状态码<br>httpVersion HTTP协议版本<br>headers HTTP请求头<br>trailers HTTP请求尾<br>函数<br>response.setEncoding([encoding])，设置默认编码<br>response.pause()，暂停接收数据和发送事件，方便实现下载功能<br>response.resume()，从暂停状态恢复</p>
-</blockquote>
+<li><p>http.ClientResponse<br>事件<br>data 数据到达，传递参数chunk，表示接收到的数据<br>end 传输结束<br>close 连接结束<br>属性<br>statusCode HTTP状态码<br>httpVersion HTTP协议版本<br>headers HTTP请求头<br>trailers HTTP请求尾<br>函数<br>response.setEncoding([encoding])，设置默认编码<br>response.pause()，暂停接收数据和发送事件，方便实现下载功能<br>response.resume()，从暂停状态恢复</p>
 </li>
 </ul>
 

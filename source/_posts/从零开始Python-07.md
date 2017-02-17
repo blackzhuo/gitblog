@@ -4,7 +4,7 @@ tags: python
 toc: true
 ---
 ##### 迭代
->使用for in迭代
+使用for in迭代
 ```python
 x=['asd','zxc','123']
 for i in x:
@@ -19,7 +19,7 @@ for k,v in x:
     print k,'-',v
 ```
 ##### 迭代dict value
->values方法,把dict转换成value的list
+values方法,把dict转换成value的list
 ```python
 x = {'a':1,'b':2}
 print x.values()
@@ -39,7 +39,7 @@ for k,v in x.items():
 * items，iteritems类似，把dict转换成 tuple的list
 
 ##### 生成列表
->range
+range
 ```python
 range(1,100) #[1,2,3,...,100]
 

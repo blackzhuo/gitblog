@@ -4,7 +4,7 @@ tags: nodejs
 toc: true
 ---
 ##### 异步式I/O
->Node.js采用单线程事件驱动的异步式 I/O,控制流很大程度上依靠事件和回调函数。
+Node.js采用单线程事件驱动的异步式 I/O,控制流很大程度上依靠事件和回调函数。
 <!--more-->
 ```javascript
 //异步执行
@@ -27,7 +27,7 @@ console.log('end.');
 ```
 
 ##### 事件编程
->Node.js的异步 I/O 操作完成后，会发送一个事件到事件队列，下面介绍一下EventEmitter
+Node.js的异步 I/O 操作完成后，会发送一个事件到事件队列，下面介绍一下EventEmitter
 ```javascript
 var EventEmitter = require('events').EventEmitter;
 var event = new EventEmitter();
@@ -41,7 +41,7 @@ Node.js 程序由事件循环开始,到事件循环结束,所有的逻辑都是�
 ```
 
 ##### 模块
->Node.js 的模块和包机制的实现参照了 CommonJS 的标准
+Node.js 的模块和包机制的实现参照了 CommonJS 的标准
 Node.js 中文件和模块是一一对应的，一个Node.js就是一个模块，var http = require('http') http就是一个模块，require后获取这个模块
 一个例子创建，并且引用一个模块
 ```javascript
@@ -88,7 +88,7 @@ test.myAge();
 ```
 
 ##### 包
->依照 CommonJS 规范实现包机制，使用npm对包进行管理
+依照 CommonJS 规范实现包机制，使用npm对包进行管理
 Node.js包是一个目录，必须含有package.json,文件中是包的一些具体内容，配置信息等
 CommonJS规范:
 package.json必须在包顶层目录下，
@@ -128,14 +128,14 @@ repositories 仓库托管地址 包含 type,url,path(可选，相对于仓库地
 dependencies 包的依赖数组，包名称，版本好组成
 
 ##### Node.js 包管理器
->npm
+npm
 1.获取一个包 npm [install/i] [package_name] -g（区分本地模式和全局模式，添加-g的为全局模式）
 2.全局链接 npm link，windows不支持
 3.发布，可以使用npm init创建一个符合标准的package.json,npm adduser获取一个维护包的账号，npm publish就发布出去了，下次修改后，修改package.json中的version再执行npm publish
 4.取消发布 npm unpublish
 
 ##### 调试
->1.Node.js支持单步调试，node debug 后面加需要调试的js文件，就会启动调试工具，暂时不做详细介绍
+1.Node.js支持单步调试，node debug 后面加需要调试的js文件，就会启动调试工具，暂时不做详细介绍
 2.远程调试
 3.Eclipse调试
 4.node-inspector调试

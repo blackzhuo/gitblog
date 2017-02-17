@@ -13,7 +13,6 @@
   <meta name="author" content="黑卓">
   
   <meta name="description" content="BigPipe
-
 BigPipe就是把网页分解成多个模块，然后通过服务器和浏览器建立管道链接，分别对各个模块进行输出，最后完成一个完整的页面。
 传统方式的页面渲染大致分为两类，一种是使用动态语言jsp，asp.net等进行完整页面的渲染以及交互，另一种是服务端负责渲染最基本的页面结构，或者说是页面上静态的结构，然后由javascript负责渲染页面动态的部分，以及各种交互的部分。">
   
@@ -85,7 +84,7 @@ BigPipe就是把网页分解成多个模块，然后通过服务器和浏览器�
     </p>
   <p class="article-time">
     <time datetime="2015-11-09T07:03:01.000Z" itemprop="datePublished">2015-11-09</time>
-    更新日期:<time datetime="2017-02-17T03:13:09.000Z" itemprop="dateModified">2017-02-17</time>
+    更新日期:<time datetime="2017-02-17T06:17:16.000Z" itemprop="dateModified">2017-02-17</time>
     
   </p>
 </header>
@@ -96,8 +95,7 @@ BigPipe就是把网页分解成多个模块，然后通过服务器和浏览器�
 				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#BigPipe"><span class="toc-number">1.</span> <span class="toc-text">BigPipe</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nodejs实现"><span class="toc-number">2.</span> <span class="toc-text">nodejs实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#简单实现"><span class="toc-number">3.</span> <span class="toc-text">简单实现</span></a></li></ol>
 			</div>
 		
-        <h4 id="BigPipe">BigPipe</h4><blockquote>
-<ol>
+        <h4 id="BigPipe">BigPipe</h4><ol>
 <li>BigPipe就是把网页分解成多个模块，然后通过服务器和浏览器建立管道链接，分别对各个模块进行输出，最后完成一个完整的页面。</li>
 <li>传统方式的页面渲染大致分为两类，一种是使用动态语言jsp，asp.net等进行完整页面的渲染以及交互，另一种是服务端负责渲染最基本的页面结构，或者说是页面上静态的结构，然后由javascript负责渲染页面动态的部分，以及各种交互的部分。<a id="more"></a>
 <ul>
@@ -109,7 +107,6 @@ BigPipe就是把网页分解成多个模块，然后通过服务器和浏览器�
 </li>
 <li>http1.1 支持持续的连接，这样就可以发出多个请求，并且接收多个请求。还可以发送流水请求，在一个请求未返回结果的时候就继续发生第二个请求。</li>
 </ol>
-</blockquote>
 <h4 id="nodejs实现">nodejs实现</h4><ol>
 <li>核心就是http.requert()</li>
 <li>html页面访问直接请求nodejs渲染的页面。</li>

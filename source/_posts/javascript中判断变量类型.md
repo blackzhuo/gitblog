@@ -4,7 +4,7 @@ tags: javascript
 toc: true
 ---
 ##### 数据类型
->* 原始类型
+* 原始类型
 	数字
 	字符串
 	布尔值
@@ -25,7 +25,7 @@ toc: true
 
 ##### 检测数据类型
 * typeof
->我们来写个例子，看看typeOf检测变量类型，每种类型都返回什么结果
+我们来写个例子，看看typeOf检测变量类型，每种类型都返回什么结果
 ```javascript
 var number = 1,
     string = 'asd',
@@ -46,7 +46,7 @@ console.log(typeof number,typeof string,typeof boolean,typeof array,typeof json,
 //接着往下看
 ```
 * instanceof
->instanceof方法要求我们明确变量的类型，结果返回true false
+instanceof方法要求我们明确变量的类型，结果返回true false
 ```javascript
 var number = 1,
 string = 'asd',
@@ -69,7 +69,7 @@ console.log(number instanceof Number,string instanceof String,boolean instanceof
 //接着往下看
 ```
 * constructor
->constructor是对象原型上的属性，指向构造函数
+constructor是对象原型上的属性，指向构造函数
 ```javascript
 var number = 1,
 string = 'asd',
@@ -88,7 +88,7 @@ console.log(number.constructor === Number,string.constructor === String,boolean.
 不能判断undefined null
 ```
 * Object.prototype.toString.call
->输出字符串，字符串里有一个数组，第一个参数是Object，第二个参数是变量的类型
+输出字符串，字符串里有一个数组，第一个参数是Object，第二个参数是变量的类型
 ```javascript
 var number = 1,
 string = 'asd',
@@ -106,7 +106,7 @@ console.log(Object.prototype.toString.call(number),Object.prototype.toString.cal
 //[object Number] [object String] [object Boolean] [object Array] [object Object] [object Function] [object Undefined] [object Null] [object Date] [object RegExp] [object Error]
 ```
 * jquery中`$.type`
->jquery封装的判断类型的方法，依赖jquery
+jquery封装的判断类型的方法，依赖jquery
 ```javascript
 var number = 1,
 string = 'asd',

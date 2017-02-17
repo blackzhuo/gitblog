@@ -4,7 +4,7 @@ tags: nodejs
 toc: true
 ---
 ##### child_process
->* NodeJs的子进程有很多和系统交互的接口，我们先看一下主要的API:
+* NodeJs的子进程有很多和系统交互的接口，我们先看一下主要的API:
 	1. child.stdin 标准输入
 	2. child.stdout 标准输出
 	3. child.stderr 标准错误输出

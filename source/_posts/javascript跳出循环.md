@@ -4,7 +4,7 @@ tags: javascript
 toc: true
 ---
 ##### break
->for， while， switch的case分支，使用 break 跳出当前循环；
+for， while， switch的case分支，使用 break 跳出当前循环；
 <!--more-->
 ```javascript
 for(var i = 0;i<10;i++){
@@ -59,7 +59,7 @@ for(var i = 0;i<10;i++){
 }
 ```
 ##### return
->跳出数组forEach循环,跳出jquery each循环(return只能出现在函数里面)
+跳出数组forEach循环,跳出jquery each循环(return只能出现在函数里面)
 ```javascript
 var arr = [1,2,3,4,5,6];
 arr.forEach(function(item,index){

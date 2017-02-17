@@ -30,7 +30,7 @@ toc: true
 	* componentDidUpdate
 	* componentWillUnmount
 * 组件生命周期
->了解组件的生命周期很重要，这在我们哪个阶段去调用什么方法是有帮助的，下面就一起来看一下：
+了解组件的生命周期很重要，这在我们哪个阶段去调用什么方法是有帮助的，下面就一起来看一下：
 
 1. getInitialState
 	* 在组件类创建的时候只调用一次，返回值是 this.state 的初始值

@@ -24,8 +24,10 @@ toc: true
 * IE7及以前的版本忽略大小写，除此之外必须严格按照大小写
 * 如果不传参数返回null
 * IE7及以前的版本如果表单元素name属性和某元素id相等，会返回表单元素
+
 ##### document.getElementsByTagName
 * 返回标签元素的集合
+
 ##### namedItem 返回标签集合中指定name元素
 * 使用中括号的方式能达到namedItem效果
 * 获取所有html元素，传入`*`
@@ -42,6 +44,7 @@ document.getElementsByName
 * document.forms返回所有form元素
 * document.images返回所有img元素
 * document.links返回所有带href的元素
+
 ##### 元素属性
 * id 元素唯一标示
 * title 附加说明
@@ -85,6 +88,7 @@ div.className = "m-top";
 	* 不能动态设置iframe name属性
 	* 创建name相同的radio，互无联系
 	* 但是，这样方式又只有IE才支持，所以，使用时需要做检测执行
+
 ##### Text文本节点
 创建文本节点document.createTextNode()
 ```javascript
@@ -93,11 +97,13 @@ var txt = document.createTextNode('hello');
 ele.appendChild(txt);
 document.body.appendChild(ele);
 ```
+
 ##### 规范化文本节点
 * 使用normalize()方法合并文本节点
 
 ##### 分割文本节点
 * splitText(pos)方法，pos是指定位置
+
 ##### 其它方法
 * appendData(text)
 * deleteData(offset,count)
@@ -118,6 +124,7 @@ var attr = document.createAttribute('align');
 attr.value = 'left';
 ele.setAttribute(attr);
 ```
+
 ##### selector API
 1. querySelector()
 	* 接收css选择符，返回匹配到的第一个元素

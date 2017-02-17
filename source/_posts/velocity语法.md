@@ -50,14 +50,14 @@ ${request.getCookies()}
 ##赋值符号左边的变量名不能加感叹号
 ```
 ###### 数组访问
->范围操作赋 `[1..10]`
+范围操作赋 `[1..10]`
 ```javascript
 #foreach( $i in [1..5] )
     $i
 #end
 ```
 ###### 对象访问
->访问方法如下
+访问方法如下
 ```javascript
 #set($obj = {"qwe":"123", "asd":"456"})
 $obj.get("key")
@@ -90,7 +90,7 @@ $obj.get("key")
 可用于中断 #foreach() 循环。
 
 ###### 条件语句
->用法
+用法
 ```javascript
 #if( $age < 10 )
     
@@ -105,7 +105,7 @@ $obj.get("key")
 `< > == != && || !`这么多运算符
 
 ###### 宏
->定义
+定义
 ```javascript
 #macro(test)
 <div></div><div></div>
@@ -120,10 +120,10 @@ $obj.get("key")
 test($pers)
 ```
 ###### stop
->停止模板引擎，通常在Debug时使用
+停止模板引擎，通常在Debug时使用
 
 ###### 转义
->如果变量定义了，两个 `\` 只输出一个 `\`，如果未定义，则输出所有
+如果变量定义了，两个 `\` 只输出一个 `\`，如果未定义，则输出所有
 ```javascript
 #set($name="qwe") ##定义
 $name ## qwe
@@ -150,11 +150,11 @@ $name ## $name
 ```
 
 ###### `evaluate()`
->动态执行一串字符串的值：
+动态执行一串字符串的值：
 `#evaluate('display #if(true)show#end')`
 
 ###### `define()`
->`#define`指令自定义标签
+`#define`指令自定义标签
 ```javascript
 #define($hello)
     Hello ${who}!

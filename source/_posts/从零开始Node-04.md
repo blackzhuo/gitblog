@@ -4,7 +4,7 @@ tags: nodejs
 toc: true
 ---
 ##### web开发
->* 使用express框架
+* 使用express框架
 * 版本 4.x
 * 安装 sudo npm uninstall -g express
 * 安装 sudo npm install -g express-generator,4.x以后的版本需要安装这个

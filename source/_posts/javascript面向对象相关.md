@@ -13,7 +13,7 @@ function check(name,obj){
 <!--more-->
 
 #### for in循环
->for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回
+for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回
 
 ####继承
 ```javascript
@@ -43,7 +43,7 @@ SubType.prototype.sayAge = function(){
 	alert(this.age);
 };
 ```
->只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。
+只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。
 
 #### 单例模式
 ```javascript

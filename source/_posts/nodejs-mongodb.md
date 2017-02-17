@@ -6,8 +6,8 @@ toc: true
 这篇文章中，我们使用nodejs搭建简易服务器，然后开发一个登录过程中使用的增删改查接口，数据库使用mongoDB,操作数据库模块选用mongoose。
 
 #### 创建nodejs工程
->npm init 
->创建package.json文件
+npm init 
+创建package.json文件
 
 <!--more-->
 
@@ -29,11 +29,11 @@ toc: true
   }
 }
 ```
->dependencies中显示的是安装的依赖包，下面有安装过程，先不用考虑
+dependencies中显示的是安装的依赖包，下面有安装过程，先不用考虑
 
 #### 使用express
->sudo npm install express --save
->快速构建web应用模块 资料: http://www.expressjs.com.cn/4x/api.html
+sudo npm install express --save
+快速构建web应用模块 资料: http://www.expressjs.com.cn/4x/api.html
 
 #### app.js
 ```javascript
@@ -45,18 +45,18 @@ app.get('/', function(req, res){
 app.listen(3000);
 console.log('nodejs server start, listen port 3000');
 ```
->浏览器打开 http://127.0.0.1:3000/ 页面显示 hello world
+浏览器打开 http://127.0.0.1:3000/ 页面显示 hello world
 
 #### 使用mongoose
->sudo npm install mongoose --save
->数据库操作模块
+sudo npm install mongoose --save
+数据库操作模块
 
 #### 安装其他模块
->sudo npm install url --save
->辅助解析url参数
+sudo npm install url --save
+辅助解析url参数
 
 #### nodejs操作数据库
->app.js 程序主文件
+app.js 程序主文件
 ```javascript
 var express = require('express');
 var app = express();
@@ -66,7 +66,7 @@ app.listen(3000);
 console.log('nodejs server start, listen port 3000');
 ```
 
->routes/index.js 路由文件
+routes/index.js 路由文件
 ```javascript
 var express = require('express');
 var router = express.Router();
@@ -77,7 +77,7 @@ router.get(['/login'], function(req, res, next) {
 module.exports = router;
 ```
 
->main/config.js 数据库配置文件
+main/config.js 数据库配置文件
 ```javascript
 var config = {
 	dbHost: '127.0.0.1',
@@ -88,7 +88,7 @@ var config = {
 module.exports = config;
 ```
 
->main/loginSchema.js 数据库表结构
+main/loginSchema.js 数据库表结构
 ```javascript
 var mongoose = require('mongoose');
 var loginSchema = new mongoose.Schema({
@@ -98,7 +98,7 @@ var loginSchema = new mongoose.Schema({
 module.exports = loginSchema;
 ```
 
->main/login.js 登录增删改查逻辑文件
+main/login.js 登录增删改查逻辑文件
 ```javascript
 var url = require('url'),
     mongoose = require('mongoose'),
@@ -233,4 +233,4 @@ module.exports = login;
 2.http://127.0.0.1:3000/login?type=find
 3.http://127.0.0.1:3000/login?type=update&query={"username":"wz"}&pageData={"username":"ww","userpassword":"wz"}
 4.http://127.0.0.1:3000/login?type=delete&query={"username":"ww"}
->提供的测试url分别做了：1 向数据库中插入一条数据，2 在数据库中查找users表中所有数据，3 修改第一步中添加的数据，4 删除第三步中修改的数据。都以json格式返回给客户端。
+提供的测试url分别做了：1 向数据库中插入一条数据，2 在数据库中查找users表中所有数据，3 修改第一步中添加的数据，4 删除第三步中修改的数据。都以json格式返回给客户端。

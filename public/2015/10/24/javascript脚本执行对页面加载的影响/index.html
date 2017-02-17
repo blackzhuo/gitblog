@@ -13,7 +13,6 @@
   <meta name="author" content="黑卓">
   
   <meta name="description" content="javascript加载会对页面加载产生什么影响呢？我们在代码中添加几种脚本
-
 header中行内 无defer async，async，defer这三种
 header中外部 无defer async，async，defer这三种
 body中同上面，并且body中增加动态添加脚本，动态添加分为两类，直接在脚本中append，另一种是ajax异步去apped.脚本中都执行了一段计算的代码，执行起来耗时几秒">
@@ -86,7 +85,7 @@ body中同上面，并且body中增加动态添加脚本，动态添加分为两
     </p>
   <p class="article-time">
     <time datetime="2015-10-24T07:03:01.000Z" itemprop="datePublished">2015-10-24</time>
-    更新日期:<time datetime="2017-02-17T03:13:09.000Z" itemprop="dateModified">2017-02-17</time>
+    更新日期:<time datetime="2017-02-17T06:21:49.000Z" itemprop="dateModified">2017-02-17</time>
     
   </p>
 </header>
@@ -97,16 +96,13 @@ body中同上面，并且body中增加动态添加脚本，动态添加分为两
 				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#javascript加载会对页面加载产生什么影响呢？"><span class="toc-number">1.</span> <span class="toc-text">javascript加载会对页面加载产生什么影响呢？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#我们在代码中添加几种脚本"><span class="toc-number">1.1.</span> <span class="toc-text">我们在代码中添加几种脚本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#执行结果分析"><span class="toc-number">1.2.</span> <span class="toc-text">执行结果分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态加载的外部脚本"><span class="toc-number">1.3.</span> <span class="toc-text">动态加载的外部脚本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分析"><span class="toc-number">1.4.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#无阻塞脚本的解决方案"><span class="toc-number">1.5.</span> <span class="toc-text">无阻塞脚本的解决方案</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#动态脚本加载时机"><span class="toc-number">1.6.</span> <span class="toc-text">动态脚本加载时机</span></a></li></ol></li></ol>
 			</div>
 		
-        <h4 id="javascript加载会对页面加载产生什么影响呢？">javascript加载会对页面加载产生什么影响呢？</h4><h5 id="我们在代码中添加几种脚本">我们在代码中添加几种脚本</h5><blockquote>
-<ul>
+        <h4 id="javascript加载会对页面加载产生什么影响呢？">javascript加载会对页面加载产生什么影响呢？</h4><h5 id="我们在代码中添加几种脚本">我们在代码中添加几种脚本</h5><ul>
 <li>header中行内 无defer async，async，defer这三种</li>
 <li>header中外部 无defer async，async，defer这三种</li>
 <li>body中同上面，并且body中增加动态添加脚本，动态添加分为两类，直接在脚本中append，另一种是ajax异步去apped.<br>脚本中都执行了一段计算的代码，执行起来耗时几秒<a id="more"></a>
 </li>
 </ul>
-</blockquote>
-<h5 id="执行结果分析">执行结果分析</h5><blockquote>
-<ul>
+<h5 id="执行结果分析">执行结果分析</h5><ul>
 <li>safri:<br>  async defer分析同上一篇wiki说明，以后不再说这个<br>  header中任何脚本执行都会阻塞DOMContentLoaded<br>  body内只有async的外部脚本不会阻塞DOMContentLoaded<br>  所有脚本都会阻塞loaded</li>
 <li>firefox:<br>  应该说所有脚本都阻塞了DOMContentLoaded，因为body dy script这个动态添加的脚本是在ready后添加执行的，ready之后添加的脚本会阻塞loaded执行</li>
 <li>chrome:<br>  和safri表现相同</li>
@@ -114,7 +110,6 @@ body中同上面，并且body中增加动态添加脚本，动态添加分为两
 <li>IE8:<br>  动态脚本不会阻塞document ready, loaded</li>
 <li>IE9:<br>  脚本加载阻塞DOMContentLoaded，也阻塞了loaded</li>
 </ul>
-</blockquote>
 <h5 id="动态加载的外部脚本">动态加载的外部脚本</h5><ul>
 <li>不是动态添加的脚本，都会阻塞页DOMContentLoaded，在document ready后添加，会阻塞loaded，在window.onload后添加，是不会阻塞页面加载的</li>
 </ul>
@@ -143,9 +138,7 @@ body中同上面，并且body中增加动态添加脚本，动态添加分为两
 </li>
 </ul>
 <p>只有在IE下能实现并行下载,了解就行<br>动态的创建script的dom节点是最好的解决方案</p>
-<h5 id="动态脚本加载时机">动态脚本加载时机</h5><blockquote>
-<p>动态脚本，动态创建script到底在什么时候加是最好的呢？<br>如果放在onload之后，我们知道在DOMContentLoaded之后到onload之间，会有图片，iframe等资源加载时间，它们阻塞了window.onload,那么js对页面的交互时间也被推迟了，这不是我们想要了<br>所以我们把它放在DOMContentLoaded之后,DOMContentLoaded兼容解决方案，看前面的知识</p>
-</blockquote>
+<h5 id="动态脚本加载时机">动态脚本加载时机</h5><p>动态脚本，动态创建script到底在什么时候加是最好的呢？<br>如果放在onload之后，我们知道在DOMContentLoaded之后到onload之间，会有图片，iframe等资源加载时间，它们阻塞了window.onload,那么js对页面的交互时间也被推迟了，这不是我们想要了<br>所以我们把它放在DOMContentLoaded之后,DOMContentLoaded兼容解决方案，看前面的知识</p>
 
     </div>
     <footer>

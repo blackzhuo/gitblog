@@ -46,7 +46,7 @@ db.test.ensureIndex({"id":1},{"unique":true}) 创建唯一索引，插入重复�
 ###### mongo 配置文件：待补充
 
 ###### 连接
->express 4.x版本有些改动
+express 4.x版本有些改动
 * 初始化程序 express -e test 创建test工程
 * 进入package.json 增加
 ```javascript

@@ -5,14 +5,14 @@ toc: true
 ---
 #### javascript加载会对页面加载产生什么影响呢？
 ##### 我们在代码中添加几种脚本
->* header中行内 无defer async，async，defer这三种
+* header中行内 无defer async，async，defer这三种
 * header中外部 无defer async，async，defer这三种
 * body中同上面，并且body中增加动态添加脚本，动态添加分为两类，直接在脚本中append，另一种是ajax异步去apped.
 脚本中都执行了一段计算的代码，执行起来耗时几秒
 <!--more-->
 
 ##### 执行结果分析
->* safri:
+* safri:
 	async defer分析同上一篇wiki说明，以后不再说这个
 	header中任何脚本执行都会阻塞DOMContentLoaded
 	body内只有async的外部脚本不会阻塞DOMContentLoaded
@@ -74,6 +74,6 @@ document.write("<script type='text/javascript' src='deal.js'></script>");
 动态的创建script的dom节点是最好的解决方案
 
 ##### 动态脚本加载时机
->动态脚本，动态创建script到底在什么时候加是最好的呢？
+动态脚本，动态创建script到底在什么时候加是最好的呢？
 如果放在onload之后，我们知道在DOMContentLoaded之后到onload之间，会有图片，iframe等资源加载时间，它们阻塞了window.onload,那么js对页面的交互时间也被推迟了，这不是我们想要了
 所以我们把它放在DOMContentLoaded之后,DOMContentLoaded兼容解决方案，看前面的知识

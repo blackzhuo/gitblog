@@ -12,9 +12,7 @@
   <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
   <meta name="author" content="黑卓">
   
-  <meta name="description" content="高级浏览器localStorage
-一旦存储，除非手动删除，否则永远存储在浏览器本地。
-
+  <meta name="description" content="高级浏览器localStorage一旦存储，除非手动删除，否则永远存储在浏览器本地。
 
 优点：容量大，最大可支持5M
 缺点：IE8以下的版本不支持，安全性也差，不适合保存敏感数据。
@@ -88,7 +86,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-10-02T11:08:17.000Z" itemprop="datePublished">2015-10-02</time>
-    更新日期:<time datetime="2017-02-17T03:13:09.000Z" itemprop="dateModified">2017-02-17</time>
+    更新日期:<time datetime="2017-02-17T06:21:02.000Z" itemprop="dateModified">2017-02-17</time>
     
   </p>
 </header>
@@ -99,9 +97,7 @@
 				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#高级浏览器"><span class="toc-number">1.</span> <span class="toc-text">高级浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#localStorage"><span class="toc-number">1.1.</span> <span class="toc-text">localStorage</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#IE低版本浏览器（IE8以下的版本）"><span class="toc-number">1.2.</span> <span class="toc-text">IE低版本浏览器（IE8以下的版本）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#兼容所有浏览器"><span class="toc-number">1.3.</span> <span class="toc-text">兼容所有浏览器</span></a></li></ol></li></ol>
 			</div>
 		
-        <h4 id="高级浏览器">高级浏览器</h4><h5 id="localStorage">localStorage</h5><blockquote>
-<p>一旦存储，除非手动删除，否则永远存储在浏览器本地。</p>
-</blockquote>
+        <h4 id="高级浏览器">高级浏览器</h4><h5 id="localStorage">localStorage</h5><p>一旦存储，除非手动删除，否则永远存储在浏览器本地。</p>
 <ul>
 <li>优点：容量大，最大可支持5M</li>
 <li>缺点：IE8以下的版本不支持，安全性也差，不适合保存敏感数据。</li>
@@ -139,15 +135,9 @@
 </li>
 </ul>
 <h5 id="IE低版本浏览器（IE8以下的版本）">IE低版本浏览器（IE8以下的版本）</h5><ul>
-<li><p>ActiveXObject</p>
-<blockquote>
-<p>ActiveXObject 对象为 Microsoft 扩展，仅在 Internet Explorer 中受支持。<br>ActiveXObject(“htmlfile”)创建的文档是一个完美的HTML文档，它拥有document.title,document.body等HTML DOM专有的属性，还能运行javascript。全局变量this就是我们要找的全局对象，它还拥有我们想要的一切，Array，Boolean，String，Date，Object等等。</p>
-</blockquote>
+<li><p>ActiveXObject<br>ActiveXObject 对象为 Microsoft 扩展，仅在 Internet Explorer 中受支持。<br>ActiveXObject(“htmlfile”)创建的文档是一个完美的HTML文档，它拥有document.title,document.body等HTML DOM专有的属性，还能运行javascript。全局变量this就是我们要找的全局对象，它还拥有我们想要的一切，Array，Boolean，String，Date，Object等等。</p>
 </li>
-<li><p>userData</p>
-<blockquote>
-<p>UserData是微软为IE专门在系统中开辟的一块存储空间<br>正常情况下，这个文件夹在个人文件夹下 <code>Application Data\Microsoft\Internet Explorer\UserData</code><br>线上使用时，单个文件的大小限制是128KB，一个域名下总共可以保存1024KB的文件，文件个数应该没有限制。在受限站点里这两个值分别是64KB和640KB，所以如果考虑到各种情况的话，单个文件最好能控制64KB以下,xml格式的文件</p>
-</blockquote>
+<li><p>userData<br>UserData是微软为IE专门在系统中开辟的一块存储空间<br>正常情况下，这个文件夹在个人文件夹下 <code>Application Data\Microsoft\Internet Explorer\UserData</code><br>线上使用时，单个文件的大小限制是128KB，一个域名下总共可以保存1024KB的文件，文件个数应该没有限制。在受限站点里这两个值分别是64KB和640KB，所以如果考虑到各种情况的话，单个文件最好能控制64KB以下,xml格式的文件</p>
 </li>
 <li><p>低版本就是使用UserData进行存储，数据存储在硬盘上</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//javascript</span></div><div class="line">o = <span class="built_in">document</span>.createElement(<span class="string">'input'</span>);</div><div class="line">o.type = <span class="string">"hidden"</span>;</div><div class="line">o.addBehavior (<span class="string">"#default#userData"</span>);</div><div class="line"><span class="comment">//UserData.o.style.behavior = "url('#default#userData')" ;</span></div><div class="line"><span class="comment">//上面的语句也是一样的作用</span></div><div class="line"><span class="built_in">document</span>.body.appendChild(o);</div><div class="line">&lt;!--html--&gt;</div><div class="line">//说白了UserData就是样式里的一个Behavior，所以这样写也是一样的：</div><div class="line">&lt;input type=hidden class= storeuserData /&gt;</div><div class="line">&lt;style&gt;</div><div class="line">.storeuserData &#123;behavior:url(#default#userData);&#125;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
@@ -214,9 +204,7 @@
 </li>
 <li>在一个文件中可以有多个属性，也就是可以存储多种不同的数据。</li>
 </ul>
-<h5 id="兼容所有浏览器">兼容所有浏览器</h5><blockquote>
-<p>store.js就是使用上述两种方式进行兼容使用，从而达到兼容所有浏览器的本地存储</p>
-</blockquote>
+<h5 id="兼容所有浏览器">兼容所有浏览器</h5><p>store.js就是使用上述两种方式进行兼容使用，从而达到兼容所有浏览器的本地存储</p>
 
     </div>
     <footer>

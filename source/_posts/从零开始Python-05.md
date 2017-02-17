@@ -4,7 +4,7 @@ tags: python
 toc: true
 ---
 ##### dict
->键值对 字典
+键值对 字典
 ```python
 x = {'a':1,'b':2}
 len(x) #集合大小

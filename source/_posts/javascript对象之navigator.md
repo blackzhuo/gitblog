@@ -4,7 +4,7 @@ tags: javascript
 toc: true
 ---
 ##### 概述
->navigator对象保存的是浏览器的信息，兼容所有浏览器，只读
+navigator对象保存的是浏览器的信息，兼容所有浏览器，只读
 支持的属性
 <!--more-->
 * appCodeName 浏览器代码名

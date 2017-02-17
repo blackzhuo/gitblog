@@ -88,7 +88,7 @@ normalize()合并文本节点">
     </p>
   <p class="article-time">
     <time datetime="2015-11-24T07:03:01.000Z" itemprop="datePublished">2015-11-24</time>
-    更新日期:<time datetime="2017-02-17T03:13:09.000Z" itemprop="dateModified">2017-02-17</time>
+    更新日期:<time datetime="2017-02-17T06:18:27.000Z" itemprop="dateModified">2017-02-17</time>
     
   </p>
 </header>
@@ -111,8 +111,12 @@ normalize()合并文本节点">
 <h4 id="Document">Document</h4><h5 id="document-getElementById">document.getElementById</h5><ul>
 <li>IE7及以前的版本忽略大小写，除此之外必须严格按照大小写</li>
 <li>如果不传参数返回null</li>
-<li>IE7及以前的版本如果表单元素name属性和某元素id相等，会返回表单元素<h5 id="document-getElementsByTagName">document.getElementsByTagName</h5></li>
-<li>返回标签元素的集合<h5 id="namedItem_返回标签集合中指定name元素">namedItem 返回标签集合中指定name元素</h5></li>
+<li>IE7及以前的版本如果表单元素name属性和某元素id相等，会返回表单元素</li>
+</ul>
+<h5 id="document-getElementsByTagName">document.getElementsByTagName</h5><ul>
+<li>返回标签元素的集合</li>
+</ul>
+<h5 id="namedItem_返回标签集合中指定name元素">namedItem 返回标签集合中指定name元素</h5><ul>
 <li>使用中括号的方式能达到namedItem效果</li>
 <li>获取所有html元素，传入<code>*</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> images = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'image'</span>);</div><div class="line"><span class="keyword">var</span> logo = images.namedItem(<span class="string">'logo'</span>);</div><div class="line"><span class="keyword">var</span> author = images[<span class="string">'author'</span>];</div><div class="line"><span class="built_in">document</span>.getElementsByName</div></pre></td></tr></table></figure>
 </li>
@@ -122,7 +126,9 @@ normalize()合并文本节点">
 <li>document.anchors返回所有带name的a元素</li>
 <li>document.forms返回所有form元素</li>
 <li>document.images返回所有img元素</li>
-<li>document.links返回所有带href的元素<h5 id="元素属性">元素属性</h5></li>
+<li>document.links返回所有带href的元素</li>
+</ul>
+<h5 id="元素属性">元素属性</h5><ul>
 <li>id 元素唯一标示</li>
 <li>title 附加说明</li>
 <li>className 元素css类</li>
@@ -156,16 +162,18 @@ normalize()合并文本节点">
 <li>IE中支持参数传入完整的标签内容，有助于避免IE7以及以前版本的一些bug</li>
 <li>不能动态设置iframe name属性</li>
 <li>创建name相同的radio，互无联系</li>
-<li>但是，这样方式又只有IE才支持，所以，使用时需要做检测执行<h5 id="Text文本节点">Text文本节点</h5>创建文本节点document.createTextNode()<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ele = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line"><span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="string">'hello'</span>);</div><div class="line">ele.appendChild(txt);</div><div class="line"><span class="built_in">document</span>.body.appendChild(ele);</div></pre></td></tr></table></figure>
-</li>
+<li>但是，这样方式又只有IE才支持，所以，使用时需要做检测执行</li>
 </ul>
 </li>
 </ul>
+<h5 id="Text文本节点">Text文本节点</h5><p>创建文本节点document.createTextNode()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ele = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line"><span class="keyword">var</span> txt = <span class="built_in">document</span>.createTextNode(<span class="string">'hello'</span>);</div><div class="line">ele.appendChild(txt);</div><div class="line"><span class="built_in">document</span>.body.appendChild(ele);</div></pre></td></tr></table></figure></p>
 <h5 id="规范化文本节点">规范化文本节点</h5><ul>
 <li>使用normalize()方法合并文本节点</li>
 </ul>
 <h5 id="分割文本节点">分割文本节点</h5><ul>
-<li>splitText(pos)方法，pos是指定位置<h5 id="其它方法">其它方法</h5></li>
+<li>splitText(pos)方法，pos是指定位置</li>
+</ul>
+<h5 id="其它方法">其它方法</h5><ul>
 <li>appendData(text)</li>
 <li>deleteData(offset,count)</li>
 <li>insertData(offset,text)</li>

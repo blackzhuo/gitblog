@@ -12,8 +12,7 @@
   <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
   <meta name="author" content="黑卓">
   
-  <meta name="description" content="简介
-chrome应用商店里面存放着大量的浏览器应用，这些扩展应用不同于浏览器插件，它们必须依赖浏览器而运行。浏览器应用的本质就是web页面，浏览器支持的API我们都可以使用">
+  <meta name="description" content="简介chrome应用商店里面存放着大量的浏览器应用，这些扩展应用不同于浏览器插件，它们必须依赖浏览器而运行。浏览器应用的本质就是web页面，浏览器支持的API我们都可以使用">
   
   
   <meta name="keywords" content="浏览器扩展应用开发" />
@@ -83,7 +82,7 @@ chrome应用商店里面存放着大量的浏览器应用，这些扩展应用�
     </p>
   <p class="article-time">
     <time datetime="2015-11-10T07:03:01.000Z" itemprop="datePublished">2015-11-10</time>
-    更新日期:<time datetime="2017-02-17T03:13:09.000Z" itemprop="dateModified">2017-02-17</time>
+    更新日期:<time datetime="2017-02-17T06:15:46.000Z" itemprop="dateModified">2017-02-17</time>
     
   </p>
 </header>
@@ -94,11 +93,8 @@ chrome应用商店里面存放着大量的浏览器应用，这些扩展应用�
 				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#准备"><span class="toc-number">2.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#manifest-json"><span class="toc-number">3.</span> <span class="toc-text">manifest.json</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本架构"><span class="toc-number">4.</span> <span class="toc-text">基本架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#跨域"><span class="toc-number">5.</span> <span class="toc-text">跨域</span></a></li></ol>
 			</div>
 		
-        <h4 id="简介">简介</h4><blockquote>
-<p>chrome应用商店里面存放着大量的浏览器应用，这些扩展应用不同于浏览器插件，它们必须依赖浏览器而运行。浏览器应用的本质就是web页面，浏览器支持的API我们都可以使用<br><a id="more"></a></p>
-</blockquote>
-<h4 id="准备">准备</h4><blockquote>
-<ul>
+        <h4 id="简介">简介</h4><p>chrome应用商店里面存放着大量的浏览器应用，这些扩展应用不同于浏览器插件，它们必须依赖浏览器而运行。浏览器应用的本质就是web页面，浏览器支持的API我们都可以使用<br><a id="more"></a></p>
+<h4 id="准备">准备</h4><ul>
 <li>开发浏览器扩招应用不需要我们学习额外的技能，只需要我们日常开发中使用的html,js,css知识足矣。</li>
 <li>项目中包含的文件<ol>
 <li>manifest</li>
@@ -110,7 +106,6 @@ chrome应用商店里面存放着大量的浏览器应用，这些扩展应用�
 </li>
 <li>这些文件放在同一个根目录下，发布应用时，这个目录全部打包到一个应用名是.crx的压缩文件中。<br>[<a href="https://chrome.google.com/webstore/developer/dashboard]上传应用的时候，可以自动生成.crx文件" target="_blank" rel="external">https://chrome.google.com/webstore/developer/dashboard]上传应用的时候，可以自动生成.crx文件</a><br>或者使用浏览器的 更多工具》扩展程序》打包扩展程序 功能，生成.crx文件。</li>
 </ul>
-</blockquote>
 <h4 id="manifest-json">manifest.json</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"name"</span>: <span class="string">"My Extension"</span>,</div><div class="line">	<span class="string">"version"</span>: <span class="string">"2.1"</span>,</div><div class="line">	<span class="string">"description"</span>: <span class="string">"Gets information from Google."</span>,</div><div class="line">	<span class="string">"icons"</span>: &#123; <span class="string">"128"</span>: <span class="string">"icon_128.png"</span> &#125;,</div><div class="line">	<span class="string">"background_page"</span>: <span class="string">"bg.html"</span>,</div><div class="line">	<span class="string">"permissions"</span>: [<span class="string">"http://*.google.com/"</span>, <span class="string">"https://*.google.com/"</span>],</div><div class="line">	<span class="string">"browser_action"</span>: &#123;</div><div class="line">		<span class="string">"default_title"</span>: <span class="string">""</span>,</div><div class="line">		<span class="string">"default_icon"</span>: <span class="string">"icon_19.png"</span>,</div><div class="line">		<span class="string">"default_popup"</span>: <span class="string">"popup.html"</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>manifest.json文件中主要内容都在这里，不难理解</p>
 <h4 id="基本架构">基本架构</h4><ol>

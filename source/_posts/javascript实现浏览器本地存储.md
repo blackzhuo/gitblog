@@ -5,7 +5,7 @@ toc: true
 ---
 #### 高级浏览器
 ##### localStorage
->一旦存储，除非手动删除，否则永远存储在浏览器本地。
+一旦存储，除非手动删除，否则永远存储在浏览器本地。
 
 * 优点：容量大，最大可支持5M
 * 缺点：IE8以下的版本不支持，安全性也差，不适合保存敏感数据。
@@ -45,11 +45,11 @@ function isSupport(){
 
 ##### IE低版本浏览器（IE8以下的版本）
 * ActiveXObject
->ActiveXObject 对象为 Microsoft 扩展，仅在 Internet Explorer 中受支持。
+ActiveXObject 对象为 Microsoft 扩展，仅在 Internet Explorer 中受支持。
 ActiveXObject(“htmlfile”)创建的文档是一个完美的HTML文档，它拥有document.title,document.body等HTML DOM专有的属性，还能运行javascript。全局变量this就是我们要找的全局对象，它还拥有我们想要的一切，Array，Boolean，String，Date，Object等等。
 
 * userData
->UserData是微软为IE专门在系统中开辟的一块存储空间
+UserData是微软为IE专门在系统中开辟的一块存储空间
 正常情况下，这个文件夹在个人文件夹下 `Application Data\Microsoft\Internet Explorer\UserData`
 线上使用时，单个文件的大小限制是128KB，一个域名下总共可以保存1024KB的文件，文件个数应该没有限制。在受限站点里这两个值分别是64KB和640KB，所以如果考虑到各种情况的话，单个文件最好能控制64KB以下,xml格式的文件
 
@@ -94,4 +94,4 @@ o.save("baidu");
 * 在一个文件中可以有多个属性，也就是可以存储多种不同的数据。
 
 ##### 兼容所有浏览器
->store.js就是使用上述两种方式进行兼容使用，从而达到兼容所有浏览器的本地存储
+store.js就是使用上述两种方式进行兼容使用，从而达到兼容所有浏览器的本地存储

@@ -12,11 +12,8 @@
   <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
   <meta name="author" content="黑卓">
   
-  <meta name="description" content="getBoundingClientRect
-计算视口坐标,方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBoundingClientRect所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好，非常好用.
-
-scrollIntoView
-可以让元素直接呈现到可视区域，实际上是屏幕显示区的最顶端">
+  <meta name="description" content="getBoundingClientRect计算视口坐标,方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBoundingClientRect所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好，非常好用.
+scrollIntoView可以让元素直接呈现到可视区域，实际上是屏幕显示区的最顶端">
   
   
   <meta name="keywords" content="前端知识点集合" />
@@ -86,7 +83,7 @@ scrollIntoView
     </p>
   <p class="article-time">
     <time datetime="2015-11-19T07:03:01.000Z" itemprop="datePublished">2015-11-19</time>
-    更新日期:<time datetime="2017-02-17T03:13:09.000Z" itemprop="dateModified">2017-02-17</time>
+    更新日期:<time datetime="2017-02-17T06:14:06.000Z" itemprop="dateModified">2017-02-17</time>
     
   </p>
 </header>
@@ -97,12 +94,8 @@ scrollIntoView
 				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#getBoundingClientRect"><span class="toc-number">1.</span> <span class="toc-text">getBoundingClientRect</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scrollIntoView"><span class="toc-number">2.</span> <span class="toc-text">scrollIntoView</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#检查图片是否加在完"><span class="toc-number">3.</span> <span class="toc-text">检查图片是否加在完</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修复加载失败的图片"><span class="toc-number">4.</span> <span class="toc-text">修复加载失败的图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#回到顶部"><span class="toc-number">5.</span> <span class="toc-text">回到顶部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图片预加载"><span class="toc-number">6.</span> <span class="toc-text">图片预加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ajax调用错误处理"><span class="toc-number">7.</span> <span class="toc-text">ajax调用错误处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取用户输入keyCode"><span class="toc-number">8.</span> <span class="toc-text">获取用户输入keyCode</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Date在IE8以下版本的问题"><span class="toc-number">9.</span> <span class="toc-text">Date在IE8以下版本的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搜索框的值"><span class="toc-number">10.</span> <span class="toc-text">搜索框的值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部分刷新"><span class="toc-number">11.</span> <span class="toc-text">部分刷新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#密码强度"><span class="toc-number">12.</span> <span class="toc-text">密码强度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#滚动动态加载内容"><span class="toc-number">13.</span> <span class="toc-text">滚动动态加载内容</span></a></li></ol>
 			</div>
 		
-        <h4 id="getBoundingClientRect">getBoundingClientRect</h4><blockquote>
-<p>计算视口坐标,方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBoundingClientRect所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好，非常好用.</p>
-</blockquote>
-<h4 id="scrollIntoView">scrollIntoView</h4><blockquote>
-<p>可以让元素直接呈现到可视区域，实际上是屏幕显示区的最顶端<br><a id="more"></a></p>
-</blockquote>
+        <h4 id="getBoundingClientRect">getBoundingClientRect</h4><p>计算视口坐标,方法返回一个有left、right、top、bottom属性的对象，分别表示元素四个位置的相对于视口的坐标。getBoundingClientRect所返回的坐标包含元素的内边距和边框，不包含外边距。兼容性很好，非常好用.</p>
+<h4 id="scrollIntoView">scrollIntoView</h4><p>可以让元素直接呈现到可视区域，实际上是屏幕显示区的最顶端<br><a id="more"></a></p>
 <h4 id="检查图片是否加在完">检查图片是否加在完</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'img'</span>).load(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'load over'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h4 id="修复加载失败的图片">修复加载失败的图片</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'img'</span>).on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).prop(<span class="string">'src'</span>,<span class="string">'/default.png'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h4 id="回到顶部">回到顶部</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).animate(&#123;<span class="attr">scrollTop</span>:<span class="number">0</span>&#125;,<span class="number">1000</span>);</div></pre></td></tr></table></figure>

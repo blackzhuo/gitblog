@@ -12,11 +12,8 @@
   <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
   <meta name="author" content="黑卓">
   
-  <meta name="description" content="cheerio
-html页面抓取使用的module,可以像jquery一样去操作
-
-读取网页源码
-使用http.request或者http.get去下载网页源码，使用cheerio去抓取我们需要的内容。">
+  <meta name="description" content="cheeriohtml页面抓取使用的module,可以像jquery一样去操作
+读取网页源码使用http.request或者http.get去下载网页源码，使用cheerio去抓取我们需要的内容。">
   
   
   <meta name="keywords" content="nodejs网页抓取" />
@@ -86,7 +83,7 @@ html页面抓取使用的module,可以像jquery一样去操作
     </p>
   <p class="article-time">
     <time datetime="2015-11-06T07:03:01.000Z" itemprop="datePublished">2015-11-06</time>
-    更新日期:<time datetime="2017-02-17T03:13:09.000Z" itemprop="dateModified">2017-02-17</time>
+    更新日期:<time datetime="2017-02-17T06:23:34.000Z" itemprop="dateModified">2017-02-17</time>
     
   </p>
 </header>
@@ -97,15 +94,9 @@ html页面抓取使用的module,可以像jquery一样去操作
 				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#cheerio"><span class="toc-number">1.</span> <span class="toc-text">cheerio</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#读取网页源码"><span class="toc-number">2.</span> <span class="toc-text">读取网页源码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#保存图片"><span class="toc-number">3.</span> <span class="toc-text">保存图片</span></a></li></ol>
 			</div>
 		
-        <h4 id="cheerio">cheerio</h4><blockquote>
-<p>html页面抓取使用的module,可以像jquery一样去操作</p>
-</blockquote>
-<h4 id="读取网页源码">读取网页源码</h4><blockquote>
-<p>使用http.request或者http.get去下载网页源码，使用cheerio去抓取我们需要的内容。<br><a id="more"></a></p>
-</blockquote>
-<h4 id="保存图片">保存图片</h4><blockquote>
-<p>抓取到的图片地址<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">var</span> url = <span class="string">"http://123.png"</span>;</div><div class="line">http.get(url, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> imgBinary = <span class="string">""</span>;</div><div class="line">	res.setEncoding(<span class="string">"binary"</span>);</div><div class="line">	res.on(<span class="string">"data"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</div><div class="line">		imgBinary += chunk;</div><div class="line">	&#125;);</div><div class="line">	res.on(<span class="string">"end"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		fs.writeFile(<span class="string">"./logonew.png"</span>, imgBinary, <span class="string">"binary"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">			<span class="keyword">if</span> (err) &#123;</div><div class="line">				<span class="built_in">console</span>.log(<span class="string">"download fail"</span>);</div><div class="line">			&#125;</div><div class="line">			<span class="built_in">console</span>.log(<span class="string">"download success"</span>);</div><div class="line">		&#125;);</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-</blockquote>
+        <h4 id="cheerio">cheerio</h4><p>html页面抓取使用的module,可以像jquery一样去操作</p>
+<h4 id="读取网页源码">读取网页源码</h4><p>使用http.request或者http.get去下载网页源码，使用cheerio去抓取我们需要的内容。<br><a id="more"></a></p>
+<h4 id="保存图片">保存图片</h4><p>抓取到的图片地址<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line"><span class="keyword">var</span> url = <span class="string">"http://123.png"</span>;</div><div class="line">http.get(url, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> imgBinary = <span class="string">""</span>;</div><div class="line">	res.setEncoding(<span class="string">"binary"</span>);</div><div class="line">	res.on(<span class="string">"data"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>) </span>&#123;</div><div class="line">		imgBinary += chunk;</div><div class="line">	&#125;);</div><div class="line">	res.on(<span class="string">"end"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		fs.writeFile(<span class="string">"./logonew.png"</span>, imgBinary, <span class="string">"binary"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">			<span class="keyword">if</span> (err) &#123;</div><div class="line">				<span class="built_in">console</span>.log(<span class="string">"download fail"</span>);</div><div class="line">			&#125;</div><div class="line">			<span class="built_in">console</span>.log(<span class="string">"download success"</span>);</div><div class="line">		&#125;);</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 
     </div>
     <footer>

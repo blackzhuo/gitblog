@@ -82,7 +82,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-11-20T07:03:01.000Z" itemprop="datePublished">2015-11-20</time>
-    更新日期:<time datetime="2017-02-17T03:13:09.000Z" itemprop="dateModified">2017-02-17</time>
+    更新日期:<time datetime="2017-02-17T06:16:47.000Z" itemprop="dateModified">2017-02-17</time>
     
   </p>
 </header>
@@ -109,9 +109,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form id=<span class="string">'formSubmit'</span> action=<span class="string">'login.jsp'</span> method=<span class="string">'post'</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">style</span>=<span class="string">'display:none'</span> /&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">name</span>=<span class="string">'name'</span> <span class="attr">onkeydown</span>=<span class="string">'if(event.keyCode==13)&#123;bindSubmit();&#125;'</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<blockquote>
 <p>我们有时候希望回车键敲在文本框（input element）里来提交表单（form），但有时候又不希望如此。比如搜索行为，希望输入完关键词之后直接按回车键立即提交表单，<br>而有些复杂表单，可能要避免回车键误操作在未完成表单填写的时候就触发了表单提交。</p>
-</blockquote>
 <h4 id="要控制这些行为，不需要借助js，浏览器已经帮我们做了这些处理，这里总结几条规则：">要控制这些行为，不需要借助js，浏览器已经帮我们做了这些处理，这里总结几条规则：</h4><ul>
 <li>如果表单里有一个type=”submit”的按钮，回车键生效。</li>
 <li>如果表单里只有一个type=”text”的input，不管按钮是什么type，回车键生效。</li>

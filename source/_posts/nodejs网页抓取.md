@@ -4,14 +4,14 @@ tags: nodejs
 toc: true
 ---
 #### cheerio
->html页面抓取使用的module,可以像jquery一样去操作
+html页面抓取使用的module,可以像jquery一样去操作
 
 #### 读取网页源码
->使用http.request或者http.get去下载网页源码，使用cheerio去抓取我们需要的内容。
+使用http.request或者http.get去下载网页源码，使用cheerio去抓取我们需要的内容。
 <!--more-->
 
 #### 保存图片
->抓取到的图片地址
+抓取到的图片地址
 ```javascript
 var http = require("http");
 var fs = require("fs");

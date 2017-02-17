@@ -54,7 +54,7 @@ function getViewport(){
 通过 scrollHeight/clientHeight  和 scrollWidth/clientWidth中最大值可以获取到文档宽高
 
 ##### getBoundingClientRect() 
->返回四个属性 left top right bottom
+返回四个属性 left top right bottom
 
 实现
 ```javascript
