@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.xuerlove.com/"/>
-  <updated>2017-02-09T10:10:25.000Z</updated>
+  <updated>2017-02-17T03:13:09.000Z</updated>
   <id>http://www.xuerlove.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://www.xuerlove.com/2017/02/09/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7showslow/"/>
     <id>http://www.xuerlove.com/2017/02/09/网站性能监控showslow/</id>
     <published>2017-02-09T06:33:53.000Z</published>
-    <updated>2017-02-09T10:10:25.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<p>今天，性能是一个我们常谈的话题，网站性能的重要性不言而喻。<br><a href="https://github.com/sergeychernyshev/showslow/wiki" target="_blank" rel="external">showslow</a>是一个github上开源的，能够帮助我们监控网站性能的工具。我们可以使用yslow和pagespeed等工具生成分析结果并以图表的方式展现出来。从而全面了解我们网站有哪些方面需要改进。</p>
 <a id="more"></a>
 <h4 id="环境">环境</h4><ul>
@@ -59,7 +59,7 @@
     <link href="http://www.xuerlove.com/2017/02/09/%E5%AE%9E%E7%8E%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%E5%8A%9F%E8%83%BD/"/>
     <id>http://www.xuerlove.com/2017/02/09/实现发送邮件功能/</id>
     <published>2017-02-09T03:00:12.000Z</published>
-    <updated>2017-02-09T03:25:23.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<p>日常开发中，我们经常会有发送邮件的需求，无论是发送代码中的异常或者错误信息，还是发送一些网站数据，下面我们就动手去实现一下这个功能。</p>
 <a id="more"></a>
 <h5 id="nodejs">nodejs</h5><p>以发送163邮箱为例，使用nodemailer模块，这里用的版本是0.7.1，最新版本的参数稍有变更，请自行<a href="https://github.com/nodemailer/nodemailer" target="_blank" rel="external">前往</a>查看<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// "nodemailer": "0.7.1"</span></div><div class="line"><span class="keyword">import</span> nodemailer <span class="keyword">from</span> <span class="string">'nodemailer'</span>;</div><div class="line"></div><div class="line"><span class="keyword">let</span> smtpTransport = nodemailer.createTransport(<span class="string">"SMTP"</span>, &#123;</div><div class="line">  <span class="attr">host</span>: <span class="string">"smtp.163.com"</span>,</div><div class="line">  <span class="attr">secureConnection</span>: <span class="literal">true</span>,</div><div class="line">  <span class="attr">port</span>: <span class="number">465</span>,</div><div class="line">  <span class="attr">auth</span>: &#123;</div><div class="line">    <span class="attr">user</span>: <span class="string">"test@163.com"</span>,</div><div class="line">    <span class="attr">pass</span>: <span class="string">"test"</span> <span class="comment">// 使用客户端授权密码，在邮件设置中可以获取到</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">let</span> mailOptionsDefault = &#123;</div><div class="line">  <span class="attr">from</span>: <span class="string">"test &lt;test@163.com&gt;"</span>,</div><div class="line">  <span class="attr">to</span>: <span class="string">"test@test.com"</span>,</div><div class="line">  <span class="attr">subject</span>: <span class="string">"test"</span>,</div><div class="line">  <span class="attr">text</span>: <span class="string">"test"</span>,</div><div class="line">  <span class="attr">html</span>: <span class="string">"test"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendEmail</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  smtpTransport.sendMail(mailOptionsDefault, (error, response) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span>(error)&#123;</div><div class="line">      <span class="built_in">console</span>.log(error);</div><div class="line">    &#125; <span class="keyword">else</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">"Message sent: "</span> + response.message);</div><div class="line">    &#125;</div><div class="line">    smtpTransport.close();</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> &#123;</div><div class="line">  sendEmail</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -81,7 +81,7 @@
     <link href="http://www.xuerlove.com/2017/02/07/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AF%95%E9%A2%98%E9%9B%86/"/>
     <id>http://www.xuerlove.com/2017/02/07/前端笔试题集/</id>
     <published>2017-02-07T08:25:43.000Z</published>
-    <updated>2017-02-08T10:24:27.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="笔试题集">笔试题集</h4><h5 id="viewport禁止页面放大">viewport禁止页面放大</h5><p>通过设置页面meta标签viewport的值，可以设置页面的宽高度以及缩放行为</p>
 <ul>
 <li>initial-scale  设置页面初始缩放比例<br>＊ minimum-scale 设置缩放最小比例<br>＊ maximum-scale 设置缩放最大比例<br>＊ user-scalable 设置用户是否可以用手控制缩放<br>通过设置 initial-scale=1 user-scalable=no 或者 initial-scale=1 maximum-scale=1 禁止用户放大或者缩小网页。</li>
@@ -119,7 +119,7 @@
     <link href="http://www.xuerlove.com/2017/02/07/linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1/"/>
     <id>http://www.xuerlove.com/2017/02/07/linux下创建服务/</id>
     <published>2017-02-07T05:42:57.000Z</published>
-    <updated>2017-02-07T05:51:50.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="概述">概述</h4><p>我们通过在 /etc/init.d/ 目录下创建bash脚本，实现自定义服务，通过service命令，能够调用服务中的方法，通常一个服务存在 start stop restart status方法。<br><a id="more"></a></p>
 <h4 id="例如">例如</h4><p>test<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="comment"># chkconfig: 2345 20 81</span></div><div class="line"><span class="comment"># description: test</span></div><div class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></div><div class="line">  start)</div><div class="line">  <span class="built_in">echo</span> -n <span class="string">"starting test:"</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"OK"</span></div><div class="line">  ;;</div><div class="line">  stop)</div><div class="line">  <span class="built_in">echo</span> -n <span class="string">"shutdown test:"</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"OK"</span></div><div class="line">  ;;</div><div class="line">  status)</div><div class="line">  <span class="built_in">echo</span> <span class="string">"test instance is running..."</span></div><div class="line">  ;;</div><div class="line">  restart)</div><div class="line">  <span class="variable">$0</span> stop</div><div class="line">  <span class="variable">$0</span> start</div><div class="line">  ;;</div><div class="line">  *)</div><div class="line">  <span class="built_in">echo</span> <span class="string">"Usage:`basename <span class="variable">$0</span>` start|stop|status|restart"</span></div><div class="line"><span class="keyword">esac</span></div><div class="line"><span class="built_in">exit</span> $?</div></pre></td></tr></table></figure></p>
 <p>我们在 /etc/init.d/ 下面添加 test 脚本，然后给文件权限 sudo chmod -R 755, 之后我们就能够通过 </p>
@@ -147,7 +147,7 @@
     <link href="http://www.xuerlove.com/2016/11/03/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     <id>http://www.xuerlove.com/2016/11/03/微信小程序开发/</id>
     <published>2016-11-03T11:17:42.000Z</published>
-    <updated>2017-02-08T06:07:00.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h5 id="准备">准备</h5><ul>
 <li>开发环境<ul>
 <li><a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html" target="_blank" rel="external">下载开发工具</a></li>
@@ -223,7 +223,7 @@
     <link href="http://www.xuerlove.com/2016/11/02/nodejs%E5%88%A9%E7%94%A8session%E5%81%9A%E7%99%BB%E5%BD%95%E6%8E%A7%E5%88%B6/"/>
     <id>http://www.xuerlove.com/2016/11/02/nodejs利用session做登录控制/</id>
     <published>2016-11-02T12:53:28.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="background">background</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;登录的场景在我们日常应用中有很多，登录的实现过程大家都很清楚，无非就是拿着用户名密去数据库中查询，如果查到了就表示这个人是系统用户，可以登录并且使用系统。那么当用户访问系统页面的时候，我们怎么判断他是不是登录过了呢，这个时候就引出了session。<br>&nbsp; &nbsp;&nbsp;&nbsp;session翻译成会话，session的生命周期和浏览器的生命周期一致，session从创建的一刻起开始生效，浏览器关闭session销毁。session是客户端与服务器之间保持状态的解决方案。这种会话的匹配是通过cookie来实现的。</p>
 <a id="more"></a>
 <h4 id="express-session">express-session</h4><p>&nbsp; &nbsp;&nbsp;&nbsp;express-session是基于express框架的专门处理session的中间件，安装 <code>sudo npm install express-session --save</code> , session的解析过程需要用到cookieParser, 安装 <code>sudo npm install cookieParser --save</code> , 我们在使用的时候，只需要把express-session加入到中间件中，这样所有的路由就都能使用它了，我们可以在req.session中设置和读取session的值。</p>
@@ -266,7 +266,7 @@
     <link href="http://www.xuerlove.com/2016/10/31/nodejs-mongodb/"/>
     <id>http://www.xuerlove.com/2016/10/31/nodejs-mongodb/</id>
     <published>2016-10-31T12:53:27.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<p>这篇文章中，我们使用nodejs搭建简易服务器，然后开发一个登录过程中使用的增删改查接口，数据库使用mongoDB,操作数据库模块选用mongoose。</p>
 <h4 id="创建nodejs工程">创建nodejs工程</h4><blockquote>
 <p>npm init<br>创建package.json文件</p>
@@ -318,7 +318,7 @@
     <link href="http://www.xuerlove.com/2016/10/31/mongodb/"/>
     <id>http://www.xuerlove.com/2016/10/31/mongodb/</id>
     <published>2016-10-31T11:57:13.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="环境">环境</h4><ul>
 <li>centeros</li>
 </ul>
@@ -389,7 +389,7 @@
     <link href="http://www.xuerlove.com/2016/08/31/fetch/"/>
     <id>http://www.xuerlove.com/2016/08/31/fetch/</id>
     <published>2016-08-31T13:17:37.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h5 id="介绍">介绍</h5><ul>
 <li>遵循Promise解决方案</li>
 <li>XMLHttpRequest的替代者</li>
@@ -422,7 +422,7 @@
     <link href="http://www.xuerlove.com/2016/04/14/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     <id>http://www.xuerlove.com/2016/04/14/移动端开发性能优化/</id>
     <published>2016-04-14T02:43:35.000Z</published>
-    <updated>2017-02-09T04:24:13.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h5 id="介绍">介绍</h5><p>移动端这几年可以说发展的特别快，并且以绝对的优势超过了pc端，所以移动端的应用也越来越多，越来越重要。移动端不同于pc端，从设备的性能，网络差异，屏幕大小都有很大的差异，所以移动端的性能要尤为注意，力争我们的网站在移动端性能达到最佳。</p>
 <a id="more"></a>
 <h5 id="代码">代码</h5><p>从代码层面讲，务必做到精简，高效。移动端平台分ios android windows phone等，每个平台又有很多手机生产商，每种手机的性能又差异很大，还有些厂商还会自己定制浏览器内核，等等因素吧，导致了移动端经常出现各种差异性的表现，常常顾此失彼。那么就要求我们写的代码效率高一些，逻辑精简些，从程序层面减少因性能带来的问题，这是最好的方法去避免出现一些奇葩问题。还要做好一系列的异常处理措施，不要让代码出现报错的情况。减少dom操作，增加数据缓存机制，离线数据处理等，另外代码的精简也可以让页面下载资源的时间减少。</p>
@@ -464,7 +464,7 @@
     <link href="http://www.xuerlove.com/2016/04/14/reactjs%E5%BA%94%E7%94%A8/"/>
     <id>http://www.xuerlove.com/2016/04/14/reactjs应用/</id>
     <published>2016-04-14T02:42:32.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="reactjs">reactjs</h4><p>官方文档 <a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="external">http://reactjs.cn/react/docs/getting-started.html</a></p>
 <h5 id="引用reactjs框架">引用reactjs框架</h5><ul>
 <li>实时转换工具 <code>npm install -g react-tools</code> 启动命令 <code>jsx --watch src/ build/</code> （或者页面引入jsx编译工具）</li>
@@ -561,7 +561,7 @@
     <link href="http://www.xuerlove.com/2016/04/14/nodejs%E5%BC%80%E5%8F%91%E6%8E%A7%E5%88%B6%E5%8F%B0%E5%B7%A5%E5%85%B7/"/>
     <id>http://www.xuerlove.com/2016/04/14/nodejs开发控制台工具/</id>
     <published>2016-04-14T02:41:56.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="环境要求">环境要求</h4><ul>
 <li>nodejs</li>
 </ul>
@@ -611,7 +611,7 @@
     <link href="http://www.xuerlove.com/2016/04/14/npm%E5%8C%85%E5%BC%80%E5%8F%91/"/>
     <id>http://www.xuerlove.com/2016/04/14/npm包开发/</id>
     <published>2016-04-14T02:41:29.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="环境要求">环境要求</h4><ul>
 <li>nodejs</li>
 </ul>
@@ -667,7 +667,7 @@
     <link href="http://www.xuerlove.com/2016/04/14/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%83%E5%B1%80/"/>
     <id>http://www.xuerlove.com/2016/04/14/移动端布局/</id>
     <published>2016-04-14T02:39:45.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<ol>
 <li><p>黏性布局 POSITION:STICKY（通过判断支持该属性的浏览器使用该布局） – <a href="http://hao.jser.com/archive/7970/" target="_blank" rel="external">http://hao.jser.com/archive/7970/</a></p>
 <a id="more"></a>
@@ -692,7 +692,7 @@
     <link href="http://www.xuerlove.com/2015/11/25/%E5%8A%A8%E6%80%81%E8%84%9A%E6%9C%AC/"/>
     <id>http://www.xuerlove.com/2015/11/25/动态脚本/</id>
     <published>2015-11-25T07:03:01.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="动态加载js">动态加载js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span>(<span class="params">data,type</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</div><div class="line">	script.type = <span class="string">"text/javascript"</span>;</div><div class="line">	<span class="keyword">try</span>&#123;</div><div class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</div><div class="line">			script.appendChild(<span class="built_in">document</span>.createTextNode(data));</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			script.src = data;</div><div class="line">		&#125;</div><div class="line">	&#125;<span class="keyword">catch</span>(ex)&#123;</div><div class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</div><div class="line">			script.text = code</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			script.src = data;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">document</span>.body.appendChild(script);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="动态样式">动态样式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadStyle</span>(<span class="params">data,type</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> style = <span class="built_in">document</span>.createElement(<span class="string">"style"</span>);</div><div class="line">	style.type = <span class="string">"text/css"</span>;</div><div class="line">	<span class="keyword">try</span>&#123;</div><div class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</div><div class="line">			style.appendChild(<span class="built_in">document</span>.createTextNode(data));</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			style.href = data;</div><div class="line">		&#125;</div><div class="line">	&#125;<span class="keyword">catch</span>(ex)&#123;</div><div class="line">		<span class="keyword">if</span>(type === <span class="number">1</span>)&#123;</div><div class="line">			style.styleSheet.cssText = css;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			style.href = data;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>];</div><div class="line">	head.appendChild(style);</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
@@ -710,7 +710,7 @@
     <link href="http://www.xuerlove.com/2015/11/24/DOM%E6%93%8D%E4%BD%9C/"/>
     <id>http://www.xuerlove.com/2015/11/24/DOM操作/</id>
     <published>2015-11-24T07:03:01.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="Node">Node</h4><h5 id="操作节点">操作节点</h5><ul>
 <li>appendChild()<br>一个参数，要插入的节点</li>
 <li>insertBefore()<br>两个参数，要插入的节点和参照的节点</li>
@@ -825,7 +825,7 @@
     <link href="http://www.xuerlove.com/2015/11/23/shell%E5%9F%BA%E7%A1%80/"/>
     <id>http://www.xuerlove.com/2015/11/23/shell基础/</id>
     <published>2015-11-23T07:03:01.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="shell分类">shell分类</h4><ul>
 <li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
 <li>Bourne Again Shell（/bin/bash）</li>
@@ -956,7 +956,7 @@
     <link href="http://www.xuerlove.com/2015/11/22/%E4%BD%BF%E7%94%A8nproxy%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86/"/>
     <id>http://www.xuerlove.com/2015/11/22/使用nproxy实现本地代理/</id>
     <published>2015-11-22T07:03:01.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="安装">安装</h4><h5 id="先安装Node-js">先安装Node.js</h5><h5 id="安装nproxy">安装nproxy</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g nproxy</div></pre></td></tr></table></figure>
 <h5 id="nproxy介绍">nproxy介绍</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Options:</div><div class="line">    -h, --help               output usage information</div><div class="line">    -V, --version            output the version number</div><div class="line">    -l, --list [list]        Specify the replace rule file</div><div class="line">    -p, --port [port]        Specify the port</div><div class="line">    -t, --timeout [timeout]  Specify the request timeout(<span class="number">5</span> seconds by <span class="keyword">default</span>)</div><div class="line">    -d, --debug              Enable debug mode</div><div class="line">    -n, --networks           Display network interface list</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -980,11 +980,36 @@
   </entry>
   
   <entry>
+    <title><![CDATA[javascript面向对象相关]]></title>
+    <link href="http://www.xuerlove.com/2015/11/21/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3/"/>
+    <id>http://www.xuerlove.com/2015/11/21/javascript面向对象相关/</id>
+    <published>2015-11-21T07:03:01.000Z</published>
+    <updated>2017-02-17T03:13:09.000Z</updated>
+    <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="for_in循环">for in循环</h4><blockquote>
+<p>for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回</p>
+</blockquote>
+<p>####继承<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">	F.prototype = o;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType,superType</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> prototype = object(superType.prototype);</div><div class="line">	prototype.constructor = subType;</div><div class="line">	subType.prototype = prototype;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.color = [<span class="string">"red"</span>,<span class="string">"blue"</span>];</div><div class="line">&#125;</div><div class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">	SuperType.call(<span class="keyword">this</span>,name);</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line">inheritPrototype(SubType,SuperType);</div><div class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.age);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。</p>
+</blockquote>
+<h4 id="单例模式">单例模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> private = <span class="number">0</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">public</span>:<span class="literal">true</span>,</div><div class="line">		<span class="attr">publicFunc</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			private++;</div><div class="line">			<span class="keyword">return</span> privateFunc();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;();</div></pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://www.xuerlove.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[nginx配置https]]></title>
     <link href="http://www.xuerlove.com/2015/11/21/nginx%E9%85%8D%E7%BD%AEhttps/"/>
     <id>http://www.xuerlove.com/2015/11/21/nginx配置https/</id>
     <published>2015-11-21T07:03:01.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
+    <updated>2017-02-17T03:13:09.000Z</updated>
     <content type="html"><![CDATA[<h4 id="安装">安装</h4><h5 id="系统：centos">系统：centos</h5><ul>
 <li>wget下载</li>
 <li>tar 解压</li>
@@ -1022,31 +1047,6 @@
     </summary>
     
       <category term="web" scheme="http://www.xuerlove.com/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[javascript面向对象相关]]></title>
-    <link href="http://www.xuerlove.com/2015/11/21/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3/"/>
-    <id>http://www.xuerlove.com/2015/11/21/javascript面向对象相关/</id>
-    <published>2015-11-21T07:03:01.000Z</published>
-    <updated>2016-12-07T12:04:41.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="for_in循环">for in循环</h4><blockquote>
-<p>for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回</p>
-</blockquote>
-<p>####继承<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">	F.prototype = o;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType,superType</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> prototype = object(superType.prototype);</div><div class="line">	prototype.constructor = subType;</div><div class="line">	subType.prototype = prototype;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.color = [<span class="string">"red"</span>,<span class="string">"blue"</span>];</div><div class="line">&#125;</div><div class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">	SuperType.call(<span class="keyword">this</span>,name);</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line">inheritPrototype(SubType,SuperType);</div><div class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.age);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。</p>
-</blockquote>
-<h4 id="单例模式">单例模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> private = <span class="number">0</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">public</span>:<span class="literal">true</span>,</div><div class="line">		<span class="attr">publicFunc</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			private++;</div><div class="line">			<span class="keyword">return</span> privateFunc();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;();</div></pre></td></tr></table></figure>]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]>
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://www.xuerlove.com/tags/javascript/"/>
     
   </entry>
   
