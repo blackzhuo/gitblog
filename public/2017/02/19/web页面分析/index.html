@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>web页面分析 | 黑卓</title>
+  <meta name="Robots" content="index,follow,NOODP">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
+  <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
+  <meta name="author" content="黑卓">
+  
+  <meta name="description" content="web页面分析">
+  
+  
+  <meta name="keywords" content="web页面分析,webapp分析,页面分析,Lighthouse">
+  
+  <meta property="og:title" content="web页面分析"/>
+  <meta property="og:site_name" content="黑卓"/>
+  
+    <meta property="og:image" content="cover"/>
+  
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="黑卓" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="黑卓" title="黑卓"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">黑卓</h1>
+				<h2 class="blog-motto">Encode my life</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	web页面分析
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.xuerlove.com" title="黑卓">黑卓</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-02-19T13:24:03.000Z" itemprop="datePublished">2017-02-19</time>
+    更新日期:<time datetime="2017-02-20T12:15:06.000Z" itemprop="dateModified">2017-02-20</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#环境要求"><span class="toc-number">1.</span> <span class="toc-text">环境要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#setup"><span class="toc-number">2.</span> <span class="toc-text">setup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#use"><span class="toc-number">3.</span> <span class="toc-text">use</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#输出到控制台"><span class="toc-number">3.1.</span> <span class="toc-text">输出到控制台</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#输出到文件"><span class="toc-number">3.2.</span> <span class="toc-text">输出到文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#chrome真机调试"><span class="toc-number">3.3.</span> <span class="toc-text">chrome真机调试</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#编写程序测试"><span class="toc-number">3.4.</span> <span class="toc-text">编写程序测试</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#help"><span class="toc-number">4.</span> <span class="toc-text">help</span></a></li></ol>
+			</div>
+		
+        <p>webapp在我们日常生活中随处可见，性能问题也是常常谈起，有一个好的性能分析工具，收集展示平台，能够辅助我们去优化我们的页面。今天介绍一个github上开源的webapp以及web页面的分析工具<a href="https://github.com/GoogleChrome/lighthouse" target="_blank" rel="external">Lighthouse</a>。<br>Lighthouse能够分析web app以及web页面，能够收集现代性能指标以及给出最佳实践的建议。</p>
+<a id="more"></a>
+<h4 id="环境要求">环境要求</h4><p>Chrome 56+<br>NodeJs 6+</p>
+<h4 id="setup">setup</h4><p>npm install -g lighthouse</p>
+<h4 id="use">use</h4><h5 id="输出到控制台">输出到控制台</h5><p>使用控制台收集展示页面新能信息:<br>lighthouse <a href="https://baidu.com/" target="_blank" rel="external">https://baidu.com/</a><br>会打开chrome进行性能分析，页面加载过程截图以及数据收集</p>
+<h5 id="输出到文件">输出到文件</h5><p>lighthouse <a href="https://baidu.com" target="_blank" rel="external">https://baidu.com</a> –output-path=~/loginfo/foo.out –save-assets<br>会生成5个文件，包括性能分析的json数据文件，html展示页面，以及html截图文件等。</p>
+<h5 id="chrome真机调试">chrome真机调试</h5><p>adb forward tcp:9222 localabstract:chrome_devtools_remote<br>lighthouse –disable-device-emulation –disable-cpu-throttling <a href="https://baidu.com/" target="_blank" rel="external">https://baidu.com/</a></p>
+<h5 id="编写程序测试">编写程序测试</h5><p>使用nodejs编写程序进行真机测试<br>npm install lighthouse –save<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Lighthouse = <span class="built_in">require</span>(<span class="string">'lighthouse'</span>);</div><div class="line"><span class="keyword">const</span> ChromeLauncher = <span class="built_in">require</span>(<span class="string">'lighthouse/lighthouse-cli/chrome-launcher.js'</span>).ChromeLauncher;</div><div class="line"><span class="keyword">const</span> Printer = <span class="built_in">require</span>(<span class="string">'lighthouse/lighthouse-cli/printer'</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">launchChromeAndRunLighthouse</span>(<span class="params">url, flags, config</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> launcher = <span class="keyword">new</span> ChromeLauncher(&#123;<span class="attr">port</span>: <span class="number">9222</span>, <span class="attr">autoSelectChrome</span>: <span class="literal">true</span>&#125;);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> launcher.isDebuggerReady()</div><div class="line">    .catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">if</span> (flags.skipAutolaunch) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> launcher.run(); <span class="comment">// Launch Chrome.</span></div><div class="line">    &#125;)</div><div class="line">    .then(<span class="function"><span class="params">()</span> =&gt;</span> Lighthouse(url, flags, config)) <span class="comment">// Run Lighthouse.</span></div><div class="line">    .then(<span class="function"><span class="params">results</span> =&gt;</span> launcher.kill().then(<span class="function"><span class="params">()</span> =&gt;</span> results)) <span class="comment">// Kill Chrome and return results.</span></div><div class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</div><div class="line">      <span class="comment">// Kill Chrome if there's an error.</span></div><div class="line">      <span class="keyword">return</span> launcher.kill().then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">        <span class="keyword">throw</span> err;</div><div class="line">      &#125;, <span class="built_in">console</span>.err);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Use an existing config or create a custom one.</span></div><div class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">'lighthouse/lighthouse-core/config/perf.json'</span>);</div><div class="line"><span class="keyword">const</span> url = <span class="string">'https://example.com'</span>;</div><div class="line"><span class="keyword">const</span> flags = &#123;<span class="attr">output</span>: <span class="string">'html'</span>&#125;;</div><div class="line"></div><div class="line">launchChromeAndRunLighthouse(url, flags, config).then(<span class="function"><span class="params">lighthouseResults</span> =&gt;</span> &#123;</div><div class="line">  lighthouseResults.artifacts = <span class="literal">undefined</span>; <span class="comment">// You can save the artifacts separately if so desired</span></div><div class="line">  <span class="keyword">return</span> Printer.write(lighthouseResults, flags.output);</div><div class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> <span class="built_in">console</span>.error(err));</div></pre></td></tr></table></figure></p>
+<p>获取页面评分<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getOverallScore</span>(<span class="params">lighthouseResults</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> scoredAggregations = lighthouseResults.aggregations.filter(<span class="function"><span class="params">a</span> =&gt;</span> a.scored);</div><div class="line">  <span class="keyword">const</span> total = scoredAggregations.reduce(<span class="function">(<span class="params">sum, aggregation</span>) =&gt;</span> sum + aggregation.total, <span class="number">0</span>);</div><div class="line">  <span class="keyword">return</span> (total / scoredAggregations.length) * <span class="number">100</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="help">help</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">amos@ubuntu:~$ lighthouse --help</div><div class="line">lighthouse url</div><div class="line"></div><div class="line">Logging:</div><div class="line">  --verbose  Displays verbose logging                                  [boolean]</div><div class="line">  --quiet    Displays no progress, debug logs or errors                [boolean]</div><div class="line"></div><div class="line">Configuration:</div><div class="line">  --save-assets            Save the trace contents &amp; screenshots to disk</div><div class="line">                                                                       [boolean]</div><div class="line">  --save-artifacts         Save all gathered artifacts to disk         [boolean]</div><div class="line">  --list-all-audits        Prints a list of all available audits and exits</div><div class="line">                                                                       [boolean]</div><div class="line">  --list-trace-categories  Prints a list of all required trace categories and</div><div class="line">                           exits                                       [boolean]</div><div class="line">  --config-path            The path to the config JSON.</div><div class="line">  --perf                   Use a performance-test-only configuration   [boolean]</div><div class="line">  --port                   The port to use <span class="keyword">for</span> the debugging protocol. Use 0 <span class="keyword">for</span></div><div class="line">                           a random port                          [默认值: 9222]</div><div class="line"></div><div class="line">Output:</div><div class="line">  --output       Reporter <span class="keyword">for</span> the results</div><div class="line">                           [可选值: <span class="string">"pretty"</span>, <span class="string">"json"</span>, <span class="string">"html"</span>] [默认值: <span class="string">"pretty"</span>]</div><div class="line">  --output-path  The file path to output the results</div><div class="line">                 Example: --output-path=./lighthouse-results.html</div><div class="line">                                                              [默认值: <span class="string">"stdout"</span>]</div><div class="line"></div><div class="line">选项：</div><div class="line">  --help                        显示帮助信息                           [boolean]</div><div class="line">  --version                     显示版本号                             [boolean]</div><div class="line">  --disable-device-emulation    Disable Nexus 5X emulation             [boolean]</div><div class="line">  --disable-cpu-throttling      Disable CPU throttling  [boolean] [默认值: <span class="literal">true</span>]</div><div class="line">  --disable-network-throttling  Disable network throttling             [boolean]</div><div class="line">  --skip-autolaunch             Skip autolaunch of Chrome when already running</div><div class="line">                                instance is not found                  [boolean]</div><div class="line">  --select-chrome               Interactively choose version of Chrome to use</div><div class="line">                                when multiple installations are found  [boolean]</div><div class="line">  --interactive                 Open Lighthouse <span class="keyword">in</span> interactive mode    [boolean]</div></pre></td></tr></table></figure>
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/web/">web</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    
+    <a href="/2017/02/09/网站性能监控showslow/" class="alignright next" title="网站性能监控showslow">网站性能监控showslow</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2017/02/19/web页面分析/" data-title="web页面分析" data-url="http://www.xuerlove.com/2017/02/19/web页面分析/"></div>
+		<!-- 多说评论框 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- 
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.xuerlove.com">
+  </form>
+</div>
+-->
+<div class="search">
+    <input type="search" id="chillax-search-input" placeholder="搜索">
+</div>
+<script type="text/javascript">
+    var cse;
+    
+    //处理结果回调函数示例
+    function display (data) {
+        console.log(data);
+    }
+
+    //初始化回调函数示例
+    function init () {
+        cse = new BCse.Search("12392821776104440786");    //参数为您的API引擎ID，已自动填写，必需。
+    }
+
+    function loadScript () { 
+        var script = document.createElement("script"); 
+        script.type = "text/javascript";
+        script.charset = "utf-8";
+        script.src = "http://zhannei.baidu.com/api/customsearch/apiaccept?sid=12392821776104440786&v=2.0&callback=init";
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(script, s);
+    }
+
+    loadScript();
+
+    $('#chillax-search-input').on('keydown', function(evt){
+		evt =  evt || window.event;
+		var key = evt.keyCode || evt.which;
+    	if (key === 13) {
+            evt.preventDefault();
+            var val = $('#chillax-search-input').val();
+	    	if(cse && val){
+	    		cse.getResult(val, display);
+	    	}
+        }
+    });
+</script>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 18px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 20px;">web</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1761611997&verifier=58d84e73&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="https://alisa1124.github.io/" title="橙子blog" target="_blank">橙子blog</a></li>
+<li><a href="http://home.cnblogs.com/u/alisalixue/" title="橙子Alisa" target="_blank">橙子Alisa</a></li>
+<li><a href="http://blog.csdn.net/CoderYue" title="CoderYue" target="_blank">CoderYue</a></li>
+<li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
+<li><a href="http://home.cnblogs.com/u/wuzhuo/" title="彼岸小山" target="_blank">彼岸小山</a></li>
+<li><a href="http://home.cnblogs.com/u/xiaoxueqiu/" title="筱雪球" target="_blank">筱雪球</a></li>
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>4</small></li>
+  
+    <li><a href="/tags/nodejs/">nodejs</a><small>16</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>7</small></li>
+  
+    <li><a href="/tags/tools/">tools</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>23</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Never stop.  <br/>
+			Never give up.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1761611997" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/blackzhuo" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/wuzhuo0425" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:wuzhuo0425@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright"> © 2017 
+		
+		<a href="http://www.xuerlove.com/about" target="_blank" title="黑卓">黑卓</a>
+		
+		</p>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>   
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<!-- <script src="/js/counter.js"></script> -->
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!--
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
+</script>
+-->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuerlove"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
