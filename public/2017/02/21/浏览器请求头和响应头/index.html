@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>浏览器请求头和响应头 | 黑卓</title>
+  <meta name="Robots" content="index,follow,NOODP">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
+  <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
+  <meta name="author" content="黑卓">
+  
+  <meta name="description" content="浏览器请求头和响应头">
+  
+  
+  <meta name="keywords" content="浏览器请求头和响应头">
+  
+  <meta property="og:title" content="浏览器请求头和响应头"/>
+  <meta property="og:site_name" content="黑卓"/>
+  
+    <meta property="og:image" content="cover"/>
+  
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="黑卓" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="黑卓" title="黑卓"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">黑卓</h1>
+				<h2 class="blog-motto">Encode my life</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	浏览器请求头和响应头
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.xuerlove.com" title="黑卓">黑卓</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-02-21T11:21:01.000Z" itemprop="datePublished">2017-02-21</time>
+    更新日期:<time datetime="2017-02-24T03:59:19.000Z" itemprop="dateModified">2017-02-24</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#common_headers"><span class="toc-number">1.</span> <span class="toc-text">common headers</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#request_headers"><span class="toc-number">2.</span> <span class="toc-text">request headers</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#response_headers"><span class="toc-number">3.</span> <span class="toc-text">response headers</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#应用"><span class="toc-number">4.</span> <span class="toc-text">应用</span></a></li></ol>
+			</div>
+		
+        <p>前端开发要经常和页面打交道，我们使用浏览器访问一个页面的时候，要把请求头发送给服务器，然后服务器会返回一个响应头，在请求头和响应头中包含着大量有用的信息，它们能够传递数据，能够指导浏览器行为等等，接下来我们就一起看看，请求头和响应头中都包含了哪些信息，以及各自的作用是什么，我们可以利用这些信息做些什么。</p>
+<a id="more"></a>
+<h5 id="common_headers">common headers</h5><p>Cache-Control 缓存控制</p>
+<pre><code>* 请求头: no-cache、no-store、<span class="built_in">max</span>-age、 <span class="built_in">max</span>-stale、<span class="built_in">min</span>-fresh、<span class="keyword">only</span>-<span class="keyword">if</span>-cached
+* 响应头: <span class="keyword">public</span>、<span class="keyword">private</span>、no-cache、no- store、no-transform、must-revalidate、proxy-revalidate、<span class="built_in">max</span>-age
+* no-cache：不缓存
+</code></pre><p>　　    <em> no-store：删除缓存
+　　     </em> max-age：缓存超时时间<br>　　    <em> min-fresh：未来多长时间内要保持内容一致最新
+　　    </em> max-stale：客户端可以接收过期响应消息<br>　　    <em> only-if-cached：只有当缓存中有副本存在时，客户端才会获得一份副本。
+　　    </em> Public：缓存内容<br>　　    * Private：不能被共享缓存处理<br>Pragma 缓存控制 http 1.0 的属性，作用同Cahce-Control<br>Connection 连接方式,表示是否需要持久连接</p>
+<pre><code><span class="bullet">* </span>Close 请求完成后立即关闭
+<span class="bullet">* </span>Keepalive 请求完成后不要关闭 ，等待后续的请求
+<span class="bullet">* </span>Keep-Alive 请求关闭的时间
+</code></pre><p>Date 当前的GMT时间<br>Transfer-Encoding 响应消息体编码方式<br>Upgrade 指定另一种可能完全不同的协议，主要用来测试是否支持其他版本的协议<br>Via 列出途经代理服务器</p>
+<h5 id="request_headers">request headers</h5><p>Accept 客户端接受文件类型<br>Accept-Charset 客户端接受的字符集<br>Accept-Encoding 指定可接受的内容编码<br>Accept-Language 指定可接受自然语言<br>Authorization 授权信息<br>Host URL中的主机和端口<br>User-Agent 浏览器类型<br>Cookie 存储一些网站信息获取用户信息<br>Content-Length 请求消息的长度<br>Referer 从哪个url到当前页面的<br>If-Match ETag没有改变才执行请求的动作<br>If-None-Match ETag改变了才执行请求的动作<br>If-Modified-Since 请求的对象在该头部指定的时间之后修改了，才执行请求的动作<br>If-Unmodified-Since 请求的对象在该头部指定的时间之后没修改过，才执行请求的动作<br>If-Range 浏览器告诉 WEB 服务器，如果我请求的对象没有改变，就把我缺少的部分给我，如果对象改变了，就把整个对象给我<br>Range 浏览器告诉 WEB 服务器自己想取对象的哪部分。<br>Proxy-Authenticate 代理服务器响应浏览器，要求其提供代理身份验证信息。<br>Proxy-Authorization 浏览器响应代理服务器的身份验证请求，提供自己的身份信息。</p>
+<h5 id="response_headers">response headers</h5><p>Allow 服务器支持请求方法<br>Content-Encoding 文档的编码方法<br>Content-Type 文档类型<br>Content-Length 文档大小<br>Etag 对象的标志值<br>Expires 文档过期时间<br>Last-Modified 文档的最后改动时间<br>Location 浏览器应当到哪里去提取文档<br>Refresh 浏览器多少时间之后刷新文档<br>Age 当代理服务器用自己缓存的实体去响应请求时，用该头部表明该实体从产生到现在经过多长时间了。<br>Server　WEB 服务器表明自己是什么软件及版本等信息。<br>Accept-Ranges WEB服务器表明自己是否接受获取其某个实体的一部分的请求。<br>Vary WEB服务器用该头部的内容告诉 Cache 服务器，在什么条件下才能用本响应所返回的对象响应后续的请求。</p>
+<h5 id="应用">应用</h5><p>我们可以使用缓存的控制，合理的控制页面的缓存，减少服务器压力，减少页面响应时间。<br>通过头部信息方便我们拿到一些有用的数据，例如ip,ua,referer等。</p>
+
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/web/">web</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2017/02/23/函数消抖和函数截流/" class="alignleft prev" title="函数消抖和函数截流">函数消抖和函数截流</a>
+    
+    
+    <a href="/2017/02/21/浏览器输入url后发生了什么/" class="alignright next" title="浏览器输入url后发生了什么">浏览器输入url后发生了什么</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2017/02/21/浏览器请求头和响应头/" data-title="浏览器请求头和响应头" data-url="http://www.xuerlove.com/2017/02/21/浏览器请求头和响应头/"></div>
+		<!-- 多说评论框 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- 
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.xuerlove.com">
+  </form>
+</div>
+-->
+<div class="search">
+    <input type="search" id="chillax-search-input" placeholder="搜索">
+</div>
+<script type="text/javascript">
+    var cse;
+    
+    //处理结果回调函数示例
+    function display (data) {
+        console.log(data);
+    }
+
+    //初始化回调函数示例
+    function init () {
+        cse = new BCse.Search("12392821776104440786");    //参数为您的API引擎ID，已自动填写，必需。
+    }
+
+    function loadScript () { 
+        var script = document.createElement("script"); 
+        script.type = "text/javascript";
+        script.charset = "utf-8";
+        script.src = "http://zhannei.baidu.com/api/customsearch/apiaccept?sid=12392821776104440786&v=2.0&callback=init";
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(script, s);
+    }
+
+    loadScript();
+
+    $('#chillax-search-input').on('keydown', function(evt){
+		evt =  evt || window.event;
+		var key = evt.keyCode || evt.which;
+    	if (key === 13) {
+            evt.preventDefault();
+            var val = $('#chillax-search-input').val();
+	    	if(cse && val){
+	    		cse.getResult(val, display);
+	    	}
+        }
+    });
+</script>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 18px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 20px;">web</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1761611997&verifier=58d84e73&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="https://alisa1124.github.io/" title="橙子blog" target="_blank">橙子blog</a></li>
+<li><a href="http://home.cnblogs.com/u/alisalixue/" title="橙子Alisa" target="_blank">橙子Alisa</a></li>
+<li><a href="http://blog.csdn.net/CoderYue" title="CoderYue" target="_blank">CoderYue</a></li>
+<li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
+<li><a href="http://home.cnblogs.com/u/wuzhuo/" title="彼岸小山" target="_blank">彼岸小山</a></li>
+<li><a href="http://home.cnblogs.com/u/xiaoxueqiu/" title="筱雪球" target="_blank">筱雪球</a></li>
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>4</small></li>
+  
+    <li><a href="/tags/nodejs/">nodejs</a><small>16</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>7</small></li>
+  
+    <li><a href="/tags/tools/">tools</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Never stop.  <br/>
+			Never give up.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1761611997" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/blackzhuo" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/wuzhuo0425" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:wuzhuo0425@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright"> © 2017 
+		
+		<a href="http://www.xuerlove.com/about" target="_blank" title="黑卓">黑卓</a>
+		
+		</p>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>   
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<!-- <script src="/js/counter.js"></script> -->
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!--
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
+</script>
+-->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuerlove"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

@@ -75,6 +75,146 @@
   <div class="post-content">
     <header>
       
+        <time datetime="2015-11-04T07:03:01.000Z"><a href="/2015/11/04/javascript变量提升与函数声明/">2015-11-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/04/javascript变量提升与函数声明/">javascript变量提升与函数声明</a></h1>
+  
+
+    </header>
+    <div class="entry">
+		<h4 id="变量提升">变量提升</h4><ul>
+<li>我们在声明变量的时候，这个变量声明会在当前作用域内提升到最前面去声明</li>
+</ul>
+<h4 id="函数声明">函数声明</h4><ul>
+<li>函数声明有两种方式，一种就是使用function，另一种就是匿名函数赋值给一个变量 
+    </div>
+    <footer>
+		<div class="alignleft">
+		<a href="/2015/11/04/javascript变量提升与函数声明/#more" class="more-link">Read more</a>
+		</div>
+    <div class="comments-count">
+       <a href="/2015/11/04/javascript变量提升与函数声明/#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="2015/11/04/javascript变量提升与函数声明/" data-count-type="comments"></span>
+       </a>
+    </div>
+    
+    <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2015-11-03T07:03:01.000Z"><a href="/2015/11/03/javascript实现继承/">2015-11-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/03/javascript实现继承/">javascript实现继承</a></h1>
+  
+
+    </header>
+    <div class="entry">
+		<h4 id="继承">继承</h4><ul>
+<li>很多语言中都有继承，javascript和其他java等语言不同，他不是一门面向对象的语言，但是他的所有的东西却又都是对象，下面就实现一个继承 
+    </div>
+    <footer>
+		<div class="alignleft">
+		<a href="/2015/11/03/javascript实现继承/#more" class="more-link">Read more</a>
+		</div>
+    <div class="comments-count">
+       <a href="/2015/11/03/javascript实现继承/#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="2015/11/03/javascript实现继承/" data-count-type="comments"></span>
+       </a>
+    </div>
+    
+    <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2015-11-02T07:03:01.000Z"><a href="/2015/11/02/爬虫/">2015-11-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/02/爬虫/">爬虫</a></h1>
+  
+
+    </header>
+    <div class="entry">
+		<h4 id="phantomjs">phantomjs</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">var webPage = require(<span class="string">'webpage'</span>).create();</div><div class="line">var fs = require(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line">var url = <span class="string">'www.test.com'</span>;</div><div class="line">var downloadPath = <span class="string">'/home/test/'</span>;</div><div class="line">var dom = <span class="string">'#js_test'</span>;</div><div class="line"></div><div class="line">webPage.open(url, function(status) &#123;</div><div class="line">	<span class="keyword">if</span> (status !== <span class="string">'success'</span>) &#123;</div><div class="line">		console.log(<span class="string">'err'</span>);</div><div class="line">		phantom.exit(<span class="number">1</span>);</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	var html = webPage.evaluate(function() &#123;</div><div class="line">		<span class="keyword">return</span> document.querySelector(dom).innerHTML;</div><div class="line">	&#125;);</div><div class="line">	var dateStr = (<span class="keyword">new</span> Date()).getTime();</div><div class="line">	fs.write(downloadPath + dateStr + <span class="string">'.html'</span>, html,</div><div class="line">			<span class="string">'w'</span>);</div><div class="line">	console.log(<span class="string">'success'</span>);</div><div class="line">	phantom.exit(<span class="number">1</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure> 
+    </div>
+    <footer>
+		<div class="alignleft">
+		<a href="/2015/11/02/爬虫/#more" class="more-link">Read more</a>
+		</div>
+    <div class="comments-count">
+       <a href="/2015/11/02/爬虫/#comment" class="icon-comment">
+        <span class="ds-thread-count" data-thread-key="2015/11/02/爬虫/" data-count-type="comments"></span>
+       </a>
+    </div>
+    
+    <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
         <time datetime="2015-11-01T07:03:01.000Z"><a href="/2015/11/01/NodeJs搭建静态资源服务器/">2015-11-01</a></time>
       
       
@@ -382,156 +522,6 @@
 
 
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2015-10-25T07:03:01.000Z"><a href="/2015/10/25/延迟加载解决方案/">2015-10-25</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/10/25/延迟加载解决方案/">延迟加载解决方案</a></h1>
-  
-
-    </header>
-    <div class="entry">
-		<h4 id="图片">图片</h4><ul>
-<li>给图片添加data-lazy等标签，放图片url,等页面加载完再去做替换，不会阻塞页面onload。</li>
-<li>同样像上面那样，但是等到页面滚动到特殊位置的时候，才去加载对应图片，实现懒加载。</li>
-<li>对于一些大图，我们还可以先给他一个质量低的图片，然后用js创建image对象，给它赋值src,监听它的onload事件，加载完后把url赋给img标签,实现预加载。</li>
-<li>jquery的lazyload插件，给图片设置data-original类似的标签，可以实现懒加载。 
-    </div>
-    <footer>
-		<div class="alignleft">
-		<a href="/2015/10/25/延迟加载解决方案/#more" class="more-link">Read more</a>
-		</div>
-    <div class="comments-count">
-       <a href="/2015/10/25/延迟加载解决方案/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/10/25/延迟加载解决方案/" data-count-type="comments"></span>
-       </a>
-    </div>
-    
-    <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2015-10-24T07:03:01.000Z"><a href="/2015/10/24/javascript脚本执行对页面加载的影响/">2015-10-24</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/10/24/javascript脚本执行对页面加载的影响/">javascript脚本执行对页面加载的影响</a></h1>
-  
-
-    </header>
-    <div class="entry">
-		<h4 id="javascript加载会对页面加载产生什么影响呢？">javascript加载会对页面加载产生什么影响呢？</h4><h5 id="我们在代码中添加几种脚本">我们在代码中添加几种脚本</h5><ul>
-<li>header中行内 无defer async，async，defer这三种</li>
-<li>header中外部 无defer async，async，defer这三种</li>
-<li>body中同上面，并且body中增加动态添加脚本，动态添加分为两类，直接在脚本中append，另一种是ajax异步去apped.<br>脚本中都执行了一段计算的代码，执行起来耗时几秒 
-    </div>
-    <footer>
-		<div class="alignleft">
-		<a href="/2015/10/24/javascript脚本执行对页面加载的影响/#more" class="more-link">Read more</a>
-		</div>
-    <div class="comments-count">
-       <a href="/2015/10/24/javascript脚本执行对页面加载的影响/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/10/24/javascript脚本执行对页面加载的影响/" data-count-type="comments"></span>
-       </a>
-    </div>
-    
-    <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2015-10-23T07:03:01.000Z"><a href="/2015/10/23/页面脚本加载分析/">2015-10-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/10/23/页面脚本加载分析/">页面脚本加载分析</a></h1>
-  
-
-    </header>
-    <div class="entry">
-		<h4 id="今天结合demo，说说页面加载过程中，脚本对加载速度的影响">今天结合demo，说说页面加载过程中，脚本对加载速度的影响</h4><h5 id="脚本分为几种情况">脚本分为几种情况</h5><ol>
-<li>header内行内async脚本</li>
-<li>header内行内defer脚本</li>
-<li>header内行内五defer async脚本</li>
-<li>header内外部async脚本</li>
-<li>header内外部defer脚本</li>
-<li>header内外部无async defer脚本</li>
-<li>ajax请求，接口延迟返回</li>
-<li>body内脚本情况类似，多一些图片，其中包括延迟返回图片的地址 
-    </div>
-    <footer>
-		<div class="alignleft">
-		<a href="/2015/10/23/页面脚本加载分析/#more" class="more-link">Read more</a>
-		</div>
-    <div class="comments-count">
-       <a href="/2015/10/23/页面脚本加载分析/#comment" class="icon-comment">
-        <span class="ds-thread-count" data-thread-key="2015/10/23/页面脚本加载分析/" data-count-type="comments"></span>
-       </a>
-    </div>
-    
-    <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
 
 
     <nav id="page-navs">
@@ -631,7 +621,7 @@
   
     <li><a href="/tags/tools/">tools</a><small>1</small></li>
   
-    <li><a href="/tags/web/">web</a><small>23</small></li>
+    <li><a href="/tags/web/">web</a><small>26</small></li>
   
   </ul>
 </div>

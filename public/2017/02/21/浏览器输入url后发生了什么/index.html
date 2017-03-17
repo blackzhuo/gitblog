@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>浏览器输入url后发生了什么 | 黑卓</title>
+  <meta name="Robots" content="index,follow,NOODP">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
+  <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
+  <meta name="author" content="黑卓">
+  
+  <meta name="description" content="浏览器输入url后发生了什么">
+  
+  
+  <meta name="keywords" content="浏览器输入url后发生了什么">
+  
+  <meta property="og:title" content="浏览器输入url后发生了什么"/>
+  <meta property="og:site_name" content="黑卓"/>
+  
+    <meta property="og:image" content="cover"/>
+  
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="黑卓" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=" charset="UTF-8"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="黑卓" title="黑卓"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">黑卓</h1>
+				<h2 class="blog-motto">Encode my life</h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
+</div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	浏览器输入url后发生了什么
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.xuerlove.com" title="黑卓">黑卓</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-02-21T11:20:35.000Z" itemprop="datePublished">2017-02-21</time>
+    更新日期:<time datetime="2017-03-08T12:42:00.000Z" itemprop="dateModified">2017-03-08</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+			<div id="toc" class="toc-article">
+				<strong class="toc-title">文章目录</strong>
+				<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#输入一个网址"><span class="toc-number">1.</span> <span class="toc-text">输入一个网址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缓存判断"><span class="toc-number">2.</span> <span class="toc-text">缓存判断</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ip查找"><span class="toc-number">3.</span> <span class="toc-text">ip查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#发送Http请求"><span class="toc-number">4.</span> <span class="toc-text">发送Http请求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#永久重定向"><span class="toc-number">5.</span> <span class="toc-text">永久重定向</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#跟踪重定向地址"><span class="toc-number">6.</span> <span class="toc-text">跟踪重定向地址</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#服务器处理请求"><span class="toc-number">7.</span> <span class="toc-text">服务器处理请求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#服务器返回请求结果"><span class="toc-number">8.</span> <span class="toc-text">服务器返回请求结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#浏览器渲染Html"><span class="toc-number">9.</span> <span class="toc-text">浏览器渲染Html</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#请求页面资源"><span class="toc-number">10.</span> <span class="toc-text">请求页面资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#发送交互请求"><span class="toc-number">11.</span> <span class="toc-text">发送交互请求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#页面加载完成"><span class="toc-number">12.</span> <span class="toc-text">页面加载完成</span></a></li></ol>
+			</div>
+		
+        <p>日常生活中，我们经常使用浏览器浏览网页，在地址栏输入一个网址，然后敲回车，接着一个网页就呈现在浏览器中了，那么从输入页面地址到我们看到页面，这中间都发生了什么呢？接下来我们就一起去分析一下。</p>
+<a id="more"></a>
+<h5 id="输入一个网址">输入一个网址</h5><p>在浏览器地址栏中输入一个网址 xuerlove.com</p>
+<h5 id="缓存判断">缓存判断</h5><p>浏览器会去浏览器缓存文件中查找对应网址的缓存文件，如果找到了缓存的文件，查看缓存文件的响应头信息，根据Last-Modified时间，Expires时间或者Cache-Control max-age的时间去判断缓存是否过期，如果没有过期则返回一个 200 frome cache 的状态码，然后使用缓存的文件，接下来浏览器加载，解析，渲染等等。<br>如果缓存过期了，或者根本就没有缓存，这时候就往下执行。</p>
+<h5 id="ip查找">ip查找</h5><p>获取域名所对应的ip地址</p>
+<ul>
+<li>浏览器缓存</li>
+<li>本地缓存</li>
+<li>路由器缓存</li>
+<li>DNS服务器查找<br>经过这么多步骤，最终会获取到服务器的ip地址，我们要请求的服务就在那台机器上面。</li>
+</ul>
+<h5 id="发送Http请求">发送Http请求</h5><p>接着浏览器向服务器发送一个http请求，带着请求头和请求体<br>如果是http请求，客户端和服务端经过三次握手，第一次客户端向服务端发送一个包，第二次服务端收到包后响应已经收到包，并且发送给客户端一个包，第三次客户端接收到确认消息并且收到服务器发来的包，向服务器再发送一个确认包，发完后，客户端和服务器进入连接状态，完成了三次握手。<br>如果是https请求，还要多一个SSL层。</p>
+<h5 id="永久重定向">永久重定向</h5><p>服务器返回301永久重定向地址 xuerlove.com 到 www.xuerlove.com，这一步是为了seo友好而做的，服务器可以判断为一级域名，给补全www,是为了让搜索引擎统计访问量的时候，都统计到一个地址上，有利于排名。</p>
+<h5 id="跟踪重定向地址">跟踪重定向地址</h5><p>客户端继续向www.xuerlove.com发送一个同样的http请求</p>
+<h5 id="服务器处理请求">服务器处理请求</h5><p>服务器接收到请求后根据请求头中的If-None-Match,If-Modified-Since去判断要返回的文件是否变更过，如果没有变更，则向浏览器返回304 not modify,浏览器接收到响应后会继续使用缓存的文件，然后更新Last-Modify，expires, max-age时间，接下来浏览器加载，解析，渲染等等。</p>
+<h5 id="服务器返回请求结果">服务器返回请求结果</h5><p>如果服务器的文件修改过，服务器向浏览器返回页面结果，返回新的ETag和Last-Modify值，如果是动态页面，服务器会通过计算，生成最后要返回的文件。</p>
+<h5 id="浏览器渲染Html">浏览器渲染Html</h5><p>浏览器加载页面，渲染DOM树</p>
+<h5 id="请求页面资源">请求页面资源</h5><p>渲染的过程中遇到资源标签，会去请求各种资源，下载下来css后，会去生成CSSOM树，然后布局以及绘制。下载完js后会在domReady后会去执行js，脚本可能会动态处理页面。</p>
+<h5 id="发送交互请求">发送交互请求</h5><p>js脚本中可能发起一些异步请求，然后去完成对页面的一些渲染。</p>
+<h5 id="页面加载完成">页面加载完成</h5><p>一个完整的页面就处理完呈现出来了。</p>
+
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/web/">web</a>
+  </div>
+
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
+<script>
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
+	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2017/02/21/浏览器请求头和响应头/" class="alignleft prev" title="浏览器请求头和响应头">浏览器请求头和响应头</a>
+    
+    
+    <a href="/2017/02/19/web页面分析/" class="alignright next" title="web页面分析">web页面分析</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2017/02/21/浏览器输入url后发生了什么/" data-title="浏览器输入url后发生了什么" data-url="http://www.xuerlove.com/2017/02/21/浏览器输入url后发生了什么/"></div>
+		<!-- 多说评论框 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <!-- 
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:www.xuerlove.com">
+  </form>
+</div>
+-->
+<div class="search">
+    <input type="search" id="chillax-search-input" placeholder="搜索">
+</div>
+<script type="text/javascript">
+    var cse;
+    
+    //处理结果回调函数示例
+    function display (data) {
+        console.log(data);
+    }
+
+    //初始化回调函数示例
+    function init () {
+        cse = new BCse.Search("12392821776104440786");    //参数为您的API引擎ID，已自动填写，必需。
+    }
+
+    function loadScript () { 
+        var script = document.createElement("script"); 
+        script.type = "text/javascript";
+        script.charset = "utf-8";
+        script.src = "http://zhannei.baidu.com/api/customsearch/apiaccept?sid=12392821776104440786&v=2.0&callback=init";
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(script, s);
+    }
+
+    loadScript();
+
+    $('#chillax-search-input').on('keydown', function(evt){
+		evt =  evt || window.event;
+		var key = evt.keyCode || evt.which;
+    	if (key === 13) {
+            evt.preventDefault();
+            var val = $('#chillax-search-input').val();
+	    	if(cse && val){
+	    		cse.getResult(val, display);
+	    	}
+        }
+    });
+</script>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/javascript/" style="font-size: 18px;">javascript</a> <a href="/tags/linux/" style="font-size: 12px;">linux</a> <a href="/tags/nodejs/" style="font-size: 16px;">nodejs</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/web/" style="font-size: 20px;">web</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="120" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=120&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1761611997&verifier=58d84e73&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="https://alisa1124.github.io/" title="橙子blog" target="_blank">橙子blog</a></li>
+<li><a href="http://home.cnblogs.com/u/alisalixue/" title="橙子Alisa" target="_blank">橙子Alisa</a></li>
+<li><a href="http://blog.csdn.net/CoderYue" title="CoderYue" target="_blank">CoderYue</a></li>
+<li><a href="http://home.cnblogs.com/u/songxp/" title="南飞的驴" target="_blank">南飞的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/dfdi33/" title="北上的驴" target="_blank">北上的驴</a></li>
+<li><a href="http://home.cnblogs.com/u/younghome/" title="神奇的洋葱" target="_blank">神奇的洋葱</a></li>
+<li><a href="http://home.cnblogs.com/u/wuzhuo/" title="彼岸小山" target="_blank">彼岸小山</a></li>
+<li><a href="http://home.cnblogs.com/u/xiaoxueqiu/" title="筱雪球" target="_blank">筱雪球</a></li>
+</ul>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/javascript/">javascript</a><small>22</small></li>
+  
+    <li><a href="/tags/linux/">linux</a><small>4</small></li>
+  
+    <li><a href="/tags/nodejs/">nodejs</a><small>16</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>7</small></li>
+  
+    <li><a href="/tags/tools/">tools</a><small>1</small></li>
+  
+    <li><a href="/tags/web/">web</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Never stop.  <br/>
+			Never give up.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1761611997" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/blackzhuo" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/wuzhuo0425" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:wuzhuo0425@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright"> © 2017 
+		
+		<a href="http://www.xuerlove.com/about" target="_blank" title="黑卓">黑卓</a>
+		
+		</p>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?1fc6596bc8527b97054b3f5e5e16b827";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<script>
+    (function(){
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>   
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<!-- <script src="/js/counter.js"></script> -->
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!--
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','dpxm3Lna4xMLCxfgYpZ1','2.0.0');
+</script>
+-->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xuerlove"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- 多说公共JS代码 end -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+

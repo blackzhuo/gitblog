@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Encode my life]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://www.xuerlove.com/"/>
-  <updated>2017-02-20T12:15:06.000Z</updated>
+  <updated>2017-02-23T05:35:52.000Z</updated>
   <id>http://www.xuerlove.com/</id>
   
   <author>
@@ -13,6 +13,99 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[函数消抖和函数截流]]></title>
+    <link href="http://www.xuerlove.com/2017/02/23/%E5%87%BD%E6%95%B0%E6%B6%88%E6%8A%96%E5%92%8C%E5%87%BD%E6%95%B0%E6%88%AA%E6%B5%81/"/>
+    <id>http://www.xuerlove.com/2017/02/23/函数消抖和函数截流/</id>
+    <published>2017-02-23T05:35:15.000Z</published>
+    <updated>2017-02-23T05:35:52.000Z</updated>
+    <content type="html"><![CDATA[<p>函数消抖和函数截流在开发过程中的应用场景确实不少，比如我们监听页面滚动，然后做一些页面操作，这时候我们发现我们执行函数的调用频率非常的高，会引发一些性能的问题，这时候我们就要用到函数截流了。再比如说我们页面中有一个提交按钮，我们不希望用户频繁点击频繁提交数据，那么我们可以使用函数消抖，再比如说页面中有suggest提示，我们同样不希望用户每变更一点消息都去请求服务器，我们也可以使用函数消抖，用户操作停止了才去请求服务器。</p>
+<a id="more"></a>
+<p>以underscore.js中的代码为例:</p>
+<h5 id="代码实现">代码实现</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> _ = &#123;</div><div class="line">    now() &#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime();</div><div class="line">    &#125;,</div><div class="line">    debounce(func, wait, immediate) &#123;</div><div class="line">        <span class="keyword">let</span> timeout, args, context, timestamp, result;</div><div class="line">        <span class="keyword">let</span> later = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">let</span> last = _.now() - timestamp;</div><div class="line">            <span class="keyword">if</span> (last &lt; wait &amp;&amp; last &gt;= <span class="number">0</span>) &#123;</div><div class="line">                timeout = setTimeout(later, wait - last);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                timeout = <span class="literal">null</span>;</div><div class="line">                <span class="keyword">if</span> (!immediate) &#123;</div><div class="line">                    result = func.apply(context, args);</div><div class="line">                    <span class="keyword">if</span> (!timeout) context = args = <span class="literal">null</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            context = <span class="keyword">this</span>;</div><div class="line">            args = <span class="built_in">arguments</span>;</div><div class="line">            timestamp = _.now();</div><div class="line">            <span class="keyword">let</span> callNow = immediate &amp;&amp; !timeout;</div><div class="line">            <span class="keyword">if</span> (!timeout) timeout = setTimeout(later, wait);</div><div class="line">            <span class="keyword">if</span> (callNow) &#123;</div><div class="line">                result = func.apply(context, args);</div><div class="line">                context = args = <span class="literal">null</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> result;</div><div class="line">        &#125;;</div><div class="line">    &#125;,</div><div class="line">    throttle(func, wait, options) &#123;</div><div class="line">        <span class="keyword">let</span> context, args, result;</div><div class="line">        <span class="keyword">let</span> timeout = <span class="literal">null</span>;</div><div class="line">        <span class="keyword">let</span> previous = <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (!options) options = &#123;&#125;;</div><div class="line">        <span class="keyword">let</span> later = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            previous = options.leading === <span class="literal">false</span> ? <span class="number">0</span> : _.now();</div><div class="line">            timeout = <span class="literal">null</span>;</div><div class="line">            result = func.apply(context, args);</div><div class="line">            <span class="keyword">if</span> (!timeout) context = args = <span class="literal">null</span>;</div><div class="line">        &#125;;</div><div class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">let</span> now = _.now();</div><div class="line">            <span class="keyword">if</span> (!previous &amp;&amp; options.leading === <span class="literal">false</span>) previous = now;</div><div class="line">            <span class="keyword">let</span> remaining = wait - (now - previous);</div><div class="line">            context = <span class="keyword">this</span>;</div><div class="line">            args = <span class="built_in">arguments</span>;</div><div class="line">            <span class="keyword">if</span> (remaining &lt;= <span class="number">0</span> || remaining &gt; wait) &#123;</div><div class="line">                <span class="keyword">if</span> (timeout) &#123;</div><div class="line">                    clearTimeout(timeout);</div><div class="line">                    timeout = <span class="literal">null</span>;</div><div class="line">                &#125;</div><div class="line">                previous = now;</div><div class="line">                result = func.apply(context, args);</div><div class="line">                <span class="keyword">if</span> (!timeout) context = args = <span class="literal">null</span>;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!timeout &amp;&amp; options.trailing !== <span class="literal">false</span>) &#123;</div><div class="line">                timeout = setTimeout(later, remaining);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> result;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h5 id="调用">调用</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"search"</span> <span class="attr">name</span>=<span class="string">"search"</span> <span class="attr">value</span>=<span class="string">"search"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://code.jquery.com/jquery-3.1.1.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// debounce</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleQuery</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> lazyQuery = _.debounce(handleQuery, <span class="number">300</span>);</div><div class="line">$(<span class="string">'#search'</span>).click(lazyQuery);</div><div class="line"></div><div class="line"><span class="comment">// throttle</span></div><div class="line">$(<span class="string">'body'</span>).height(<span class="number">10000</span>);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleScroll</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> throttled = _.throttle(handleScroll, <span class="number">100</span>, &#123;</div><div class="line">    <span class="attr">leading</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">trailing</span>: <span class="literal">false</span></div><div class="line">&#125;);</div><div class="line">$(<span class="built_in">window</span>).scroll(throttled);</div></pre></td></tr></table></figure>
+<p>合理的使用函数消抖和函数截流，可以优化我们页面显示，页面性能以及减轻服务器压力。</p>
+<h5 id="注意">注意</h5><p>我们在调用setTimeout的时候，记住尽量不要在参数中写一个匿名的回调函数，这样每次在执行setTimeout的时候都会为匿名函数去开辟一段内存空间，而使用一个之前已经声明过的函数，则不需要额外分配内存空间。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[函数消抖和函数截流]]>
+    
+    </summary>
+    
+      <category term="web" scheme="http://www.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[浏览器请求头和响应头]]></title>
+    <link href="http://www.xuerlove.com/2017/02/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%92%8C%E5%93%8D%E5%BA%94%E5%A4%B4/"/>
+    <id>http://www.xuerlove.com/2017/02/21/浏览器请求头和响应头/</id>
+    <published>2017-02-21T11:21:01.000Z</published>
+    <updated>2017-02-24T03:59:19.000Z</updated>
+    <content type="html"><![CDATA[<p>前端开发要经常和页面打交道，我们使用浏览器访问一个页面的时候，要把请求头发送给服务器，然后服务器会返回一个响应头，在请求头和响应头中包含着大量有用的信息，它们能够传递数据，能够指导浏览器行为等等，接下来我们就一起看看，请求头和响应头中都包含了哪些信息，以及各自的作用是什么，我们可以利用这些信息做些什么。</p>
+<a id="more"></a>
+<h5 id="common_headers">common headers</h5><p>Cache-Control 缓存控制</p>
+<pre><code>* 请求头: no-cache、no-store、<span class="built_in">max</span>-age、 <span class="built_in">max</span>-stale、<span class="built_in">min</span>-fresh、<span class="keyword">only</span>-<span class="keyword">if</span>-cached
+* 响应头: <span class="keyword">public</span>、<span class="keyword">private</span>、no-cache、no- store、no-transform、must-revalidate、proxy-revalidate、<span class="built_in">max</span>-age
+* no-cache：不缓存
+</code></pre><p>　　    <em> no-store：删除缓存
+　　     </em> max-age：缓存超时时间<br>　　    <em> min-fresh：未来多长时间内要保持内容一致最新
+　　    </em> max-stale：客户端可以接收过期响应消息<br>　　    <em> only-if-cached：只有当缓存中有副本存在时，客户端才会获得一份副本。
+　　    </em> Public：缓存内容<br>　　    * Private：不能被共享缓存处理<br>Pragma 缓存控制 http 1.0 的属性，作用同Cahce-Control<br>Connection 连接方式,表示是否需要持久连接</p>
+<pre><code><span class="bullet">* </span>Close 请求完成后立即关闭
+<span class="bullet">* </span>Keepalive 请求完成后不要关闭 ，等待后续的请求
+<span class="bullet">* </span>Keep-Alive 请求关闭的时间
+</code></pre><p>Date 当前的GMT时间<br>Transfer-Encoding 响应消息体编码方式<br>Upgrade 指定另一种可能完全不同的协议，主要用来测试是否支持其他版本的协议<br>Via 列出途经代理服务器</p>
+<h5 id="request_headers">request headers</h5><p>Accept 客户端接受文件类型<br>Accept-Charset 客户端接受的字符集<br>Accept-Encoding 指定可接受的内容编码<br>Accept-Language 指定可接受自然语言<br>Authorization 授权信息<br>Host URL中的主机和端口<br>User-Agent 浏览器类型<br>Cookie 存储一些网站信息获取用户信息<br>Content-Length 请求消息的长度<br>Referer 从哪个url到当前页面的<br>If-Match ETag没有改变才执行请求的动作<br>If-None-Match ETag改变了才执行请求的动作<br>If-Modified-Since 请求的对象在该头部指定的时间之后修改了，才执行请求的动作<br>If-Unmodified-Since 请求的对象在该头部指定的时间之后没修改过，才执行请求的动作<br>If-Range 浏览器告诉 WEB 服务器，如果我请求的对象没有改变，就把我缺少的部分给我，如果对象改变了，就把整个对象给我<br>Range 浏览器告诉 WEB 服务器自己想取对象的哪部分。<br>Proxy-Authenticate 代理服务器响应浏览器，要求其提供代理身份验证信息。<br>Proxy-Authorization 浏览器响应代理服务器的身份验证请求，提供自己的身份信息。</p>
+<h5 id="response_headers">response headers</h5><p>Allow 服务器支持请求方法<br>Content-Encoding 文档的编码方法<br>Content-Type 文档类型<br>Content-Length 文档大小<br>Etag 对象的标志值<br>Expires 文档过期时间<br>Last-Modified 文档的最后改动时间<br>Location 浏览器应当到哪里去提取文档<br>Refresh 浏览器多少时间之后刷新文档<br>Age 当代理服务器用自己缓存的实体去响应请求时，用该头部表明该实体从产生到现在经过多长时间了。<br>Server　WEB 服务器表明自己是什么软件及版本等信息。<br>Accept-Ranges WEB服务器表明自己是否接受获取其某个实体的一部分的请求。<br>Vary WEB服务器用该头部的内容告诉 Cache 服务器，在什么条件下才能用本响应所返回的对象响应后续的请求。</p>
+<h5 id="应用">应用</h5><p>我们可以使用缓存的控制，合理的控制页面的缓存，减少服务器压力，减少页面响应时间。<br>通过头部信息方便我们拿到一些有用的数据，例如ip,ua,referer等。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[浏览器请求头和响应头]]>
+    
+    </summary>
+    
+      <category term="web" scheme="http://www.xuerlove.com/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[浏览器输入url后发生了什么]]></title>
+    <link href="http://www.xuerlove.com/2017/02/21/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BE%93%E5%85%A5url%E5%90%8E%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/"/>
+    <id>http://www.xuerlove.com/2017/02/21/浏览器输入url后发生了什么/</id>
+    <published>2017-02-21T11:20:35.000Z</published>
+    <updated>2017-03-08T12:42:00.000Z</updated>
+    <content type="html"><![CDATA[<p>日常生活中，我们经常使用浏览器浏览网页，在地址栏输入一个网址，然后敲回车，接着一个网页就呈现在浏览器中了，那么从输入页面地址到我们看到页面，这中间都发生了什么呢？接下来我们就一起去分析一下。</p>
+<a id="more"></a>
+<h5 id="输入一个网址">输入一个网址</h5><p>在浏览器地址栏中输入一个网址 xuerlove.com</p>
+<h5 id="缓存判断">缓存判断</h5><p>浏览器会去浏览器缓存文件中查找对应网址的缓存文件，如果找到了缓存的文件，查看缓存文件的响应头信息，根据Last-Modified时间，Expires时间或者Cache-Control max-age的时间去判断缓存是否过期，如果没有过期则返回一个 200 frome cache 的状态码，然后使用缓存的文件，接下来浏览器加载，解析，渲染等等。<br>如果缓存过期了，或者根本就没有缓存，这时候就往下执行。</p>
+<h5 id="ip查找">ip查找</h5><p>获取域名所对应的ip地址</p>
+<ul>
+<li>浏览器缓存</li>
+<li>本地缓存</li>
+<li>路由器缓存</li>
+<li>DNS服务器查找<br>经过这么多步骤，最终会获取到服务器的ip地址，我们要请求的服务就在那台机器上面。</li>
+</ul>
+<h5 id="发送Http请求">发送Http请求</h5><p>接着浏览器向服务器发送一个http请求，带着请求头和请求体<br>如果是http请求，客户端和服务端经过三次握手，第一次客户端向服务端发送一个包，第二次服务端收到包后响应已经收到包，并且发送给客户端一个包，第三次客户端接收到确认消息并且收到服务器发来的包，向服务器再发送一个确认包，发完后，客户端和服务器进入连接状态，完成了三次握手。<br>如果是https请求，还要多一个SSL层。</p>
+<h5 id="永久重定向">永久重定向</h5><p>服务器返回301永久重定向地址 xuerlove.com 到 www.xuerlove.com，这一步是为了seo友好而做的，服务器可以判断为一级域名，给补全www,是为了让搜索引擎统计访问量的时候，都统计到一个地址上，有利于排名。</p>
+<h5 id="跟踪重定向地址">跟踪重定向地址</h5><p>客户端继续向www.xuerlove.com发送一个同样的http请求</p>
+<h5 id="服务器处理请求">服务器处理请求</h5><p>服务器接收到请求后根据请求头中的If-None-Match,If-Modified-Since去判断要返回的文件是否变更过，如果没有变更，则向浏览器返回304 not modify,浏览器接收到响应后会继续使用缓存的文件，然后更新Last-Modify，expires, max-age时间，接下来浏览器加载，解析，渲染等等。</p>
+<h5 id="服务器返回请求结果">服务器返回请求结果</h5><p>如果服务器的文件修改过，服务器向浏览器返回页面结果，返回新的ETag和Last-Modify值，如果是动态页面，服务器会通过计算，生成最后要返回的文件。</p>
+<h5 id="浏览器渲染Html">浏览器渲染Html</h5><p>浏览器加载页面，渲染DOM树</p>
+<h5 id="请求页面资源">请求页面资源</h5><p>渲染的过程中遇到资源标签，会去请求各种资源，下载下来css后，会去生成CSSOM树，然后布局以及绘制。下载完js后会在domReady后会去执行js，脚本可能会动态处理页面。</p>
+<h5 id="发送交互请求">发送交互请求</h5><p>js脚本中可能发起一些异步请求，然后去完成对页面的一些渲染。</p>
+<h5 id="页面加载完成">页面加载完成</h5><p>一个完整的页面就处理完呈现出来了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[浏览器输入url后发生了什么]]>
+    
+    </summary>
+    
+      <category term="web" scheme="http://www.xuerlove.com/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[web页面分析]]></title>
@@ -822,182 +915,6 @@
 <li>removeChild()<br>一个参数，要移除的节点</li>
 <li>cloneNode()<br>一个参数，布尔值，是否执行深度克隆</li>
 <li>normalize()<br>合并文本节点]]>
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://www.xuerlove.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[shell基础]]></title>
-    <link href="http://www.xuerlove.com/2015/11/23/shell%E5%9F%BA%E7%A1%80/"/>
-    <id>http://www.xuerlove.com/2015/11/23/shell基础/</id>
-    <published>2015-11-23T07:03:01.000Z</published>
-    <updated>2017-02-17T06:25:04.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="shell分类">shell分类</h4><ul>
-<li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
-<li>Bourne Again Shell（/bin/bash）</li>
-<li>C Shell（/usr/bin/csh）</li>
-<li>K Shell（/usr/bin/ksh）</li>
-<li>Shell for Root（/sbin/sh）</li>
-<li>eg.<a id="more"></a>
-</li>
-</ul>
-<h5 id="#!"><code>#!</code></h5><p><code>#!</code>告诉系统其后路径所指定的程序即是解释此脚本文件的Shell程序。</p>
-<ul>
-<li>执行<ul>
-<li><code>./test.sh</code>使用想对路径</li>
-<li>sh test.sh</li>
-</ul>
-</li>
-<li><p>变量</p>
-<ul>
-<li>直接使用变量名 <code>test=&quot;123&quot;</code></li>
-</ul>
-</li>
-<li><p>变量名和等号之间不能有空格</p>
-</li>
-<li>首个字符必须为字母（a-z，A-Z）。</li>
-<li>中间不能有空格，可以使用下划线（_）。</li>
-<li>不能使用标点符号。</li>
-<li>不能使用bash里的关键字（可用help命令查看保留关键字）。</li>
-</ul>
-<h5 id="使用语句给变量赋值">使用语句给变量赋值</h5><ul>
-<li>for file inls /etc``</li>
-</ul>
-<h5 id="使用变量">使用变量</h5><p>在变量名前添加美元符号 <code>$</code><br><code>$test</code>或者<code>${test}</code></p>
-<h5 id="字符串">字符串</h5><ul>
-<li>单引号<ul>
-<li>不能使用变量</li>
-<li>不能出现单引号，不能使用转译字符</li>
-</ul>
-</li>
-<li>双引号<ul>
-<li>可以使用变量</li>
-<li>可以使用转译字符</li>
-</ul>
-</li>
-</ul>
-<h5 id="拼接字符串">拼接字符串</h5><ul>
-<li>不需要使用 <code>+</code> 符号<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">name=<span class="string">"zhuo"</span></div><div class="line">say=<span class="string">"hi "</span>$name<span class="string">" !"</span></div><div class="line">says = <span class="string">"hi $&#123;name&#125; !"</span></div><div class="line">echo say says</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="字符串长度">字符串长度</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string="tetetete"</div><div class="line">echo $&#123;#string&#125;</div></pre></td></tr></table></figure>
-<h5 id="截取字符串">截取字符串</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string=<span class="string">"tetetete"</span></div><div class="line">echo $&#123;<span class="attr">string</span>:<span class="number">2</span>:<span class="number">4</span>&#125;</div></pre></td></tr></table></figure>
-<h5 id="查找字符串">查找字符串</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string=<span class="string">"asdfsdf werfvsd"</span></div><div class="line">echo <span class="string">`expr index "$string" is`</span></div></pre></td></tr></table></figure>
-<h5 id="数组">数组</h5><p>创建数组以及访问数组<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">arr=(1,2,3,4,5)</div><div class="line">#或者</div><div class="line">arr[0]=1</div><div class="line">arr[1]=2</div><div class="line">arr[2]=3</div><div class="line">#访问</div><div class="line">echo $&#123;arr[0]&#125;</div><div class="line">#访问所有元素</div><div class="line">echo $&#123;arr[@]&#125;</div></pre></td></tr></table></figure></p>
-<h5 id="数组长度">数组长度</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">len=$&#123;#arr[@]&#125;</div></pre></td></tr></table></figure>
-<p>或者<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">len=$&#123;$arr[*]&#125;</div></pre></td></tr></table></figure></p>
-<p>数组单个元素长度<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">len=$&#123;$arr[n]&#125;</div></pre></td></tr></table></figure></p>
-<h5 id="注释">注释</h5><ul>
-<li>不支持多行注释，单行注释使用#</li>
-<li>开发过程中，为方便注释，可以把需要注释的代码放在一个函数中<h5 id="echo">echo</h5>输出字符串<br>echo string<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">echo &quot;test&quot;</div><div class="line">echo test</div><div class="line">echo &quot;\&quot;test\&quot;&quot;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="read">read</h5><p>输入字符<br>read name<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line">read name</div><div class="line">echo <span class="string">"$&#123;name&#125;"</span></div></pre></td></tr></table></figure></p>
-<h5 id="显示">显示</h5><p><code>-e</code>开启转义<br>换行<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo -e "test!\n" # \n换行</div><div class="line">echo "ok"</div></pre></td></tr></table></figure></p>
-<h5 id="不换行">不换行</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo -e "test!\c" # \c不换行</div><div class="line">echo "ok"</div></pre></td></tr></table></figure>
-<h5 id="输出到文件">输出到文件</h5><p><code>echo &quot;test&quot; &gt; test.txt</code></p>
-<h5 id="原格式输出">原格式输出</h5><p>使用单引号，不进行转义</p>
-<h5 id="显示执行结果">显示执行结果</h5><p><code>echo</code>data``</p>
-<h5 id="test命令">test命令</h5><p>检测某个条件是否成立</p>
-<pre><code>* 数值测试
-<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-eq	等于则为真</div><div class="line">-ne	不等于则为真</div><div class="line">-gt	大于则为真</div><div class="line">-ge	大于等于则为真</div><div class="line">-lt	小于则为真</div><div class="line">-le	小于等于则为真</div></pre></td></tr></table></figure></span>
-
-<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">x=read</div><div class="line">y=read</div><div class="line"><span class="keyword">if</span> test $[x] -eq $[y]</div><div class="line">then</div><div class="line">	echo <span class="string">"ok"</span></div><div class="line">elif test $x -gt $y</div><div class="line">	echo <span class="string">"gt"</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	echo <span class="string">"bad"</span></div><div class="line">fi</div></pre></td></tr></table></figure></span>
-
-* 字符串测试
-<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">=	等于则为真</div><div class="line">!=	不相等则为真</div><div class="line">-z 字符串	字符串长度伪则为真</div><div class="line">-n 字符串	字符串长度不伪则为真</div></pre></td></tr></table></figure></span>
-
-<span class="comment"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">x=read</div><div class="line">y=read</div><div class="line"><span class="keyword">if</span> test $x -eq $y</div><div class="line">then</div><div class="line">	echo <span class="string">"ok"</span></div><div class="line">elif test $x -gt $y</div><div class="line">	echo <span class="string">"gt"</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	echo <span class="string">"bad"</span></div><div class="line">fi</div></pre></td></tr></table></figure></span>
-</code></pre><h5 id="文件测试">文件测试</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">-e 文件名	如果文件存在则为真</div><div class="line">-r 文件名	如果文件存在且可读则为真</div><div class="line">-w 文件名	如果文件存在且可写则为真</div><div class="line">-x 文件名	如果文件存在且可执行则为真</div><div class="line">-s 文件名	如果文件存在且至少有一个字符则为真</div><div class="line">-d 文件名	如果文件存在且为目录则为真</div><div class="line">-f 文件名	如果文件存在且为普通文件则为真</div><div class="line">-c 文件名	如果文件存在且为字符型特殊文件则为真</div><div class="line">-b 文件名	如果文件存在且为块特殊文件则为真</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> test -e ./blog</div><div class="line">then </div><div class="line">	echo <span class="string">'file exists'</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	echo <span class="string">'file does not exists'</span></div><div class="line">fi</div><div class="line"><span class="string">``</span><span class="string">`javascript</span></div><div class="line">`Shell还提供了 与( -a )、或( -o )、非( ! ) 三个逻辑操作符用于将测试条件连接起来，优先级：”!” “-a” “-o”<span class="string">`</span></div><div class="line">##### 流程控制</div><div class="line">* if else</div><div class="line">`<span class="string">``</span>javascript</div><div class="line">x=read</div><div class="line">y=read</div><div class="line"><span class="keyword">if</span> test $x -eq $y</div><div class="line">then</div><div class="line">	echo <span class="string">"ok"</span></div><div class="line">elif test $x -gt $y</div><div class="line">	echo <span class="string">"gt"</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	echo <span class="string">"bad"</span></div><div class="line">fi</div></pre></td></tr></table></figure>
-<h5 id="for">for</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> it <span class="keyword">in</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span></div><div class="line"><span class="keyword">do</span></div><div class="line">	echo $it</div><div class="line">done</div></pre></td></tr></table></figure>
-<h5 id="while">while</h5><p>条件为真则执行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">count=<span class="number">1</span></div><div class="line"><span class="keyword">while</span>(($count&lt;<span class="number">10</span>))</div><div class="line"><span class="keyword">do</span></div><div class="line">	echo $count</div><div class="line">	<span class="keyword">let</span> <span class="string">"count++"</span></div><div class="line">done</div></pre></td></tr></table></figure></p>
-<h5 id="until">until</h5><p>直到条件为真停止,用法与while相同<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">count=<span class="number">100</span></div><div class="line">until(($count&lt;=<span class="number">10</span>))</div><div class="line"><span class="keyword">do</span></div><div class="line">	echo $count</div><div class="line">	<span class="keyword">let</span> <span class="string">"count--"</span></div><div class="line">done</div></pre></td></tr></table></figure></p>
-<h5 id="case">case</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">echo <span class="string">'请输入1-3的数字:'</span></div><div class="line">read num</div><div class="line"><span class="keyword">case</span> $num <span class="keyword">in</span></div><div class="line">	<span class="number">1</span>) echo <span class="string">'你输入了1'</span></div><div class="line">	;;</div><div class="line">	<span class="number">2</span>) echo <span class="string">'你输入了2'</span></div><div class="line">	;;</div><div class="line">	<span class="number">3</span>) echo <span class="string">'你输入了3'</span></div><div class="line">	;;</div><div class="line">	*) echo <span class="string">'你没有输入1到3的数字'</span></div><div class="line">	;;</div><div class="line">esac</div></pre></td></tr></table></figure>
-<h5 id="break">break</h5><p>跳出所有循环</p>
-<h5 id="continue">continue</h5><p>结束当前循环，继续执行下一次循环</p>
-<h5 id="函数">函数</h5><ul>
-<li>定义方式,不需要带参数</li>
-<li>function fun()</li>
-<li>fun()<ul>
-<li>参数返回，使用return</li>
-<li>函数调用，直接使用函数名，不需要加括号，带有参数直接在后面列出，用空格间隔</li>
-<li>函数返回值在调用函数后，可以通过$?使用</li>
-<li>函数中的参数，可以使用$n来表示，n&gt;10的时候，使用${n}</li>
-<li>特殊参数<ul>
-<li><code>$#</code> 传递到脚本的参数个数</li>
-<li><code>$*</code> 以一个单字符串显示所有向脚本传递的参数</li>
-<li><code>$$</code> 脚本运行的当前进程ID号</li>
-<li><code>$!</code> 后台运行的最后一个进程的ID号</li>
-<li><code>$@</code> 与$*相同，但是使用时加引号，并在引号中返回每个参数。</li>
-<li><code>$-</code> 显示Shell使用的当前选项，与set命令功能相同。</li>
-<li><code>$?</code> 显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="shell分类">shell分类</h4><ul>
-<li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
-<li>Bourne Again Shell（/bin/bash）</li>
-<li>C Shell（/usr/bin/csh）</li>
-<li>K Shell（/usr/bin/ksh）</li>
-<li>Shell for Root（/sbin/sh）</li>
-<li>eg.]]>
-    
-    </summary>
-    
-      <category term="linux" scheme="http://www.xuerlove.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[使用nproxy实现本地代理]]></title>
-    <link href="http://www.xuerlove.com/2015/11/22/%E4%BD%BF%E7%94%A8nproxy%E5%AE%9E%E7%8E%B0%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86/"/>
-    <id>http://www.xuerlove.com/2015/11/22/使用nproxy实现本地代理/</id>
-    <published>2015-11-22T07:03:01.000Z</published>
-    <updated>2017-02-17T03:13:09.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="安装">安装</h4><h5 id="先安装Node-js">先安装Node.js</h5><h5 id="安装nproxy">安装nproxy</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g nproxy</div></pre></td></tr></table></figure>
-<h5 id="nproxy介绍">nproxy介绍</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Options:</div><div class="line">    -h, --help               output usage information</div><div class="line">    -V, --version            output the version number</div><div class="line">    -l, --list [list]        Specify the replace rule file</div><div class="line">    -p, --port [port]        Specify the port</div><div class="line">    -t, --timeout [timeout]  Specify the request timeout(<span class="number">5</span> seconds by <span class="keyword">default</span>)</div><div class="line">    -d, --debug              Enable debug mode</div><div class="line">    -n, --networks           Display network interface list</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h5 id="开启代理端口">开启代理端口</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nproxy -l replace_rule.js -p <span class="number">8188</span></div></pre></td></tr></table></figure>
-<p>使用本地replace_rule.js转换规则，监听本地8188端口</p>
-<h5 id="replace_rule-js">replace_rule.js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = [</div><div class="line">    &#123;</div><div class="line">        <span class="attr">pattern</span>:<span class="string">'http://test.test.com/pro/(.*)'</span>,</div><div class="line">        <span class="attr">responder</span>:<span class="string">"http://127.0.0.1/pro/$1"</span></div><div class="line">    &#125;</div><div class="line">];</div></pre></td></tr></table></figure>
-<h5 id="浏览器怎么做">浏览器怎么做</h5><ul>
-<li>安装代理插件，一大堆</li>
-<li>配置代理 127.0.0.1 端口8188</li>
-<li>可以设置自动转换规则，即：哪些网站使用这个代理</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="安装">安装</h4><h5 id="先安装Node-js">先安装Node.js</h5><h5 id="安装nproxy">安装nproxy</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g nproxy</div></pre></td></tr></table></figure>
-<h5 id="nproxy介绍">nproxy介绍</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Options:</div><div class="line">    -h, --help               output usage information</div><div class="line">    -V, --version            output the version number</div><div class="line">    -l, --list [list]        Specify the replace rule file</div><div class="line">    -p, --port [port]        Specify the port</div><div class="line">    -t, --timeout [timeout]  Specify the request timeout(<span class="number">5</span> seconds by <span class="keyword">default</span>)</div><div class="line">    -d, --debug              Enable debug mode</div><div class="line">    -n, --networks           Display network interface list</div></pre></td></tr></table></figure>]]>
-    
-    </summary>
-    
-      <category term="web" scheme="http://www.xuerlove.com/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[javascript面向对象相关]]></title>
-    <link href="http://www.xuerlove.com/2015/11/21/javascript%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9B%B8%E5%85%B3/"/>
-    <id>http://www.xuerlove.com/2015/11/21/javascript面向对象相关/</id>
-    <published>2015-11-21T07:03:01.000Z</published>
-    <updated>2017-02-17T06:22:12.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h4 id="for_in循环">for in循环</h4><p>for in循环能够返回对象所有可枚举属性，无论实例中的，还是原型中的。即便是实例中重写了原型中不可枚举的属性，也会访问到。但是在IE8及以下存在bug,这样的属性不会被返回</p>
-<p>####继承<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">	F.prototype = o;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType,superType</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> prototype = object(superType.prototype);</div><div class="line">	prototype.constructor = subType;</div><div class="line">	subType.prototype = prototype;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">	<span class="keyword">this</span>.color = [<span class="string">"red"</span>,<span class="string">"blue"</span>];</div><div class="line">&#125;</div><div class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">	SuperType.call(<span class="keyword">this</span>,name);</div><div class="line">	<span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line">inheritPrototype(SubType,SuperType);</div><div class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(<span class="keyword">this</span>.age);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>只调用了一次SuperType的构造函数，并且避免了在SubType.prototype上面创建不必要的属性，同时原型链还能保持不变。</p>
-<h4 id="单例模式">单例模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> singleton = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> private = <span class="number">0</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">privateFunc</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">public</span>:<span class="literal">true</span>,</div><div class="line">		<span class="attr">publicFunc</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			private++;</div><div class="line">			<span class="keyword">return</span> privateFunc();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;();</div></pre></td></tr></table></figure>]]></content>
-    <summary type="html">
-    <![CDATA[<h4 id="判断属性属于实力对象还是原型">判断属性属于实力对象还是原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params">name,obj</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> !(obj.hasOwnProperty) &amp;&amp; (name <span class="keyword">in</span> obj)</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]>
     
     </summary>
     
