@@ -5,23 +5,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>reactjs应用 | 黑卓</title>
+  <title>nodejs搭建http2服务 | 黑卓</title>
   <meta name="Robots" content="index,follow,NOODP">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="baidu-site-verification" content="Rzc8zIQSIk" />
   <meta name="google-site-verification" content="eo4TLfMpn9RPybbaOkppySfYp7ZZvUUdAwr1RIGF64w" />
   <meta name="author" content="黑卓">
   
-  <meta name="description" content="reactjs官方文档 http://reactjs.cn/react/docs/getting-started.html
-引用reactjs框架
-实时转换工具 npm install -g react-tools 启动命令 jsx --watch src/ build/ （或者页面引入jsx编译工具）
-引入fetch https://github.com/github/fetch （引入Promise）
-jsx http://reactjs.cn/react/docs/jsx-in-depth.html">
+  <meta name="description" content="nodejs搭建http2服务">
   
   
-  <meta name="keywords" content="reactjs应用" />
+  <meta name="keywords" content="nodejs,http2">
   
-  <meta property="og:title" content="reactjs应用"/>
+  <meta property="og:title" content="nodejs搭建http2服务"/>
   <meta property="og:site_name" content="黑卓"/>
   
     <meta property="og:image" content="cover"/>
@@ -78,15 +74,15 @@ jsx http://reactjs.cn/react/docs/jsx-in-depth.html">
   <div class="post-content">
     <header class="article-info clearfix">
   <h1 itemprop="name">
-	reactjs应用
+	nodejs搭建http2服务
   </h1>
   <p class="article-author">By
     
       <a href="http://www.xuerlove.com" title="黑卓">黑卓</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-04-14T02:42:32.000Z" itemprop="datePublished">2016-04-14</time>
-    更新日期:<time datetime="2017-02-17T06:24:42.000Z" itemprop="dateModified">2017-02-17</time>
+    <time datetime="2017-03-19T03:02:18.000Z" itemprop="datePublished">2017-03-19</time>
+    更新日期:<time datetime="2017-03-19T04:28:34.000Z" itemprop="dateModified">2017-03-19</time>
     
   </p>
 </header>
@@ -94,83 +90,17 @@ jsx http://reactjs.cn/react/docs/jsx-in-depth.html">
 		
 			<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#reactjs"><span class="toc-number">1.</span> <span class="toc-text">reactjs</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#引用reactjs框架"><span class="toc-number">1.1.</span> <span class="toc-text">引用reactjs框架</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#过程"><span class="toc-number">1.2.</span> <span class="toc-text">过程</span></a></li></ol></li></ol>
+				<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#nodejs"><span class="toc-number">1.</span> <span class="toc-text">nodejs</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#nginx"><span class="toc-number">2.</span> <span class="toc-text">nginx</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#验证"><span class="toc-number">3.</span> <span class="toc-text">验证</span></a></li></ol>
 			</div>
 		
-        <h4 id="reactjs">reactjs</h4><p>官方文档 <a href="http://reactjs.cn/react/docs/getting-started.html" target="_blank" rel="external">http://reactjs.cn/react/docs/getting-started.html</a></p>
-<h5 id="引用reactjs框架">引用reactjs框架</h5><ul>
-<li>实时转换工具 <code>npm install -g react-tools</code> 启动命令 <code>jsx --watch src/ build/</code> （或者页面引入jsx编译工具）</li>
-<li>引入fetch <a href="https://github.com/github/fetch" target="_blank" rel="external">https://github.com/github/fetch</a> （引入Promise）</li>
-<li>jsx <a href="http://reactjs.cn/react/docs/jsx-in-depth.html" target="_blank" rel="external">http://reactjs.cn/react/docs/jsx-in-depth.html</a><a id="more"></a>
-</li>
-</ul>
-<h5 id="过程">过程</h5><ul>
-<li>通过 React.createClass 定义组件</li>
-<li>组件包含的属性，方法(<a href="http://reactjs.cn/react/docs/component-specs.html" target="_blank" rel="external">http://reactjs.cn/react/docs/component-specs.html</a>)<ul>
-<li>render</li>
-<li>getInitialState</li>
-<li>getDefaultProps</li>
-<li>propTypes</li>
-<li>mixins</li>
-<li>statics</li>
-<li>displayName</li>
-</ul>
-</li>
-<li>生命周期方法(<a href="http://reactjs.cn/react/docs/component-specs.html" target="_blank" rel="external">http://reactjs.cn/react/docs/component-specs.html</a>)<ul>
-<li>componentWillMount</li>
-<li>componentDidMount</li>
-<li>componentWillReceiveProps</li>
-<li>shouldComponentUpdate</li>
-<li>componentWillUpdate</li>
-<li>componentDidUpdate</li>
-<li>componentWillUnmount</li>
-</ul>
-</li>
-<li>组件生命周期<br>了解组件的生命周期很重要，这在我们哪个阶段去调用什么方法是有帮助的，下面就一起来看一下：</li>
-</ul>
-<ol>
-<li>getInitialState<ul>
-<li>在组件类创建的时候只调用一次，返回值是 this.state 的初始值</li>
-</ul>
-</li>
-<li>componentWillMount<ul>
-<li>初始化渲染之前只调用一次，如果在这个阶段setState，更新将会通知render</li>
-</ul>
-</li>
-<li>render<ul>
-<li>会根据this.props或者this.state渲染组件</li>
-</ul>
-</li>
-<li>componentDidMount<ul>
-<li>在初始化渲染之后只调用一次，可以操作dom和浏览器交互，通过this.DOMNode()获取DOM节点</li>
-</ul>
-</li>
-<li>componentWillReceiveProps<ul>
-<li>组件接收到新的props都会调用，初始化的时候不会调用这个方法，可以在这里面更新this.state</li>
-</ul>
-</li>
-<li>componentWillUpdate<ul>
-<li>在接收到新的props或者state之前的时候调用，初始化渲染的时候不会调用，里面做更新前的准备工作，不能在里面setState</li>
-</ul>
-</li>
-<li><p>shouldComponentUpdate</p>
-<ul>
-<li><p>在接收到新的props或者state的时候，渲染之前调用，在初始化的时候不会调用，如果确定新的props和state不会导致组件更新，可以返回false,默认返回true</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">shouldComponentUpdate: <span class="function"><span class="keyword">function</span>(<span class="params">nextProps, nextState</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> nextProps.id !== <span class="keyword">this</span>.props.id;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>这个方法可以提升程序性能，一些依赖父级props，组件本身会发送请求的情况，可以判断传入props是否是更新后的，然后再去执行接下来的动作。</p>
-</li>
-</ul>
-</li>
-<li>componentDidUpdate<ul>
-<li>组件更新到DOM中被调用，初始化的时候不会调用，对dom的操作可以放在这里面执行</li>
-</ul>
-</li>
-<li>componentWillUnmount<ul>
-<li>组件从dom中移除的时候调用，这个方法中清除一些定时操作等</li>
-</ul>
-</li>
-</ol>
+        <p>http经历了1.0/1.1/2.0的过程，在http1.0的时代如果客户端和服务端要建立一个长链接，需要通过keep-alive来告知服务器需要建立一个长链接。而http1.1默认就支持了长链接，可以用长链接发多个请求，http1.1支持数据的chunk方式的传输，可以分块对内容进行传输。http2.0支持多路复用，可以同一个链接并发处理多个请求。</p>
+<a id="more"></a>
+<h5 id="nodejs">nodejs</h5><p>使用http2的npm包来实现服务器开发，先创建一个新的文件夹，在文件夹下面执行 npm init，会创建package.json文件，然后执行 npm install http2 –save，安装好http2模块，创建app.js文件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">const</span> http2 = <span class="built_in">require</span>(<span class="string">'http2'</span>);</div><div class="line"><span class="keyword">const</span> options = &#123;</div><div class="line">  <span class="attr">key</span>: fs.readFileSync(<span class="string">'/home/cert/server.key'</span>),</div><div class="line">  <span class="attr">cert</span>: fs.readFileSync(<span class="string">'/home/cert/server.crt'</span>)</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">require</span>(<span class="string">'http2'</span>).createServer(options, (request, response) =&gt; &#123;</div><div class="line">  response.end(<span class="string">'Hello world!'</span>);</div><div class="line">&#125;).listen(<span class="number">8181</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'server start listen port 8181.'</span>);</div></pre></td></tr></table></figure></p>
+<p>使用pm2管理nodejs程序，npm install pm2 -g 全局安装pm2模块，使用 pm2 start app.js 启动服务。<br>在浏览器中访问 xxx.xxx.xxx.xxx:8181 页面输出 Hello world 内容，打开浏览器控制台输入 chrome.loadTimes()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="string">"requestTime"</span>: <span class="number">1489892055.336</span>,</div><div class="line">	<span class="string">"startLoadTime"</span>: <span class="number">1489892055.336</span>,</div><div class="line">	<span class="string">"commitLoadTime"</span>: <span class="number">1489892055.711</span>,</div><div class="line">	<span class="string">"finishDocumentLoadTime"</span>: <span class="number">1489892055.728</span>,</div><div class="line">	<span class="string">"finishLoadTime"</span>: <span class="number">1489892055.764</span>,</div><div class="line">	<span class="string">"firstPaintTime"</span>: <span class="number">1489892055.764</span>,</div><div class="line">	<span class="string">"firstPaintAfterLoadTime"</span>: <span class="number">0</span>,</div><div class="line">	<span class="string">"navigationType"</span>: <span class="string">"Reload"</span>,</div><div class="line">	<span class="string">"wasFetchedViaSpdy"</span>: <span class="literal">true</span>,</div><div class="line">	<span class="string">"wasNpnNegotiated"</span>: <span class="literal">true</span>,</div><div class="line">	<span class="string">"npnNegotiatedProtocol"</span>: <span class="string">"h2"</span>,</div><div class="line">	<span class="string">"wasAlternateProtocolAvailable"</span>: <span class="literal">false</span>,</div><div class="line">	<span class="string">"connectionInfo"</span>: <span class="string">"h2"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>connectionInfo: “h2” 表示已经是http2的协议。</p>
+<h5 id="nginx">nginx</h5><p>使用nginx代理nodejs服务器，因为http2要求必须是https协议，所以我们先创建证书，可以在 <a href="https://www.pianyissl.com/" target="_blank" rel="external">便宜SSL</a> 这个网站申请免费的证书，前提是需要我们有一个域名，并且有对域名的绝对控制权，还需要一个企业域名邮箱，来接收处理证书的邮件。企业邮箱使用个人域名解析，可以在阿里云购买域名和企业邮箱。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">upstream  http2s&#123;</div><div class="line">     server <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">8181</span>;</div><div class="line">&#125;</div><div class="line">server &#123;</div><div class="line">        listen <span class="number">443</span> ssl http2 default_server;</div><div class="line">        server_name  xuerlove.com;</div><div class="line">        charset utf8;</div><div class="line">        ssl on;</div><div class="line">        ssl_certificate             /etc/nginx/cert/server.pem;</div><div class="line">        ssl_certificate_key         /etc/nginx/cert/server.key;</div><div class="line">        ssl_session_timeout         <span class="number">5</span>m;</div><div class="line">        ssl_protocols               SSLv3 TLSv1;</div><div class="line">        ssl_ciphers                 ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;</div><div class="line">        ssl_prefer_server_ciphers   on;</div><div class="line">        proxy_set_header  Host  $host;</div><div class="line">        proxy_set_header  X-Real-IP  $remote_addr;</div><div class="line">        proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">        location / &#123;</div><div class="line">                proxy_pass https:<span class="comment">//http2s;</span></div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上使用到的证书都是在 <a href="https://www.pianyissl.com/" target="_blank" rel="external">便宜SSL</a> 这个网站生成的。</p>
+<h5 id="验证">验证</h5><p>浏览器访问 <a href="https://xuerlove.com，验证证书的正确性以及http2服务。" target="_blank" rel="external">https://xuerlove.com，验证证书的正确性以及http2服务。</a></p>
 
     </div>
     <footer>
@@ -178,7 +108,7 @@ jsx http://reactjs.cn/react/docs/jsx-in-depth.html">
         
   
   <div class="tags">
-    <a href="/tags/web/">web</a>
+    <a href="/tags/nodejs/">nodejs</a>
   </div>
 
 		<div class="bdsharebuttonbox">
@@ -226,10 +156,8 @@ with(document)0[
 
  <nav id="pagination" >
     
-    <a href="/2016/04/14/移动端开发性能优化/" class="alignleft prev" title="移动端开发性能优化">移动端开发性能优化</a>
     
-    
-    <a href="/2016/04/14/nodejs开发控制台工具/" class="alignright next" title="nodejs开发控制台工具">nodejs开发控制台工具</a>
+    <a href="/2017/02/23/函数消抖和函数截流/" class="alignright next" title="函数消抖和函数截流">函数消抖和函数截流</a>
     
     <div class="clearfix"></div>
 </nav>
@@ -239,7 +167,7 @@ with(document)0[
 	
 	<section id="comment">
 		<!-- 多说评论框 start -->
-		<div class="ds-thread" data-thread-key="2016/04/14/reactjs应用/" data-title="reactjs应用" data-url="http://www.xuerlove.com/2016/04/14/reactjs应用/"></div>
+		<div class="ds-thread" data-thread-key="2017/03/19/nodejs搭建http2服务/" data-title="nodejs搭建http2服务" data-url="http://www.xuerlove.com/2017/03/19/nodejs搭建http2服务/"></div>
 		<!-- 多说评论框 end -->
 	</section>
 	
