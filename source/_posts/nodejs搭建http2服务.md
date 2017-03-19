@@ -73,10 +73,6 @@ server {
 
 以上使用到的证书都是在 [便宜SSL](https://www.pianyissl.com/) 这个网站生成的。
 
-##### 验证
-浏览器访问 https://xuerlove.com，验证证书的正确性以及http2服务。
-
-
 
 
 

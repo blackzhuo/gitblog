@@ -82,7 +82,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-03-19T03:02:18.000Z" itemprop="datePublished">2017-03-19</time>
-    更新日期:<time datetime="2017-03-19T04:28:34.000Z" itemprop="dateModified">2017-03-19</time>
+    更新日期:<time datetime="2017-03-19T04:34:53.000Z" itemprop="dateModified">2017-03-19</time>
     
   </p>
 </header>
@@ -90,7 +90,7 @@
 		
 			<div id="toc" class="toc-article">
 				<strong class="toc-title">文章目录</strong>
-				<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#nodejs"><span class="toc-number">1.</span> <span class="toc-text">nodejs</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#nginx"><span class="toc-number">2.</span> <span class="toc-text">nginx</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#验证"><span class="toc-number">3.</span> <span class="toc-text">验证</span></a></li></ol>
+				<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#nodejs"><span class="toc-number">1.</span> <span class="toc-text">nodejs</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#nginx"><span class="toc-number">2.</span> <span class="toc-text">nginx</span></a></li></ol>
 			</div>
 		
         <p>http经历了1.0/1.1/2.0的过程，在http1.0的时代如果客户端和服务端要建立一个长链接，需要通过keep-alive来告知服务器需要建立一个长链接。而http1.1默认就支持了长链接，可以用长链接发多个请求，http1.1支持数据的chunk方式的传输，可以分块对内容进行传输。http2.0支持多路复用，可以同一个链接并发处理多个请求。</p>
@@ -100,7 +100,6 @@
 <p>connectionInfo: “h2” 表示已经是http2的协议。</p>
 <h5 id="nginx">nginx</h5><p>使用nginx代理nodejs服务器，因为http2要求必须是https协议，所以我们先创建证书，可以在 <a href="https://www.pianyissl.com/" target="_blank" rel="external">便宜SSL</a> 这个网站申请免费的证书，前提是需要我们有一个域名，并且有对域名的绝对控制权，还需要一个企业域名邮箱，来接收处理证书的邮件。企业邮箱使用个人域名解析，可以在阿里云购买域名和企业邮箱。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">upstream  http2s&#123;</div><div class="line">     server <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">8181</span>;</div><div class="line">&#125;</div><div class="line">server &#123;</div><div class="line">        listen <span class="number">443</span> ssl http2 default_server;</div><div class="line">        server_name  xuerlove.com;</div><div class="line">        charset utf8;</div><div class="line">        ssl on;</div><div class="line">        ssl_certificate             /etc/nginx/cert/server.pem;</div><div class="line">        ssl_certificate_key         /etc/nginx/cert/server.key;</div><div class="line">        ssl_session_timeout         <span class="number">5</span>m;</div><div class="line">        ssl_protocols               SSLv3 TLSv1;</div><div class="line">        ssl_ciphers                 ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;</div><div class="line">        ssl_prefer_server_ciphers   on;</div><div class="line">        proxy_set_header  Host  $host;</div><div class="line">        proxy_set_header  X-Real-IP  $remote_addr;</div><div class="line">        proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">        location / &#123;</div><div class="line">                proxy_pass https:<span class="comment">//http2s;</span></div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>以上使用到的证书都是在 <a href="https://www.pianyissl.com/" target="_blank" rel="external">便宜SSL</a> 这个网站生成的。</p>
-<h5 id="验证">验证</h5><p>浏览器访问 <a href="https://xuerlove.com，验证证书的正确性以及http2服务。" target="_blank" rel="external">https://xuerlove.com，验证证书的正确性以及http2服务。</a></p>
 
     </div>
     <footer>
